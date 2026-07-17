@@ -386,6 +386,103 @@ window.APP_DATA = {
       ]
     },
 
+    /* ------------------------------- TUTELA COLETIVA E PROCESSO ESTRUTURAL */
+    {
+      id: "tutela-coletiva",
+      titulo: "Tutela Coletiva e Processo Estrutural",
+      materia: "Direito Processual Civil",
+      banca: "I",
+      icone: "👥",
+      cor: "indigo",
+      descricao: "ACP, legitimidade da Defensoria, coisa julgada coletiva e processos estruturais.",
+      licoes: [
+        {
+          id: "tutela-coletiva-1",
+          titulo: "Legitimidade, coisa julgada e processo estrutural",
+          questoes: [
+            {
+              id: "tc-1", modo: "juris", fonte: "LACP, art. 5º, II; STF, ADI 3943",
+              enunciado: "Uma associação questiona a legitimidade da Defensoria Pública para propor ação civil pública. Conforme o STF (ADI 3943):",
+              alternativas: [
+                "a Defensoria não tem legitimidade, por ausência de previsão constitucional",
+                "a Defensoria tem legitimidade para a ACP, desde que a tutela possa beneficiar grupo que contenha pessoas necessitadas/vulneráveis",
+                "a Defensoria só tem legitimidade se TODOS os beneficiados comprovarem individualmente a pobreza",
+                "a legitimidade depende de autorização judicial prévia em cada caso",
+                "a Defensoria só pode atuar em ACP como fiscal da ordem jurídica"
+              ],
+              correta: 1,
+              explicacao: "A Lei 11.448/07 incluiu a Defensoria no rol do art. 5º da LACP, e o STF (ADI 3943) declarou a constitucionalidade dessa legitimidade. O condicionante: a atuação deve guardar pertinência com sua missão — beneficiar, ao menos em parte, grupo de pessoas necessitadas/vulneráveis. NÃO se exige que todos os beneficiados sejam hipossuficientes."
+            },
+            {
+              id: "tc-2", modo: "lei", fonte: "CDC, art. 103, I",
+              enunciado: "Em ação coletiva sobre direitos DIFUSOS, a sentença de improcedência por INSUFICIÊNCIA DE PROVAS:",
+              alternativas: [
+                "faz coisa julgada erga omnes, impedindo qualquer nova ação",
+                "não impede que qualquer legitimado proponha nova ação, com nova prova (coisa julgada secundum eventum probationis)",
+                "só pode ser revista mediante ação rescisória",
+                "permite nova ação apenas pelo mesmo autor da primeira",
+                "converte-se automaticamente em procedência após cinco anos"
+              ],
+              correta: 1,
+              explicacao: "Art. 103, I, do CDC: nos direitos difusos a sentença faz coisa julgada erga omnes, EXCETO se a improcedência for por insuficiência de provas — hipótese em que qualquer legitimado pode intentar outra ação com nova prova. É a coisa julgada secundum eventum probationis, marca do processo coletivo."
+            },
+            {
+              id: "tc-3", modo: "lei", fonte: "CDC, art. 103, §2º; art. 94",
+              enunciado: "Julgada IMPROCEDENTE a ação coletiva sobre direitos individuais homogêneos, quanto às vítimas e sucessores:",
+              alternativas: [
+                "todos ficam impedidos de ajuizar ações individuais",
+                "os interessados que NÃO intervieram como litisconsortes podem propor suas ações de indenização individuais",
+                "as ações individuais em curso são automaticamente extintas",
+                "só podem demandar individualmente após ação rescisória",
+                "a improcedência os beneficia por transporte in utilibus"
+              ],
+              correta: 1,
+              explicacao: "Art. 103, §2º, do CDC: em caso de improcedência, os interessados que não tiverem intervindo no processo coletivo como litisconsortes (art. 94) podem propor ação individual. A coisa julgada coletiva só beneficia (nunca prejudica) o indivíduo — o transporte in utilibus opera apenas em caso de PROCEDÊNCIA (art. 103, §3º)."
+            },
+            {
+              id: "tc-4", modo: "juris", fonte: "STF, Tema 1075 (RE 1.101.937)",
+              enunciado: "Sobre o limite territorial da coisa julgada na ACP (art. 16 da LACP, com a redação da Lei 9.494/97), o STF (Tema 1075) decidiu que:",
+              alternativas: [
+                "a sentença só vale nos limites da comarca do juízo prolator",
+                "o art. 16 é inconstitucional: a eficácia erga omnes da decisão não se limita à competência territorial do órgão que a proferiu",
+                "a limitação territorial vale apenas para direitos difusos",
+                "a eficácia nacional depende de homologação pelo STJ",
+                "a decisão vale somente para os associados listados na inicial"
+              ],
+              correta: 1,
+              explicacao: "Tema 1075 do STF: é inconstitucional o art. 16 da LACP (redação da Lei 9.494/97). A apuração da abrangência da coisa julgada se dá pelos limites objetivos e subjetivos do pedido, e não pela competência territorial do juízo — a decisão em ACP pode ter eficácia em todo o território nacional."
+            },
+            {
+              id: "tc-5", modo: "caso", fonte: "ADPF 347 (estado de coisas inconstitucional)",
+              enunciado: "O chamado 'processo estrutural', de que a ADPF 347 (sistema prisional) é exemplo, caracteriza-se por:",
+              alternativas: [
+                "resolver litígios bipolares com uma única decisão definitiva",
+                "enfrentar violações estruturais de direitos por meio de decisões flexíveis e escalonadas, com implementação supervisionada e diálogo institucional",
+                "substituir integralmente o administrador público pelo juiz",
+                "vedar a participação de amici curiae e audiências públicas",
+                "aplicar-se apenas a conflitos entre particulares"
+              ],
+              correta: 1,
+              explicacao: "O processo estrutural lida com litígios policêntricos, causados por falhas estruturais de políticas públicas (ex.: o 'estado de coisas inconstitucional' do sistema prisional reconhecido na ADPF 347). Trabalha com decisões em cascata (flexíveis, revisáveis), supervisão da implementação, audiências públicas e diálogo entre instituições — em vez de uma única ordem estática."
+            },
+            {
+              id: "tc-6", modo: "juris", fonte: "STJ, EDcl no REsp 1.712.163 (custos vulnerabilis)",
+              enunciado: "A intervenção da Defensoria Pública como 'custos vulnerabilis' significa que ela:",
+              alternativas: [
+                "atua apenas como curadora especial de réu revel",
+                "intervém de forma autônoma, em nome próprio, como guardiã dos interesses dos vulneráveis, mesmo quando as partes têm advogados constituídos",
+                "substitui obrigatoriamente o Ministério Público como fiscal da lei",
+                "só pode intervir quando nomeada pelo juiz",
+                "atua exclusivamente na esfera criminal"
+              ],
+              correta: 1,
+              explicacao: "O STJ (EDcl no REsp 1.712.163, entre outros) admitiu a intervenção da Defensoria como custos vulnerabilis: intervenção institucional AUTÔNOMA, em nome próprio, para tutelar os interesses de grupos vulneráveis — cabível mesmo quando as partes estão representadas por advogados. Não se confunde com a curadoria especial (art. 72 do CPC) nem com o custos legis do MP. Tema transversal em todo o edital da DPE-RJ."
+            }
+          ]
+        }
+      ]
+    },
+
     /* --------------------------------------------------- 5. CDC — VÍCIO/FATO */
     {
       id: "cdc-responsabilidade",
