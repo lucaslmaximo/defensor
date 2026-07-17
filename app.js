@@ -7,6 +7,27 @@
   var DATA = window.APP_DATA;
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
+  var HEART_MAX = 5;
+  var HEART_REGEN_MS = 2 * 3600000; // 1 vida a cada 2 horas
+
+  /* Patentes: carreira por matéria, movida a XP */
+  var RANKS = [
+    { nome: "Estudante",         ico: "🔰", xp: 0 },
+    { nome: "Bacharel",          ico: "📜", xp: 60 },
+    { nome: "Analista",          ico: "📘", xp: 150 },
+    { nome: "Substituto(a)",     ico: "⚖️", xp: 300 },
+    { nome: "Titular",           ico: "🎖️", xp: 500 },
+    { nome: "Classe Especial",   ico: "🏅", xp: 750 },
+    { nome: "Defensor(a) Geral", ico: "👑", xp: 1000 }
+  ];
+  function rankFor(xp) {
+    var i = 0;
+    for (var k = 0; k < RANKS.length; k++) if (xp >= RANKS[k].xp) i = k;
+    var cur = RANKS[i], next = RANKS[i + 1] || null;
+    var pct = next ? Math.min(100, Math.round((xp - cur.xp) / (next.xp - cur.xp) * 100)) : 100;
+    return { idx: i, cur: cur, next: next, pct: pct };
+  }
+  function materiaXp(m) { return S.xpByMateria[m] || 0; }
 
   /* ---------- cores das unidades ---------- */
   var COR = {
@@ -50,9 +71,9 @@
   var S = load();
   function defaultState() {
     return {
-      xp: 0, hearts: 5, streak: 0, lastStudyDay: null,
+      xp: 0, hearts: 5, heartT: null, streak: 0, lastStudyDay: null,
       lessons: {}, srs: {}, errors: {}, answered: 0, correctTotal: 0,
-      byMateria: {}, theme: null
+      byMateria: {}, xpByMateria: {}, theme: null
     };
   }
   function load() {
@@ -62,6 +83,10 @@
       var s = JSON.parse(raw);
       var d = defaultState();
       for (var k in d) if (!(k in s)) s[k] = d[k];
+      // migração: estima o XP por matéria a partir dos acertos antigos
+      if (Object.keys(s.xpByMateria).length === 0) {
+        for (var m in (s.byMateria || {})) s.xpByMateria[m] = (s.byMateria[m].correct || 0) * 10;
+      }
       return s;
     } catch (e) { return defaultState(); }
   }
@@ -80,8 +105,43 @@
     if (S.lastStudyDay === yesterday) S.streak += 1;
     else S.streak = 1;
     S.lastStudyDay = today;
-    // recarrega vidas a cada novo dia de estudo
-    S.hearts = 5;
+  }
+
+  /* ---------- vidas: regeneração 1 a cada 2h ---------- */
+  function applyHeartRegen() {
+    if (S.hearts >= HEART_MAX) { S.heartT = null; return false; }
+    if (!S.heartT) { S.heartT = Date.now(); save(); return false; }
+    var changed = false;
+    while (S.hearts < HEART_MAX && Date.now() - S.heartT >= HEART_REGEN_MS) {
+      S.hearts += 1; S.heartT += HEART_REGEN_MS; changed = true;
+    }
+    if (S.hearts >= HEART_MAX) S.heartT = null;
+    if (changed) save();
+    return changed;
+  }
+  function loseHeart() {
+    if (S.hearts <= 0) return;
+    if (!S.heartT) S.heartT = Date.now();
+    S.hearts -= 1;
+  }
+  function gainHeart() {
+    if (S.hearts >= HEART_MAX) return false;
+    S.hearts += 1;
+    if (S.hearts >= HEART_MAX) S.heartT = null;
+    else if (!S.heartT) S.heartT = Date.now();
+    return true;
+  }
+  function heartTimerText() {
+    if (S.hearts >= HEART_MAX || !S.heartT) return "";
+    var left = Math.max(0, HEART_REGEN_MS - (Date.now() - S.heartT));
+    var h = Math.floor(left / 3600000), m = Math.ceil((left % 3600000) / 60000);
+    if (m === 60) { h += 1; m = 0; }
+    return h > 0 ? h + "h" + (m < 10 ? "0" + m : m) : m + "m";
+  }
+  function heartHud() {
+    var t = heartTimerText();
+    return '<span class="stat heart"><span class="ico">❤️</span>' + S.hearts +
+      (t ? '<span class="regen" data-regen>+1 em ' + t + '</span>' : '') + '</span>';
   }
 
   /* ---------- SM-2 ---------- */
@@ -141,7 +201,7 @@
       '  <div class="brand"><span class="logo">§</span> Defensor</div>' +
       '  <span class="stat flame"><span class="ico">🔥</span>' + S.streak + '</span>' +
       '  <span class="stat xp"><span class="ico">⭐</span>' + S.xp + '</span>' +
-      '  <span class="stat heart"><span class="ico">❤️</span>' + S.hearts + '</span>' +
+      '  ' + heartHud() +
       '</div>';
   }
 
@@ -185,12 +245,17 @@
           '<span class="bd-tema">' + esc(bi.tema) + '</span></div>';
       }
       var c = COR[u.cor] || COR.verde;
+      var rxp = materiaXp(u.materia), rk = rankFor(rxp);
       h += '<div class="unit">' +
         '<div class="unit-banner" style="background:linear-gradient(135deg,' + c[0] + ',' + c[1] + ')">' +
         '<span class="ubadge">' + u.icone + '</span>' +
         '<div class="materia">' + esc(u.materia) + '</div>' +
         '<h2>' + esc(u.titulo) + '</h2>' +
         '<p>' + esc(u.descricao) + '</p>' +
+        '<div class="rank-strip"><span class="r-ico">' + rk.cur.ico + '</span>' +
+        '<span class="r-name">' + rk.cur.nome + '</span>' +
+        '<span class="r-track"><i style="width:' + rk.pct + '%"></i></span>' +
+        '<span class="r-xp">' + (rk.next ? rxp + '/' + rk.next.xp + ' XP' : 'MÁX') + '</span></div>' +
         '</div><div class="path">';
       u.licoes.forEach(function (l) {
         var stt = lessonState(l);
@@ -212,7 +277,8 @@
   screens.revisar = function () {
     var due = dueQuestions();
     var h = '<div class="page-title">Revisão espaçada</div>' +
-      '<p class="page-sub">O algoritmo traz de volta o que você errou ou está prestes a esquecer.</p>';
+      '<p class="page-sub">O algoritmo traz de volta o que você errou ou está prestes a esquecer.' +
+      (S.hearts < HEART_MAX ? ' 💡 Concluir uma revisão recupera 1 ❤️.' : '') + '</p>';
     if (due.length === 0) {
       h += '<div class="empty"><div class="e-ico">✅</div><b>Nada para revisar agora.</b><br>' +
         'Continue a trilha — as questões voltam no tempo certo.</div>';
@@ -260,6 +326,22 @@
       tile(Object.keys(S.srs).length, "em revisão") +
       '</div>';
 
+    // patentes por matéria
+    var rksHtml = '';
+    var matNames = Object.keys(S.xpByMateria);
+    matNames.sort(function (a, b) { return (S.xpByMateria[b] || 0) - (S.xpByMateria[a] || 0); });
+    matNames.forEach(function (m) {
+      var xp = S.xpByMateria[m]; if (!xp) return;
+      var rk = rankFor(xp);
+      rksHtml += '<div class="rank-row"><span class="ico">' + rk.cur.ico + '</span><div class="info">' +
+        '<div class="top"><span>' + esc(m) + '</span><span class="rn">' + rk.cur.nome + '</span></div>' +
+        '<div class="track"><i style="width:' + rk.pct + '%"></i></div></div>' +
+        '<span class="rxp">' + (rk.next ? xp + '/' + rk.next.xp : 'MÁX') + '</span></div>';
+    });
+    if (rksHtml) {
+      h += '<div class="page-title" style="font-size:1.1rem">Patentes por matéria</div><div class="card">' + rksHtml + '</div>';
+    }
+
     // desempenho por matéria
     var mats = {};
     for (var m in S.byMateria) {
@@ -289,7 +371,7 @@
     if (!questions.length) { toast("Nada para praticar aqui."); return; }
     quiz = {
       qs: questions.slice(),
-      i: 0, correct: 0, xpGained: 0, wrong: [],
+      i: 0, correct: 0, xpGained: 0, wrong: [], rankBefore: {},
       kind: opts.kind, lessonId: opts.lessonId,
       selected: null, checked: false
     };
@@ -305,7 +387,7 @@
       '<div class="quiz-top">' +
       '<button class="x" data-action="quit-quiz">✕</button>' +
       '<span class="progress"><i style="width:' + pct + '%"></i></span>' +
-      '<span class="stat heart"><span class="ico">❤️</span>' + S.hearts + '</span>' +
+      heartHud() +
       '</div>' +
       '<div class="q-head">' +
       '<span class="q-modo ' + q.modo + '">' + modoTxt + '</span>' +
@@ -348,8 +430,12 @@
 
     // estatística global
     S.answered += 1;
-    if (ok) { S.correctTotal += 1; quiz.correct += 1; quiz.xpGained += 10; S.xp += 10; }
     var mat = q._materia;
+    if (!(mat in quiz.rankBefore)) quiz.rankBefore[mat] = rankFor(materiaXp(mat)).idx;
+    if (ok) {
+      S.correctTotal += 1; quiz.correct += 1; quiz.xpGained += 10; S.xp += 10;
+      S.xpByMateria[mat] = (S.xpByMateria[mat] || 0) + 10;
+    }
     S.byMateria[mat] = S.byMateria[mat] || { total: 0, correct: 0 };
     S.byMateria[mat].total += 1;
     if (ok) S.byMateria[mat].correct += 1;
@@ -359,7 +445,7 @@
     if (ok) {
       if (S.errors[q.id] && !S.errors[q.id].resolved) S.errors[q.id].resolved = true; // acertou o que errava
     } else {
-      if (S.hearts > 0) S.hearts -= 1;
+      loseHeart();
       quiz.wrong.push(q.id);
       var e = S.errors[q.id] || { count: 0, resolved: false };
       e.count += 1; e.resolved = false; e.lastWrong = Date.now();
@@ -386,7 +472,18 @@
       prev.times = (prev.times || 0) + 1;
       S.lessons[quiz.lessonId] = prev;
       S.xp += 5; quiz.xpGained += 5; // bônus de conclusão
+      var bm = LESSON_BY_ID[quiz.lessonId]._unit.materia;
+      if (!(bm in quiz.rankBefore)) quiz.rankBefore[bm] = rankFor(materiaXp(bm)).idx;
+      S.xpByMateria[bm] = (S.xpByMateria[bm] || 0) + 5;
     }
+    // subiu de patente em alguma matéria?
+    quiz.rankUps = [];
+    for (var rm in quiz.rankBefore) {
+      var rNow = rankFor(materiaXp(rm));
+      if (rNow.idx > quiz.rankBefore[rm]) quiz.rankUps.push({ materia: rm, rank: rNow.cur });
+    }
+    // concluir revisão recupera 1 vida
+    if (quiz.kind === "review" && S.hearts < HEART_MAX) { gainHeart(); quiz.heartWon = true; }
     save();
     view.name = "result";
     render();
@@ -405,6 +502,13 @@
       '<div class="rt xp"><div class="rv">+' + quiz.xpGained + '</div><div class="rl">XP</div></div>' +
       '<div class="rt acc"><div class="rv">' + acc + '%</div><div class="rl">acerto</div></div>' +
       '</div>' +
+      (quiz.rankUps && quiz.rankUps.length ? quiz.rankUps.map(function (r) {
+        return '<div class="rankup"><span class="ru-ico">' + r.rank.ico + '</span><div>' +
+          '<div class="ru-t">' + esc(r.materia) + ' — nova patente</div>' +
+          '<div class="ru-n">' + r.rank.nome + '</div></div></div>';
+      }).join('') : '') +
+      (quiz.heartWon ? '<div class="rankup" style="border-color:var(--heart)"><span class="ru-ico">❤️</span><div>' +
+        '<div class="ru-t">Revisão concluída</div><div class="ru-n">+1 vida recuperada</div></div></div>' : '') +
       '<div style="max-width:340px;margin:0 auto">' +
       (hasWrong
         ? '<button class="btn danger" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
@@ -423,6 +527,10 @@
     // iniciar lição
     app.querySelectorAll("[data-lesson]").forEach(function (b) {
       b.onclick = function () {
+        if (S.hearts <= 0) {
+          toast("Sem vidas ❤️ Próxima em " + heartTimerText() + " — ou revise erros para ganhar 1.");
+          return;
+        }
         var l = LESSON_BY_ID[b.getAttribute("data-lesson")];
         startSession(l.questoes, { kind: "lesson", lessonId: l.id });
       };
@@ -481,7 +589,17 @@
 
   /* ---------- boot ---------- */
   applyTheme();
+  applyHeartRegen();
   render();
+
+  /* relógio das vidas: repõe e atualiza o contador sem recarregar a tela */
+  setInterval(function () {
+    if (applyHeartRegen()) { render(); return; }
+    if (S.hearts < HEART_MAX) {
+      var t = heartTimerText();
+      document.querySelectorAll("[data-regen]").forEach(function (el) { el.textContent = "+1 em " + t; });
+    }
+  }, 30000);
 
   /* ---------- service worker (só em http/https) ---------- */
   if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
