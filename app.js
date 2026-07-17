@@ -625,10 +625,24 @@
   function tile(v, l) { return '<div class="stat-tile"><div class="v">' + v + '</div><div class="l">' + l + '</div></div>'; }
 
   /* ================= QUIZ ================= */
+  /* embaralha as alternativas a cada apresentação (a correta muda de letra) */
+  function shuffleQuestion(q) {
+    var idx = q.alternativas.map(function (_, i) { return i; });
+    for (var i = idx.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = idx[i]; idx[i] = idx[j]; idx[j] = tmp;
+    }
+    var c = {};
+    for (var k in q) c[k] = q[k];
+    c.alternativas = idx.map(function (i) { return q.alternativas[i]; });
+    c.correta = idx.indexOf(q.correta);
+    return c;
+  }
+
   function startSession(questions, opts) {
     if (!questions.length) { toast("Nada para praticar aqui."); return; }
     quiz = {
-      qs: questions.slice(),
+      qs: questions.map(shuffleQuestion),
       i: 0, correct: 0, xpGained: 0, wrong: [], rankBefore: {},
       kind: opts.kind, lessonId: opts.lessonId,
       selected: null, checked: false
