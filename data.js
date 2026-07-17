@@ -572,6 +572,200 @@ window.APP_DATA = {
       ]
     },
 
+    /* ---------------------------------------- DIREITO EMPRESARIAL (Banca I) */
+    {
+      id: "empresarial",
+      titulo: "Direito Empresarial",
+      materia: "Direito Empresarial",
+      banca: "I",
+      icone: "🏢",
+      cor: "dourado",
+      descricao: "Títulos de crédito (LUG × CC), locação empresarial e falência.",
+      licoes: [
+        {
+          id: "empresarial-1",
+          titulo: "Títulos de crédito e locação empresarial",
+          questoes: [
+            {
+              id: "emp-1", modo: "lei", fonte: "LUG, art. 30; CC, art. 897",
+              enunciado: "No regime da Lei Uniforme de Genebra (LUG), aplicável às letras de câmbio e notas promissórias, o aval PARCIAL é:",
+              alternativas: [
+                "vedado em qualquer hipótese",
+                "admitido (permite-se o aval parcial)",
+                "admitido apenas com autorização judicial",
+                "convertido automaticamente em aval total",
+                "nulo de pleno direito"
+              ],
+              correta: 1,
+              explicacao: "Distinção clássica: na LUG (art. 30) admite-se o aval parcial. Já no Código Civil (art. 897, parágrafo único) o aval parcial é VEDADO. Como a LUG é norma especial para letra de câmbio e nota promissória, nesses títulos prevalece a possibilidade do aval parcial."
+            },
+            {
+              id: "emp-2", modo: "lei", fonte: "CC, art. 899, §2º",
+              enunciado: "Sobre a natureza do aval em relação à obrigação avalizada, é correto afirmar que o aval:",
+              alternativas: [
+                "é acessório e segue a sorte da obrigação avalizada em todos os casos",
+                "é autônomo: subsiste ainda que nula a obrigação avalizada, salvo se a nulidade decorrer de vício de forma",
+                "só é válido se a obrigação principal for válida",
+                "admite benefício de ordem, como a fiança",
+                "depende de instrumento contratual apartado"
+              ],
+              correta: 1,
+              explicacao: "Art. 899, §2º, do CC: subsiste a responsabilidade do avalista ainda que nula a obrigação avalizada, salvo se a nulidade for por vício de forma. É a autonomia do aval — diferente da fiança, que é acessória e admite benefício de ordem."
+            },
+            {
+              id: "emp-3", modo: "lei", fonte: "CC, art. 1.647, III",
+              enunciado: "A prestação de aval (ou fiança) por pessoa casada exige a autorização do outro cônjuge (outorga), EXCETO no regime da:",
+              alternativas: [
+                "comunhão parcial de bens",
+                "separação absoluta de bens",
+                "comunhão universal de bens",
+                "participação final nos aquestos",
+                "separação obrigatória de bens"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.647, III, do CC: nenhum cônjuge pode, sem autorização do outro — exceto no regime da separação absoluta —, prestar fiança ou aval. A separação absoluta é a única exceção legal à outorga conjugal."
+            },
+            {
+              id: "emp-4", modo: "lei", fonte: "Lei 8.245/91, art. 51, §5º",
+              enunciado: "A ação renovatória do contrato de locação empresarial (Lei 8.245/91) deve ser proposta:",
+              alternativas: [
+                "a qualquer tempo durante a vigência do contrato",
+                "no interregno de um ano, no máximo, até seis meses, no mínimo, anteriores ao fim do prazo do contrato",
+                "somente após o término do contrato",
+                "até 30 dias antes do fim do contrato",
+                "no máximo até dois anos antes do fim do contrato"
+              ],
+              correta: 1,
+              explicacao: "Art. 51, §5º, da Lei 8.245/91: a renovatória deve ser proposta no interregno de um ano, no máximo, até seis meses, no mínimo, anteriores à finalização do prazo do contrato em vigor. É prazo DECADENCIAL — perde-se o direito à renovação se não observado."
+            },
+            {
+              id: "emp-5", modo: "lei", fonte: "Lei 8.245/91, art. 51",
+              enunciado: "Entre os requisitos do direito à renovação compulsória (art. 51 da Lei 8.245/91), o contrato a renovar deve ser escrito, por prazo determinado, e o prazo mínimo (somados os contratos sucessivos) deve ser de:",
+              alternativas: [
+                "1 ano",
+                "5 anos ininterruptos",
+                "10 anos",
+                "2 anos",
+                "6 meses"
+              ],
+              correta: 1,
+              explicacao: "Art. 51 da Lei 8.245/91: exige-se contrato escrito e por prazo determinado, prazo mínimo do contrato (ou soma dos contratos escritos e sucessivos) de 5 anos, e exploração do mesmo ramo pelo prazo mínimo de 3 anos (accessio temporis)."
+            },
+            {
+              id: "emp-6", modo: "lei", fonte: "Lei 11.101/05, arts. 83 e 84",
+              enunciado: "Na falência (Lei 11.101/05), qual crédito ocupa o primeiro lugar na ordem de classificação dos créditos CONCURSAIS?",
+              alternativas: [
+                "os créditos com garantia real",
+                "os créditos trabalhistas (até 150 salários mínimos por credor) e os decorrentes de acidente de trabalho",
+                "os créditos tributários",
+                "os créditos quirografários",
+                "as multas contratuais e penas pecuniárias"
+              ],
+              correta: 1,
+              explicacao: "Art. 83 da Lei 11.101/05: entre os concursais, vêm primeiro os créditos trabalhistas (limitados a 150 salários mínimos por credor) e os de acidente de trabalho; depois os com garantia real (até o limite do bem), os tributários e assim por diante. Antes de todos eles, porém, pagam-se os créditos EXTRACONCURSAIS (art. 84)."
+            }
+          ]
+        }
+      ]
+    },
+
+    /* ---------------------------- INFÂNCIA, JUVENTUDE E IDOSO (Banca I) */
+    {
+      id: "infancia-idoso",
+      titulo: "Infância, Juventude e Idoso",
+      materia: "Criança, Adolescente e Idoso",
+      banca: "I",
+      icone: "🧒",
+      cor: "petroleo",
+      descricao: "ECA protetivo: conselho tutelar, acolhimento, adoção e pessoa idosa.",
+      licoes: [
+        {
+          id: "infancia-idoso-1",
+          titulo: "Proteção integral, conselho tutelar e adoção",
+          questoes: [
+            {
+              id: "inf-1", modo: "lei", fonte: "ECA, art. 4º; CF, art. 227",
+              enunciado: "O princípio da prioridade absoluta (art. 4º do ECA e art. 227 da CF) assegura à criança e ao adolescente:",
+              alternativas: [
+                "atendimento apenas quando houver recursos orçamentários disponíveis",
+                "primazia em receber proteção e socorro, precedência no atendimento e preferência na formulação de políticas e na destinação de recursos",
+                "prioridade somente na área da saúde",
+                "atendimento igual ao dos adultos, sem preferência",
+                "prioridade apenas quando já em situação de risco"
+              ],
+              correta: 1,
+              explicacao: "Art. 4º, parágrafo único, do ECA: a prioridade absoluta compreende a primazia em receber proteção e socorro, a precedência no atendimento nos serviços públicos, a preferência na formulação de políticas sociais e a destinação privilegiada de recursos. Decorre da doutrina da proteção integral (art. 227 da CF)."
+            },
+            {
+              id: "inf-2", modo: "caso", fonte: "ECA, arts. 131 e 136",
+              enunciado: "Sobre o Conselho Tutelar, é correto afirmar que:",
+              alternativas: [
+                "é órgão do Poder Judiciário, com função jurisdicional",
+                "é órgão permanente e autônomo, NÃO jurisdicional, encarregado de zelar pelos direitos da criança e do adolescente",
+                "substitui o juiz na aplicação de medida de internação",
+                "tem atribuição para decretar a destituição do poder familiar",
+                "é composto por membros nomeados livremente pelo prefeito"
+              ],
+              correta: 1,
+              explicacao: "Art. 131 do ECA: o Conselho Tutelar é órgão permanente e autônomo, NÃO jurisdicional. Seus membros são eleitos (art. 139). Medidas como internação e destituição do poder familiar são de competência do Judiciário, não do Conselho — que aplica medidas de proteção e requisita serviços."
+            },
+            {
+              id: "inf-3", modo: "caso", fonte: "ECA, arts. 39, 41 e 45",
+              enunciado: "Quanto à adoção no ECA, é correto afirmar que ela:",
+              alternativas: [
+                "é revogável a qualquer tempo pelos adotantes",
+                "é medida excepcional e irrevogável, atribui a condição de filho e desliga o adotado dos vínculos com pais e parentes, salvo os impedimentos matrimoniais",
+                "mantém os vínculos com a família biológica para fins sucessórios",
+                "pode ser realizada por procuração",
+                "dispensa o consentimento do adotando maior de 12 anos"
+              ],
+              correta: 1,
+              explicacao: "A adoção é medida excepcional e irrevogável (art. 39, §1º), atribui a condição de filho (art. 41) e rompe os vínculos com pais e parentes, salvo os impedimentos matrimoniais. É vedada por procuração (art. 39, §2º) e exige o consentimento do adolescente maior de 12 anos (art. 45, §2º)."
+            },
+            {
+              id: "inf-4", modo: "caso", fonte: "ECA, art. 101, §1º",
+              enunciado: "O acolhimento institucional, como medida de proteção, caracteriza-se por ser:",
+              alternativas: [
+                "medida definitiva e prioritária em relação à família",
+                "medida provisória e excepcional, como transição para a reintegração familiar ou colocação em família substituta",
+                "aplicável só pelo Conselho Tutelar, sem controle judicial",
+                "cabível por prazo indeterminado e sem reavaliação",
+                "equivalente à perda automática do poder familiar"
+              ],
+              correta: 1,
+              explicacao: "Art. 101, §1º, do ECA: o acolhimento institucional é medida PROVISÓRIA e EXCEPCIONAL, usada como forma de transição para a reintegração familiar ou, não sendo possível, colocação em família substituta. A situação deve ser reavaliada no máximo a cada 3 meses (art. 19, §1º), e não implica privação de liberdade."
+            },
+            {
+              id: "inf-5", modo: "lei", fonte: "Lei 10.741/03, art. 1º",
+              enunciado: "O Estatuto da Pessoa Idosa (Lei 10.741/03) assegura seus direitos às pessoas com idade igual ou superior a:",
+              alternativas: [
+                "50 anos",
+                "60 anos",
+                "65 anos",
+                "70 anos",
+                "55 anos"
+              ],
+              correta: 1,
+              explicacao: "Art. 1º da Lei 10.741/03: o Estatuto destina-se a regular os direitos das pessoas com idade igual ou superior a 60 anos. (Atenção à pegadinha: a gratuidade no transporte coletivo urbano é assegurada aos maiores de 65 anos — art. 39 do Estatuto e art. 230, §2º, da CF.)"
+            },
+            {
+              id: "inf-6", modo: "caso", fonte: "ECA, art. 142, p. ú.; CPC, art. 72, I; LC 80/94, art. 4º, XVI",
+              enunciado: "Nas ações da infância e juventude, quando os interesses da criança ou do adolescente colidirem com os de quem os representa (ou faltar representante), atua como curador(a) especial:",
+              alternativas: [
+                "o Ministério Público",
+                "a Defensoria Pública",
+                "o próprio juiz da causa",
+                "o Conselho Tutelar",
+                "um advogado indicado pela família"
+              ],
+              correta: 1,
+              explicacao: "Arts. 142, parágrafo único, do ECA e 72, I, do CPC: dá-se curador especial ao incapaz sempre que seus interesses colidirem com os do representante ou faltar representação. Essa curatela especial é função institucional da Defensoria Pública (art. 4º, XVI, da LC 80/94)."
+            }
+          ]
+        }
+      ]
+    },
+
     /* ============================================================
        BANCA II — CRIMINAL (jurisprudência STF/STJ)
        Fonte: apostila "Compilado de Súmulas e Teses Criminais".
