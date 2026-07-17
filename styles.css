@@ -289,6 +289,36 @@ button{font-family:inherit;cursor:pointer}
 .nav button.active{color:var(--green)}
 .nav .badge{position:absolute;top:8px;right:22%;background:var(--heart);color:#fff;font-size:.62rem;font-weight:800;min-width:17px;height:17px;border-radius:9px;display:grid;place-items:center;padding:0 4px}
 
+/* ---------- Amigos ---------- */
+.f-label{font-size:.8rem;font-weight:700;color:var(--ink-soft);margin-bottom:8px}
+.f-input{width:100%;border:2px solid var(--line-strong);border-radius:12px;background:var(--bg-2);color:var(--ink);font-family:var(--font);font-size:.95rem;padding:12px 14px;outline:none}
+.f-input:focus{border-color:var(--green)}
+textarea.f-input{resize:none;line-height:1.4}
+.friend-me{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.f-av{font-size:2.1rem;line-height:1}
+.f-name{font-family:var(--round);font-weight:800;font-size:1.12rem;display:flex;align-items:center;gap:6px}
+.f-meta{font-size:.76rem;color:var(--ink-soft);font-weight:700}
+.mini{background:none;border:none;font-size:.85rem;padding:2px;cursor:pointer}
+.av-row{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 14px}
+.av-row .av{font-size:1.25rem;line-height:1;background:var(--bg-2);border:2px solid var(--line-strong);border-radius:10px;padding:7px 9px}
+.av-row .av.sel{border-color:var(--green);background:var(--green-soft)}
+.code-box{display:flex;gap:8px;margin-top:10px}
+.code-box input{flex:1;min-width:0;border:2px dashed var(--line-strong);border-radius:10px;background:var(--bg-2);color:var(--ink-soft);font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:.68rem;padding:9px 10px;outline:none;text-overflow:ellipsis}
+.code-box .btn{width:auto;padding:9px 14px;font-size:.72rem;box-shadow:0 3px 0 var(--line-strong)}
+.friend-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+.friend-row:first-child{border-top:0}
+.friend-row.me{background:var(--green-soft);border-radius:12px;padding:11px 10px;border-top:0}
+.friend-row.me + .friend-row{border-top:0}
+.friend-row.stale{opacity:.55}
+.friend-row .pos{flex:none;width:30px;text-align:center;font-size:1.05rem;font-weight:800;font-variant-numeric:tabular-nums}
+.friend-row .fr-av{font-size:1.45rem;line-height:1}
+.friend-row .fr-info{flex:1;min-width:0}
+.friend-row .fr-n{font-weight:800;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.friend-row .fr-sub{font-size:.72rem;color:var(--ink-faint);font-weight:700}
+.friend-row .fr-x{flex:none;text-align:right}
+.friend-row .fr-xp{font-family:var(--round);font-weight:800;font-size:.98rem;white-space:nowrap}
+.friend-row .unfr{flex:none;background:none;border:none;color:var(--ink-faint);font-size:.9rem;padding:4px 6px;cursor:pointer}
+
 /* toast */
 .toast{position:fixed;left:50%;bottom:calc(var(--nav-h) + 16px);transform:translateX(-50%);z-index:40;background:var(--ink);color:var(--bg);font-weight:700;font-size:.86rem;padding:11px 18px;border-radius:12px;box-shadow:var(--shadow-card);animation:fade .2s}
 

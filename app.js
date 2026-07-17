@@ -73,7 +73,9 @@
     return {
       xp: 0, hearts: 5, heartT: null, streak: 0, lastStudyDay: null,
       lessons: {}, srs: {}, errors: {}, answered: 0, correctTotal: 0,
-      byMateria: {}, xpByMateria: {}, theme: null
+      byMateria: {}, xpByMateria: {}, theme: null,
+      social: { uid: null, nome: "", avatar: "🦉", friends: {} },
+      week: { id: null, xp: 0, answered: 0, correct: 0 }
     };
   }
   function load() {
@@ -142,6 +144,71 @@
     var t = heartTimerText();
     return '<span class="stat heart"><span class="ico">❤️</span>' + S.hearts +
       (t ? '<span class="regen" data-regen>+1 em ' + t + '</span>' : '') + '</span>';
+  }
+
+  /* ---------- amigos: semana, códigos e compartilhamento ---------- */
+  function weekId(t) {
+    var d = new Date(t || Date.now());
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() + 3 - ((d.getDay() + 6) % 7)); // quinta-feira da semana ISO
+    var w1 = new Date(d.getFullYear(), 0, 4);
+    var wk = 1 + Math.round(((d - w1) / 86400000 - 3 + ((w1.getDay() + 6) % 7)) / 7);
+    return d.getFullYear() + "-S" + (wk < 10 ? "0" + wk : wk);
+  }
+  function ensureWeek() {
+    var id = weekId();
+    if (!S.week || S.week.id !== id) S.week = { id: id, xp: 0, answered: 0, correct: 0 };
+  }
+  function b64e(s) { return btoa(unescape(encodeURIComponent(s))); }
+  function b64d(s) { return decodeURIComponent(escape(atob(s))); }
+  function myCode() {
+    ensureWeek();
+    var p = { v: 1, id: S.social.uid, n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, c: S.week.correct, s: S.streak, t: S.xp };
+    // o "." final é terminador: base64 nunca contém ponto, então o código
+    // sobrevive mesmo colado no meio de um texto sem espaços
+    return "DPE1." + b64e(JSON.stringify(p)) + ".";
+  }
+  function parseCode(raw) {
+    try {
+      var m = raw.match(/DPE1\.([A-Za-z0-9+\/=]+)\./);
+      var b64 = m ? m[1] : null;
+      if (!b64) { // código truncado (sem o ponto final): tenta até o 1º espaço
+        var i = raw.indexOf("DPE1.");
+        if (i === -1) return null;
+        b64 = raw.slice(i + 5).split(/\s/)[0];
+      }
+      var p = JSON.parse(b64d(b64));
+      if (!p || !p.id || !p.n || !p.w) return null;
+      return p;
+    } catch (e) { return null; }
+  }
+  function copyText(t) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(t).catch(function () {});
+      return;
+    }
+    var ta = document.createElement("textarea");
+    ta.value = t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e) {}
+    ta.remove();
+  }
+  function shareCode() {
+    var texto = "🎓 Defensor — estudo DPE-RJ\n" + S.social.avatar + " " + S.social.nome +
+      " esta semana: ⭐ " + S.week.xp + " XP · " + S.week.answered + " questões\n\n" +
+      "Meu código de amigo (cole na aba Amigos):\n" + myCode() +
+      "\n\nJogue também: " + location.origin + location.pathname;
+    if (navigator.share) { navigator.share({ text: texto }).catch(function () {}); }
+    else { copyText(texto); toast("Convite copiado! Cole no grupo do WhatsApp 📋"); }
+  }
+  function addFriend() {
+    var inp = document.getElementById("friend-code");
+    var p = parseCode(((inp && inp.value) || "").trim());
+    if (!p) { toast("Código inválido — confira se copiou a parte que começa com DPE1."); return; }
+    if (p.id === S.social.uid) { toast("Esse código é o seu 😄"); return; }
+    var novo = !S.social.friends[p.id];
+    S.social.friends[p.id] = { n: String(p.n).slice(0, 18), a: p.a || "🙂", w: p.w, x: p.x | 0, q: p.q | 0, c: p.c | 0, s: p.s | 0, t: p.t | 0, at: Date.now() };
+    save(); render();
+    toast(novo ? String(p.n) + " entrou no grupo! 🎉" : String(p.n) + " atualizado(a) no placar ✅");
   }
 
   /* ---------- SM-2 ---------- */
@@ -217,6 +284,7 @@
       b("trilha", "🗺️", "Trilha", 0) +
       b("revisar", "🔁", "Revisar", due) +
       b("erros", "📓", "Erros", errs) +
+      b("amigos", "🤝", "Amigos", 0) +
       b("perfil", "👤", "Perfil", 0) +
       '</div>';
   }
@@ -307,6 +375,80 @@
         '<div class="err-meta">' + esc(q._topico) + ' · ' + esc(q.fonte) + ' · errada ' + e.count + 'x</div></div>' +
         '</div>';
     });
+    return h;
+  };
+
+  /* ---------- Screen: Amigos ---------- */
+  var AVATARES = ["🦉", "🦁", "🐯", "🦊", "🐼", "🦅", "🐺", "🦈", "🐢", "🐝"];
+  screens.amigos = function () {
+    ensureWeek();
+    var h = '<div class="page-title">Grupo de amigos</div>';
+
+    if (!S.social.uid || !S.social.nome) {
+      h += '<p class="page-sub">Estilo GymRats, versão concurseiro: cada um compartilha seu código no grupo e o app monta o placar semanal de questões.</p>' +
+        '<div class="card">' +
+        '<div class="f-label">Como você quer aparecer no placar?</div>' +
+        '<input type="text" id="social-name" class="f-input" maxlength="18" placeholder="Seu nome ou apelido">' +
+        '<button class="btn" data-action="create-profile" style="margin-top:12px">Criar meu perfil</button>' +
+        '</div>' +
+        '<p class="page-sub" style="margin-top:10px">🔒 Sem cadastro e sem servidor: o placar funciona trocando códigos (ex.: no grupo do WhatsApp). Seu progresso continua salvo só no seu aparelho.</p>';
+      return h;
+    }
+
+    h += '<div class="card">' +
+      '<div class="friend-me"><span class="f-av">' + S.social.avatar + '</span>' +
+      '<div style="flex:1;min-width:0">' +
+      '<div class="f-name">' + esc(S.social.nome) + ' <button class="mini" data-action="edit-name" title="Editar nome">✏️</button></div>' +
+      '<div class="f-meta">Esta semana: ⭐ ' + S.week.xp + ' XP · ' + S.week.answered + ' questões · 🔥 ' + S.streak + '</div>' +
+      '</div></div>' +
+      '<div class="av-row">' + AVATARES.map(function (a) {
+        return '<button class="av' + (a === S.social.avatar ? ' sel' : '') + '" data-avatar="' + a + '">' + a + '</button>';
+      }).join('') + '</div>' +
+      '<button class="btn" data-action="share-code">📣 Compartilhar meu código</button>' +
+      '<div class="code-box"><input readonly id="my-code" value="' + myCode() + '">' +
+      '<button class="btn ghost" data-action="copy-code">Copiar</button></div>' +
+      '</div>';
+
+    h += '<div class="page-title" style="font-size:1.05rem">Adicionar amigo(a)</div>' +
+      '<div class="card">' +
+      '<textarea id="friend-code" class="f-input" rows="2" placeholder="Cole aqui a mensagem ou o código recebido (DPE1.…)"></textarea>' +
+      '<button class="btn ok" data-action="add-friend" style="margin-top:10px">Adicionar ao grupo</button>' +
+      '</div>';
+
+    var rows = [{ me: true, n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, s: S.streak }];
+    for (var fid in S.social.friends) {
+      var f = S.social.friends[fid];
+      rows.push({ id: fid, n: f.n, a: f.a, w: f.w, x: f.x, q: f.q, s: f.s });
+    }
+    var atuais = rows.filter(function (r) { return r.w === S.week.id; }).sort(function (a, b) { return b.x - a.x; });
+    var velhos = rows.filter(function (r) { return r.w !== S.week.id; });
+    var MED = ["🥇", "🥈", "🥉"];
+
+    h += '<div class="page-title" style="font-size:1.05rem">Placar da semana</div><div class="card">';
+    atuais.forEach(function (r, i) {
+      h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
+        '<span class="pos">' + (MED[i] || (i + 1) + 'º') + '</span>' +
+        '<span class="fr-av">' + r.a + '</span>' +
+        '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div>' +
+        '<div class="fr-sub">' + r.q + ' questões · 🔥 ' + (r.s || 0) + '</div></div>' +
+        '<div class="fr-x"><div class="fr-xp">⭐ ' + r.x + '</div><div class="fr-sub">XP</div></div>' +
+        (r.me ? '' : '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">✕</button>') +
+        '</div>';
+    });
+    velhos.forEach(function (r) {
+      h += '<div class="friend-row stale">' +
+        '<span class="pos">—</span><span class="fr-av">' + r.a + '</span>' +
+        '<div class="fr-info"><div class="fr-n">' + esc(r.n) + '</div>' +
+        '<div class="fr-sub">sem código desta semana — peça um novo</div></div>' +
+        '<div class="fr-x"><div class="fr-xp">⭐ ' + r.x + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
+        '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">✕</button>' +
+        '</div>';
+    });
+    if (rows.length === 1) {
+      h += '<div class="fr-sub" style="padding:6px 0">Seu grupo ainda está vazio. Mande seu código no WhatsApp e cole aqui os que receber. 🎯</div>';
+    }
+    h += '</div>' +
+      '<p class="page-sub" style="margin-top:10px">O placar zera toda segunda-feira. Troquem códigos novos ao longo da semana para manter os números em dia.</p>';
     return h;
   };
 
@@ -429,11 +571,13 @@
     quiz.checked = true;
 
     // estatística global
-    S.answered += 1;
+    ensureWeek();
+    S.answered += 1; S.week.answered += 1;
     var mat = q._materia;
     if (!(mat in quiz.rankBefore)) quiz.rankBefore[mat] = rankFor(materiaXp(mat)).idx;
     if (ok) {
       S.correctTotal += 1; quiz.correct += 1; quiz.xpGained += 10; S.xp += 10;
+      S.week.xp += 10; S.week.correct += 1;
       S.xpByMateria[mat] = (S.xpByMateria[mat] || 0) + 10;
     }
     S.byMateria[mat] = S.byMateria[mat] || { total: 0, correct: 0 };
@@ -471,7 +615,7 @@
       prev.best = Math.max(prev.best || 0, acc);
       prev.times = (prev.times || 0) + 1;
       S.lessons[quiz.lessonId] = prev;
-      S.xp += 5; quiz.xpGained += 5; // bônus de conclusão
+      S.xp += 5; quiz.xpGained += 5; ensureWeek(); S.week.xp += 5; // bônus de conclusão
       var bm = LESSON_BY_ID[quiz.lessonId]._unit.materia;
       if (!(bm in quiz.rankBefore)) quiz.rankBefore[bm] = rankFor(materiaXp(bm)).idx;
       S.xpByMateria[bm] = (S.xpByMateria[bm] || 0) + 5;
@@ -557,6 +701,17 @@
     app.querySelectorAll("[data-action]").forEach(function (b) {
       b.onclick = function () { action(b.getAttribute("data-action")); };
     });
+    // amigos: avatar e remoção
+    app.querySelectorAll("[data-avatar]").forEach(function (b) {
+      b.onclick = function () { S.social.avatar = b.getAttribute("data-avatar"); save(); render(); };
+    });
+    app.querySelectorAll("[data-unfriend]").forEach(function (b) {
+      b.onclick = function () {
+        var id = b.getAttribute("data-unfriend");
+        var f = S.social.friends[id];
+        if (f && confirm("Remover " + f.n + " do grupo?")) { delete S.social.friends[id]; save(); render(); }
+      };
+    });
   }
 
   function action(a) {
@@ -564,8 +719,23 @@
     else if (a === "next") nextQuestion();
     else if (a === "quit-quiz") { if (confirm("Sair da lição? O progresso desta rodada será perdido.")) { view.name = "trilha"; render(); } }
     else if (a === "home") { view.name = "trilha"; render(); }
+    else if (a === "create-profile") {
+      var inp = document.getElementById("social-name");
+      var nome = ((inp && inp.value) || "").trim();
+      if (!nome) { toast("Digite um nome para entrar no placar."); return; }
+      if (!S.social.uid) S.social.uid = Math.random().toString(36).slice(2, 10);
+      S.social.nome = nome.slice(0, 18);
+      save(); render(); toast("Perfil criado! Agora compartilhe seu código 📣");
+    }
+    else if (a === "edit-name") {
+      var novo = prompt("Seu nome no placar:", S.social.nome);
+      if (novo && novo.trim()) { S.social.nome = novo.trim().slice(0, 18); save(); render(); }
+    }
+    else if (a === "share-code") shareCode();
+    else if (a === "copy-code") { copyText(myCode()); toast("Código copiado! Cole no grupo 📋"); }
+    else if (a === "add-friend") addFriend();
     else if (a === "toggle-theme") toggleTheme();
-    else if (a === "reset") { if (confirm("Isso apaga todo o seu progresso. Continuar?")) { S = defaultState(); applyTheme(); save(); view.name = "trilha"; render(); toast("Progresso zerado."); } }
+    else if (a === "reset") { if (confirm("Isso apaga todo o seu progresso. Continuar? (Seu grupo de amigos é mantido.)")) { var soc = S.social; S = defaultState(); S.social = soc; applyTheme(); save(); view.name = "trilha"; render(); toast("Progresso zerado."); } }
   }
 
   /* ---------- tema ---------- */
@@ -590,11 +760,16 @@
   /* ---------- boot ---------- */
   applyTheme();
   applyHeartRegen();
+  ensureWeek();
   render();
 
   /* relógio das vidas: repõe e atualiza o contador sem recarregar a tela */
   setInterval(function () {
-    if (applyHeartRegen()) { render(); return; }
+    if (applyHeartRegen()) {
+      var ae = document.activeElement;
+      if (!(ae && /INPUT|TEXTAREA/.test(ae.tagName))) render();
+      return;
+    }
     if (S.hearts < HEART_MAX) {
       var t = heartTimerText();
       document.querySelectorAll("[data-regen]").forEach(function (el) { el.textContent = "+1 em " + t; });
