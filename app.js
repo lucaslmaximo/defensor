@@ -213,7 +213,7 @@
 
   /* ---------- grupo em tempo real (Firebase Realtime DB via REST) ---------- */
   // URL do Realtime Database (ex.: https://seu-projeto-default-rtdb.firebaseio.com)
-  var DB_URL = window.DPE_DB_URL || "";
+  var DB_URL = window.DPE_DB_URL || "https://defensor-app-default-rtdb.firebaseio.com";
   function grupoAtivo() { return !!(S.social.grupo && S.social.grupo.url && S.social.grupo.gid); }
   function dbFetch(path, opts) {
     var g = S.social.grupo;
