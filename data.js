@@ -327,11 +327,11 @@ window.APP_DATA = {
               fonte: "CPC, art. 833, § 2º",
               enunciado: "A impenhorabilidade dos salários e da quantia depositada em poupança (até 40 salários mínimos) NÃO se aplica, por exceção legal expressa:",
               alternativas: [
-                "à execução de dívida de cartão de crédito",
+                "à execução de dívida de cartão de crédito, dada a natureza alimentar do débito",
                 "ao pagamento de prestação alimentícia, independentemente de sua origem",
-                "à cobrança de honorários advocatícios contratuais",
-                "à execução fiscal de tributos",
-                "à cobrança de despesas condominiais"
+                "à cobrança de honorários advocatícios contratuais, por sua natureza alimentar",
+                "à execução fiscal de tributos federais, estaduais e municipais",
+                "à cobrança de despesas condominiais do imóvel de residência"
               ],
               correta: 1,
               explicacao: "Art. 833, § 2º, do CPC: a impenhorabilidade dos incisos IV e X não se aplica à penhora para pagamento de PRESTAÇÃO ALIMENTÍCIA, independentemente de sua origem, bem como a importâncias que excedam 50 salários mínimos mensais. É a exceção clássica cobrada em prova."
@@ -372,11 +372,11 @@ window.APP_DATA = {
               fonte: "CPC, art. 835",
               enunciado: "Segundo a ordem preferencial de penhora do CPC, o primeiro bem a ser penhorado é, em regra:",
               alternativas: [
-                "os imóveis",
+                "os bens imóveis urbanos, dada a segurança da garantia registral",
                 "o dinheiro, em espécie ou em depósito/aplicação financeira",
-                "os veículos de via terrestre",
-                "os títulos da dívida pública",
-                "os semoventes"
+                "os veículos de via terrestre, pela facilidade de apreensão e alienação",
+                "os títulos da dívida pública com cotação em mercado",
+                "os semoventes e os bens móveis em geral"
               ],
               correta: 1,
               explicacao: "Art. 835, I e § 1º, do CPC: a penhora observa preferencialmente a ordem legal, e o dinheiro (em espécie ou em depósito/aplicação) tem prioridade — é considerado prioritário sobre os demais bens da lista."
@@ -404,11 +404,11 @@ window.APP_DATA = {
               id: "tc-1", modo: "juris", fonte: "LACP, art. 5º, II; STF, ADI 3943",
               enunciado: "Uma associação questiona a legitimidade da Defensoria Pública para propor ação civil pública. Conforme o STF (ADI 3943):",
               alternativas: [
-                "a Defensoria não tem legitimidade, por ausência de previsão constitucional",
+                "a Defensoria não tem legitimidade, pois o rol constitucional dos legitimados à ACP é taxativo",
                 "a Defensoria tem legitimidade para a ACP, desde que a tutela possa beneficiar grupo que contenha pessoas necessitadas/vulneráveis",
                 "a Defensoria só tem legitimidade se TODOS os beneficiados comprovarem individualmente a pobreza",
-                "a legitimidade depende de autorização judicial prévia em cada caso",
-                "a Defensoria só pode atuar em ACP como fiscal da ordem jurídica"
+                "a legitimidade depende de pertinência temática aferida mediante autorização judicial prévia",
+                "a Defensoria só pode atuar em ACP na condição de fiscal da ordem jurídica"
               ],
               correta: 1,
               explicacao: "A Lei 11.448/07 incluiu a Defensoria no rol do art. 5º da LACP, e o STF (ADI 3943) declarou a constitucionalidade dessa legitimidade. O condicionante: a atuação deve guardar pertinência com sua missão — beneficiar, ao menos em parte, grupo de pessoas necessitadas/vulneráveis. NÃO se exige que todos os beneficiados sejam hipossuficientes."
@@ -417,10 +417,10 @@ window.APP_DATA = {
               id: "tc-2", modo: "lei", fonte: "CDC, art. 103, I",
               enunciado: "Em ação coletiva sobre direitos DIFUSOS, a sentença de improcedência por INSUFICIÊNCIA DE PROVAS:",
               alternativas: [
-                "faz coisa julgada erga omnes, impedindo qualquer nova ação",
+                "faz coisa julgada erga omnes, impedindo qualquer nova ação coletiva sobre o mesmo fato",
                 "não impede que qualquer legitimado proponha nova ação, com nova prova (coisa julgada secundum eventum probationis)",
-                "só pode ser revista mediante ação rescisória",
-                "permite nova ação apenas pelo mesmo autor da primeira",
+                "só pode ser desconstituída mediante ação rescisória proposta por legitimado coletivo",
+                "permite a repropositura apenas pelo mesmo legitimado que ajuizou a primeira demanda",
                 "converte-se automaticamente em procedência após cinco anos"
               ],
               correta: 1,
@@ -430,10 +430,10 @@ window.APP_DATA = {
               id: "tc-3", modo: "lei", fonte: "CDC, art. 103, §2º; art. 94",
               enunciado: "Julgada IMPROCEDENTE a ação coletiva sobre direitos individuais homogêneos, quanto às vítimas e sucessores:",
               alternativas: [
-                "todos ficam impedidos de ajuizar ações individuais",
+                "todos ficam impedidos de ajuizar ações individuais, por força da coisa julgada erga omnes",
                 "os interessados que NÃO intervieram como litisconsortes podem propor suas ações de indenização individuais",
-                "as ações individuais em curso são automaticamente extintas",
-                "só podem demandar individualmente após ação rescisória",
+                "as ações individuais em curso são extintas sem resolução do mérito, por litispendência",
+                "só podem demandar individualmente após a desconstituição do julgado coletivo por rescisória",
                 "a improcedência os beneficia por transporte in utilibus"
               ],
               correta: 1,
@@ -443,11 +443,11 @@ window.APP_DATA = {
               id: "tc-4", modo: "juris", fonte: "STF, Tema 1075 (RE 1.101.937)",
               enunciado: "Sobre o limite territorial da coisa julgada na ACP (art. 16 da LACP, com a redação da Lei 9.494/97), o STF (Tema 1075) decidiu que:",
               alternativas: [
-                "a sentença só vale nos limites da comarca do juízo prolator",
+                "a limitação é constitucional: a sentença só vale nos limites da competência territorial do juízo prolator",
                 "o art. 16 é inconstitucional: a eficácia erga omnes da decisão não se limita à competência territorial do órgão que a proferiu",
-                "a limitação territorial vale apenas para direitos difusos",
-                "a eficácia nacional depende de homologação pelo STJ",
-                "a decisão vale somente para os associados listados na inicial"
+                "a limitação territorial subsiste apenas para os direitos difusos e coletivos em sentido estrito",
+                "a eficácia nacional depende de homologação da sentença pelo Superior Tribunal de Justiça",
+                "a decisão vale somente para os associados relacionados na petição inicial"
               ],
               correta: 1,
               explicacao: "Tema 1075 do STF: é inconstitucional o art. 16 da LACP (redação da Lei 9.494/97). A apuração da abrangência da coisa julgada se dá pelos limites objetivos e subjetivos do pedido, e não pela competência territorial do juízo — a decisão em ACP pode ter eficácia em todo o território nacional."
@@ -456,11 +456,11 @@ window.APP_DATA = {
               id: "tc-5", modo: "caso", fonte: "ADPF 347 (estado de coisas inconstitucional)",
               enunciado: "O chamado 'processo estrutural', de que a ADPF 347 (sistema prisional) é exemplo, caracteriza-se por:",
               alternativas: [
-                "resolver litígios bipolares com uma única decisão definitiva",
+                "resolver litígios bipolares entre autor e réu por meio de uma única decisão definitiva e imutável, típica do processo individual",
                 "enfrentar violações estruturais de direitos por meio de decisões flexíveis e escalonadas, com implementação supervisionada e diálogo institucional",
-                "substituir integralmente o administrador público pelo juiz",
-                "vedar a participação de amici curiae e audiências públicas",
-                "aplicar-se apenas a conflitos entre particulares"
+                "autorizar o juiz a substituir integralmente o administrador público na formulação e na execução das políticas públicas",
+                "concentrar o julgamento no gabinete do relator, vedando a participação de amici curiae e a realização de audiências públicas",
+                "aplicar-se apenas a conflitos patrimoniais entre particulares"
               ],
               correta: 1,
               explicacao: "O processo estrutural lida com litígios policêntricos, causados por falhas estruturais de políticas públicas (ex.: o 'estado de coisas inconstitucional' do sistema prisional reconhecido na ADPF 347). Trabalha com decisões em cascata (flexíveis, revisáveis), supervisão da implementação, audiências públicas e diálogo entre instituições — em vez de uma única ordem estática."
@@ -469,11 +469,11 @@ window.APP_DATA = {
               id: "tc-6", modo: "juris", fonte: "STJ, EDcl no REsp 1.712.163 (custos vulnerabilis)",
               enunciado: "A intervenção da Defensoria Pública como 'custos vulnerabilis' significa que ela:",
               alternativas: [
-                "atua apenas como curadora especial de réu revel",
+                "atua como curadora especial do réu revel citado por edital, na forma do art. 72 do CPC, e somente nessa condição",
                 "intervém de forma autônoma, em nome próprio, como guardiã dos interesses dos vulneráveis, mesmo quando as partes têm advogados constituídos",
-                "substitui obrigatoriamente o Ministério Público como fiscal da lei",
-                "só pode intervir quando nomeada pelo juiz",
-                "atua exclusivamente na esfera criminal"
+                "substitui o Ministério Público como fiscal da ordem jurídica sempre que houver vulnerável no processo",
+                "só pode intervir quando nomeada pelo juiz e se as partes não tiverem advogado constituído",
+                "atua exclusivamente na esfera criminal, em favor do acusado hipossuficiente"
               ],
               correta: 1,
               explicacao: "O STJ (EDcl no REsp 1.712.163, entre outros) admitiu a intervenção da Defensoria como custos vulnerabilis: intervenção institucional AUTÔNOMA, em nome próprio, para tutelar os interesses de grupos vulneráveis — cabível mesmo quando as partes estão representadas por advogados. Não se confunde com a curadoria especial (art. 72 do CPC) nem com o custos legis do MP. Tema transversal em todo o edital da DPE-RJ."
@@ -532,11 +532,11 @@ window.APP_DATA = {
               fonte: "CDC, art. 49",
               enunciado: "O direito de arrependimento, que permite desistir do contrato em 7 dias, aplica-se especificamente:",
               alternativas: [
-                "a qualquer compra, inclusive presencial em loja",
+                "a qualquer compra de produto durável, inclusive presencial no estabelecimento",
                 "à contratação fora do estabelecimento comercial (ex.: internet, telefone, domicílio)",
-                "somente a serviços bancários",
-                "apenas a produtos com defeito",
-                "unicamente a bens imóveis"
+                "somente aos serviços bancários e de crédito consignado",
+                "apenas aos produtos com vício ou defeito aparente",
+                "unicamente aos contratos de aquisição de bens imóveis"
               ],
               correta: 1,
               explicacao: "Art. 49 do CDC: o prazo de reflexão de 7 dias vale quando a contratação ocorre FORA do estabelecimento comercial (compras a distância — internet, telefone, a domicílio). Os valores pagos são devolvidos monetariamente atualizados."
@@ -595,11 +595,11 @@ window.APP_DATA = {
               fonte: "Súmula 608 do STJ",
               enunciado: "Sobre a aplicação do Código de Defesa do Consumidor aos planos de saúde, o STJ (Súmula 608) firmou que:",
               alternativas: [
-                "o CDC não se aplica a contratos de plano de saúde",
+                "o CDC não se aplica a contratos de plano de saúde, regidos apenas pela Lei 9.656/98",
                 "aplica-se o CDC, salvo os contratos administrados por entidades de autogestão",
-                "o CDC só se aplica aos planos individuais",
-                "aplica-se o CDC apenas após a Lei dos Planos de Saúde",
-                "aplica-se somente a Lei 9.656/98, nunca o CDC"
+                "o CDC só se aplica aos planos individuais e familiares, excluídos os coletivos",
+                "aplica-se o CDC apenas aos contratos firmados após a Lei dos Planos de Saúde",
+                "aplica-se somente a Lei 9.656/98, afastada a incidência do CDC"
               ],
               correta: 1,
               explicacao: "Súmula 608 do STJ: aplica-se o CDC aos contratos de plano de saúde, SALVO os administrados por entidades de autogestão. A autogestão é a exceção — nela não incide o CDC."
@@ -625,11 +625,11 @@ window.APP_DATA = {
               fonte: "Lei 9.656/98; Lei 14.454/2022",
               enunciado: "Quanto ao rol de procedimentos da ANS, após a Lei 14.454/2022, é correto afirmar que:",
               alternativas: [
-                "o rol é sempre taxativo, sem qualquer exceção",
+                "o rol é taxativo, vedada a cobertura de procedimentos não listados, ainda que prescritos pelo médico",
                 "o rol é referência básica, admitida a cobertura de procedimento fora dele quando preenchidos critérios legais",
-                "o rol foi extinto, cabendo ao médico definir toda cobertura",
-                "a cobertura fora do rol independe de qualquer requisito",
-                "o rol só vincula os planos coletivos"
+                "o rol foi extinto pela nova lei, cabendo exclusivamente ao médico assistente definir a cobertura",
+                "a cobertura fora do rol independe de qualquer requisito ou comprovação de eficácia",
+                "o rol só vincula os planos coletivos empresariais e por adesão"
               ],
               correta: 1,
               explicacao: "A Lei 14.454/2022 estabeleceu que o rol da ANS é referência básica (não meramente taxativo em termos absolutos): admite-se a cobertura de tratamento não listado quando houver comprovação de eficácia (à luz das ciências da saúde) ou recomendação por órgão técnico competente, preenchidos os critérios legais."
@@ -640,11 +640,11 @@ window.APP_DATA = {
               fonte: "Cobertura do TEA (tema do edital)",
               enunciado: "No tratamento do Transtorno do Espectro Autista (TEA) por planos de saúde, o entendimento consolidado é no sentido de:",
               alternativas: [
-                "limitar as sessões de terapia ao número mínimo do rol antigo",
+                "limitar as sessões de terapia ao número mínimo previsto no rol da ANS, salvo contratação ampliada",
                 "assegurar a cobertura das terapias prescritas, vedada a limitação do número de sessões",
-                "excluir a cobertura de métodos como ABA",
-                "condicionar a cobertura à idade do beneficiário",
-                "transferir o custo integral ao poder público"
+                "excluir a cobertura de métodos sem previsão contratual expressa, como o ABA",
+                "condicionar a cobertura à idade do beneficiário e ao grau de suporte",
+                "transferir o custo integral do tratamento ao poder público"
               ],
               correta: 1,
               explicacao: "A ANS afastou o limite de sessões para as terapias de beneficiários com TEA, e a jurisprudência assegura a cobertura das terapias multidisciplinares prescritas pelo médico assistente (ex.: método ABA), sendo abusiva a limitação quantitativa. Tema expressamente citado no edital da DPE-RJ."
@@ -700,11 +700,11 @@ window.APP_DATA = {
               id: "emp-2", modo: "lei", fonte: "CC, art. 899, §2º",
               enunciado: "Sobre a natureza do aval em relação à obrigação avalizada, é correto afirmar que o aval:",
               alternativas: [
-                "é acessório e segue a sorte da obrigação avalizada em todos os casos",
+                "é acessório e segue a sorte da obrigação avalizada, inclusive quanto às causas de nulidade",
                 "é autônomo: subsiste ainda que nula a obrigação avalizada, salvo se a nulidade decorrer de vício de forma",
-                "só é válido se a obrigação principal for válida",
-                "admite benefício de ordem, como a fiança",
-                "depende de instrumento contratual apartado"
+                "só é válido se a obrigação principal for válida e exigível ao tempo do vencimento",
+                "admite benefício de ordem em favor do avalista, tal como ocorre na fiança",
+                "depende de instrumento contratual apartado, com poderes especiais"
               ],
               correta: 1,
               explicacao: "Art. 899, §2º, do CC: subsiste a responsabilidade do avalista ainda que nula a obrigação avalizada, salvo se a nulidade for por vício de forma. É a autonomia do aval — diferente da fiança, que é acessória e admite benefício de ordem."
@@ -726,11 +726,11 @@ window.APP_DATA = {
               id: "emp-4", modo: "lei", fonte: "Lei 8.245/91, art. 51, §5º",
               enunciado: "A ação renovatória do contrato de locação empresarial (Lei 8.245/91) deve ser proposta:",
               alternativas: [
-                "a qualquer tempo durante a vigência do contrato",
+                "a qualquer tempo durante a vigência do contrato, desde que comprovado o ponto empresarial",
                 "no interregno de um ano, no máximo, até seis meses, no mínimo, anteriores ao fim do prazo do contrato",
-                "somente após o término do contrato",
-                "até 30 dias antes do fim do contrato",
-                "no máximo até dois anos antes do fim do contrato"
+                "somente após o término do prazo contratual, no prazo decadencial de seis meses",
+                "até 30 dias antes do fim do contrato, mediante notificação extrajudicial prévia",
+                "no máximo até dois anos antes do fim do prazo do contrato em vigor"
               ],
               correta: 1,
               explicacao: "Art. 51, §5º, da Lei 8.245/91: a renovatória deve ser proposta no interregno de um ano, no máximo, até seis meses, no mínimo, anteriores à finalização do prazo do contrato em vigor. É prazo DECADENCIAL — perde-se o direito à renovação se não observado."
@@ -739,11 +739,11 @@ window.APP_DATA = {
               id: "emp-5", modo: "lei", fonte: "Lei 8.245/91, art. 51",
               enunciado: "Entre os requisitos do direito à renovação compulsória (art. 51 da Lei 8.245/91), o contrato a renovar deve ser escrito, por prazo determinado, e o prazo mínimo (somados os contratos sucessivos) deve ser de:",
               alternativas: [
-                "1 ano",
+                "3 anos ininterruptos",
                 "5 anos ininterruptos",
-                "10 anos",
-                "2 anos",
-                "6 meses"
+                "10 anos consecutivos",
+                "2 anos ininterruptos",
+                "18 meses consecutivos"
               ],
               correta: 1,
               explicacao: "Art. 51 da Lei 8.245/91: exige-se contrato escrito e por prazo determinado, prazo mínimo do contrato (ou soma dos contratos escritos e sucessivos) de 5 anos, e exploração do mesmo ramo pelo prazo mínimo de 3 anos (accessio temporis)."
@@ -752,11 +752,11 @@ window.APP_DATA = {
               id: "emp-6", modo: "lei", fonte: "Lei 11.101/05, arts. 83 e 84",
               enunciado: "Na falência (Lei 11.101/05), qual crédito ocupa o primeiro lugar na ordem de classificação dos créditos CONCURSAIS?",
               alternativas: [
-                "os créditos com garantia real",
+                "os créditos com garantia real, até o limite do valor do bem gravado, qualquer que seja o montante",
                 "os créditos trabalhistas (até 150 salários mínimos por credor) e os decorrentes de acidente de trabalho",
-                "os créditos tributários",
-                "os créditos quirografários",
-                "as multas contratuais e penas pecuniárias"
+                "os créditos tributários, independentemente da natureza e do tempo de constituição",
+                "os créditos quirografários de fornecedores essenciais à atividade do falido",
+                "as multas contratuais e as penas pecuniárias, dada a sua natureza sancionatória"
               ],
               correta: 1,
               explicacao: "Art. 83 da Lei 11.101/05: entre os concursais, vêm primeiro os créditos trabalhistas (limitados a 150 salários mínimos por credor) e os de acidente de trabalho; depois os com garantia real (até o limite do bem), os tributários e assim por diante. Antes de todos eles, porém, pagam-se os créditos EXTRACONCURSAIS (art. 84)."
@@ -784,11 +784,11 @@ window.APP_DATA = {
               id: "inf-1", modo: "lei", fonte: "ECA, art. 4º; CF, art. 227",
               enunciado: "O princípio da prioridade absoluta (art. 4º do ECA e art. 227 da CF) assegura à criança e ao adolescente:",
               alternativas: [
-                "atendimento apenas quando houver recursos orçamentários disponíveis",
+                "atendimento preferencial condicionado à disponibilidade orçamentária e à reserva do possível",
                 "primazia em receber proteção e socorro, precedência no atendimento e preferência na formulação de políticas e na destinação de recursos",
-                "prioridade somente na área da saúde",
-                "atendimento igual ao dos adultos, sem preferência",
-                "prioridade apenas quando já em situação de risco"
+                "prioridade restrita às áreas de saúde e educação, núcleo essencial dos direitos sociais",
+                "atendimento em igualdade de condições com os demais grupos vulneráveis, sem precedência",
+                "prioridade apenas quando já configurada situação de risco reconhecida pelo Conselho Tutelar"
               ],
               correta: 1,
               explicacao: "Art. 4º, parágrafo único, do ECA: a prioridade absoluta compreende a primazia em receber proteção e socorro, a precedência no atendimento nos serviços públicos, a preferência na formulação de políticas sociais e a destinação privilegiada de recursos. Decorre da doutrina da proteção integral (art. 227 da CF)."
@@ -797,11 +797,11 @@ window.APP_DATA = {
               id: "inf-2", modo: "caso", fonte: "ECA, arts. 131 e 136",
               enunciado: "Sobre o Conselho Tutelar, é correto afirmar que:",
               alternativas: [
-                "é órgão do Poder Judiciário, com função jurisdicional",
+                "é órgão auxiliar do Poder Judiciário, com função jurisdicional na aplicação de medidas protetivas",
                 "é órgão permanente e autônomo, NÃO jurisdicional, encarregado de zelar pelos direitos da criança e do adolescente",
-                "substitui o juiz na aplicação de medida de internação",
-                "tem atribuição para decretar a destituição do poder familiar",
-                "é composto por membros nomeados livremente pelo prefeito"
+                "pode aplicar, inclusive, a medida socioeducativa de internação em caso de ato infracional grave",
+                "tem atribuição para decretar, de ofício, a destituição do poder familiar dos pais negligentes",
+                "é composto por membros de livre nomeação e exoneração pelo chefe do Executivo municipal"
               ],
               correta: 1,
               explicacao: "Art. 131 do ECA: o Conselho Tutelar é órgão permanente e autônomo, NÃO jurisdicional. Seus membros são eleitos (art. 139). Medidas como internação e destituição do poder familiar são de competência do Judiciário, não do Conselho — que aplica medidas de proteção e requisita serviços."
@@ -810,11 +810,11 @@ window.APP_DATA = {
               id: "inf-3", modo: "caso", fonte: "ECA, arts. 39, 41 e 45",
               enunciado: "Quanto à adoção no ECA, é correto afirmar que ela:",
               alternativas: [
-                "é revogável a qualquer tempo pelos adotantes",
+                "é revogável enquanto o adotado for menor de idade, desde que atendido o seu melhor interesse",
                 "é medida excepcional e irrevogável, atribui a condição de filho e desliga o adotado dos vínculos com pais e parentes, salvo os impedimentos matrimoniais",
-                "mantém os vínculos com a família biológica para fins sucessórios",
-                "pode ser realizada por procuração",
-                "dispensa o consentimento do adotando maior de 12 anos"
+                "mantém os vínculos com a família biológica para fins sucessórios e alimentares, extinguindo apenas o poder familiar",
+                "pode ser realizada por procuração com poderes especiais, se os adotantes residirem no exterior",
+                "dispensa o consentimento do adotando maior de 12 anos, suprido pela vontade dos adotantes"
               ],
               correta: 1,
               explicacao: "A adoção é medida excepcional e irrevogável (art. 39, §1º), atribui a condição de filho (art. 41) e rompe os vínculos com pais e parentes, salvo os impedimentos matrimoniais. É vedada por procuração (art. 39, §2º) e exige o consentimento do adolescente maior de 12 anos (art. 45, §2º)."
@@ -823,11 +823,11 @@ window.APP_DATA = {
               id: "inf-4", modo: "caso", fonte: "ECA, art. 101, §1º",
               enunciado: "O acolhimento institucional, como medida de proteção, caracteriza-se por ser:",
               alternativas: [
-                "medida definitiva e prioritária em relação à família",
+                "medida definitiva de proteção, prioritária em relação à reintegração à família de origem",
                 "medida provisória e excepcional, como transição para a reintegração familiar ou colocação em família substituta",
-                "aplicável só pelo Conselho Tutelar, sem controle judicial",
-                "cabível por prazo indeterminado e sem reavaliação",
-                "equivalente à perda automática do poder familiar"
+                "aplicável diretamente pelo Conselho Tutelar, independentemente de controle judicial posterior",
+                "cabível por prazo indeterminado, com reavaliação facultativa a critério da equipe técnica",
+                "equivalente à perda automática do poder familiar dos genitores"
               ],
               correta: 1,
               explicacao: "Art. 101, §1º, do ECA: o acolhimento institucional é medida PROVISÓRIA e EXCEPCIONAL, usada como forma de transição para a reintegração familiar ou, não sendo possível, colocação em família substituta. A situação deve ser reavaliada no máximo a cada 3 meses (art. 19, §1º), e não implica privação de liberdade."
@@ -886,11 +886,11 @@ window.APP_DATA = {
               id: "pp-1", modo: "juris", fonte: "STJ, Tema 1258",
               enunciado: "A vítima reconheceu o acusado apenas por uma foto exibida na delegacia, sem que se observasse o procedimento do art. 226 do CPP. Segundo o STJ (Tema 1258), esse reconhecimento:",
               alternativas: [
-                "é válido, pois o art. 226 do CPP é mera recomendação",
+                "é válido, pois o art. 226 do CPP traz mera recomendação, sujeita à livre valoração judicial",
                 "é inválido e não serve de lastro para a condenação nem para a prisão preventiva ou a pronúncia",
-                "vale para fundamentar a prisão preventiva, mas não a condenação",
-                "é válido desde que ratificado em juízo pela mesma vítima",
-                "só é nulo se a defesa comprovar prejuízo concreto"
+                "vale para fundamentar a prisão preventiva e o recebimento da denúncia, mas não a condenação",
+                "é válido desde que ratificado em juízo pela mesma vítima, ainda que sem novas provas",
+                "só é nulo se a defesa comprovar prejuízo concreto e arguir o vício na primeira oportunidade"
               ],
               correta: 1,
               explicacao: "Tema 1258 do STJ: as regras do art. 226 do CPP são de observância obrigatória, no inquérito e em juízo. O reconhecimento fotográfico/pessoal inválido não pode servir de lastro à condenação nem a decisões de menor rigor probatório (prisão preventiva, recebimento da denúncia, pronúncia)."
@@ -938,11 +938,11 @@ window.APP_DATA = {
               id: "pp-5", modo: "juris", fonte: "STF, Tema 1087 (Júri)",
               enunciado: "No Tribunal do Júri, os jurados absolvem o réu por quesito genérico (tese de clemência constante em ata). O MP apela sustentando decisão manifestamente contrária à prova. Segundo o STF (Tema 1087):",
               alternativas: [
-                "não cabe apelação, pois a absolvição pelo júri é soberana e imotivada",
-                "cabe a apelação (art. 593, III, 'd'), mas o tribunal não determinará novo júri quando a tese de clemência acolhida for compatível com a Constituição e os precedentes",
-                "o tribunal deve sempre determinar novo júri, por força da soberania dos veredictos",
-                "cabe recurso em sentido estrito, e não apelação",
-                "a absolvição por clemência é sempre nula"
+                "não cabe qualquer recurso, pois a absolvição por quesito genérico é soberana, imotivada e insuscetível de revisão",
+                "cabe a apelação (art. 593, III, 'd'), mas não haverá novo júri se a tese de clemência acolhida for compatível com a Constituição e os precedentes",
+                "o tribunal deve sempre determinar novo júri, pois a soberania dos veredictos não alcança decisão contrária à prova",
+                "cabe recurso em sentido estrito, e não apelação, por se tratar de decisão do conselho de sentença",
+                "a absolvição por clemência é sempre nula, por ausência de fundamentação"
               ],
               correta: 1,
               explicacao: "Tema 1087 do STF: cabe apelação (art. 593, III, 'd', do CPP) quando a decisão do júri, amparada em quesito genérico, for tida como manifestamente contrária à prova. Contudo, o tribunal não determinará novo júri quando houver, em ata, tese de clemência acolhida pelos jurados que seja compatível com a Constituição, os precedentes vinculantes do STF e as circunstâncias fáticas."
@@ -951,11 +951,11 @@ window.APP_DATA = {
               id: "pp-6", modo: "juris", fonte: "STF, Súmula Vinculante 14",
               enunciado: "O defensor requer acesso aos elementos de prova já documentados em investigação conduzida pela polícia judiciária. Conforme a Súmula Vinculante 14:",
               alternativas: [
-                "o acesso pode ser negado durante toda a investigação, por sigilo",
+                "o acesso pode ser negado enquanto durar a investigação, por força do sigilo do inquérito",
                 "é direito do defensor ter acesso amplo aos elementos de prova já documentados que digam respeito à defesa",
-                "o acesso depende de autorização do Ministério Público",
-                "o defensor só acessa após o oferecimento da denúncia",
-                "o acesso restringe-se às diligências ainda em andamento"
+                "o acesso depende de prévia autorização do Ministério Público, presidente da investigação",
+                "o defensor só tem acesso aos autos após o oferecimento da denúncia",
+                "o acesso restringe-se às diligências ainda em andamento, não documentadas"
               ],
               correta: 1,
               explicacao: "Súmula Vinculante 14 do STF: é direito do defensor, no interesse do representado, ter acesso amplo aos elementos de prova que, já documentados em procedimento investigatório de órgão com competência de polícia judiciária, digam respeito ao exercício do direito de defesa. Não alcança diligências em andamento ainda não documentadas."
@@ -970,11 +970,11 @@ window.APP_DATA = {
               id: "ppp-1", modo: "juris", fonte: "STF, Tema 998",
               enunciado: "Em visita social a estabelecimento prisional, realiza-se revista íntima vexatória, com desnudamento do visitante. Segundo o STF (Tema 998):",
               alternativas: [
-                "a revista é válida como medida de segurança de rotina",
+                "a revista é válida como medida de rotina, justificada pela segurança do estabelecimento prisional",
                 "a revista íntima vexatória é inadmissível e a prova assim obtida é ilícita, salvo decisão judicial no caso concreto",
-                "a revista é lícita se houver mero consentimento verbal do visitante",
-                "a prova obtida é sempre válida, por interesse público",
-                "o desnudamento é permitido para qualquer visitante maior de idade"
+                "a revista é lícita se houver mero consentimento verbal do visitante no momento do ingresso",
+                "a prova obtida é válida, pois o interesse público de segurança prevalece sobre a intimidade",
+                "o desnudamento é permitido para qualquer visitante maior e capaz de consentir"
               ],
               correta: 1,
               explicacao: "Tema 998 do STF: é inadmissível a revista íntima vexatória, com desnudamento ou exames invasivos destinados a humilhar; a prova assim obtida é ilícita. Determinou-se a instalação de scanners corporais e, na impossibilidade, revista motivada, em local adequado, sem exposição humilhante."
@@ -983,11 +983,11 @@ window.APP_DATA = {
               id: "ppp-2", modo: "juris", fonte: "STF, Tema 280",
               enunciado: "A polícia ingressa em domicílio sem mandado, alegando flagrante de tráfico. Conforme o STF (Tema 280), a entrada forçada é lícita apenas quando:",
               alternativas: [
-                "houver mera denúncia anônima, dispensada qualquer justificativa",
+                "houver denúncia anônima específica, dispensada qualquer outra justificativa posterior",
                 "amparada em fundadas razões, justificadas a posteriori, que indiquem situação de flagrante dentro da casa",
-                "for realizada em período diurno, independentemente de motivo",
-                "houver autorização verbal de vizinhos",
-                "o morador não estiver presente no imóvel"
+                "for realizada em período diurno, independentemente da demonstração de motivo",
+                "houver autorização verbal de vizinhos ou do síndico do condomínio",
+                "o morador não estiver presente no imóvel no momento da diligência"
               ],
               correta: 1,
               explicacao: "Tema 280 do STF: a entrada forçada em domicílio sem mandado, mesmo à noite, só é lícita quando amparada em fundadas razões — justificadas a posteriori — que indiquem flagrante delito no interior da casa, sob pena de responsabilidade do agente e de nulidade das provas."
@@ -1009,11 +1009,11 @@ window.APP_DATA = {
               id: "ppp-4", modo: "juris", fonte: "STF, Tema 661",
               enunciado: "Sobre as sucessivas renovações de interceptação telefônica, o STF (Tema 661) firmou que:",
               alternativas: [
-                "são vedadas após a primeira prorrogação",
+                "são vedadas após a primeira prorrogação, dado o prazo máximo legal de 30 dias",
                 "são lícitas, desde que verificados os requisitos legais e a decisão e as prorrogações sejam devidamente motivadas",
-                "dispensam decisão judicial a partir da segunda renovação",
-                "só valem por 15 dias improrrogáveis",
-                "independem de demonstração de necessidade"
+                "dispensam nova decisão judicial a partir da segunda renovação, bastando o requerimento policial",
+                "só valem por 15 dias improrrogáveis, contados da efetivação da medida",
+                "independem de demonstração de necessidade quando se tratar de crime hediondo"
               ],
               correta: 1,
               explicacao: "Tema 661 do STF: são lícitas as sucessivas renovações de interceptação telefônica, desde que verificados os requisitos do art. 2º da Lei 9.296/96 e demonstrada a necessidade da medida, com a decisão inicial e as prorrogações devidamente motivadas, ainda que de forma sucinta."
@@ -1041,11 +1041,11 @@ window.APP_DATA = {
               id: "ep-1", modo: "juris", fonte: "STF, Tema 423 e SV 58",
               enunciado: "O apenado obtém progressão ao regime semiaberto, mas não há vaga em estabelecimento adequado. Conforme o STF (Tema 423 e Súmula Vinculante 58):",
               alternativas: [
-                "deve permanecer no regime fechado até surgir vaga",
+                "deve permanecer no regime fechado até surgir vaga em estabelecimento adequado",
                 "a falta de estabelecimento penal adequado não autoriza mantê-lo em regime mais gravoso",
-                "a progressão fica suspensa por prazo indeterminado",
-                "cabe apenas indenização, mantido o regime fechado",
-                "deve ser transferido para presídio federal"
+                "a progressão fica suspensa até a comprovação de vaga, sem direito a medidas alternativas",
+                "cabe apenas indenização pelos danos, mantido o cumprimento no regime mais gravoso",
+                "deve ser transferido para estabelecimento penal federal de segurança máxima"
               ],
               correta: 1,
               explicacao: "SV 58 e Tema 423 do STF: a falta de estabelecimento penal adequado não autoriza a manutenção do condenado em regime mais gravoso. Havendo déficit de vagas, admitem-se medidas como saída antecipada, monitoração eletrônica ou prisão domiciliar."
@@ -1067,11 +1067,11 @@ window.APP_DATA = {
               id: "ep-3", modo: "juris", fonte: "STJ, Tema 1357",
               enunciado: "O condenado é aprovado no ENEM (ou ENCCEJA), com certificação de conclusão do ensino médio. Segundo o STJ (Tema 1357):",
               alternativas: [
-                "não há remição, pois não houve frequência a curso",
+                "não há remição, pois a lei exige a frequência efetiva a curso de ensino formal",
                 "é cabível a remição da pena, pois a aprovação configura esforço educacional apto a remir",
-                "a remição depende de trabalho concomitante",
-                "a remição só cabe no regime aberto",
-                "a remição é vedada a reincidentes"
+                "a remição depende de atividade laborativa concomitante ao estudo autônomo",
+                "a remição por estudo só é cabível nos regimes aberto e de livramento condicional",
+                "a remição é vedada aos reincidentes e aos condenados por crime hediondo"
               ],
               correta: 1,
               explicacao: "Tema 1357 do STJ: é cabível a remição da pena pela aprovação no ENEM ou no ENCCEJA com certificação do ensino médio, pois configura esforço educacional autônomo apto a justificar a remição, independentemente de frequência formal a curso."
@@ -1080,11 +1080,11 @@ window.APP_DATA = {
               id: "ep-4", modo: "juris", fonte: "STF, Tema 941",
               enunciado: "A prática de falta grave é apurada em audiência de justificação, na presença do defensor e do Ministério Público. Conforme o STF (Tema 941):",
               alternativas: [
-                "ainda assim é indispensável a instauração prévia de PAD",
+                "ainda assim é indispensável o prévio PAD instaurado pelo diretor do estabelecimento prisional",
                 "a oitiva em audiência de justificação afasta a necessidade de prévio PAD e supre eventual deficiência de defesa técnica",
-                "a audiência não substitui o PAD em nenhuma hipótese",
-                "o PAD só é dispensável se o apenado confessar",
-                "a competência para apurar é exclusiva da autoridade administrativa"
+                "a audiência não substitui o PAD, sob pena de nulidade do reconhecimento da falta",
+                "o PAD só é dispensável se o apenado confessar a falta na presença do defensor",
+                "a competência para apurar é exclusiva da autoridade administrativa penitenciária"
               ],
               correta: 1,
               explicacao: "Tema 941 do STF: a oitiva do condenado pelo Juízo da Execução, em audiência de justificação com defensor e MP, afasta a necessidade de prévio Procedimento Administrativo Disciplinar (PAD) e supre eventual ausência ou insuficiência de defesa técnica no PAD."
@@ -1094,10 +1094,10 @@ window.APP_DATA = {
               enunciado: "Condenado por crime hediondo sem resultado morte, reincidente não específico, requer progressão de regime. Conforme o STJ (Tema 1169), aplica-se o percentual de:",
               alternativas: [
                 "60% (inciso VII do art. 112 da LEP)",
-                "40% (inciso V), por analogia in bonam partem, diante da omissão legislativa",
-                "50% (inciso VI)",
-                "70% (inciso VIII)",
-                "16% (inciso I)"
+                "40% (inciso V), por analogia in bonam partem",
+                "50% (inciso VI do art. 112 da LEP)",
+                "70% (inciso VIII do art. 112 da LEP)",
+                "16% (inciso I do art. 112 da LEP)"
               ],
               correta: 1,
               explicacao: "Tema 1169 do STJ: a Lei 13.964/19 não previu percentual para o reincidente NÃO específico em crime hediondo sem morte. Diante da omissão e da legalidade penal, impõe-se a analogia in bonam partem, aplicando-se (inclusive retroativamente) o inciso V do art. 112 da LEP — lapso de 40%."
@@ -1106,11 +1106,11 @@ window.APP_DATA = {
               id: "ep-6", modo: "juris", fonte: "STJ, Súmula 533",
               enunciado: "Para reconhecer a prática de falta disciplinar na execução penal, a Súmula 533 do STJ exige:",
               alternativas: [
-                "apenas a comunicação verbal ao apenado",
+                "apenas a comunicação formal da falta ao apenado, com registro no prontuário",
                 "instauração de procedimento administrativo pelo diretor, com defesa por advogado ou defensor",
-                "sentença penal condenatória transitada em julgado",
-                "decisão do juízo, dispensada a defesa",
-                "mera anotação no prontuário do preso"
+                "sentença penal condenatória transitada em julgado, quando a falta constituir crime",
+                "decisão fundamentada do juízo da execução, dispensada a defesa técnica",
+                "mera anotação da ocorrência no prontuário disciplinar do preso"
               ],
               correta: 1,
               explicacao: "Súmula 533 do STJ: para o reconhecimento de falta disciplinar é imprescindível a instauração de procedimento administrativo pelo diretor do estabelecimento, assegurado o direito de defesa, a ser exercido por advogado constituído ou defensor público nomeado."
@@ -1138,11 +1138,11 @@ window.APP_DATA = {
               id: "epp-2", modo: "juris", fonte: "STJ; LEP arts. 50, VI e 39, V",
               enunciado: "O apenado rompe a tornozeleira eletrônica de monitoração. Conforme a jurisprudência do STJ:",
               alternativas: [
-                "não há qualquer consequência disciplinar",
+                "não há consequência disciplinar, por ausência de previsão legal expressa",
                 "configura falta grave (arts. 50, VI, e 39, V, da LEP), sujeitando-o inclusive à regressão",
-                "acarreta automaticamente a extinção da pena",
-                "é mera irregularidade administrativa",
-                "gera apenas advertência escrita, sem outras consequências"
+                "acarreta automaticamente a regressão definitiva de regime, dispensada a oitiva do apenado",
+                "é mera irregularidade administrativa, sanável com a reposição do equipamento",
+                "gera apenas advertência escrita, sem repercussão nos benefícios da execução"
               ],
               correta: 1,
               explicacao: "O STJ entende que o rompimento da tornozeleira, o descarregamento da bateria e a inobservância do perímetro configuram falta grave (arts. 50, VI, e 39, V, da LEP). A Lei 14.843/24 ampliou as hipóteses de monitoração e as consequências facultativas da violação, a critério do juízo da execução."
@@ -1151,11 +1151,11 @@ window.APP_DATA = {
               id: "epp-3", modo: "juris", fonte: "STJ, Inf. 872/25; STF, HC 183.610",
               enunciado: "Apenada mãe de criança pequena, condenada por associação para o tráfico, requer a progressão especial de regime (1/8 da pena, art. 112, §3º, da LEP). Conforme o STJ, a vedação de 'não ter integrado organização criminosa':",
               alternativas: [
-                "abrange também a associação para o tráfico, impedindo o benefício",
+                "abrange também a associação para o tráfico e a associação criminosa, por serem crimes de concurso necessário",
                 "restringe-se à organização criminosa da Lei 12.850/13, não alcançando a associação para o tráfico, sob pena de analogia in malam partem",
-                "impede o benefício a qualquer condenada por tráfico",
-                "só se aplica a apenados do sexo masculino",
-                "foi revogada pela Lei 13.769/18"
+                "impede o benefício a qualquer condenada por tráfico, dada a gravidade abstrata do delito",
+                "só se aplica aos apenados do sexo masculino, por interpretação sistemática",
+                "foi revogada tacitamente pela Lei 13.769/18, que instituiu a progressão especial"
               ],
               correta: 1,
               explicacao: "STJ (Inf. 872/25) e STF (HC 183.610): a vedação do art. 112, §3º, V, da LEP restringe-se à condenação por organização criminosa (Lei 12.850/13), não alcançando a associação criminosa (art. 288 do CP) nem a associação para o tráfico (art. 35 da Lei 11.343/06), sob pena de analogia in malam partem."
@@ -1164,11 +1164,11 @@ window.APP_DATA = {
               id: "epp-4", modo: "juris", fonte: "STJ, Inf. 872/25",
               enunciado: "O apenado foi preso preventivamente, solto em liberdade provisória e, depois, preso para cumprir a pena definitiva. Conforme o entendimento majoritário do STJ, a data-base para benefícios da execução é:",
               alternativas: [
-                "a data da primeira prisão preventiva",
+                "a data da primeira prisão preventiva, ainda que seguida de liberdade provisória, computado todo o intervalo",
                 "a data da última prisão (para cumprimento da pena), computando-se o período cautelar apenas para detração",
-                "a data do trânsito em julgado da condenação",
-                "a data do fato criminoso",
-                "a data do oferecimento da denúncia"
+                "a data do trânsito em julgado da condenação para ambas as partes, marco da pretensão executória",
+                "a data do fato criminoso, por aplicação da lei penal mais benéfica",
+                "a data do oferecimento da denúncia pelo Ministério Público"
               ],
               correta: 1,
               explicacao: "STJ (Inf. 872/25): a data-base para concessão de benefícios na execução é a da última prisão efetiva, quando houve liberdade provisória entre a prisão cautelar e o cumprimento definitivo. O período cautelar conta apenas para detração. (Há tese contrária da Defensoria, mais benéfica, que adota a prisão cautelar como marco.)"
@@ -1196,11 +1196,11 @@ window.APP_DATA = {
               id: "pe-1", modo: "juris", fonte: "STF, Súmula Vinculante 63",
               enunciado: "O réu é condenado por tráfico privilegiado (art. 33, §4º, da Lei 11.343/06). Conforme a Súmula Vinculante 63 do STF:",
               alternativas: [
-                "o crime é hediondo, com progressão mais rigorosa",
+                "o crime é hediondo, sujeitando-se aos lapsos mais rigorosos de progressão de regime",
                 "o tráfico privilegiado não é hediondo, afastando os parâmetros mais rigorosos de progressão e livramento",
-                "o crime é hediondo apenas para fins de livramento condicional",
-                "a natureza hedionda depende da quantidade de droga",
-                "o benefício exige trânsito em julgado para reconhecimento"
+                "o crime é hediondo apenas para fins de livramento condicional e indulto",
+                "a natureza hedionda depende da quantidade e da natureza da droga apreendida",
+                "o benefício exige o trânsito em julgado da condenação para ser reconhecido"
               ],
               correta: 1,
               explicacao: "Súmula Vinculante 63 do STF: o tráfico privilegiado (art. 33, §4º, da Lei 11.343/06) não configura crime hediondo, afastando-se os parâmetros mais rigorosos de progressão de regime e de livramento condicional."
@@ -1209,11 +1209,11 @@ window.APP_DATA = {
               id: "pe-2", modo: "juris", fonte: "STJ, Súmulas 589 e 600",
               enunciado: "Em crime praticado contra a mulher no âmbito das relações domésticas, a defesa invoca o princípio da insignificância. Conforme a Súmula 589 do STJ:",
               alternativas: [
-                "aplica-se a insignificância se o dano for pequeno",
+                "aplica-se a insignificância se o dano patrimonial for de pequeno valor e a vítima não desejar a persecução",
                 "é inaplicável o princípio da insignificância a crimes ou contravenções contra a mulher no âmbito doméstico",
-                "a insignificância depende de perícia do prejuízo",
-                "aplica-se somente se houver reconciliação do casal",
-                "aplica-se se a vítima não oferecer representação"
+                "a insignificância depende de perícia que ateste a inexpressividade do prejuízo causado",
+                "aplica-se quando houver reconciliação do casal e reparação integral do dano antes da denúncia",
+                "aplica-se se a vítima deixar de oferecer representação no prazo legal"
               ],
               correta: 1,
               explicacao: "Súmula 589 do STJ: é inaplicável o princípio da insignificância aos crimes ou contravenções praticados contra a mulher no âmbito das relações domésticas. Lembre ainda a Súmula 600: a violência doméstica não exige coabitação entre autor e vítima."
@@ -1235,11 +1235,11 @@ window.APP_DATA = {
               id: "pe-4", modo: "juris", fonte: "STJ, Tema 1249",
               enunciado: "Sobre as medidas protetivas de urgência (MPUs) da Lei Maria da Penha, o STJ (Tema 1249) fixou que elas:",
               alternativas: [
-                "só valem enquanto tramitar inquérito ou ação penal",
+                "só valem enquanto tramitar inquérito ou ação penal, extinguindo-se automaticamente com o arquivamento",
                 "têm natureza de tutela inibitória, não se subordinam a inquérito/processo e vigoram por prazo indeterminado enquanto persistir o risco",
-                "caducam automaticamente em seis meses",
-                "extinguem-se necessariamente com o arquivamento do inquérito",
-                "dependem sempre de boletim de ocorrência"
+                "caducam automaticamente em seis meses, salvo prorrogação expressa pelo juízo competente",
+                "extinguem-se necessariamente com a absolvição do acusado ou o arquivamento do inquérito",
+                "dependem sempre de boletim de ocorrência prévio e de revisão judicial obrigatória a cada seis meses"
               ],
               correta: 1,
               explicacao: "Tema 1249 do STJ: as MPUs têm natureza de tutela inibitória; sua vigência não se subordina à existência (atual ou futura) de BO, inquérito ou processo, e devem ser fixadas por prazo indeterminado, vinculadas à persistência da situação de risco. A absolvição ou o arquivamento não acarreta, por si, sua extinção."
@@ -1261,11 +1261,11 @@ window.APP_DATA = {
               id: "pe-6", modo: "juris", fonte: "STJ, Súmula 593",
               enunciado: "Quanto ao estupro de vulnerável (vítima menor de 14 anos), a Súmula 593 do STJ afirma que o crime se configura:",
               alternativas: [
-                "somente se houver violência ou grave ameaça",
-                "com a conjunção carnal ou ato libidinoso com menor de 14 anos, sendo irrelevante o consentimento, a experiência sexual anterior ou o relacionamento com o agente",
-                "apenas se a vítima não tiver experiência sexual anterior",
-                "salvo se houver namoro entre vítima e agente",
-                "somente mediante representação da vítima"
+                "somente se comprovada violência real ou grave ameaça, aferidas conforme as circunstâncias concretas do caso",
+                "com a conjunção carnal ou ato libidinoso com menor de 14 anos, sendo irrelevantes o consentimento e a experiência anterior da vítima",
+                "apenas se a vítima não tiver experiência sexual anterior nem discernimento para consentir",
+                "salvo se comprovado relacionamento amoroso entre vítima e agente, que afasta a vulnerabilidade",
+                "somente mediante representação da vítima ou de seu representante legal"
               ],
               correta: 1,
               explicacao: "Súmula 593 do STJ: o estupro de vulnerável configura-se com a conjunção carnal ou prática de ato libidinoso com menor de 14 anos, sendo irrelevante eventual consentimento da vítima, sua experiência sexual anterior ou a existência de relacionamento amoroso com o agente."
@@ -1280,11 +1280,11 @@ window.APP_DATA = {
               id: "pep-1", modo: "juris", fonte: "STJ, Inf. 860/25; CP art. 30",
               enunciado: "'A' contrata 'B', mediante paga, para matar 'C'. Sobre a qualificadora da paga ou promessa de recompensa (art. 121, §2º, I, do CP), o STJ entende que ela:",
               alternativas: [
-                "comunica-se automaticamente ao mandante",
+                "comunica-se automaticamente ao mandante, por integrar a descrição típica do homicídio mercenário",
                 "não se comunica automaticamente ao mandante, por ser circunstância de caráter pessoal/subjetiva (art. 30 do CP)",
-                "aplica-se apenas ao mandante, nunca ao executor",
-                "é elementar do tipo, comunicando-se sempre",
-                "torna o crime de competência do juiz singular"
+                "aplica-se apenas ao mandante, nunca ao executor que recebeu o pagamento",
+                "é elementar do crime e, por isso, comunica-se sempre a todos os concorrentes",
+                "torna o crime de competência do juiz singular, afastando o Tribunal do Júri"
               ],
               correta: 1,
               explicacao: "STJ (Inf. 860/25): a qualificadora da paga ou promessa de recompensa não é elementar do homicídio, mas circunstância de caráter subjetivo. Por força do art. 30 do CP, não se comunica automaticamente ao mandante — só incide sobre ele se comprovado motivo pessoal torpe próprio."
@@ -1293,11 +1293,11 @@ window.APP_DATA = {
               id: "pep-2", modo: "juris", fonte: "STJ, Inf. 887/26; CPP art. 207",
               enunciado: "Uma médica comunica à polícia que sua paciente teria provocado o próprio aborto, dando origem à ação penal. Conforme o STJ:",
               alternativas: [
-                "a prova é lícita, pois o médico tem o dever de comunicar crimes",
+                "a prova é lícita, pois o médico tem o dever legal de comunicar crimes de que tenha conhecimento",
                 "a prova é ilícita por violação do sigilo profissional (art. 207 do CPP), contaminando as provas derivadas",
-                "a prova é válida se houver posterior confirmação pericial",
-                "o sigilo médico não se aplica a crimes contra a vida",
-                "cabe apenas nulidade relativa, dependente de prova de prejuízo"
+                "a prova é válida se houver posterior confirmação por perícia independente",
+                "o sigilo médico não se aplica aos crimes contra a vida, por ponderação de interesses",
+                "cabe apenas nulidade relativa, dependente da comprovação de prejuízo concreto"
               ],
               correta: 1,
               explicacao: "STJ (Inf. 887/26 e Ed. Extraordinária 24/25): a comunicação de fatos protegidos pelo sigilo médico — notadamente em casos de aborto — é prova ilícita (art. 207 do CPP; art. 5º, LVI, da CF) e contamina por derivação as provas subsequentes (teoria dos frutos da árvore envenenada), levando ao trancamento/impronúncia."
@@ -1306,11 +1306,11 @@ window.APP_DATA = {
               id: "pep-3", modo: "juris", fonte: "STJ, Inf. Ed. Extraordinária 30/26",
               enunciado: "A qualificadora do homicídio pelo emprego de arma de fogo de uso restrito ou proibido (art. 121, §2º, VIII, do CP) aplica-se ao uso de arma de uso PERMITIDO com a numeração raspada? Conforme o STJ:",
               alternativas: [
-                "sim, pois a lei de armas equipara as situações para todos os fins",
-                "não; a equiparação do Estatuto do Desarmamento vale só para punir posse/porte, não para qualificar o homicídio (legalidade estrita)",
-                "sim, por interpretação teleológica",
-                "somente se a arma for de grosso calibre",
-                "sim, pois a numeração suprimida agrava qualquer crime"
+                "sim, pois a equiparação prevista no Estatuto do Desarmamento estende-se a todos os efeitos penais",
+                "não; a equiparação do Estatuto do Desarmamento vale só para punir posse/porte, não para qualificar o homicídio",
+                "sim, por interpretação teleológica voltada à maior proteção do bem jurídico vida",
+                "somente se a arma, além da numeração suprimida, for de calibre de uso restrito",
+                "sim, pois a numeração suprimida agrava qualquer crime praticado com a arma"
               ],
               correta: 1,
               explicacao: "STJ (Inf. Ed. Extraordinária 30/26): a qualificadora do art. 121, §2º, VIII, é taxativa. A equiparação da arma de uso permitido com numeração suprimida a arma de uso restrito (art. 16, §1º, I, da Lei 10.826/03) é ficção jurídica para punir posse/porte, não se estendendo ao CP para qualificar o homicídio, sob pena de analogia in malam partem."
@@ -1319,11 +1319,11 @@ window.APP_DATA = {
               id: "pep-4", modo: "juris", fonte: "Lei 15.384/26 (vicaricídio)",
               enunciado: "A Lei 15.384/26 acrescentou a 'violência vicária' à Lei Maria da Penha e criou o crime autônomo de vicaricídio (art. 121-B do CP). Esse novo tipo consiste, em síntese, em:",
               alternativas: [
-                "agredir psicologicamente a mulher por meio digital",
+                "causar dano emocional à mulher mediante uso de inteligência artificial ou recurso tecnológico que altere a sua imagem ou a sua voz, no contexto doméstico",
                 "matar descendente, ascendente, dependente ou pessoa sob responsabilidade da mulher, com o fim de causar-lhe sofrimento, punição ou controle, em contexto de violência doméstica",
-                "descumprir medida protetiva de urgência",
-                "abandonar incapaz que esteja sob sua guarda",
-                "constranger a mulher a comparecer a audiência"
+                "descumprir reiteradamente medidas protetivas de urgência impostas em favor da mulher, causando-lhe sofrimento",
+                "abandonar descendente ou dependente da mulher, expondo-o a perigo concreto, com o fim de atingi-la",
+                "constranger a mulher a comparecer a audiência mediante grave ameaça"
               ],
               correta: 1,
               explicacao: "Lei 15.384/26: inseriu a violência vicária no art. 7º da Lei Maria da Penha e criou o vicaricídio (art. 121-B do CP) — matar descendente, ascendente, dependente, enteado ou pessoa sob responsabilidade da mulher com o fim específico de causar-lhe sofrimento, punição ou controle, no contexto de violência doméstica. É crime hediondo e de competência do júri; por especialidade, prevalece sobre o homicídio."
@@ -1364,11 +1364,11 @@ window.APP_DATA = {
               id: "crim-2", modo: "caso", fonte: "Labeling approach",
               enunciado: "Segundo a teoria do etiquetamento (labeling approach), o que define a criminalidade não é apenas a conduta em si, mas:",
               alternativas: [
-                "a predisposição biológica do agente ao crime",
+                "a predisposição biológica e psicológica do agente, identificável por características individuais",
                 "a reação social e o processo de rotulação que seleciona e estigmatiza certos indivíduos como criminosos",
-                "a gravidade objetiva do resultado produzido",
-                "a intensidade do dolo do agente",
-                "o grau de aparelhamento da polícia"
+                "a gravidade objetiva do resultado produzido e o desvalor imanente da própria conduta",
+                "a intensidade do dolo e o grau de culpabilidade revelados pelo agente",
+                "o grau de aparelhamento dos órgãos oficiais de repressão ao crime"
               ],
               correta: 1,
               explicacao: "O labeling approach (interacionismo simbólico; Becker, Lemert) desloca a análise para a reação social: o desvio resulta do processo de rotulação. A 'desviação secundária' surge quando o indivíduo assume o papel imposto pela etiqueta. Dialoga com a crítica à seletividade penal."
@@ -1377,11 +1377,11 @@ window.APP_DATA = {
               id: "crim-3", modo: "caso", fonte: "Criminologia crítica",
               enunciado: "A criminologia crítica sustenta, quanto ao sistema penal, que ele:",
               alternativas: [
-                "atua de forma igualitária sobre todas as classes sociais",
+                "atua de forma igualitária sobre todas as classes sociais, conforme o merecimento individual",
                 "é estruturalmente seletivo, recaindo preferencialmente sobre os grupos vulneráveis",
-                "elimina a cifra oculta da criminalidade",
-                "é neutro e meramente técnico",
-                "reduz a criminalidade pela severidade das penas"
+                "elimina progressivamente a cifra oculta por meio do aumento do aparato repressivo",
+                "é neutro e meramente técnico na seleção das condutas criminalizadas",
+                "reduz a criminalidade pela severidade e pela certeza das penas"
               ],
               correta: 1,
               explicacao: "A criminologia crítica denuncia a seletividade estrutural do sistema penal, que criminaliza preferencialmente condutas e pessoas dos estratos vulneráveis (criminalização secundária), reproduzindo desigualdades. É a matriz teórica afinada à atuação da Defensoria Pública."
@@ -1390,11 +1390,11 @@ window.APP_DATA = {
               id: "crim-4", modo: "caso", fonte: "Cifra oculta",
               enunciado: "A expressão 'cifra oculta' (ou cifra negra) da criminalidade designa:",
               alternativas: [
-                "o número de condenações transitadas em julgado por ano",
+                "o número de condenações transitadas em julgado registradas anualmente nas estatísticas oficiais",
                 "a diferença entre a criminalidade real e a que chega ao conhecimento oficial dos órgãos de persecução",
-                "o total de presos provisórios no sistema",
-                "o índice de reincidência dos egressos",
-                "os crimes prescritos antes da denúncia"
+                "o total de presos provisórios sem condenação definitiva no sistema penitenciário",
+                "o índice de reincidência dos egressos do sistema prisional em cinco anos",
+                "os crimes cuja punibilidade foi extinta pela prescrição antes da denúncia"
               ],
               correta: 1,
               explicacao: "A cifra oculta é a parcela da criminalidade real que não chega ao conhecimento (ou registro) oficial dos órgãos de controle, permanecendo invisível às estatísticas — o que revela a seletividade e os limites do sistema de justiça criminal."
@@ -1403,11 +1403,11 @@ window.APP_DATA = {
               id: "crim-5", modo: "caso", fonte: "Teoria agnóstica da pena",
               enunciado: "A teoria agnóstica (negativa) da pena, afinada à redução de danos na execução penal, sustenta que:",
               alternativas: [
-                "a pena cumpre plenamente a função de ressocialização",
+                "a pena cumpre efetivamente as funções declaradas de retribuição e de ressocialização",
                 "as funções declaradas da pena não se realizam, cabendo ao juiz conter e reduzir os danos do poder punitivo",
-                "a pena deve ser maximizada para prevenção geral",
-                "a execução penal deve priorizar a neutralização seletiva",
-                "o cárcere é instrumento eficaz de reinserção social"
+                "a pena deve ser maximizada, para reforçar a prevenção geral negativa (intimidação)",
+                "a execução penal deve priorizar a neutralização seletiva dos condenados perigosos",
+                "o cárcere é instrumento eficaz de reinserção social do condenado"
               ],
               correta: 1,
               explicacao: "A teoria agnóstica da pena (Zaffaroni) parte do ceticismo quanto às funções declaradas (retribuição/prevenção) e propõe uma pauta de contenção e redução de danos do poder punitivo — linha desenvolvida na execução penal por Rodrigo Roig (teoria redutora de danos), examinador da Banca II."
@@ -1416,11 +1416,11 @@ window.APP_DATA = {
               id: "crim-6", modo: "caso", fonte: "Funções da pena",
               enunciado: "No debate sobre as funções da pena, a chamada prevenção especial NEGATIVA corresponde à ideia de:",
               alternativas: [
-                "reeducar e reinserir socialmente o condenado",
+                "reeducar e reinserir socialmente o condenado por meio da execução da pena",
                 "neutralizar/inocuizar o condenado, retirando-o do convívio para impedir novos crimes",
-                "intimidar a coletividade pela ameaça da pena",
-                "reafirmar simbolicamente a validade da norma",
-                "compensar retributivamente o mal do crime"
+                "intimidar a coletividade pela ameaça abstrata da cominação penal",
+                "reafirmar simbolicamente a validade da norma violada perante a sociedade",
+                "compensar retributivamente o mal do crime com o mal da pena"
               ],
               correta: 1,
               explicacao: "A prevenção especial desdobra-se em positiva (ressocialização) e negativa (neutralização/inocuização do condenado). A criminologia crítica denuncia que, na prática, prevalece a neutralização seletiva, esvaziando o discurso ressocializador."
@@ -1506,11 +1506,11 @@ window.APP_DATA = {
               id: "const-5", modo: "lei", fonte: "CF, art. 6º",
               enunciado: "São direitos sociais expressamente previstos no art. 6º da Constituição:",
               alternativas: [
-                "a propriedade e a livre iniciativa",
+                "a propriedade privada e a livre iniciativa econômica",
                 "a educação, a saúde, a moradia e a assistência aos desamparados",
-                "o voto e a nacionalidade",
-                "a ampla defesa e o contraditório",
-                "a liberdade de expressão e de reunião"
+                "o voto direto e secreto e a nacionalidade",
+                "a ampla defesa, o contraditório e o devido processo legal",
+                "a liberdade de expressão e o direito de reunião pacífica"
               ],
               correta: 1,
               explicacao: "Art. 6º da CF: são direitos sociais a educação, a saúde, a alimentação, o trabalho, a moradia, o transporte, o lazer, a segurança, a previdência social, a proteção à maternidade e à infância e a assistência aos desamparados."
@@ -1519,11 +1519,11 @@ window.APP_DATA = {
               id: "const-6", modo: "juris", fonte: "CF, art. 97; Súmula Vinculante 10",
               enunciado: "Pela cláusula de reserva de plenário (art. 97 da CF) e a Súmula Vinculante 10, um órgão fracionário de tribunal:",
               alternativas: [
-                "pode declarar a inconstitucionalidade de lei por maioria simples",
+                "pode declarar a inconstitucionalidade de lei por maioria simples dos seus integrantes presentes",
                 "não pode declarar a inconstitucionalidade de lei, ou afastar sua incidência, sem decisão do plenário ou órgão especial",
-                "nunca pode apreciar questões constitucionais",
-                "decide livremente, dispensada a reserva de plenário",
-                "só observa a reserva no controle concentrado"
+                "nunca pode apreciar questões constitucionais, reservadas ao plenário em qualquer hipótese",
+                "decide livremente, pois a reserva de plenário foi superada pela sistemática dos precedentes",
+                "só observa a reserva de plenário no âmbito do controle concentrado"
               ],
               correta: 1,
               explicacao: "Art. 97 da CF e Súmula Vinculante 10: viola a cláusula de reserva de plenário a decisão de órgão fracionário que afasta a incidência de lei/ato do poder público, ainda que sem declarar expressamente a inconstitucionalidade. A declaração exige maioria absoluta do plenário ou do órgão especial."
@@ -1577,11 +1577,11 @@ window.APP_DATA = {
               id: "adm-3", modo: "lei", fonte: "Lei 8.987/95, art. 6º, §1º",
               enunciado: "Segundo a Lei 8.987/95, considera-se serviço adequado o que satisfaz as condições de:",
               alternativas: [
-                "gratuidade e uniformidade absoluta",
+                "gratuidade, universalidade e uniformidade absoluta das tarifas em todo o território nacional",
                 "regularidade, continuidade, eficiência, segurança, atualidade, generalidade, cortesia e modicidade das tarifas",
-                "exclusividade e irreversibilidade",
-                "lucratividade máxima do concessionário",
-                "discricionariedade tarifária plena"
+                "exclusividade da prestação, irreversibilidade dos bens afetados e prioridade do concessionário",
+                "garantia de lucratividade máxima ao concessionário, vedada a revisão tarifária pelo poder concedente",
+                "discricionariedade tarifária plena, afastado o controle da agência reguladora"
               ],
               correta: 1,
               explicacao: "Art. 6º, §1º, da Lei 8.987/95: serviço adequado é o que satisfaz as condições de regularidade, continuidade, eficiência, segurança, atualidade, generalidade, cortesia na prestação e modicidade das tarifas."
@@ -1590,11 +1590,11 @@ window.APP_DATA = {
               id: "adm-4", modo: "juris", fonte: "STJ; Lei 8.987/95, art. 6º, §3º",
               enunciado: "Quanto ao corte de serviço público essencial (água/energia) por inadimplemento, o entendimento consolidado do STJ é que:",
               alternativas: [
-                "é vedado em qualquer hipótese",
+                "é vedado em qualquer hipótese, por força do princípio da continuidade dos serviços públicos essenciais",
                 "é possível para débito atual, precedido de aviso; mas é vedado por débitos pretéritos/consolidados, cobrados por vias ordinárias",
-                "é livre, independentemente de aviso prévio",
-                "só é possível mediante autorização judicial",
-                "é permitido inclusive por débito de morador anterior"
+                "é livre, independentemente de aviso prévio, como exercício regular de direito do concessionário",
+                "só é possível mediante prévia autorização judicial, ouvido o titular da unidade consumidora",
+                "é permitido inclusive por débito de consumo do morador anterior do imóvel"
               ],
               correta: 1,
               explicacao: "O STJ admite o corte por inadimplemento de conta atual, desde que precedido de aviso (art. 6º, §3º, II, da Lei 8.987/95). Contudo, veda o corte fundado em débitos pretéritos/consolidados — que devem ser cobrados pelas vias ordinárias — e por débito de consumo de morador anterior."
@@ -1603,11 +1603,11 @@ window.APP_DATA = {
               id: "adm-5", modo: "lei", fonte: "Lei 14.026/2020 (marco do saneamento)",
               enunciado: "A Lei 14.026/2020 (novo marco legal do saneamento básico) atribuiu a competência para editar normas de referência do setor a:",
               alternativas: [
-                "cada Município, individualmente",
+                "cada Município, individualmente, como titular do serviço",
                 "Agência Nacional de Águas e Saneamento Básico (ANA)",
-                "Ministério das Cidades",
-                "companhias estaduais de saneamento",
-                "BNDES"
+                "o Ministério das Cidades, por meio de portarias setoriais",
+                "as companhias estaduais de saneamento básico conveniadas",
+                "o BNDES, na condição de agente financiador do setor"
               ],
               correta: 1,
               explicacao: "A Lei 14.026/2020 ampliou as competências da ANA (Agência Nacional de Águas e Saneamento Básico), atribuindo-lhe a edição de normas de referência para a regulação do saneamento. O marco prioriza a prestação regionalizada e a universalização (metas de 99% de água e 90% de esgoto até 2033)."
@@ -1616,11 +1616,11 @@ window.APP_DATA = {
               id: "adm-6", modo: "lei", fonte: "Lei 12.305/2010, art. 9º",
               enunciado: "A Política Nacional de Resíduos Sólidos (Lei 12.305/2010) estabelece a seguinte ordem de prioridade na gestão de resíduos:",
               alternativas: [
-                "disposição final, reciclagem, redução e não geração",
+                "disposição final ambientalmente adequada, reciclagem, reutilização, redução e não geração",
                 "não geração, redução, reutilização, reciclagem, tratamento e disposição final ambientalmente adequada",
-                "incineração, reciclagem e aterro",
-                "reciclagem, redução e disposição final",
-                "coleta seletiva e exportação de rejeitos"
+                "incineração com recuperação energética, reciclagem e disposição em aterro sanitário",
+                "reciclagem, redução, reutilização e disposição final, nessa ordem de preferência",
+                "coleta seletiva universal e exportação dos rejeitos não recicláveis"
               ],
               correta: 1,
               explicacao: "Art. 9º da Lei 12.305/2010: na gestão de resíduos observa-se a ordem de prioridade — não geração, redução, reutilização, reciclagem, tratamento e disposição final ambientalmente adequada dos rejeitos. Assenta-se na responsabilidade compartilhada pelo ciclo de vida dos produtos e na logística reversa."
@@ -1648,11 +1648,11 @@ window.APP_DATA = {
               id: "dh-1", modo: "juris", fonte: "STF, RE 466.343; CF, art. 5º, §3º",
               enunciado: "Segundo o STF, os tratados internacionais de direitos humanos aprovados SEM o rito do art. 5º, §3º, da CF ingressam no ordenamento com status:",
               alternativas: [
-                "de lei ordinária",
+                "de lei ordinária, revogável por lei posterior",
                 "supralegal (acima da lei, abaixo da Constituição)",
-                "de emenda constitucional",
-                "constitucional automático",
-                "infralegal"
+                "de emenda constitucional, em qualquer caso",
+                "constitucional, independentemente do rito de aprovação",
+                "infralegal, subordinado às leis internas"
               ],
               correta: 1,
               explicacao: "STF (RE 466.343): os tratados de direitos humanos não aprovados pelo rito qualificado têm status supralegal (acima da lei, abaixo da Constituição). Se aprovados pelo rito do art. 5º, §3º (dois turnos, 3/5 em cada Casa), equivalem a emenda constitucional."
@@ -1661,11 +1661,11 @@ window.APP_DATA = {
               id: "dh-2", modo: "lei", fonte: "Convenção Americana, arts. 61 e 62",
               enunciado: "No sistema interamericano, quem pode submeter um caso contencioso diretamente à Corte Interamericana de Direitos Humanos?",
               alternativas: [
-                "qualquer indivíduo vítima da violação",
+                "qualquer indivíduo vítima da violação, desde que esgotados os recursos internos",
                 "apenas a Comissão Interamericana e os Estados-partes que reconheceram a competência da Corte",
-                "somente o Estado violador",
-                "qualquer organização não governamental",
-                "a Assembleia Geral da OEA"
+                "somente o Estado apontado como violador, em reconhecimento da própria responsabilidade",
+                "qualquer organização não governamental legalmente reconhecida em Estado-membro da OEA",
+                "a Assembleia Geral da OEA, por deliberação da maioria dos Estados"
               ],
               correta: 1,
               explicacao: "Arts. 61 e 62 da Convenção Americana: somente os Estados-partes e a Comissão Interamericana podem submeter caso à Corte IDH — o indivíduo não tem acesso direto (peticiona à Comissão). A jurisdição contenciosa depende de reconhecimento pelo Estado."
@@ -1674,11 +1674,11 @@ window.APP_DATA = {
               id: "dh-3", modo: "lei", fonte: "Convenção Americana, art. 46",
               enunciado: "Como regra de admissibilidade de petição perante a Comissão Interamericana, exige-se:",
               alternativas: [
-                "o pagamento de custas internacionais",
+                "o recolhimento prévio de custas perante a Secretaria da Comissão",
                 "o prévio esgotamento dos recursos internos, salvo exceções (demora injustificada, falta de devido processo, obstáculo de acesso)",
-                "a autorização do Estado violador",
-                "sentença penal transitada em julgado",
-                "que a vítima seja nacional de país signatário"
+                "a prévia anuência do Estado denunciado ao processamento da petição individual",
+                "decisão judicial transitada em julgado em todas as instâncias internas, inclusive extraordinárias, sem exceção",
+                "que a vítima seja nacional do Estado denunciado e resida em seu território na data da petição"
               ],
               correta: 1,
               explicacao: "Art. 46 da Convenção Americana: exige-se o prévio esgotamento dos recursos internos (princípio da subsidiariedade). O art. 46.2 traz exceções: inexistência de devido processo, impedimento de acesso aos recursos ou demora injustificada na decisão."
@@ -1687,11 +1687,11 @@ window.APP_DATA = {
               id: "dh-4", modo: "juris", fonte: "Corte IDH (caso Almonacid Arellano)",
               enunciado: "O 'controle de convencionalidade' consiste em:",
               alternativas: [
-                "verificar a compatibilidade de leis apenas com a Constituição",
+                "verificar a compatibilidade das leis exclusivamente com a Constituição Federal",
                 "aferir a compatibilidade das normas internas com os tratados internacionais de direitos humanos",
-                "controlar a validade de convenção coletiva de trabalho",
-                "revisar tratados pelo Poder Legislativo",
-                "submeter tratados a referendo popular"
+                "controlar a validade das convenções e dos acordos coletivos de trabalho",
+                "submeter os tratados à revisão periódica pelo Poder Legislativo",
+                "condicionar a vigência dos tratados à aprovação em referendo popular"
               ],
               correta: 1,
               explicacao: "Controle de convencionalidade é a verificação da compatibilidade das normas internas com os tratados de direitos humanos (parâmetro de convencionalidade). É exercido no plano internacional (Corte IDH) e interno (juízes nacionais), conforme a jurisprudência da Corte IDH (caso Almonacid Arellano vs. Chile)."
@@ -1700,11 +1700,11 @@ window.APP_DATA = {
               id: "dh-5", modo: "juris", fonte: "Protocolo de Istambul (ONU)",
               enunciado: "O Protocolo de Istambul, referência no enfrentamento à tortura, destina-se a:",
               alternativas: [
-                "criar tribunais internacionais de tortura",
+                "instituir tribunais internacionais especializados no julgamento do crime de tortura",
                 "estabelecer diretrizes para a investigação e a documentação eficazes da tortura e de tratamentos cruéis",
-                "autorizar a extradição de torturadores",
-                "definir o crime de tortura no direito interno",
-                "regular as visitas íntimas em presídios"
+                "autorizar a extradição de acusados de tortura independentemente de tratado bilateral",
+                "obrigar os Estados a tipificar o crime de tortura no direito interno, sob pena de sanção",
+                "regulamentar as revistas e as visitas íntimas nos estabelecimentos prisionais"
               ],
               correta: 1,
               explicacao: "O Protocolo de Istambul é o Manual para investigação e documentação eficazes da tortura e outros tratamentos cruéis, desumanos ou degradantes (ONU). Orienta a perícia e a documentação de sinais de tortura, conectando-se ao sistema de prevenção (MNPCT)."
@@ -1713,11 +1713,11 @@ window.APP_DATA = {
               id: "dh-6", modo: "caso", fonte: "Interseccionalidade (K. Crenshaw)",
               enunciado: "No marco dos direitos humanos, a 'interseccionalidade' designa:",
               alternativas: [
-                "a soma aritmética de direitos individuais",
+                "a soma aritmética de discriminações isoladas, que devem ser analisadas separadamente por cada marcador",
                 "a sobreposição de marcadores de opressão (raça, gênero, classe etc.) que se combinam e produzem discriminações específicas",
-                "a divisão de competências entre tribunais",
-                "a intersecção de tratados internacionais",
-                "a hierarquia entre direitos fundamentais"
+                "a divisão de competências entre os tribunais nacionais e as cortes internacionais",
+                "a intersecção de tratados internacionais que protegem simultaneamente um mesmo grupo vulnerável",
+                "a hierarquia entre direitos fundamentais em caso de colisão no caso concreto"
               ],
               correta: 1,
               explicacao: "A interseccionalidade (Kimberlé Crenshaw) analisa como marcadores de opressão — raça, gênero, classe, sexualidade, deficiência — se sobrepõem e se articulam, produzindo formas específicas e agravadas de discriminação, exigindo proteção diferenciada dos grupos vulnerabilizados."
@@ -1745,11 +1745,11 @@ window.APP_DATA = {
               id: "dp-1", modo: "lei", fonte: "CF, art. 134 (EC 80/2014)",
               enunciado: "Segundo o art. 134 da CF (redação da EC 80/2014), a Defensoria Pública é instituição:",
               alternativas: [
-                "vinculada ao Poder Judiciário, de apoio às partes",
+                "vinculada ao Poder Judiciário, incumbida do apoio às partes hipossuficientes do processo",
                 "permanente, essencial à função jurisdicional do Estado, expressão e instrumento do regime democrático",
-                "auxiliar do Ministério Público",
-                "de natureza privada, de interesse público",
-                "integrante da advocacia pública"
+                "auxiliar do Ministério Público na defesa da ordem jurídica e dos necessitados",
+                "de natureza privada e de interesse público, mantida mediante convênio com o Estado",
+                "integrante da advocacia pública, ao lado das procuradorias dos entes federados"
               ],
               correta: 1,
               explicacao: "Art. 134 da CF (EC 80/2014): a Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, a orientação jurídica, a promoção dos direitos humanos e a defesa dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados."
@@ -1784,11 +1784,11 @@ window.APP_DATA = {
               id: "dp-4", modo: "lei", fonte: "LC 80/94, art. 44, I; CPC art. 186",
               enunciado: "Constitui prerrogativa do membro da Defensoria Pública, prevista na LC 80/94:",
               alternativas: [
-                "receber intimação comum, sem prazo diferenciado",
+                "receber intimação pelo diário oficial, com prazo em dobro apenas na esfera criminal",
                 "receber intimação pessoal, com vista dos autos, e dispor de prazo em dobro",
-                "atuar sem inscrição funcional",
-                "recusar-se a prestar assistência sem justificativa",
-                "exercer a advocacia privada livremente"
+                "atuar em qualquer juízo independentemente de designação do Defensor Público-Geral",
+                "recusar-se a prestar assistência jurídica, sem motivação, por razões de foro íntimo",
+                "exercer a advocacia privada fora das atribuições institucionais"
               ],
               correta: 1,
               explicacao: "Art. 44, I, da LC 80/94: é prerrogativa do Defensor Público receber intimação pessoal, com vista dos autos, em qualquer processo e grau de jurisdição, contando-se os prazos em dobro (também art. 186 do CPC)."
@@ -1797,11 +1797,11 @@ window.APP_DATA = {
               id: "dp-5", modo: "lei", fonte: "LC 80/94, art. 4º (LC 132/2009)",
               enunciado: "Entre as funções institucionais da Defensoria Pública (art. 4º da LC 80/94) inclui-se:",
               alternativas: [
-                "exercer a acusação criminal",
+                "promover, privativamente, a ação penal pública nos crimes praticados contra pessoas vulneráveis",
                 "promover ação civil pública e outras ações coletivas para tutelar interesses difusos, coletivos e individuais homogêneos dos necessitados",
-                "julgar conflitos entre particulares",
-                "fiscalizar o Poder Judiciário",
-                "editar normas com força de lei"
+                "julgar, mediante delegação, os conflitos de menor complexidade entre particulares hipossuficientes",
+                "exercer o controle externo da atividade policial e a correição dos órgãos do Poder Judiciário",
+                "editar atos normativos com força de lei para disciplinar a gratuidade de justiça"
               ],
               correta: 1,
               explicacao: "Art. 4º da LC 80/94 (com a LC 132/2009): é função institucional promover a ação civil pública e todas as espécies de ações capazes de propiciar a adequada tutela dos direitos difusos, coletivos e individuais homogêneos dos necessitados. A atuação como 'custos vulnerabilis' é reconhecida pela jurisprudência do STJ."
@@ -1810,11 +1810,11 @@ window.APP_DATA = {
               id: "dp-6", modo: "caso", fonte: "CF, art. 5º, LXXIV; assistência jurídica",
               enunciado: "A 'assistência jurídica integral' prestada pela Defensoria é conceito mais amplo que a assistência judiciária porque:",
               alternativas: [
-                "restringe-se à atuação em juízo",
+                "restringe-se ao patrocínio de causas perante o Poder Judiciário, com isenção de custas",
                 "abrange também a orientação e a consultoria jurídica extrajudicial, além da atuação em juízo",
-                "só alcança causas gratuitas",
-                "exclui a educação em direitos",
-                "limita-se ao processo penal"
+                "só alcança as causas em que o juiz já tenha deferido a gratuidade de justiça",
+                "exclui a educação em direitos, reservada aos órgãos do Poder Executivo",
+                "limita-se ao processo penal, em que a defesa técnica é indeclinável"
               ],
               correta: 1,
               explicacao: "A assistência judiciária refere-se ao patrocínio da causa em juízo. A assistência jurídica integral (art. 5º, LXXIV, CF) é mais ampla: abrange a orientação e a consultoria jurídica, a atuação extrajudicial, a educação em direitos e a resolução de conflitos. Já a gratuidade de justiça é a isenção de custas processuais."
