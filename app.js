@@ -74,7 +74,7 @@
       xp: 0, hearts: 5, heartT: null, streak: 0, lastStudyDay: null,
       lessons: {}, srs: {}, errors: {}, answered: 0, correctTotal: 0,
       byMateria: {}, xpByMateria: {}, theme: null,
-      social: { uid: null, nome: "", avatar: "🦉", friends: {} },
+      social: { uid: null, nome: "", avatar: "🦉", friends: {}, grupo: null, grupoCache: null },
       week: { id: null, xp: 0, answered: 0, correct: 0 }
     };
   }
@@ -209,6 +209,63 @@
     S.social.friends[p.id] = { n: String(p.n).slice(0, 18), a: p.a || "🙂", w: p.w, x: p.x | 0, q: p.q | 0, c: p.c | 0, s: p.s | 0, t: p.t | 0, at: Date.now() };
     save(); render();
     toast(novo ? String(p.n) + " entrou no grupo! 🎉" : String(p.n) + " atualizado(a) no placar ✅");
+  }
+
+  /* ---------- grupo em tempo real (Firebase Realtime DB via REST) ---------- */
+  // URL do Realtime Database (ex.: https://seu-projeto-default-rtdb.firebaseio.com)
+  var DB_URL = window.DPE_DB_URL || "";
+  function grupoAtivo() { return !!(S.social.grupo && S.social.grupo.url && S.social.grupo.gid); }
+  function dbFetch(path, opts) {
+    var g = S.social.grupo;
+    return fetch(g.url.replace(/\/+$/, "") + "/grupos/" + encodeURIComponent(g.gid) + path + ".json", opts);
+  }
+  function pushMyStats() {
+    if (!grupoAtivo() || !S.social.uid || !S.social.nome) return;
+    ensureWeek();
+    var p = { n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, c: S.week.correct, s: S.streak, t: S.xp, at: Date.now() };
+    try { dbFetch("/membros/" + S.social.uid, { method: "PUT", body: JSON.stringify(p) }).catch(function () {}); } catch (e) {}
+  }
+  function pullGroup(cb) {
+    if (!grupoAtivo()) { if (cb) cb(false); return; }
+    try {
+      dbFetch("", {}).then(function (r) { return r.json(); }).then(function (data) {
+        S.social.grupoCache = { info: (data && data.info) || null, membros: (data && data.membros) || {}, at: Date.now() };
+        save();
+        if (cb) cb(true);
+      }).catch(function () { if (cb) cb(false); });
+    } catch (e) { if (cb) cb(false); }
+  }
+  function grupoInvite() {
+    var g = S.social.grupo;
+    return "DPEG." + b64e(JSON.stringify({ u: g.url, g: g.gid, n: g.nome || "" })) + ".";
+  }
+  function parseInvite(raw) {
+    try {
+      var m = raw.match(/DPEG\.([A-Za-z0-9+\/=]+)\./);
+      if (!m) return null;
+      var p = JSON.parse(b64d(m[1]));
+      if (!p || !p.u || !p.g) return null;
+      if (!/^https:\/\/[a-z0-9.-]+\.(firebaseio\.com|firebasedatabase\.app)\/?$/i.test(p.u)) return null;
+      return p;
+    } catch (e) { return null; }
+  }
+  function shareGroupInvite() {
+    var g = S.social.grupo;
+    var texto = "⚡ Bora estudar junto! Entre no meu grupo \"" + (g.nome || "Defensor") + "\" no app Defensor (DPE-RJ).\n\n" +
+      "Código de convite (aba Amigos → Entrar no grupo):\n" + grupoInvite() +
+      "\n\nO app: " + location.origin + location.pathname;
+    if (navigator.share) { navigator.share({ text: texto }).catch(function () {}); }
+    else { copyText(texto); toast("Convite do grupo copiado! 📋"); }
+  }
+  function syncAmigos() {
+    if (!grupoAtivo()) return;
+    pushMyStats();
+    pullGroup(function (ok) {
+      if (ok && view.name === "amigos") {
+        var ae = document.activeElement;
+        if (!(ae && /INPUT|TEXTAREA/.test(ae.tagName))) render();
+      }
+    });
   }
 
   /* ---------- SM-2 ---------- */
@@ -404,6 +461,65 @@
       '<div class="av-row">' + AVATARES.map(function (a) {
         return '<button class="av' + (a === S.social.avatar ? ' sel' : '') + '" data-avatar="' + a + '">' + a + '</button>';
       }).join('') + '</div>' +
+      '</div>';
+
+    /* --- modo grupo (tempo real) --- */
+    if (grupoAtivo()) {
+      var gc = S.social.grupoCache || { membros: {}, at: 0 };
+      var mrows = [{ me: true, n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, s: S.streak }];
+      for (var mid in gc.membros) {
+        if (mid === S.social.uid) continue;
+        var mm = gc.membros[mid];
+        if (mm && mm.n) mrows.push({ n: mm.n, a: mm.a || "🙂", w: mm.w, x: mm.x | 0, q: mm.q | 0, s: mm.s | 0 });
+      }
+      var mAtuais = mrows.filter(function (r) { return r.w === S.week.id; }).sort(function (a, b) { return b.x - a.x; });
+      var mVelhos = mrows.filter(function (r) { return r.w !== S.week.id; });
+      var MEDg = ["🥇", "🥈", "🥉"];
+      var mins = gc.at ? Math.round((Date.now() - gc.at) / 60000) : null;
+      h += '<div class="page-title" style="font-size:1.05rem">⚡ ' + esc(S.social.grupo.nome || "Grupo") + '</div>' +
+        '<p class="page-sub">Placar em tempo real · ' +
+        (mins === null ? 'ainda não sincronizado' : (mins < 1 ? 'atualizado agora' : 'atualizado há ' + mins + ' min')) + '</p>' +
+        '<div class="card">';
+      mAtuais.forEach(function (r, i) {
+        h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
+          '<span class="pos">' + (MEDg[i] || (i + 1) + 'º') + '</span>' +
+          '<span class="fr-av">' + r.a + '</span>' +
+          '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div>' +
+          '<div class="fr-sub">' + r.q + ' questões · 🔥 ' + (r.s || 0) + '</div></div>' +
+          '<div class="fr-x"><div class="fr-xp">⭐ ' + r.x + '</div><div class="fr-sub">XP</div></div>' +
+          '</div>';
+      });
+      mVelhos.forEach(function (r) {
+        h += '<div class="friend-row stale">' +
+          '<span class="pos">—</span><span class="fr-av">' + r.a + '</span>' +
+          '<div class="fr-info"><div class="fr-n">' + esc(r.n) + '</div>' +
+          '<div class="fr-sub">ainda sem pontos nesta semana</div></div>' +
+          '<div class="fr-x"><div class="fr-xp">⭐ ' + (r.x | 0) + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
+          '</div>';
+      });
+      if (mrows.length === 1) {
+        h += '<div class="fr-sub" style="padding:6px 0">Só você por aqui. Convide os amigos! 📣</div>';
+      }
+      h += '</div>' +
+        '<button class="btn" data-action="share-group">📣 Convidar para o grupo</button>' +
+        '<button class="btn ghost" data-action="refresh-group" style="margin-top:10px">🔄 Atualizar agora</button>' +
+        '<button class="btn ghost" data-action="leave-group" style="margin-top:10px;color:var(--no)">Sair do grupo</button>';
+      return h;
+    }
+
+    /* --- sem grupo: entrar/criar + modo manual --- */
+    h += '<div class="page-title" style="font-size:1.05rem">⚡ Grupo em tempo real</div>' +
+      '<div class="card">' +
+      (DB_URL
+        ? '<button class="btn" data-action="create-group">Criar um grupo</button>' +
+          '<div class="f-label" style="margin:14px 0 8px">Ou entre com um convite:</div>'
+        : '<div class="f-label" style="margin-bottom:8px">Recebeu um convite de grupo? Cole aqui:</div>') +
+      '<textarea id="group-code" class="f-input" rows="2" placeholder="Cole o convite do grupo (DPEG.…)"></textarea>' +
+      '<button class="btn ok" data-action="join-group" style="margin-top:10px">Entrar no grupo</button>' +
+      '</div>';
+
+    h += '<div class="page-title" style="font-size:1.05rem">Modo manual (troca de códigos)</div>' +
+      '<div class="card">' +
       '<button class="btn" data-action="share-code">📣 Compartilhar meu código</button>' +
       '<div class="code-box"><input readonly id="my-code" value="' + myCode() + '">' +
       '<button class="btn ghost" data-action="copy-code">Copiar</button></div>' +
@@ -629,6 +745,7 @@
     // concluir revisão recupera 1 vida
     if (quiz.kind === "review" && S.hearts < HEART_MAX) { gainHeart(); quiz.heartWon = true; }
     save();
+    pushMyStats(); // atualiza o placar do grupo em tempo real
     view.name = "result";
     render();
   }
@@ -666,7 +783,11 @@
   function wire() {
     // navegação inferior
     app.querySelectorAll("[data-nav]").forEach(function (b) {
-      b.onclick = function () { view.name = b.getAttribute("data-nav"); render(); };
+      b.onclick = function () {
+        view.name = b.getAttribute("data-nav");
+        if (view.name === "amigos") syncAmigos();
+        render();
+      };
     });
     // iniciar lição
     app.querySelectorAll("[data-lesson]").forEach(function (b) {
@@ -734,6 +855,42 @@
     else if (a === "share-code") shareCode();
     else if (a === "copy-code") { copyText(myCode()); toast("Código copiado! Cole no grupo 📋"); }
     else if (a === "add-friend") addFriend();
+    else if (a === "create-group") {
+      if (!DB_URL) { toast("O banco em tempo real ainda não foi configurado."); return; }
+      var gn = prompt("Nome do grupo:", "Rumo à DPE-RJ 🎯");
+      if (gn === null) return;
+      gn = (gn || "").trim().slice(0, 24) || "Meu grupo";
+      var gid = Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 10);
+      S.social.grupo = { url: DB_URL, gid: gid, nome: gn };
+      S.social.grupoCache = null;
+      save();
+      try { dbFetch("/info", { method: "PUT", body: JSON.stringify({ nome: gn, criadoEm: Date.now() }) }).catch(function () {}); } catch (e) {}
+      syncAmigos();
+      render(); toast("Grupo criado! Convide os amigos 📣");
+    }
+    else if (a === "join-group") {
+      var gi = document.getElementById("group-code");
+      var pv = parseInvite(((gi && gi.value) || "").trim());
+      if (!pv) { toast("Convite inválido — confira se copiou a parte que começa com DPEG."); return; }
+      S.social.grupo = { url: pv.u, gid: pv.g, nome: (pv.n || "Grupo") };
+      S.social.grupoCache = null;
+      save(); syncAmigos();
+      render(); toast("Você entrou no grupo! ⚡");
+    }
+    else if (a === "share-group") shareGroupInvite();
+    else if (a === "refresh-group") {
+      pushMyStats();
+      pullGroup(function (ok) {
+        if (view.name === "amigos") render();
+        toast(ok ? "Placar atualizado ⚡" : "Sem conexão — tente de novo.");
+      });
+    }
+    else if (a === "leave-group") {
+      if (!confirm("Sair do grupo \"" + ((S.social.grupo && S.social.grupo.nome) || "") + "\"?")) return;
+      try { dbFetch("/membros/" + S.social.uid, { method: "DELETE" }).catch(function () {}); } catch (e) {}
+      S.social.grupo = null; S.social.grupoCache = null;
+      save(); render(); toast("Você saiu do grupo.");
+    }
     else if (a === "toggle-theme") toggleTheme();
     else if (a === "reset") { if (confirm("Isso apaga todo o seu progresso. Continuar? (Seu grupo de amigos é mantido.)")) { var soc = S.social; S = defaultState(); S.social = soc; applyTheme(); save(); view.name = "trilha"; render(); toast("Progresso zerado."); } }
   }
@@ -761,6 +918,7 @@
   applyTheme();
   applyHeartRegen();
   ensureWeek();
+  if (grupoAtivo()) syncAmigos();
   render();
 
   /* relógio das vidas: repõe e atualiza o contador sem recarregar a tela */
@@ -773,6 +931,15 @@
     if (S.hearts < HEART_MAX) {
       var t = heartTimerText();
       document.querySelectorAll("[data-regen]").forEach(function (el) { el.textContent = "+1 em " + t; });
+    }
+    // placar do grupo: atualiza sozinho enquanto a aba Amigos está aberta
+    if (view.name === "amigos" && grupoAtivo()) {
+      pullGroup(function (ok) {
+        if (ok && view.name === "amigos") {
+          var ae2 = document.activeElement;
+          if (!(ae2 && /INPUT|TEXTAREA/.test(ae2.tagName))) render();
+        }
+      });
     }
   }, 30000);
 
