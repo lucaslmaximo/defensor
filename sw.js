@@ -2,7 +2,7 @@
    Estratégia: network-first (busca a versão nova quando online;
    usa o cache apenas como fallback offline). Assim, novas questões
    aparecem sem precisar limpar cache. */
-var CACHE = "dperj-v3";
+var CACHE = "dperj-v4";
 var ASSETS = [
   "./",
   "./index.html",
@@ -33,7 +33,8 @@ self.addEventListener("activate", function (e) {
 self.addEventListener("fetch", function (e) {
   if (e.request.method !== "GET") return;
   e.respondWith(
-    fetch(e.request).then(function (res) {
+    // "no-cache": revalida com o servidor (ETag) em vez de confiar no cache HTTP
+    fetch(e.request, { cache: "no-cache" }).then(function (res) {
       // atualiza o cache com a versão fresca
       var copy = res.clone();
       caches.open(CACHE).then(function (c) { try { c.put(e.request, copy); } catch (err) {} });

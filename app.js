@@ -7,6 +7,7 @@
   var DATA = window.APP_DATA;
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
+  var APP_VERSION = "2.0"; // exibida no Perfil; usada pela checagem de atualização
   var HEART_MAX = 5;
   var HEART_REGEN_MS = 2 * 3600000; // 1 vida a cada 2 horas
 
@@ -266,6 +267,40 @@
         if (!(ae && /INPUT|TEXTAREA/.test(ae.tagName))) render();
       }
     });
+  }
+
+  /* ---------- atualização do app ---------- */
+  function applyUpdate() {
+    var done = function () { location.reload(); };
+    try {
+      if (window.caches && caches.keys) {
+        caches.keys().then(function (ks) {
+          return Promise.all(ks.map(function (k) { return caches.delete(k); }));
+        }).then(done, done);
+      } else done();
+    } catch (e) { done(); }
+  }
+  function showUpdateBanner() {
+    if (document.getElementById("upd-banner")) return;
+    var b = document.createElement("button");
+    b.id = "upd-banner";
+    b.className = "upd-banner";
+    b.textContent = "⬆️ Nova versão disponível — toque para atualizar";
+    b.onclick = applyUpdate;
+    document.body.appendChild(b);
+  }
+  function checkUpdate(manual) {
+    try {
+      fetch("app.js", { cache: "no-cache" }).then(function (r) { return r.text(); }).then(function (t) {
+        var m = t.match(/APP_VERSION\s*=\s*"([^"]+)"/);
+        if (m && m[1] !== APP_VERSION) {
+          if (manual) { toast("Atualizando para a versão " + m[1] + "…"); setTimeout(applyUpdate, 700); }
+          else showUpdateBanner();
+        } else if (manual) {
+          toast("Você já está na versão mais recente ✅ (v" + APP_VERSION + ")");
+        }
+      }).catch(function () { if (manual) toast("Sem conexão — tente de novo mais tarde."); });
+    } catch (e) {}
   }
 
   /* ---------- exportar caderno de erros ---------- */
@@ -679,9 +714,12 @@
       h += '</div>';
     }
 
-    h += '<button class="btn ghost" data-action="toggle-theme" style="margin-top:8px">🌓 Alternar tema</button>' +
+    h += '<button class="btn ghost" data-action="check-update" style="margin-top:8px">🔄 Buscar atualização</button>' +
+      '<button class="btn ghost" data-action="toggle-theme" style="margin-top:10px">🌓 Alternar tema</button>' +
       '<button class="btn ghost" data-action="reset" style="margin-top:10px;color:var(--no)">Zerar progresso</button>' +
-      '<p class="page-sub" style="margin-top:18px;text-align:center">Conteúdo gerado para estudo. Confira sempre a fonte legal citada.</p>';
+      '<p class="page-sub" style="margin-top:18px;text-align:center">Versão ' + APP_VERSION + ' · ' +
+      DATA.units.reduce(function (a, u) { return a + u.licoes.reduce(function (b, l) { return b + l.questoes.length; }, 0); }, 0) +
+      ' questões<br>Conteúdo gerado para estudo. Confira sempre a fonte legal citada.</p>';
     return h;
   };
   function tile(v, l) { return '<div class="stat-tile"><div class="v">' + v + '</div><div class="l">' + l + '</div></div>'; }
@@ -928,6 +966,7 @@
       var novo = prompt("Seu nome no placar:", S.social.nome);
       if (novo && novo.trim()) { S.social.nome = novo.trim().slice(0, 18); save(); render(); }
     }
+    else if (a === "check-update") checkUpdate(true);
     else if (a === "export-errors-print") printCaderno();
     else if (a === "export-errors-copy") {
       if (!errorQuestions().length) { toast("Caderno vazio — nada para copiar."); return; }
@@ -1003,6 +1042,12 @@
   ensureWeek();
   if (grupoAtivo()) syncAmigos();
   render();
+
+  /* checagem de atualização: ao abrir e sempre que o app voltar ao primeiro plano */
+  setTimeout(function () { checkUpdate(false); }, 4000);
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible") checkUpdate(false);
+  });
 
   /* relógio das vidas: repõe e atualiza o contador sem recarregar a tela */
   setInterval(function () {
