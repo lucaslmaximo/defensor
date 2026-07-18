@@ -572,6 +572,90 @@ window.APP_DATA = {
               explicacao: "Art. 6º, VIII: a inversão é 'ope judicis' (a critério do juiz), quando for verossímil a alegação OU quando o consumidor for hipossuficiente — requisitos alternativos, segundo a doutrina e o STJ, não cumulativos."
             }
           ]
+        },
+        {
+          id: "cdc-responsabilidade-2",
+          titulo: "Superendividamento (Lei 14.181/2021)",
+          questoes: [
+            {
+              id: "sup-1", modo: "lei", fonte: "CDC, art. 54-A, §1º",
+              enunciado: "Para o CDC (art. 54-A, §1º, incluído pela Lei 14.181/2021), o superendividamento é a impossibilidade manifesta de o consumidor:",
+              alternativas: [
+                "pessoa natural ou jurídica, pagar as dívidas civis e empresariais vencidas há mais de um ano da contratação",
+                "pessoa natural, de boa-fé, pagar a totalidade de suas dívidas de consumo exigíveis e vincendas, sem comprometer o mínimo existencial",
+                "pessoa natural, ainda que de má-fé, pagar as dívidas vencidas, comprometendo o sustento familiar",
+                "pessoa natural, pagar apenas as dívidas já vencidas, excluídas as parcelas vincendas",
+                "pessoa jurídica de pequeno porte, pagar as dívidas contraídas na atividade empresarial"
+              ],
+              correta: 1,
+              explicacao: "Art. 54-A, §1º, do CDC: superendividamento é a impossibilidade manifesta de o consumidor PESSOA NATURAL, DE BOA-FÉ, pagar a totalidade de suas dívidas de consumo, exigíveis E vincendas, sem comprometer o mínimo existencial. Três filtros: só pessoa física, só de boa-fé, e inclui dívidas futuras."
+            },
+            {
+              id: "sup-2", modo: "lei", fonte: "CDC, art. 54-A, §3º",
+              enunciado: "As regras de prevenção e tratamento do superendividamento NÃO se aplicam:",
+              alternativas: [
+                "às dívidas contraídas com instituições financeiras, regidas por legislação própria",
+                "às dívidas contraídas mediante fraude ou má-fé e às oriundas de produtos e serviços de luxo de alto valor",
+                "às dívidas de serviços essenciais continuados, como água, energia elétrica e telefonia",
+                "a qualquer dívida superior a cinquenta salários mínimos, dado o vulto da obrigação",
+                "às dívidas contraídas por consumidor idoso ou analfabeto, sujeitas a regime próprio"
+              ],
+              correta: 1,
+              explicacao: "Art. 54-A, §3º, do CDC: a proteção não se aplica às dívidas contraídas mediante fraude ou má-fé, aos contratos celebrados com o propósito de não pagar e à aquisição de produtos e serviços de LUXO DE ALTO VALOR. Dívidas bancárias e de serviços essenciais estão normalmente incluídas."
+            },
+            {
+              id: "sup-3", modo: "lei", fonte: "CDC, art. 104-A",
+              enunciado: "No processo de repactuação de dívidas do superendividado, o plano de pagamento apresentado em audiência terá prazo máximo de:",
+              alternativas: [
+                "3 anos, prorrogáveis por igual período mediante decisão fundamentada",
+                "5 anos, preservados o mínimo existencial e as garantias originais",
+                "10 anos, contados da homologação judicial do acordo global",
+                "2 anos, improrrogáveis, sob pena de vencimento antecipado das parcelas",
+                "8 anos, limitado o desconto a 30% da renda mensal do consumidor"
+              ],
+              correta: 1,
+              explicacao: "Art. 104-A do CDC: a pedido do consumidor superendividado, o juiz instaura processo de repactuação com audiência conciliatória e plano de pagamento com prazo MÁXIMO DE 5 ANOS, preservados o mínimo existencial e as garantias e formas de pagamento originalmente pactuadas."
+            },
+            {
+              id: "sup-4", modo: "lei", fonte: "CDC, art. 104-A, §2º",
+              enunciado: "O credor citado que não comparece à audiência de repactuação, nem envia procurador com poderes para transigir, sujeita-se a:",
+              alternativas: [
+                "extinção da dívida, convertida em perdas e danos em favor do consumidor",
+                "suspensão da exigibilidade do seu crédito e interrupção dos encargos da mora",
+                "multa de até 10% sobre o valor do crédito, revertida ao fundo do consumidor",
+                "inclusão compulsória no plano judicial, com deságio mínimo de 30% do crédito",
+                "perda das garantias contratuais, mantida a exigibilidade do valor principal"
+              ],
+              correta: 1,
+              explicacao: "Art. 104-A, §2º, do CDC: a ausência injustificada do credor (ou de procurador com poderes especiais para transigir) na audiência acarreta a SUSPENSÃO DA EXIGIBILIDADE do débito e a INTERRUPÇÃO DOS ENCARGOS DA MORA — sanção processual que força a participação na conciliação."
+            },
+            {
+              id: "sup-5", modo: "lei", fonte: "CDC, art. 54-C",
+              enunciado: "No fornecimento de crédito ao consumidor, é VEDADO, entre outras condutas:",
+              alternativas: [
+                "oferecer crédito consignado a aposentados, dada a natureza alimentar do benefício",
+                "anunciar crédito com expressões como 'sem juros' ou 'gratuito' e assediar consumidor idoso ou vulnerável na contratação",
+                "cobrar juros remuneratórios superiores a 1% ao mês, limite legal das operações de consumo",
+                "conceder crédito sem garantia real ou fidejussória ao consumidor de baixa renda",
+                "renegociar dívidas diretamente com o consumidor superendividado, sem a assistência de advogado ou defensor"
+              ],
+              correta: 1,
+              explicacao: "Art. 54-C do CDC: é vedado, na oferta de crédito, fazer referência a crédito 'sem juros', 'gratuito', 'sem acréscimo' ou com 'taxa zero', ocultar os riscos da contratação, e assediar ou pressionar o consumidor — principalmente se idoso, analfabeto, doente ou em estado de vulnerabilidade."
+            },
+            {
+              id: "sup-6", modo: "caso", fonte: "Doutrina do superendividamento",
+              enunciado: "Na classificação doutrinária, o superendividado 'passivo' é aquele que:",
+              alternativas: [
+                "acumula dívidas por consumo desmedido e gestão imprudente do orçamento, sem fato externo que o justifique",
+                "se endivida em razão de fatos supervenientes e imprevistos ('acidentes da vida'), como desemprego, doença ou divórcio",
+                "contrai dívidas já sabendo que não poderá pagá-las, agindo com má-fé contratual",
+                "figura como garantidor de dívidas alheias, sem proveito econômico próprio",
+                "permanece inerte nas ações de cobrança, sofrendo os efeitos da revelia"
+              ],
+              correta: 1,
+              explicacao: "Superendividado ATIVO é o que se endivida por consumo excessivo (gestão imprudente); PASSIVO é o atingido por 'acidentes da vida' — desemprego, doença, divórcio, morte na família. Ambos são protegidos SE de boa-fé; o devedor de má-fé fica fora do regime (art. 54-A, §3º)."
+            }
+          ]
         }
       ]
     },
@@ -1329,6 +1413,90 @@ window.APP_DATA = {
               explicacao: "Lei 15.384/26: inseriu a violência vicária no art. 7º da Lei Maria da Penha e criou o vicaricídio (art. 121-B do CP) — matar descendente, ascendente, dependente, enteado ou pessoa sob responsabilidade da mulher com o fim específico de causar-lhe sofrimento, punição ou controle, no contexto de violência doméstica. É crime hediondo e de competência do júri; por especialidade, prevalece sobre o homicídio."
             }
           ]
+        },
+        {
+          id: "penal-juris-3",
+          titulo: "Teoria do crime",
+          questoes: [
+            {
+              id: "tcr-1", modo: "lei", fonte: "CP, art. 18, I",
+              enunciado: "Age com dolo EVENTUAL o agente que:",
+              alternativas: [
+                "prevê o resultado como possível, mas acredita sinceramente que ele não ocorrerá",
+                "prevê o resultado como possível e, ainda assim, assume o risco de produzi-lo, anuindo à sua ocorrência",
+                "não prevê o resultado que era objetivamente previsível a qualquer pessoa prudente",
+                "quer diretamente o resultado típico e dirige toda a sua conduta à produção dele",
+                "confia na própria habilidade para evitar o resultado que previu como certo"
+              ],
+              correta: 1,
+              explicacao: "Art. 18, I, do CP: há dolo eventual quando o agente ASSUME O RISCO de produzir o resultado previsto (teoria do assentimento). A pegadinha clássica é a culpa CONSCIENTE: nela o agente também prevê o resultado, mas acredita sinceramente que ele não ocorrerá — não o aceita."
+            },
+            {
+              id: "tcr-2", modo: "lei", fonte: "CP, art. 20",
+              enunciado: "O erro de tipo essencial INEVITÁVEL (invencível):",
+              alternativas: [
+                "exclui apenas o dolo, subsistindo a punição por culpa, se prevista em lei",
+                "exclui o dolo e a culpa, tornando o fato atípico",
+                "isenta o agente de pena, mantendo a tipicidade e a ilicitude do fato",
+                "reduz a pena de um sexto a um terço, conforme o grau de evitabilidade",
+                "não afeta o dolo, pois o desconhecimento da lei é inescusável"
+              ],
+              correta: 1,
+              explicacao: "Art. 20 do CP: o erro de tipo sempre exclui o DOLO. Se INEVITÁVEL, exclui também a culpa (fato atípico); se EVITÁVEL, permite a punição por crime culposo, se previsto em lei. Não confundir com o erro de PROIBIÇÃO (art. 21): inevitável isenta de pena; evitável reduz de 1/6 a 1/3."
+            },
+            {
+              id: "tcr-3", modo: "lei", fonte: "CP, arts. 14, p. ú., e 15",
+              enunciado: "O agente que, voluntariamente, interrompe a execução do crime já iniciada (desistência voluntária):",
+              alternativas: [
+                "responde pela tentativa do crime, com a pena reduzida de um a dois terços",
+                "responde apenas pelos atos já praticados, afastada a tentativa ('ponte de ouro')",
+                "fica isento de qualquer pena, ainda que os atos praticados constituam crime",
+                "responde pelo crime consumado, se a interrupção decorreu de circunstância externa",
+                "tem a pena atenuada pelo arrependimento posterior, se reparar o dano causado"
+              ],
+              correta: 1,
+              explicacao: "Art. 15 do CP: na desistência voluntária (e no arrependimento eficaz), o agente só responde pelos ATOS JÁ PRATICADOS — é a 'ponte de ouro'. Afasta-se a tentativa (que exige interrupção por circunstâncias ALHEIAS à vontade, art. 14, II, com redução de 1/3 a 2/3). A voluntariedade não precisa ser espontânea."
+            },
+            {
+              id: "tcr-4", modo: "lei", fonte: "CP, art. 25",
+              enunciado: "Configura legítima defesa a conduta de quem:",
+              alternativas: [
+                "reage a agressão já encerrada, em desforço imediato pela ofensa à honra ou ao patrimônio",
+                "usando moderadamente dos meios necessários, repele injusta agressão, atual ou iminente, a direito seu ou de outrem",
+                "sacrifica bem jurídico de terceiro inocente para salvar-se de perigo atual que não provocou",
+                "repele agressão futura e incerta, com base em fundado temor de sua ocorrência",
+                "atua no estrito cumprimento de dever legal imposto pela função pública"
+              ],
+              correta: 1,
+              explicacao: "Art. 25 do CP: legítima defesa exige agressão INJUSTA, ATUAL OU IMINENTE, a direito próprio ou alheio, repelida com os meios necessários usados com moderação. Agressão passada (vingança) ou futura/incerta não autorizam. Sacrificar bem de terceiro diante de perigo é estado de necessidade (art. 24) — excludente diversa."
+            },
+            {
+              id: "tcr-5", modo: "lei", fonte: "CP, art. 70",
+              enunciado: "No concurso FORMAL PRÓPRIO (perfeito) de crimes, o agente:",
+              alternativas: [
+                "com uma só conduta e desígnios autônomos, sujeita-se à soma das penas (cúmulo material)",
+                "com uma só conduta pratica dois ou mais crimes, aplicando-se a pena mais grave aumentada de 1/6 até 1/2",
+                "mediante mais de uma conduta, pratica crimes da mesma espécie em condições semelhantes",
+                "pratica novo crime depois do trânsito em julgado de condenação anterior, como reincidente",
+                "responde sempre por crime único, quando os delitos atingirem o mesmo bem jurídico"
+              ],
+              correta: 1,
+              explicacao: "Art. 70 do CP: no concurso formal PRÓPRIO (uma conduta, dois ou mais crimes, sem desígnios autônomos) aplica-se a pena mais grave aumentada de 1/6 a 1/2 (exasperação). Havendo DESÍGNIOS AUTÔNOMOS (formal impróprio), somam-se as penas. Várias condutas + crimes da mesma espécie em condições semelhantes = continuidade delitiva (art. 71)."
+            },
+            {
+              id: "tcr-6", modo: "lei", fonte: "CP, art. 13, §2º",
+              enunciado: "Nos crimes omissivos IMPRÓPRIOS (comissivos por omissão), a omissão é penalmente relevante quando o omitente:",
+              alternativas: [
+                "tinha mera possibilidade física de agir, ainda que sem qualquer dever jurídico específico",
+                "devia e podia agir para evitar o resultado, por ser garantidor (dever legal, assunção voluntária ou ingerência)",
+                "presenciou o fato criminoso e deixou de comunicá-lo imediatamente à autoridade policial",
+                "descumpriu dever genérico de solidariedade, punível como omissão de socorro agravada",
+                "podia agir sem risco pessoal, hipótese que configura o crime de omissão de socorro"
+              ],
+              correta: 1,
+              explicacao: "Art. 13, §2º, do CP: no crime comissivo por omissão, o omitente responde pelo RESULTADO porque devia e podia agir — posição de GARANTIDOR: (a) dever legal de cuidado, proteção ou vigilância; (b) assunção voluntária da responsabilidade de impedir o resultado; (c) ingerência (criação do risco com o comportamento anterior). Sem posição de garante, a omissão gera, no máximo, crime omissivo próprio (ex.: omissão de socorro)."
+            }
+          ]
         }
       ]
     },
@@ -1626,6 +1794,90 @@ window.APP_DATA = {
               explicacao: "Art. 9º da Lei 12.305/2010: na gestão de resíduos observa-se a ordem de prioridade — não geração, redução, reutilização, reciclagem, tratamento e disposição final ambientalmente adequada dos rejeitos. Assenta-se na responsabilidade compartilhada pelo ciclo de vida dos produtos e na logística reversa."
             }
           ]
+        },
+        {
+          id: "administrativo-2",
+          titulo: "Responsabilidade civil do Estado",
+          questoes: [
+            {
+              id: "rce-1", modo: "lei", fonte: "CF, art. 37, §6º",
+              enunciado: "Nos termos do art. 37, §6º, da CF, as pessoas jurídicas de direito público e as de direito privado prestadoras de serviços públicos respondem:",
+              alternativas: [
+                "subjetivamente, exigida a demonstração de culpa individualizada do agente causador do dano",
+                "objetivamente pelos danos que seus agentes, nessa qualidade, causarem a terceiros, com regresso nos casos de dolo ou culpa",
+                "objetivamente, com fundamento na teoria do risco integral, vedada qualquer excludente",
+                "objetivamente apenas as de direito público; as concessionárias respondem mediante culpa",
+                "objetivamente apenas perante os usuários do serviço público, respondendo mediante culpa perante os não usuários"
+              ],
+              correta: 1,
+              explicacao: "Art. 37, §6º, da CF: responsabilidade OBJETIVA (teoria do risco administrativo — admite excludentes, ao contrário do risco integral) pelos danos que os agentes, NESSA QUALIDADE, causarem a terceiros, assegurado o regresso contra o responsável nos casos de dolo ou culpa. O STF estende a proteção também a terceiros NÃO usuários (RE 591.874)."
+            },
+            {
+              id: "rce-2", modo: "juris", fonte: "STF, Tema 592",
+              enunciado: "Um detento morre em estabelecimento prisional. Conforme o STF (Tema 592), o Estado:",
+              alternativas: [
+                "não responde, pois a morte no interior do presídio decorre, em regra, de fato de terceiro ou da própria vítima",
+                "responde objetivamente, por inobservância do dever específico de proteção, salvo se comprovar que não podia evitar o resultado",
+                "responde subjetivamente, exigida a prova de negligência concreta dos agentes penitenciários",
+                "responde com base no risco integral, ainda que o resultado fosse imprevisível e inevitável",
+                "responde apenas em caso de morte por homicídio, excluídas as mortes naturais e os suicídios"
+              ],
+              correta: 1,
+              explicacao: "Tema 592 do STF: em caso de inobservância do dever específico de proteção previsto no art. 5º, XLIX, da CF, o Estado é responsável (objetivamente) pela morte de detento. A responsabilidade é afastada quando o Estado comprova que a morte não podia ser evitada (rompimento do nexo causal) — não é risco integral."
+            },
+            {
+              id: "rce-3", modo: "juris", fonte: "STF, Tema 940 (dupla garantia)",
+              enunciado: "A vítima de dano causado por agente público pretende ajuizar a ação indenizatória diretamente contra o servidor. Conforme o STF (Tema 940):",
+              alternativas: [
+                "é possível, à escolha da vítima, demandar o agente público, o Estado ou ambos, em litisconsórcio facultativo",
+                "não é possível: a ação deve ser proposta contra o ente público, e o agente responde apenas em regresso (dupla garantia)",
+                "é possível, desde que demonstrado o dolo ou a fraude do agente na conduta lesiva",
+                "é obrigatório o litisconsórcio passivo entre o agente público e o ente estatal",
+                "só é possível após o trânsito em julgado da ação contra o Estado, de forma subsidiária"
+              ],
+              correta: 1,
+              explicacao: "Tema 940 do STF (tese da dupla garantia): a ação indenizatória deve ser ajuizada contra o Estado ou a pessoa jurídica prestadora do serviço; o agente público responde somente em ação de REGRESSO. A regra protege a vítima (patrimônio estatal solvente) e o agente (não responde diretamente perante o particular)."
+            },
+            {
+              id: "rce-4", modo: "juris", fonte: "STJ; Decreto 20.910/32",
+              enunciado: "A pretensão indenizatória contra a Fazenda Pública prescreve, segundo o entendimento consolidado do STJ, em:",
+              alternativas: [
+                "3 anos, aplicando-se o prazo da reparação civil do Código Civil, norma posterior",
+                "5 anos (Decreto 20.910/32), por ser norma especial que prevalece sobre o prazo trienal do Código Civil",
+                "10 anos, prazo geral aplicável às pretensões pessoais sem regra específica",
+                "2 anos, contados da data da ciência inequívoca do dano pela vítima lesada",
+                "não prescreve, por se tratar de responsabilidade fundada diretamente na Constituição"
+              ],
+              correta: 1,
+              explicacao: "STJ (tese repetitiva): aplica-se o prazo QUINQUENAL do art. 1º do Decreto 20.910/32 às ações indenizatórias contra a Fazenda Pública, por ser norma especial, afastando o prazo de 3 anos do art. 206, §3º, V, do Código Civil."
+            },
+            {
+              id: "rce-5", modo: "caso", fonte: "Teoria do risco administrativo",
+              enunciado: "Em matéria de responsabilidade objetiva do Estado (teoria do risco administrativo), a culpa CONCORRENTE da vítima:",
+              alternativas: [
+                "exclui integralmente a responsabilidade estatal, rompendo o nexo de causalidade",
+                "não exclui a responsabilidade, mas atenua o valor da indenização, na proporção da contribuição causal",
+                "é irrelevante, pois o risco administrativo não admite excludentes nem atenuantes",
+                "transfere a responsabilidade ao agente público que concorreu para o resultado",
+                "converte a responsabilidade objetiva em subjetiva, exigindo prova da culpa estatal"
+              ],
+              correta: 1,
+              explicacao: "No risco administrativo, a culpa EXCLUSIVA da vítima, o caso fortuito/força maior e o fato exclusivo de terceiro rompem o nexo e excluem a responsabilidade. Já a culpa CONCORRENTE não exclui — apenas atenua o quantum indenizatório, na medida da contribuição causal de cada parte."
+            },
+            {
+              id: "rce-6", modo: "lei", fonte: "CF, art. 5º, LXXV",
+              enunciado: "Quanto aos danos causados por atos JURISDICIONAIS, a regra é a irresponsabilidade do Estado, EXCETO:",
+              alternativas: [
+                "quando a decisão for integralmente reformada em grau de recurso, com inversão da sucumbência",
+                "no erro judiciário e na prisão além do tempo fixado na sentença (art. 5º, LXXV, da CF)",
+                "quando a parte demonstrar prejuízo econômico decorrente da demora na tramitação",
+                "em qualquer condenação criminal seguida de absolvição por insuficiência de provas",
+                "quando o juiz interpretar a lei de forma diversa da jurisprudência dominante"
+              ],
+              correta: 1,
+              explicacao: "Regra: o Estado não responde por atos jurisdicionais típicos. Exceções constitucionais (art. 5º, LXXV): o ERRO JUDICIÁRIO e a prisão ALÉM DO TEMPO fixado na sentença. Também responde quando o juiz age com dolo ou fraude (art. 143 do CPC). Reforma em recurso e divergência interpretativa não geram, por si, indenização."
+            }
+          ]
         }
       ]
     },
@@ -1721,6 +1973,90 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "A interseccionalidade (Kimberlé Crenshaw) analisa como marcadores de opressão — raça, gênero, classe, sexualidade, deficiência — se sobrepõem e se articulam, produzindo formas específicas e agravadas de discriminação, exigindo proteção diferenciada dos grupos vulnerabilizados."
+            }
+          ]
+        },
+        {
+          id: "direitos-humanos-2",
+          titulo: "Grupos vulnerabilizados",
+          questoes: [
+            {
+              id: "gv-1", modo: "lei", fonte: "CF, art. 5º, §3º; Decreto 6.949/2009",
+              enunciado: "Qual tratado de direitos humanos foi aprovado pelo rito qualificado do art. 5º, §3º, da CF, possuindo status equivalente ao de emenda constitucional?",
+              alternativas: [
+                "a Convenção Americana sobre Direitos Humanos (Pacto de São José da Costa Rica)",
+                "a Convenção da ONU sobre os Direitos das Pessoas com Deficiência e seu Protocolo Facultativo",
+                "o Pacto Internacional sobre Direitos Civis e Políticos, ratificado em 1992",
+                "a Convenção da ONU contra a Tortura e Outros Tratamentos Cruéis ou Degradantes",
+                "a Convenção sobre a Eliminação de Todas as Formas de Discriminação contra a Mulher"
+              ],
+              correta: 1,
+              explicacao: "A Convenção sobre os Direitos das Pessoas com Deficiência (e seu Protocolo Facultativo) foi o primeiro tratado aprovado pelo rito do art. 5º, §3º (dois turnos, 3/5 dos votos em cada Casa) — Decreto 6.949/2009 —, tendo status de emenda constitucional. Os demais tratados citados, anteriores, têm status supralegal."
+            },
+            {
+              id: "gv-2", modo: "juris", fonte: "STF, ADPF 186",
+              enunciado: "Sobre as ações afirmativas com recorte racial no acesso ao ensino superior, o STF (ADPF 186) decidiu que elas:",
+              alternativas: [
+                "são inconstitucionais, por violarem o princípio da igualdade formal entre os candidatos",
+                "são constitucionais, como instrumento de igualdade material e de superação de desigualdades históricas",
+                "são válidas apenas se combinadas com critério socioeconômico, vedado o critério racial isolado",
+                "dependem de lei federal específica, sendo vedada a instituição por ato universitário",
+                "são admitidas somente nas instituições privadas, por força da autonomia contratual"
+              ],
+              correta: 1,
+              explicacao: "ADPF 186: o STF, por unanimidade, declarou constitucionais as cotas raciais em universidades, como concretização da igualdade MATERIAL (art. 3º, I e III, da CF) e políticas de reparação de desigualdades históricas. Não se exigiu lei específica nem combinação obrigatória com critério socioeconômico."
+            },
+            {
+              id: "gv-3", modo: "juris", fonte: "STF, ADO 26 e MI 4733",
+              enunciado: "Diante da omissão do Congresso em criminalizar a homotransfobia, o STF (ADO 26 e MI 4733) decidiu que essas condutas:",
+              alternativas: [
+                "não podem ser punidas, por força da reserva absoluta de lei penal em sentido formal",
+                "enquadram-se, até que sobrevenha lei específica, nos tipos da Lei do Racismo (Lei 7.716/89), como racismo social",
+                "configuram apenas injúria qualificada, afastada a aplicação da Lei do Racismo",
+                "devem ser punidas como contravenção penal de perturbação, até deliberação do Congresso",
+                "geram apenas responsabilidade civil e administrativa, vedada a analogia in malam partem"
+              ],
+              correta: 1,
+              explicacao: "ADO 26 e MI 4733: o STF reconheceu a mora legislativa e determinou que a homotransfobia se enquadra, até edição de lei própria, nos crimes da Lei 7.716/89 — conceito de racismo SOCIAL, não limitado à raça biológica. A Corte afastou a objeção de analogia in malam partem, tratando-a como interpretação conforme."
+            },
+            {
+              id: "gv-4", modo: "juris", fonte: "STF, HC coletivo 143.641",
+              enunciado: "No HC coletivo 143.641, o STF determinou a substituição da prisão preventiva por domiciliar para gestantes e mães de crianças de até 12 anos, EXCETO:",
+              alternativas: [
+                "nos crimes de tráfico de drogas em qualquer modalidade, dada a natureza equiparada a hedionda do delito imputado",
+                "nos crimes com violência ou grave ameaça, nos praticados contra os próprios descendentes ou em situações excepcionalíssimas",
+                "nas hipóteses de reincidência da acusada, qualquer que seja a natureza do novo delito",
+                "quando a mulher não comprovar renda lícita nem residência fixa no distrito da culpa",
+                "quando a criança estiver sob os cuidados de outro familiar em condições adequadas"
+              ],
+              correta: 1,
+              explicacao: "HC coletivo 143.641 (2ª Turma do STF): substituição da preventiva por prisão domiciliar às gestantes, puérperas e mães de crianças até 12 anos ou de pessoas com deficiência, EXCETO nos crimes praticados com violência ou grave ameaça, contra os próprios descendentes, ou em situações excepcionalíssimas devidamente fundamentadas. Marco da tutela coletiva em matéria penal — atuação da Defensoria."
+            },
+            {
+              id: "gv-5", modo: "lei", fonte: "Convenção 169 da OIT",
+              enunciado: "A Convenção 169 da OIT, aplicável aos povos indígenas e tribais (incluídas as comunidades quilombolas), assegura-lhes o direito:",
+              alternativas: [
+                "de veto vinculante a qualquer empreendimento situado nas proximidades de seus territórios",
+                "à consulta prévia, livre e informada sobre medidas administrativas e legislativas capazes de afetá-los diretamente",
+                "à representação parlamentar própria, com cadeiras reservadas no Congresso Nacional",
+                "à propriedade plena, alienável e penhorável das terras tradicionalmente ocupadas",
+                "de somente serem julgados por tribunais compostos por integrantes da própria comunidade"
+              ],
+              correta: 1,
+              explicacao: "Arts. 6º e 7º da Convenção 169 da OIT: direito à CONSULTA prévia, livre e informada (de boa-fé e por meio das instituições representativas) sempre que previstas medidas capazes de afetá-los diretamente. Consulta não equivale a veto. A jurisprudência estende a proteção às comunidades quilombolas como 'povos tribais'."
+            },
+            {
+              id: "gv-6", modo: "lei", fonte: "Lei 9.474/97, art. 1º, III",
+              enunciado: "A lei brasileira de refúgio (Lei 9.474/97) adota conceito ampliado de refugiado, reconhecendo também quem:",
+              alternativas: [
+                "migra por razões exclusivamente econômicas, em busca de melhores condições de vida",
+                "é obrigado a deixar seu país devido a grave e generalizada violação de direitos humanos",
+                "é condenado criminalmente no exterior e busca escapar do cumprimento da pena",
+                "deixa o país de origem em razão de desastres naturais, como deslocado climático",
+                "possui visto humanitário concedido discricionariamente pelo governo brasileiro"
+              ],
+              correta: 1,
+              explicacao: "Art. 1º, III, da Lei 9.474/97: além do fundado temor de perseguição (Convenção de 1951), é refugiado quem, devido a GRAVE E GENERALIZADA VIOLAÇÃO DE DIREITOS HUMANOS, é obrigado a deixar seu país — conceito ampliado inspirado na Declaração de Cartagena. Migração econômica e desastres naturais não estão abrangidos pela lei (podem ensejar acolhida humanitária, instituto diverso)."
             }
           ]
         }
