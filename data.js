@@ -293,6 +293,103 @@ window.APP_DATA = {
       ]
     },
 
+    /* ---------------------------------- OBRIGAÇÕES E CONTRATOS (CIVIL) */
+    {
+      id: "obrigacoes-contratos",
+      titulo: "Obrigações e Contratos",
+      materia: "Direito Civil",
+      banca: "I",
+      icone: "✍️",
+      cor: "verde",
+      descricao: "Solidariedade, adimplemento substancial, cláusula penal e locação.",
+      licoes: [
+        {
+          id: "obrigacoes-contratos-1",
+          titulo: "Obrigações e contratos: regras e exceções",
+          questoes: [
+            {
+              id: "oc-1", modo: "lei", fonte: "CC, art. 265",
+              enunciado: "Sobre a obrigação solidária, o Código Civil dispõe que a solidariedade:",
+              alternativas: [
+                "presume-se sempre que houver pluralidade de devedores vinculados à mesma obrigação",
+                "não se presume: resulta da lei ou da vontade das partes",
+                "só pode decorrer de expressa previsão legal, vedada a solidariedade convencional",
+                "aplica-se apenas às obrigações indivisíveis, por sua própria natureza",
+                "depende de homologação judicial quando estipulada em contrato de adesão"
+              ],
+              correta: 1,
+              explicacao: "Art. 265 do CC: a solidariedade NÃO SE PRESUME — resulta da lei ou da vontade das partes. É regra de prova frequente: havendo vários devedores sem previsão de solidariedade, a obrigação divide-se (art. 257). Não confundir com a solidariedade legal do CDC (art. 7º, parágrafo único), que decorre da lei."
+            },
+            {
+              id: "oc-2", modo: "juris", fonte: "STJ, REsp 1.622.555 (adimplemento substancial)",
+              enunciado: "Sobre a teoria do adimplemento substancial, o STJ consolidou que ela:",
+              alternativas: [
+                "impede qualquer medida judicial do credor sempre que paga mais da metade das parcelas do contrato",
+                "obsta a resolução por inadimplemento mínimo, mas não se aplica à busca e apreensão na alienação fiduciária (DL 911/69)",
+                "extingue a dívida remanescente quando cumprida parcela significativa da obrigação",
+                "aplica-se somente aos contratos de consumo, por decorrer da boa-fé objetiva do CDC",
+                "autoriza o juiz a reduzir de ofício o saldo devedor à proporção do descumprimento"
+              ],
+              correta: 1,
+              explicacao: "O adimplemento substancial (derivado da boa-fé objetiva) impede a RESOLUÇÃO do contrato quando o descumprimento é ínfimo — restando ao credor a via da cobrança. Mas o STJ (REsp 1.622.555, repetitivo) afastou sua aplicação à busca e apreensão do DL 911/69: na alienação fiduciária, exige-se o pagamento INTEGRAL para restituir o bem. Tema do edital (ação de busca e apreensão)."
+            },
+            {
+              id: "oc-3", modo: "lei", fonte: "CC, arts. 478 e 479",
+              enunciado: "Na resolução por onerosidade excessiva (art. 478 do CC), decorrente de acontecimentos extraordinários e imprevisíveis, o réu pode evitar a resolução do contrato:",
+              alternativas: [
+                "consignando em juízo o valor originalmente pactuado entre as partes",
+                "oferecendo-se a modificar equitativamente as condições do contrato",
+                "prestando caução idônea equivalente ao valor integral da prestação",
+                "exigindo do autor a prova da diminuição efetiva do próprio patrimônio",
+                "denunciando o contrato com antecedência mínima de trinta dias"
+              ],
+              correta: 1,
+              explicacao: "Art. 479 do CC: a resolução por onerosidade excessiva poderá ser evitada se o réu se oferecer a modificar EQUITATIVAMENTE as condições do contrato — privilegia-se a conservação do negócio (princípio da preservação dos contratos), em vez da sua extinção."
+            },
+            {
+              id: "oc-4", modo: "lei", fonte: "CC, art. 413",
+              enunciado: "Quanto à cláusula penal, o Código Civil determina que o juiz:",
+              alternativas: [
+                "somente pode reduzi-la mediante requerimento expresso do devedor, formulado na contestação",
+                "DEVE reduzi-la equitativamente se a obrigação foi cumprida em parte ou se o montante é manifestamente excessivo",
+                "não pode alterá-la, por força da obrigatoriedade dos contratos (pacta sunt servanda)",
+                "deve limitá-la a dez por cento do valor da obrigação, como nas dívidas de consumo",
+                "só a reduz nos contratos de adesão, presumida a vulnerabilidade do aderente"
+              ],
+              correta: 1,
+              explicacao: "Art. 413 do CC: a penalidade DEVE ser reduzida equitativamente pelo juiz se a obrigação principal tiver sido cumprida em parte ou se o montante for manifestamente excessivo. O STJ trata a norma como de ordem pública — a redução pode se dar até de ofício. Lembre também o art. 412: a cláusula penal não pode exceder o valor da obrigação principal."
+            },
+            {
+              id: "oc-5", modo: "lei", fonte: "CC, art. 476",
+              enunciado: "A exceção de contrato não cumprido (art. 476 do CC) significa que, nos contratos bilaterais:",
+              alternativas: [
+                "qualquer contratante pode suspender o cumprimento se houver receio de insolvência da outra parte",
+                "nenhum contratante, antes de cumprida a sua obrigação, pode exigir o implemento da do outro",
+                "o contratante pontual pode exigir judicialmente o cumprimento em dobro da prestação inadimplida",
+                "ambas as partes podem resolver o contrato de pleno direito, sem necessidade de interpelação",
+                "o devedor pode purgar a mora a qualquer tempo, até a assinatura da sentença"
+              ],
+              correta: 1,
+              explicacao: "Art. 476 do CC (exceptio non adimpleti contractus): nos contratos bilaterais, nenhum dos contratantes, antes de cumprida a sua obrigação, pode exigir o implemento da do outro. A hipótese de diminuição patrimonial superveniente com risco à contraprestação é regra diversa (art. 477 — exigência de garantia)."
+            },
+            {
+              id: "oc-6", modo: "lei", fonte: "Lei 8.245/91, art. 33",
+              enunciado: "Preterido no seu direito de preferência na venda do imóvel locado, o locatário poderá haver o imóvel para si, DESDE QUE:",
+              alternativas: [
+                "notifique o alienante em até 30 dias da ciência da venda, independentemente de averbação",
+                "deposite o preço em até 6 meses do registro e o contrato esteja averbado na matrícula 30 dias antes da venda",
+                "comprove a locação por qualquer meio, ainda que o contrato seja verbal e não registrado",
+                "ajuíze ação anulatória da venda no prazo decadencial de 2 anos, contado da escritura",
+                "prove que o adquirente conhecia a locação, dispensados o depósito e a averbação"
+              ],
+              correta: 1,
+              explicacao: "Art. 33 da Lei 8.245/91: o locatário preterido pode reclamar perdas e danos OU haver para si o imóvel, se depositar o preço e despesas em até 6 MESES do registro da venda E o contrato de locação estiver AVERBADO na matrícula do imóvel pelo menos 30 dias antes da alienação. Sem a averbação, resta apenas a indenização."
+            }
+          ]
+        }
+      ]
+    },
+
     /* ---------------------------------- 4. EXECUÇÃO E IMPENHORABILIDADE (CPC) */
     {
       id: "impenhorabilidade",
@@ -1198,6 +1295,90 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Tema 661 do STF: são lícitas as sucessivas renovações de interceptação telefônica, desde que verificados os requisitos do art. 2º da Lei 9.296/96 e demonstrada a necessidade da medida, com a decisão inicial e as prorrogações devidamente motivadas, ainda que de forma sucinta."
+            }
+          ]
+        },
+        {
+          id: "proc-penal-juris-3",
+          titulo: "Recursos e Habeas Corpus",
+          questoes: [
+            {
+              id: "rhc-1", modo: "juris", fonte: "STF, Súmulas 693 e 695",
+              enunciado: "NÃO cabe habeas corpus, segundo as súmulas do STF:",
+              alternativas: [
+                "impetrado por quem não seja advogado, dada a exigência de capacidade postulatória",
+                "contra condenação a pena de multa ou quando já extinta a pena privativa de liberdade",
+                "em favor de pessoa jurídica, salvo nos crimes ambientais de autoria coletiva",
+                "contra decisão proferida por turma recursal dos juizados especiais criminais",
+                "no curso do inquérito policial, antes do recebimento da denúncia pelo juízo"
+              ],
+              correta: 1,
+              explicacao: "Súmula 693 do STF: não cabe HC contra decisão condenatória a pena de multa (ou processo cuja pena única cominada seja pecuniária); Súmula 695: não cabe quando já extinta a pena privativa de liberdade — pois o HC tutela a liberdade de LOCOMOÇÃO. Qualquer pessoa pode impetrá-lo (sem advogado), cabe no inquérito, e contra turma recursal julga o TJ/TRF (entendimento que superou a Súmula 690)."
+            },
+            {
+              id: "rhc-2", modo: "lei", fonte: "CPP, art. 617; STF, Súmula 160",
+              enunciado: "Em recurso EXCLUSIVO da defesa, o tribunal:",
+              alternativas: [
+                "pode agravar a pena se reconhecer, de ofício, circunstância não apreciada na sentença",
+                "não pode agravar a pena nem piorar, de qualquer modo, a situação do réu (vedação da reformatio in pejus)",
+                "pode reconhecer nulidade contra o réu, ainda que não arguida no recurso da acusação",
+                "pode corrigir a dosimetria para cima, desde que fundamente o erro aritmético do juízo",
+                "fica limitado ao efeito devolutivo, podendo, porém, compensar agravantes omitidas"
+              ],
+              correta: 1,
+              explicacao: "Art. 617 do CPP: no recurso exclusivo da defesa, a pena não pode ser agravada (ne reformatio in pejus). A Súmula 160 do STF completa: é NULA a decisão que acolhe, contra o réu, nulidade não arguida no recurso da acusação. Há ainda a reformatio in pejus INDIRETA: anulada a sentença em recurso da defesa, a nova decisão não pode impor pena superior à anterior."
+            },
+            {
+              id: "rhc-3", modo: "juris", fonte: "STF, Súmulas 705 e 708",
+              enunciado: "O réu manifesta renúncia ao direito de apelar, sem assistência do defensor, que pretende recorrer. Nessa hipótese:",
+              alternativas: [
+                "prevalece a vontade expressa do réu, titular do direito de recorrer, arquivando-se o feito",
+                "a renúncia desassistida não impede o conhecimento da apelação interposta pelo defensor",
+                "o juiz deve designar audiência para ratificação pessoal da renúncia em cartório",
+                "a apelação só será conhecida se o réu constituir novo defensor em cinco dias",
+                "instaura-se incidente de sanidade mental para aferir a validade da renúncia"
+              ],
+              correta: 1,
+              explicacao: "Súmula 705 do STF: a renúncia do réu ao direito de apelação, manifestada sem a assistência do defensor, não impede o conhecimento da apelação por este interposta — prevalece a manifestação mais favorável à defesa. Correlata, a Súmula 708: é nulo o julgamento da apelação se, após a renúncia do único defensor, o réu não foi previamente intimado para constituir outro."
+            },
+            {
+              id: "rhc-4", modo: "juris", fonte: "LC 80/94, art. 44, I; STF/STJ",
+              enunciado: "Quanto aos prazos recursais no processo penal, é correto afirmar que:",
+              alternativas: [
+                "a Defensoria e o Ministério Público dispõem, ambos, da prerrogativa do prazo em dobro para recorrer",
+                "a Defensoria tem prazo em dobro e intimação pessoal, prerrogativa que não se estende ao Ministério Público",
+                "o prazo em dobro da Defensoria vale apenas na esfera cível, não alcançando o processo penal",
+                "os prazos correm da juntada do mandado aos autos, como no processo civil",
+                "a intimação pessoal do defensor público dispensa a contagem em dobro do prazo"
+              ],
+              correta: 1,
+              explicacao: "A LC 80/94 (art. 44, I) assegura ao defensor público intimação pessoal e prazo em dobro 'em qualquer processo e grau de jurisdição' — inclusive no penal (STF/STJ pacíficos). O MP NÃO tem prazo em dobro no processo penal. E atenção à Súmula 710 do STF: no processo penal, os prazos contam da INTIMAÇÃO, e não da juntada do mandado aos autos."
+            },
+            {
+              id: "rhc-5", modo: "lei", fonte: "CPP, art. 609, parágrafo único",
+              enunciado: "Os embargos infringentes e de nulidade, no processo penal (art. 609, parágrafo único, do CPP):",
+              alternativas: [
+                "podem ser opostos por qualquer das partes, inclusive a acusação, contra acórdão não unânime",
+                "são recurso exclusivo da defesa, cabível contra decisão de segundo grau não unânime e desfavorável ao réu",
+                "cabem contra qualquer acórdão unânime que confirme a condenação de primeiro grau",
+                "limitam-se às decisões do Tribunal do Júri tomadas por maioria de votos dos jurados",
+                "foram tacitamente revogados pelo CPC/2015, que aboliu os embargos infringentes cíveis"
+              ],
+              correta: 1,
+              explicacao: "Art. 609, parágrafo único, do CPP: quando não unânime a decisão de segunda instância desfavorável ao réu, cabem embargos infringentes (mérito) e de nulidade, no prazo de 10 dias, restritos à matéria da divergência — recurso EXCLUSIVO da defesa. A COCRIM/DPE-RJ invoca essa lógica até na seara infracional, contra a técnica de julgamento ampliado do art. 942 do CPC."
+            },
+            {
+              id: "rhc-6", modo: "juris", fonte: "STF, Súmula 713",
+              enunciado: "No julgamento da apelação contra decisão do Tribunal do Júri, o efeito devolutivo:",
+              alternativas: [
+                "é amplo e integral, devolvendo ao tribunal o conhecimento de toda a matéria da causa",
+                "é adstrito aos fundamentos da interposição indicados pelo recorrente (Súmula 713/STF)",
+                "permite ao tribunal reformar diretamente o mérito do veredicto dos jurados",
+                "autoriza a correção da dosimetria apenas em favor da acusação recorrente",
+                "abrange somente as nulidades absolutas, cognoscíveis de ofício em qualquer grau"
+              ],
+              correta: 1,
+              explicacao: "Súmula 713 do STF: o efeito devolutivo da apelação contra decisões do Júri é ADSTRITO aos fundamentos da sua interposição (art. 593, III, do CPP — hipóteses taxativas). Pela soberania dos veredictos, o tribunal não substitui o mérito decidido pelos jurados: se a decisão for manifestamente contrária à prova, determina novo júri (uma única vez)."
             }
           ]
         }
