@@ -268,6 +268,64 @@
     });
   }
 
+  /* ---------- exportar caderno de erros ---------- */
+  function errosParaExportar() {
+    var errs = errorQuestions();
+    errs.sort(function (a, b) {
+      if (a._materia !== b._materia) return a._materia < b._materia ? -1 : 1;
+      return (S.errors[b.id].count || 0) - (S.errors[a.id].count || 0);
+    });
+    return errs;
+  }
+  function textoCaderno() {
+    var errs = errosParaExportar();
+    var hoje = new Date();
+    var t = "CADERNO DE ERROS — Defensor (DPE-RJ)\n" +
+      "Exportado em " + hoje.toLocaleDateString("pt-BR") + " · " + errs.length + " questões para revisar\n";
+    var mat = null;
+    errs.forEach(function (x, i) {
+      if (x._materia !== mat) { mat = x._materia; t += "\n====== " + mat.toUpperCase() + " ======\n"; }
+      var e = S.errors[x.id];
+      t += "\n" + (i + 1) + ") [" + x._topico + " · " + x.fonte + " · errada " + e.count + "x]\n" + x.enunciado + "\n";
+      x.alternativas.forEach(function (a, idx) {
+        t += (idx === x.correta ? "  ✔ " : "  - ") + "ABCDE"[idx] + ") " + a + "\n";
+      });
+      t += "  >> " + x.explicacao + "\n";
+    });
+    return t;
+  }
+  function printCaderno() {
+    var errs = errosParaExportar();
+    if (!errs.length) { toast("Caderno vazio — nada para exportar."); return; }
+    var old = document.getElementById("print-doc");
+    if (old) old.remove();
+    var div = document.createElement("div");
+    div.id = "print-doc";
+    div.className = "print-doc";
+    var hoje = new Date();
+    var h = '<h1>Caderno de Erros — Defensor (DPE-RJ)</h1>' +
+      '<p class="pd-meta">Exportado em ' + hoje.toLocaleDateString("pt-BR") + ' · ' + errs.length + ' questões para revisar</p>';
+    var mat = null;
+    errs.forEach(function (x, i) {
+      if (x._materia !== mat) { mat = x._materia; h += '<h2>' + esc(mat) + '</h2>'; }
+      var e = S.errors[x.id];
+      h += '<div class="pd-q">' +
+        '<div class="pd-head">' + (i + 1) + '. <span>' + esc(x._topico) + ' · ' + esc(x.fonte) + ' · errada ' + e.count + 'x</span></div>' +
+        '<p class="pd-enun">' + esc(x.enunciado) + '</p><ol type="A">' +
+        x.alternativas.map(function (a, idx) {
+          return '<li class="' + (idx === x.correta ? 'pd-ok' : '') + '">' + esc(a) + (idx === x.correta ? ' ✔' : '') + '</li>';
+        }).join('') + '</ol>' +
+        '<p class="pd-expl">' + esc(x.explicacao) + '</p>' +
+        '</div>';
+    });
+    div.innerHTML = h;
+    document.body.appendChild(div);
+    setTimeout(function () {
+      window.print();
+      setTimeout(function () { div.remove(); }, 500);
+    }, 50);
+  }
+
   /* ---------- SM-2 ---------- */
   function srsUpdate(qid, correct) {
     var c = S.srs[qid] || { ef: 2.5, reps: 0, interval: 0, lapses: 0 };
@@ -423,7 +481,11 @@
     if (errs.length === 0) {
       return h + '<div class="empty"><div class="e-ico">🎯</div><b>Sem erros registrados.</b><br>Bom sinal! Continue estudando.</div>';
     }
-    h += '<button class="btn danger" data-review="errors" style="margin-bottom:16px">Revisar os ' + errs.length + ' erros</button>';
+    h += '<button class="btn danger" data-review="errors" style="margin-bottom:12px">Revisar os ' + errs.length + ' erros</button>' +
+      '<div class="exp-row">' +
+      '<button class="btn ghost" data-action="export-errors-print">🖨️ Exportar PDF</button>' +
+      '<button class="btn ghost" data-action="export-errors-copy">📤 Copiar texto</button>' +
+      '</div>';
     errs.forEach(function (q) {
       var e = S.errors[q.id];
       h += '<div class="card err-item">' +
@@ -865,6 +927,13 @@
     else if (a === "edit-name") {
       var novo = prompt("Seu nome no placar:", S.social.nome);
       if (novo && novo.trim()) { S.social.nome = novo.trim().slice(0, 18); save(); render(); }
+    }
+    else if (a === "export-errors-print") printCaderno();
+    else if (a === "export-errors-copy") {
+      if (!errorQuestions().length) { toast("Caderno vazio — nada para copiar."); return; }
+      var txtCad = textoCaderno();
+      if (navigator.share) { navigator.share({ text: txtCad }).catch(function () {}); }
+      else { copyText(txtCad); toast("Caderno copiado! Cole onde quiser estudar 📚"); }
     }
     else if (a === "share-code") shareCode();
     else if (a === "copy-code") { copyText(myCode()); toast("Código copiado! Cole no grupo 📋"); }

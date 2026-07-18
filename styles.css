@@ -319,6 +319,26 @@ textarea.f-input{resize:none;line-height:1.4}
 .friend-row .fr-xp{font-family:var(--round);font-weight:800;font-size:.98rem;white-space:nowrap}
 .friend-row .unfr{flex:none;background:none;border:none;color:var(--ink-faint);font-size:.9rem;padding:4px 6px;cursor:pointer}
 
+/* ---------- Exportação do caderno de erros (impressão/PDF) ---------- */
+.exp-row{display:flex;gap:10px;margin-bottom:16px}
+.print-doc{display:none}
+@media print{
+  body{background:#fff !important}
+  .app,.toast{display:none !important}
+  .print-doc{display:block;color:#000;font-family:Georgia,"Times New Roman",serif;font-size:12pt;line-height:1.5}
+  .print-doc h1{font-size:17pt;margin:0 0 2pt}
+  .print-doc .pd-meta{color:#555;font-size:10pt;margin:0 0 14pt}
+  .print-doc h2{font-size:13pt;border-bottom:1pt solid #999;padding-bottom:2pt;margin:16pt 0 8pt}
+  .print-doc .pd-q{page-break-inside:avoid;margin-bottom:12pt;border-bottom:0.5pt solid #ccc;padding-bottom:8pt}
+  .print-doc .pd-head{font-weight:bold;font-size:10pt;color:#333}
+  .print-doc .pd-head span{font-weight:normal;color:#666}
+  .print-doc .pd-enun{margin:4pt 0;font-weight:bold}
+  .print-doc ol{margin:4pt 0 6pt;padding-left:18pt}
+  .print-doc li{margin:1pt 0}
+  .print-doc li.pd-ok{font-weight:bold}
+  .print-doc .pd-expl{margin:4pt 0 0;font-size:10.5pt;background:#f2f2f2;padding:6pt;border-radius:4pt}
+}
+
 /* toast */
 .toast{position:fixed;left:50%;bottom:calc(var(--nav-h) + 16px);transform:translateX(-50%);z-index:40;background:var(--ink);color:var(--bg);font-weight:700;font-size:.86rem;padding:11px 18px;border-radius:12px;box-shadow:var(--shadow-card);animation:fade .2s}
 
