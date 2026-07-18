@@ -1219,8 +1219,8 @@ window.APP_DATA = {
           titulo: "Súmulas e teses de Execução Penal",
           questoes: [
             {
-              id: "ep-1", modo: "juris", fonte: "STF, Tema 423 e SV 58",
-              enunciado: "O apenado obtém progressão ao regime semiaberto, mas não há vaga em estabelecimento adequado. Conforme o STF (Tema 423 e Súmula Vinculante 58):",
+              id: "ep-1", modo: "juris", fonte: "STF, Tema 423 e SV 56",
+              enunciado: "O apenado obtém progressão ao regime semiaberto, mas não há vaga em estabelecimento adequado. Conforme o STF (Tema 423 e Súmula Vinculante 56):",
               alternativas: [
                 "deve permanecer no regime fechado até surgir vaga em estabelecimento adequado",
                 "a falta de estabelecimento penal adequado não autoriza mantê-lo em regime mais gravoso",
@@ -1229,7 +1229,7 @@ window.APP_DATA = {
                 "deve ser transferido para estabelecimento penal federal de segurança máxima"
               ],
               correta: 1,
-              explicacao: "SV 58 e Tema 423 do STF: a falta de estabelecimento penal adequado não autoriza a manutenção do condenado em regime mais gravoso. Havendo déficit de vagas, admitem-se medidas como saída antecipada, monitoração eletrônica ou prisão domiciliar."
+              explicacao: "SV 56 e Tema 423 do STF: a falta de estabelecimento penal adequado não autoriza a manutenção do condenado em regime mais gravoso, observados os parâmetros do RE 641.320. Havendo déficit de vagas, admitem-se saída antecipada, monitoração eletrônica ou prisão domiciliar. (Atenção: algumas apostilas grafam 'SV 58' por erro material — o número correto, citado inclusive no edital, é SV 56.)"
             },
             {
               id: "ep-2", modo: "juris", fonte: "STJ, Súmulas 534, 535 e 441",
@@ -1353,6 +1353,90 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "STJ (Inf. 872/25): a data-base para concessão de benefícios na execução é a da última prisão efetiva, quando houve liberdade provisória entre a prisão cautelar e o cumprimento definitivo. O período cautelar conta apenas para detração. (Há tese contrária da Defensoria, mais benéfica, que adota a prisão cautelar como marco.)"
+            }
+          ]
+        },
+        {
+          id: "exec-penal-juris-3",
+          titulo: "Regras internacionais e ADPF 347",
+          questoes: [
+            {
+              id: "epi-1", modo: "lei", fonte: "Regras de Bangkok (ONU, 2010)",
+              enunciado: "As Regras de Bangkok (ONU, 2010) estabelecem diretrizes específicas para:",
+              alternativas: [
+                "o tratamento de todos os reclusos, fixando padrões mínimos universais de encarceramento",
+                "o tratamento de mulheres presas e a aplicação de medidas não privativas de liberdade às mulheres infratoras",
+                "a proteção de crianças e adolescentes privados de liberdade em unidades socioeducativas",
+                "a transferência internacional de pessoas presas entre os Estados signatários",
+                "o uso da força e de armas de fogo pelos funcionários responsáveis pela aplicação da lei"
+              ],
+              correta: 1,
+              explicacao: "As Regras de Bangkok tratam especificamente das MULHERES presas e das medidas não privativas de liberdade para mulheres infratoras (gênero, maternidade, saúde). Não confundir com as Regras de MANDELA (padrões mínimos para o tratamento de presos em geral, 2015). Ambas constam expressamente do edital da DPE-RJ."
+            },
+            {
+              id: "epi-2", modo: "lei", fonte: "Regras de Mandela (ONU, 2015)",
+              enunciado: "As Regras Mínimas das Nações Unidas para o Tratamento de Presos (Regras de Mandela, 2015) preveem, entre outras garantias:",
+              alternativas: [
+                "a jornada máxima de trabalho prisional de quatro horas diárias, sempre remunerada",
+                "a proibição do confinamento solitário indefinido ou prolongado (superior a 15 dias consecutivos)",
+                "o direito à visita íntima mensal, insuscetível de qualquer restrição disciplinar",
+                "a progressão obrigatória de regime após o cumprimento de um sexto da pena",
+                "a separação dos presos exclusivamente pela natureza do crime praticado"
+              ],
+              correta: 1,
+              explicacao: "Regras 43 e 44 de Mandela: são proibidos o confinamento solitário INDEFINIDO e o PROLONGADO (assim entendido o superior a 15 dias consecutivos), além de outras práticas equiparadas a tortura ou tratamento cruel. Progressão de regime é instituto da lei brasileira, não das Regras."
+            },
+            {
+              id: "epi-3", modo: "juris", fonte: "STF, ADPF 347",
+              enunciado: "Na ADPF 347, o STF reconheceu, quanto ao sistema penitenciário brasileiro:",
+              alternativas: [
+                "a inconstitucionalidade da execução penal em regime fechado, a ser extinto progressivamente",
+                "o 'estado de coisas inconstitucional', determinando, entre outras medidas, a realização de audiências de custódia",
+                "a impossibilidade de o Judiciário interferir em políticas penitenciárias, por separação de poderes",
+                "apenas a responsabilidade civil objetiva da União pelos danos morais causados aos detentos",
+                "a soltura imediata de todos os presos provisórios com prisão superior a noventa dias"
+              ],
+              correta: 1,
+              explicacao: "ADPF 347: o STF reconheceu o ESTADO DE COISAS INCONSTITUCIONAL do sistema prisional — violação massiva e estrutural de direitos fundamentais. Na cautelar (2015), determinou as audiências de custódia e o descontingenciamento do FUNPEN; no mérito (2023), impôs a elaboração de planos de ação (origem do Plano Pena Justa). É o exemplo paradigmático de processo estrutural."
+            },
+            {
+              id: "epi-4", modo: "juris", fonte: "STF, Tema 365 (RE 580.252)",
+              enunciado: "Quanto aos danos causados a presos por condições degradantes de encarceramento (superlotação), o STF (Tema 365) fixou que:",
+              alternativas: [
+                "não há dever de indenizar, aplicando-se a cláusula da reserva do possível ante a escassez de recursos",
+                "o Estado responde objetivamente (art. 37, §6º), devendo reparar inclusive os danos morais comprovadamente causados",
+                "a reparação deve ocorrer preferencialmente por remição de pena, vedada a indenização em dinheiro",
+                "a indenização depende da prova de culpa individualizada do diretor do estabelecimento",
+                "somente os presos provisórios fazem jus à reparação, dada a presunção de inocência"
+              ],
+              correta: 1,
+              explicacao: "Tema 365 do STF: é dever do Estado manter padrões mínimos de humanidade nos presídios; comprovado o dano (inclusive moral) decorrente da falta de condições legais de encarceramento, responde objetivamente (art. 37, §6º, da CF). A Corte afastou a 'reserva do possível' e rejeitou a proposta de reparação por remição — a indenização é em dinheiro."
+            },
+            {
+              id: "epi-5", modo: "juris", fonte: "Corte IDH, caso Plácido de Sá Carvalho (RJ)",
+              enunciado: "No caso do Instituto Penal Plácido de Sá Carvalho (RJ), a Corte Interamericana de Direitos Humanos determinou:",
+              alternativas: [
+                "a interdição total do estabelecimento e a transferência imediata de todos os presos",
+                "o cômputo em dobro de cada dia de pena cumprido em condições degradantes, como compensação da violação",
+                "o pagamento de indenização individual em dinheiro a cada interno da unidade",
+                "a nulidade de todas as condenações impostas aos internos da unidade fluminense",
+                "a proibição de novas prisões preventivas no estado até a eliminação do déficit de vagas"
+              ],
+              correta: 1,
+              explicacao: "Corte IDH, medidas provisórias no caso do IPPSC/RJ (2018): diante das condições degradantes, determinou-se o CÔMPUTO EM DOBRO de cada dia de privação de liberdade ali cumprido — salvo, para os condenados por crimes contra a vida ou a integridade física, a exigência de exame individualizado. O STJ aplicou a decisão em controle de convencionalidade (RHC 136.961). Caso fluminense — favorito para a prova da DPE-RJ."
+            },
+            {
+              id: "epi-6", modo: "lei", fonte: "Convenção Americana, art. 5.6",
+              enunciado: "Nos termos da Convenção Americana sobre Direitos Humanos (art. 5º), as penas privativas de liberdade devem ter por finalidade essencial:",
+              alternativas: [
+                "a retribuição proporcional ao mal causado pelo delito",
+                "a reforma e a readaptação social dos condenados",
+                "a neutralização dos indivíduos considerados perigosos",
+                "a prevenção geral, pela intimidação da coletividade",
+                "a reparação integral dos danos causados às vítimas"
+              ],
+              correta: 1,
+              explicacao: "Art. 5.6 da Convenção Americana: 'as penas privativas da liberdade devem ter por finalidade essencial a reforma e a readaptação social dos condenados'. O mesmo art. 5º garante o tratamento digno da pessoa presa e a intranscendência da pena (não pode passar da pessoa do delinquente)."
             }
           ]
         }
@@ -2335,6 +2419,90 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "A assistência judiciária refere-se ao patrocínio da causa em juízo. A assistência jurídica integral (art. 5º, LXXIV, CF) é mais ampla: abrange a orientação e a consultoria jurídica, a atuação extrajudicial, a educação em direitos e a resolução de conflitos. Já a gratuidade de justiça é a isenção de custas processuais."
+            }
+          ]
+        },
+        {
+          id: "defensoria-2",
+          titulo: "Acesso à justiça e modelos de assistência",
+          questoes: [
+            {
+              id: "aj-1", modo: "caso", fonte: "Cappelletti e Garth, Acesso à Justiça",
+              enunciado: "Na clássica sistematização de Cappelletti e Garth, as três 'ondas renovatórias' do acesso à justiça são:",
+              alternativas: [
+                "gratuidade universal, duplo grau obrigatório e execução célere das decisões judiciais",
+                "assistência aos pobres, tutela dos interesses coletivos e o novo enfoque de acesso (meios alternativos e simplificação)",
+                "informatização do processo, criação de súmulas vinculantes e instalação de juizados de pequenas causas",
+                "acesso físico aos tribunais, publicidade dos julgamentos e fundamentação das decisões",
+                "constitucionalização, internacionalização e privatização da prestação jurisdicional"
+              ],
+              correta: 1,
+              explicacao: "As três ondas de Cappelletti e Garth: (1ª) assistência judiciária aos pobres; (2ª) representação dos interesses difusos e coletivos; (3ª) o 'novo enfoque de acesso à justiça' — meios alternativos de solução de conflitos, simplificação de procedimentos e reforma das instituições. Base teórica de toda a matéria institucional (Ponto V do edital)."
+            },
+            {
+              id: "aj-2", modo: "caso", fonte: "Modelos de assistência jurídica",
+              enunciado: "O modelo brasileiro de assistência jurídica pela Defensoria Pública corresponde ao sistema:",
+              alternativas: [
+                "judicare, em que advogados privados atendem os pobres e são remunerados pelo Estado caso a caso",
+                "salaried staff (agentes públicos remunerados pelo Estado, organizados em carreira própria)",
+                "pro bono, fundado no dever honorífico e caritativo da advocacia privada",
+                "misto obrigatório, com rodízio compulsório e gratuito entre os advogados inscritos na OAB",
+                "de seguros de despesas jurídicas, custeado por contribuições periódicas dos usuários"
+              ],
+              correta: 1,
+              explicacao: "O Brasil adotou o modelo do SALARIED STAFF: agentes públicos (defensores) remunerados pelos cofres públicos, em carreira organizada — modelo público institucional consagrado no art. 134 da CF. No judicare, advogados privados são pagos pelo Estado caso a caso; no pro bono, a assistência é honorífica. A análise do desenvolvimento do salaried staff na América Latina consta do edital."
+            },
+            {
+              id: "aj-3", modo: "lei", fonte: "CPC, arts. 98 e 99",
+              enunciado: "Sobre a gratuidade de justiça (arts. 98 e 99 do CPC), é correto afirmar que:",
+              alternativas: [
+                "a pessoa jurídica jamais pode obtê-la, ainda que demonstre a impossibilidade de pagar as despesas",
+                "a alegação de insuficiência de pessoa natural presume-se verdadeira, só cabendo indeferir se houver elementos em contrário",
+                "exige a comprovação documental prévia da renda, inclusive para a pessoa natural",
+                "extingue a obrigação pelos honorários de sucumbência, que não podem mais ser cobrados",
+                "depende de requerimento em petição autônoma, vedada a formulação incidental"
+              ],
+              correta: 1,
+              explicacao: "Art. 99, §3º, do CPC: presume-se verdadeira a alegação de insuficiência deduzida por PESSOA NATURAL; o juiz só indefere se houver nos autos elementos que evidenciem a falta dos pressupostos (§2º). Pessoa jurídica pode obter o benefício, demonstrando a impossibilidade (Súmula 481/STJ). Os honorários de sucumbência ficam sob condição suspensiva por 5 anos (art. 98, §3º) — não são extintos de imediato."
+            },
+            {
+              id: "aj-4", modo: "caso", fonte: "História da Defensoria no RJ",
+              enunciado: "No desenvolvimento histórico da assistência jurídica no Brasil, o Estado do Rio de Janeiro destaca-se por:",
+              alternativas: [
+                "ter criado a sua Defensoria somente após a EC 80/2014, seguindo o modelo federal",
+                "ter sido pioneiro na estruturação da Defensoria Pública, que serviu de referência ao modelo constitucional de 1988",
+                "ter adotado originalmente o modelo judicare, com advogados dativos pagos por certidão",
+                "ter mantido a Defensoria como órgão vinculado à Secretaria de Justiça até os dias atuais",
+                "ter delegado a assistência judiciária à OAB, mediante convênio remunerado por ato praticado"
+              ],
+              correta: 1,
+              explicacao: "O Rio de Janeiro é o berço da Defensoria Pública brasileira: a estruturação pioneira da carreira fluminense (desde os cargos de defensor público de meados do século XX e a consolidação na LC estadual 06/1977) serviu de referência ao desenho do art. 134 da CF/88. Tema central na obra de Diogo Esteves, examinador da Banca III."
+            },
+            {
+              id: "aj-5", modo: "lei", fonte: "LC 80/94, art. 4º-A",
+              enunciado: "A LC 80/94 (art. 4º-A, incluído pela LC 132/2009) assegura aos assistidos da Defensoria Pública, entre outros direitos:",
+              alternativas: [
+                "a livre escolha, a qualquer tempo, do defensor público de sua preferência na unidade",
+                "o patrocínio de seus direitos e interesses pelo DEFENSOR NATURAL e a qualidade e eficiência do atendimento",
+                "o atendimento domiciliar obrigatório e prioritário a todas as pessoas maiores de sessenta anos",
+                "a dispensa incondicionada de custas em qualquer processo, sem análise de renda",
+                "a indenização automática pelos prejuízos decorrentes do indeferimento da assistência"
+              ],
+              correta: 1,
+              explicacao: "Art. 4º-A da LC 80/94: são direitos dos assistidos a informação, a qualidade e a eficiência do atendimento, o direito de ter sua pretensão revista em caso de recusa de atuação e o patrocínio pelo DEFENSOR NATURAL (vedada a designação casuística). Defensor natural não se confunde com livre escolha do profissional."
+            },
+            {
+              id: "aj-6", modo: "lei", fonte: "EC 80/2014; ADCT, art. 98",
+              enunciado: "A EC 80/2014, marco do modelo constitucional da Defensoria, estabeleceu, entre outras inovações:",
+              alternativas: [
+                "a transformação da Defensoria em órgão do Poder Judiciário, com autonomia administrativa",
+                "o prazo de 8 anos para haver defensores em todas as unidades jurisdicionais, priorizando as regiões de maior exclusão social",
+                "a equiparação remuneratória automática e imediata entre defensores públicos e membros do Ministério Público",
+                "a exclusividade da Defensoria para o ajuizamento de ações coletivas em favor de vulneráveis",
+                "a criação da Defensoria Pública Nacional, com hierarquia sobre os órgãos estaduais"
+              ],
+              correta: 1,
+              explicacao: "A EC 80/2014 deu seção própria à Defensoria, reescreveu o art. 134 (expressão e instrumento do regime democrático), mandou aplicar-lhe princípios do art. 93 e inseriu o art. 98 do ADCT: no prazo de 8 anos, defensores públicos em todas as unidades jurisdicionais, priorizadas as regiões com maiores índices de exclusão social e adensamento populacional."
             }
           ]
         }
