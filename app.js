@@ -7,7 +7,63 @@
   var DATA = window.APP_DATA;
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "2.1"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "3.0"; // exibida no Perfil; usada pela checagem de atualização
+  var REDUCED = false;
+  try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+
+  /* ---------- ícones de traço (substituem os emojis da interface) ---------- */
+  var ICONS = {
+    flame: '<path d="M12 3c1.2 3.2-3 4.6-3 8.4a3.9 3.9 0 007.8 0c0-1.2-.5-2.2-1.1-3-.1 2.1-2.9 2.4-2.9.3 0-2 2.3-3.4-.8-5.7z"/>',
+    heart: '<path d="M12 20.5C7.5 16.4 4 13.4 4 9.9 4 7.6 5.8 6 7.9 6c1.6 0 3 .9 4.1 2.3C13.1 6.9 14.5 6 16.1 6 18.2 6 20 7.6 20 9.9c0 3.5-3.5 6.5-8 10.6z"/>',
+    bolt: '<path d="M13 2.5L5.5 13H10l-1 8.5L16.5 11H12z"/>',
+    trail: '<path d="M4 19c4.5-2 4.5-11.5 8-11.5S15.5 17 20 15M6 4.5l1.8 1.8M17.5 3.5l-1.6 2.4"/>',
+    refresh: '<path d="M21 12a9 9 0 11-2.9-6.6M21 3.5V8.5h-5"/>',
+    bookmark: '<path d="M6.5 3.5h11V21L12 16.8 6.5 21z"/>',
+    users: '<circle cx="9" cy="8.2" r="3.2"/><path d="M3.2 20c1-3.4 3.2-5 5.8-5s4.8 1.6 5.8 5M15.4 5.4a3.2 3.2 0 010 5.6M17 15.4c1.9.8 3.2 2.3 3.8 4.6"/>',
+    user: '<circle cx="12" cy="8" r="4"/><path d="M4.5 21c1.4-3.9 4.2-5.8 7.5-5.8s6.1 1.9 7.5 5.8"/>',
+    check: '<path d="M5 13l4.2 4.2L19 7"/>',
+    lock: '<rect x="6" y="11" width="12" height="9" rx="2"/><path d="M9 11V8a3 3 0 016 0v3"/>',
+    book: '<path d="M4.5 19.5V6a2 2 0 012-2H19.5v15.5H6.5a2 2 0 00-2 2zm0 0a2 2 0 012-2H19.5"/>',
+    scales: '<path d="M12 4v16M6.5 20h11M12 6.5H6m6 0h6M6 6.5l-2.4 5.6a3.4 3.4 0 006.8 0L8 6.5m10 0l-2.4 5.6a3.4 3.4 0 006.8 0L20 6.5"/>',
+    columns: '<path d="M4 21h16M5 8.5h14M12 3.5l7.5 5h-15zM7.5 8.5V17M12 8.5V17M16.5 8.5V17M5 17h14v2H5z"/>',
+    briefcase: '<rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9.5 8V5.5h5V8M4 13.5h16"/>',
+    bag: '<path d="M6.2 8h11.6l1 12.5H5.2zM9 8a3 3 0 016 0"/>',
+    sprout: '<path d="M12 21v-8M12 13c0-4.2-3.1-6.3-7.3-6.3 0 4.2 3.1 6.3 7.3 6.3zm0 0c0-4.2 3.1-6.3 7.3-6.3 0 4.2-3.1 6.3-7.3 6.3z"/>',
+    gavel: '<path d="M13.5 4.5l6 6M11 7l6 6M15.5 5l-8.5 8.5M8 21h8M12 21v-4.5l-3-3"/>',
+    search: '<circle cx="11" cy="11" r="6.5"/><path d="M20.5 20.5L16 16"/>',
+    link: '<path d="M9.5 14.5l5-5M8.2 11.5l-2 2a4 4 0 105.7 5.7l2-2M15.8 12.5l2-2a4 4 0 10-5.7-5.7l-2 2"/>',
+    eye: '<path d="M2.5 12S6.5 5.5 12 5.5 21.5 12 21.5 12 17.5 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/>',
+    building: '<path d="M4.5 21h15M6.5 21V4h11v17M10 8h1.5M14 8h1.5M10 12h1.5M14 12h1.5M11 21v-4h2v4"/>',
+    globe: '<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c3 3.4 3 13.6 0 17-3-3.4-3-13.6 0-17z"/>',
+    shield: '<path d="M12 3l7.5 2.8v6.1c0 4.8-3.3 7.6-7.5 9.1-4.2-1.5-7.5-4.3-7.5-9.1V5.8z"/>',
+    moon: '<path d="M20 14.5A8.5 8.5 0 1110 4a6.8 6.8 0 0010 10.5z"/>',
+    printer: '<path d="M7 8V4h10v4M5 8h14v7.5h-3.5M8.5 15.5H5V8M8.5 13h7v7h-7z"/>',
+    share: '<path d="M12 3.5V15M8 7l4-4 4 4M5.5 12.5V20h13v-7.5"/>',
+    trophy: '<path d="M8 4h8v5a4 4 0 01-8 0zM8 5H4.5c0 3 1.5 4.5 3.5 5M16 5h3.5c0 3-1.5 4.5-3.5 5M12 13v4M8.5 20.5h7M10 17h4v3.5h-4z"/>'
+  };
+  function icon(name, extra) {
+    return '<svg class="ic' + (extra ? ' ' + extra : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
+  }
+  var MAT_ICON = {
+    "Direito Civil": "scales",
+    "Direito Processual Civil": "columns",
+    "Direito Empresarial": "briefcase",
+    "Direito do Consumidor": "bag",
+    "Criança, Adolescente e Idoso": "sprout",
+    "Direito Penal": "gavel",
+    "Direito Processual Penal": "search",
+    "Direito de Execução Penal": "link",
+    "Criminologia": "eye",
+    "Direito Constitucional": "book",
+    "Direito Administrativo": "building",
+    "Direitos Humanos": "globe",
+    "Princípios Institucionais da Defensoria": "shield"
+  };
+  function matIcon(u) { return icon(MAT_ICON[u.materia] || "book"); }
+  var ROMANOS = ["I", "II", "III", "IV", "V", "VI", "VII"];
+  function insignia(idx) {
+    return '<span class="insig t' + idx + '" title="Patente">' + (ROMANOS[idx] || idx + 1) + '</span>';
+  }
   var HEART_MAX = 5;
   var HEART_REGEN_MS = 2 * 3600000; // 1 vida a cada 2 horas
 
@@ -143,7 +199,7 @@
   }
   function heartHud() {
     var t = heartTimerText();
-    return '<span class="stat heart"><span class="ico">❤️</span>' + S.hearts +
+    return '<span class="stat heart">' + icon("heart") + '<b>' + S.hearts + '</b>' +
       (t ? '<span class="regen" data-regen>+1 em ' + t + '</span>' : '') + '</span>';
   }
 
@@ -416,8 +472,8 @@
     return '' +
       '<div class="hud">' +
       '  <div class="brand"><span class="logo">§</span> Defensor</div>' +
-      '  <span class="stat flame"><span class="ico">🔥</span>' + S.streak + '</span>' +
-      '  <span class="stat xp"><span class="ico">⭐</span>' + S.xp + '</span>' +
+      '  <span class="stat flame">' + icon("flame") + '<b>' + S.streak + '</b></span>' +
+      '  <span class="stat xp">' + icon("bolt") + '<b>' + S.xp + '</b></span>' +
       '  ' + heartHud() +
       '</div>';
   }
@@ -428,24 +484,55 @@
     function b(id, ico, label, badge) {
       return '<button data-nav="' + id + '" class="' + (view.name === id ? "active" : "") + '">' +
         (badge ? '<span class="badge">' + badge + '</span>' : '') +
-        '<span class="ni">' + ico + '</span>' + label + '</button>';
+        icon(ico) + label + '</button>';
     }
     return '<div class="nav">' +
-      b("trilha", "🗺️", "Trilha", 0) +
-      b("revisar", "🔁", "Revisar", due) +
-      b("erros", "📓", "Erros", errs) +
-      b("amigos", "🤝", "Amigos", 0) +
-      b("perfil", "👤", "Perfil", 0) +
+      b("trilha", "trail", "Trilha", 0) +
+      b("revisar", "refresh", "Revisar", due) +
+      b("erros", "bookmark", "Erros", errs) +
+      b("amigos", "users", "Amigos", 0) +
+      b("perfil", "user", "Perfil", 0) +
       '</div>';
   }
 
-  function render() {
+  var lastView = null;
+  function renderCore() {
     var body;
     if (view.name === "quiz") body = renderQuiz();
     else if (view.name === "result") body = renderResult();
     else body = hud() + '<div class="screen">' + screens[view.name]() + '</div>' + nav();
     app.innerHTML = body;
     wire();
+    if (view.name === "result") setTimeout(animateResult, 40);
+  }
+  function render() {
+    var mudouTela = view.name !== lastView;
+    lastView = view.name;
+    if (mudouTela && !REDUCED && document.startViewTransition) {
+      document.startViewTransition(renderCore);
+    } else {
+      renderCore();
+    }
+  }
+  /* anima o anel de acerto e o contador de XP da tela de resultado */
+  function animateResult() {
+    var fg = document.querySelector(".ring .fgc");
+    if (fg) {
+      var p = parseFloat(fg.getAttribute("data-p")) || 0;
+      fg.style.strokeDashoffset = (276.5 * (1 - p / 100)).toFixed(1);
+    }
+    var xv = document.querySelector("[data-count]");
+    if (xv) {
+      var alvo = parseInt(xv.getAttribute("data-count"), 10) || 0;
+      if (REDUCED) { xv.textContent = "+" + alvo; return; }
+      var t0 = performance.now();
+      (function tick(t) {
+        var k = Math.min(1, (t - t0) / 700);
+        k = 1 - Math.pow(1 - k, 3);
+        xv.textContent = "+" + Math.round(alvo * k);
+        if (k < 1) requestAnimationFrame(tick);
+      })(t0);
+    }
   }
 
   /* ---------- Screen: Trilha ---------- */
@@ -465,24 +552,24 @@
       var c = COR[u.cor] || COR.verde;
       var rxp = materiaXp(u.materia), rk = rankFor(rxp);
       h += '<div class="unit">' +
-        '<div class="unit-banner" style="background:linear-gradient(135deg,' + c[0] + ',' + c[1] + ')">' +
-        '<span class="ubadge">' + u.icone + '</span>' +
+        '<div class="unit-banner" style="--uc:' + c[0] + '">' +
+        '<span class="ubadge">' + matIcon(u) + '</span>' +
         '<div class="materia">' + esc(u.materia) + '</div>' +
         '<h2>' + esc(u.titulo) + '</h2>' +
         '<p>' + esc(u.descricao) + '</p>' +
-        '<div class="rank-strip"><span class="r-ico">' + rk.cur.ico + '</span>' +
+        '<div class="rank-strip"><span class="r-ico">' + insignia(rk.idx) + '</span>' +
         '<span class="r-name">' + rk.cur.nome + '</span>' +
         '<span class="r-track"><i style="width:' + rk.pct + '%"></i></span>' +
         '<span class="r-xp">' + (rk.next ? rxp + '/' + rk.next.xp + ' XP' : 'MÁX') + '</span></div>' +
         '</div><div class="path">';
       u.licoes.forEach(function (l) {
         var stt = lessonState(l);
-        var icon = stt === "done" ? "👑" : (stt === "locked" ? "🔒" : u.icone);
+        var nodeIco = stt === "done" ? icon("check") : (stt === "locked" ? icon("lock") : matIcon(u));
         var cls = "node " + (stt === "done" ? "done" : stt === "locked" ? "locked" : "current");
         var attr = stt === "locked" ? "" : ' data-lesson="' + l.id + '"';
-        h += '<div class="node-wrap" style="--node-c:' + c[0] + ';--node-sh:' + c[1] + '">' +
+        h += '<div class="node-wrap" style="--node-c:' + c[0] + '">' +
           (stt === "open" ? '<span class="start-bubble">Começar</span>' : '') +
-          '<button class="' + cls + '"' + attr + '>' + icon + '</button>' +
+          '<button class="' + cls + '"' + attr + '>' + nodeIco + '</button>' +
           '<span class="node-label">' + esc(l.titulo) + '</span>' +
           '</div>';
       });
@@ -498,7 +585,7 @@
       '<p class="page-sub">O algoritmo traz de volta o que você errou ou está prestes a esquecer.' +
       (S.hearts < HEART_MAX ? ' 💡 Concluir uma revisão recupera 1 ❤️.' : '') + '</p>';
     if (due.length === 0) {
-      h += '<div class="empty"><div class="e-ico">✅</div><b>Nada para revisar agora.</b><br>' +
+      h += '<div class="empty"><div class="e-ico">' + icon("check") + '</div><b>Nada para revisar agora.</b><br>' +
         'Continue a trilha — as questões voltam no tempo certo.</div>';
     } else {
       h += '<div class="big-cta"><div class="n">' + due.length + '</div>' +
@@ -514,12 +601,12 @@
     var h = '<div class="page-title">Caderno de erros</div>' +
       '<p class="page-sub">Tudo que você errou fica aqui até você acertar de novo.</p>';
     if (errs.length === 0) {
-      return h + '<div class="empty"><div class="e-ico">🎯</div><b>Sem erros registrados.</b><br>Bom sinal! Continue estudando.</div>';
+      return h + '<div class="empty"><div class="e-ico">' + icon("bookmark") + '</div><b>Sem erros registrados.</b><br>Bom sinal! Continue estudando.</div>';
     }
     h += '<button class="btn danger" data-review="errors" style="margin-bottom:12px">Revisar os ' + errs.length + ' erros</button>' +
       '<div class="exp-row">' +
-      '<button class="btn ghost" data-action="export-errors-print">🖨️ Exportar PDF</button>' +
-      '<button class="btn ghost" data-action="export-errors-copy">📤 Copiar texto</button>' +
+      '<button class="btn ghost" data-action="export-errors-print">' + icon("printer") + ' Exportar PDF</button>' +
+      '<button class="btn ghost" data-action="export-errors-copy">' + icon("share") + ' Copiar texto</button>' +
       '</div>';
     errs.forEach(function (q) {
       var e = S.errors[q.id];
@@ -553,7 +640,7 @@
       '<div class="friend-me"><span class="f-av">' + S.social.avatar + '</span>' +
       '<div style="flex:1;min-width:0">' +
       '<div class="f-name">' + esc(S.social.nome) + ' <button class="mini" data-action="edit-name" title="Editar nome">✏️</button></div>' +
-      '<div class="f-meta">Esta semana: ⭐ ' + S.week.xp + ' XP · ' + S.week.answered + ' questões · 🔥 ' + S.streak + '</div>' +
+      '<div class="f-meta">Esta semana: ' + S.week.xp + ' XP · ' + S.week.answered + ' questões · série ' + S.streak + '</div>' +
       '</div></div>' +
       '<div class="av-row">' + AVATARES.map(function (a) {
         return '<button class="av' + (a === S.social.avatar ? ' sel' : '') + '" data-avatar="' + a + '">' + a + '</button>';
@@ -571,7 +658,6 @@
       }
       var mAtuais = mrows.filter(function (r) { return r.w === S.week.id; }).sort(function (a, b) { return b.x - a.x; });
       var mVelhos = mrows.filter(function (r) { return r.w !== S.week.id; });
-      var MEDg = ["🥇", "🥈", "🥉"];
       var mins = gc.at ? Math.round((Date.now() - gc.at) / 60000) : null;
       h += '<div class="page-title" style="font-size:1.05rem">⚡ ' + esc(S.social.grupo.nome || "Grupo") + '</div>' +
         '<p class="page-sub">Placar em tempo real · ' +
@@ -579,11 +665,11 @@
         '<div class="card">';
       mAtuais.forEach(function (r, i) {
         h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
-          '<span class="pos">' + (MEDg[i] || (i + 1) + 'º') + '</span>' +
+          '<span class="pos p' + i + '">' + (i + 1) + '</span>' +
           '<span class="fr-av">' + r.a + '</span>' +
           '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div>' +
-          '<div class="fr-sub">' + r.q + ' questões · 🔥 ' + (r.s || 0) + '</div></div>' +
-          '<div class="fr-x"><div class="fr-xp">⭐ ' + r.x + '</div><div class="fr-sub">XP</div></div>' +
+          '<div class="fr-sub">' + r.q + ' questões · série ' + (r.s || 0) + '</div></div>' +
+          '<div class="fr-x"><div class="fr-xp">' + r.x + '</div><div class="fr-sub">XP</div></div>' +
           '</div>';
       });
       mVelhos.forEach(function (r) {
@@ -591,15 +677,15 @@
           '<span class="pos">—</span><span class="fr-av">' + r.a + '</span>' +
           '<div class="fr-info"><div class="fr-n">' + esc(r.n) + '</div>' +
           '<div class="fr-sub">ainda sem pontos nesta semana</div></div>' +
-          '<div class="fr-x"><div class="fr-xp">⭐ ' + (r.x | 0) + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
+          '<div class="fr-x"><div class="fr-xp">' + (r.x | 0) + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
           '</div>';
       });
       if (mrows.length === 1) {
         h += '<div class="fr-sub" style="padding:6px 0">Só você por aqui. Convide os amigos! 📣</div>';
       }
       h += '</div>' +
-        '<button class="btn" data-action="share-group">📣 Convidar para o grupo</button>' +
-        '<button class="btn ghost" data-action="refresh-group" style="margin-top:10px">🔄 Atualizar agora</button>' +
+        '<button class="btn" data-action="share-group">' + icon("share") + ' Convidar para o grupo</button>' +
+        '<button class="btn ghost" data-action="refresh-group" style="margin-top:10px">' + icon("refresh") + ' Atualizar agora</button>' +
         '<button class="btn ghost" data-action="leave-group" style="margin-top:10px;color:var(--no)">Sair do grupo</button>';
       return h;
     }
@@ -617,7 +703,7 @@
 
     h += '<div class="page-title" style="font-size:1.05rem">Modo manual (troca de códigos)</div>' +
       '<div class="card">' +
-      '<button class="btn" data-action="share-code">📣 Compartilhar meu código</button>' +
+      '<button class="btn" data-action="share-code">' + icon("share") + ' Compartilhar meu código</button>' +
       '<div class="code-box"><input readonly id="my-code" value="' + myCode() + '">' +
       '<button class="btn ghost" data-action="copy-code">Copiar</button></div>' +
       '</div>';
@@ -635,16 +721,15 @@
     }
     var atuais = rows.filter(function (r) { return r.w === S.week.id; }).sort(function (a, b) { return b.x - a.x; });
     var velhos = rows.filter(function (r) { return r.w !== S.week.id; });
-    var MED = ["🥇", "🥈", "🥉"];
 
     h += '<div class="page-title" style="font-size:1.05rem">Placar da semana</div><div class="card">';
     atuais.forEach(function (r, i) {
       h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
-        '<span class="pos">' + (MED[i] || (i + 1) + 'º') + '</span>' +
+        '<span class="pos p' + i + '">' + (i + 1) + '</span>' +
         '<span class="fr-av">' + r.a + '</span>' +
         '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div>' +
-        '<div class="fr-sub">' + r.q + ' questões · 🔥 ' + (r.s || 0) + '</div></div>' +
-        '<div class="fr-x"><div class="fr-xp">⭐ ' + r.x + '</div><div class="fr-sub">XP</div></div>' +
+        '<div class="fr-sub">' + r.q + ' questões · série ' + (r.s || 0) + '</div></div>' +
+        '<div class="fr-x"><div class="fr-xp">' + r.x + '</div><div class="fr-sub">XP</div></div>' +
         (r.me ? '' : '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">✕</button>') +
         '</div>';
     });
@@ -653,7 +738,7 @@
         '<span class="pos">—</span><span class="fr-av">' + r.a + '</span>' +
         '<div class="fr-info"><div class="fr-n">' + esc(r.n) + '</div>' +
         '<div class="fr-sub">sem código desta semana — peça um novo</div></div>' +
-        '<div class="fr-x"><div class="fr-xp">⭐ ' + r.x + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
+        '<div class="fr-x"><div class="fr-xp">' + r.x + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
         '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">✕</button>' +
         '</div>';
     });
@@ -688,7 +773,7 @@
     matNames.forEach(function (m) {
       var xp = S.xpByMateria[m]; if (!xp) return;
       var rk = rankFor(xp);
-      rksHtml += '<div class="rank-row"><span class="ico">' + rk.cur.ico + '</span><div class="info">' +
+      rksHtml += '<div class="rank-row">' + insignia(rk.idx) + '<div class="info">' +
         '<div class="top"><span>' + esc(m) + '</span><span class="rn">' + rk.cur.nome + '</span></div>' +
         '<div class="track"><i style="width:' + rk.pct + '%"></i></div></div>' +
         '<span class="rxp">' + (rk.next ? xp + '/' + rk.next.xp : 'MÁX') + '</span></div>';
@@ -714,8 +799,8 @@
       h += '</div>';
     }
 
-    h += '<button class="btn ghost" data-action="check-update" style="margin-top:8px">🔄 Buscar atualização</button>' +
-      '<button class="btn ghost" data-action="toggle-theme" style="margin-top:10px">🌓 Alternar tema</button>' +
+    h += '<button class="btn ghost" data-action="check-update" style="margin-top:8px">' + icon("refresh") + ' Buscar atualização</button>' +
+      '<button class="btn ghost" data-action="toggle-theme" style="margin-top:10px">' + icon("moon") + ' Alternar tema</button>' +
       '<button class="btn ghost" data-action="reset" style="margin-top:10px;color:var(--no)">Zerar progresso</button>' +
       '<p class="page-sub" style="margin-top:18px;text-align:center">Versão ' + APP_VERSION + ' · ' +
       DATA.units.reduce(function (a, u) { return a + u.licoes.reduce(function (b, l) { return b + l.questoes.length; }, 0); }, 0) +
@@ -764,7 +849,7 @@
       '<div class="q-head">' +
       '<span class="q-modo ' + q.modo + '">' + modoTxt + '</span>' +
       '<div class="q-stem">' + esc(q.enunciado) + '</div>' +
-      '<div class="q-fonte">📖 ' + esc(q.fonte) + '</div>' +
+      '<div class="q-fonte">' + icon("book") + esc(q.fonte) + '</div>' +
       '</div><ul class="alts">';
     q.alternativas.forEach(function (a, idx) {
       var cls = "alt";
@@ -854,7 +939,7 @@
     quiz.rankUps = [];
     for (var rm in quiz.rankBefore) {
       var rNow = rankFor(materiaXp(rm));
-      if (rNow.idx > quiz.rankBefore[rm]) quiz.rankUps.push({ materia: rm, rank: rNow.cur });
+      if (rNow.idx > quiz.rankBefore[rm]) quiz.rankUps.push({ materia: rm, rank: rNow.cur, idx: rNow.idx });
     }
     // concluir revisão recupera 1 vida
     if (quiz.kind === "review" && S.hearts < HEART_MAX) { gainHeart(); quiz.heartWon = true; }
@@ -867,22 +952,23 @@
   function renderResult() {
     var total = quiz.qs.length;
     var acc = Math.round(quiz.correct / total * 100);
-    var emoji = acc === 100 ? "🏆" : acc >= 70 ? "🎉" : acc >= 40 ? "💪" : "📚";
     var titulo = acc === 100 ? "Perfeito!" : acc >= 70 ? "Muito bom!" : acc >= 40 ? "Continue firme!" : "Bora revisar!";
     var hasWrong = quiz.wrong.length > 0;
     var h = '<div class="screen"><div class="result">' +
-      '<div class="emoji">' + emoji + '</div>' +
+      '<div class="ring"><svg viewBox="0 0 100 100">' +
+      '<circle class="bgc" cx="50" cy="50" r="44"/>' +
+      '<circle class="fgc" cx="50" cy="50" r="44" data-p="' + acc + '"/></svg>' +
+      '<div class="ring-num"><div><b>' + acc + '%</b><span>acerto</span></div></div></div>' +
       '<h1>' + titulo + '</h1>' +
       '<div class="result-tiles">' +
-      '<div class="rt xp"><div class="rv">+' + quiz.xpGained + '</div><div class="rl">XP</div></div>' +
-      '<div class="rt acc"><div class="rv">' + acc + '%</div><div class="rl">acerto</div></div>' +
+      '<div class="rt xp"><div class="rv" data-count="' + quiz.xpGained + '">+0</div><div class="rl">XP ganho</div></div>' +
       '</div>' +
       (quiz.rankUps && quiz.rankUps.length ? quiz.rankUps.map(function (r) {
-        return '<div class="rankup"><span class="ru-ico">' + r.rank.ico + '</span><div>' +
+        return '<div class="rankup"><span class="ru-ico">' + insignia(r.idx) + '</span><div>' +
           '<div class="ru-t">' + esc(r.materia) + ' — nova patente</div>' +
           '<div class="ru-n">' + r.rank.nome + '</div></div></div>';
       }).join('') : '') +
-      (quiz.heartWon ? '<div class="rankup" style="border-color:var(--heart)"><span class="ru-ico">❤️</span><div>' +
+      (quiz.heartWon ? '<div class="rankup" style="border-color:var(--heart)"><span class="ru-ico" style="color:var(--heart)">' + icon("heart") + '</span><div>' +
         '<div class="ru-t">Revisão concluída</div><div class="ru-n">+1 vida recuperada</div></div></div>' : '') +
       '<div style="max-width:340px;margin:0 auto">' +
       (hasWrong
