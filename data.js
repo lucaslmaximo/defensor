@@ -483,6 +483,103 @@ window.APP_DATA = {
       ]
     },
 
+    /* ------------------------------- COISA JULGADA E PRECEDENTES */
+    {
+      id: "coisa-julgada",
+      titulo: "Coisa Julgada e Precedentes",
+      materia: "Direito Processual Civil",
+      banca: "I",
+      icone: "🔏",
+      cor: "roxo",
+      descricao: "A especialidade do examinador: coisa julgada, rescisória e precedentes.",
+      licoes: [
+        {
+          id: "coisa-julgada-1",
+          titulo: "Coisa julgada, rescisória e precedentes",
+          questoes: [
+            {
+              id: "cj-1", modo: "lei", fonte: "CPC, art. 502",
+              enunciado: "Denomina-se coisa julgada MATERIAL, nos termos do art. 502 do CPC:",
+              alternativas: [
+                "a imutabilidade da sentença dentro do processo, quando esgotados os recursos internos",
+                "a autoridade que torna imutável e indiscutível a decisão de mérito não mais sujeita a recurso",
+                "a eficácia natural da sentença, produzida desde a publicação, mesmo pendente recurso",
+                "a estabilidade da tutela antecipada antecedente não impugnada por recurso do réu",
+                "a preclusão máxima das questões processuais decididas na fase de saneamento"
+              ],
+              correta: 1,
+              explicacao: "Art. 502 do CPC: coisa julgada material é a autoridade que torna imutável e indiscutível a decisão de MÉRITO não mais sujeita a recurso — projeta-se para fora do processo. A coisa julgada FORMAL é a imutabilidade dentro do processo (preclusão máxima), que atinge também as sentenças sem resolução de mérito. A tutela antecipada estabilizada (art. 304) NÃO faz coisa julgada."
+            },
+            {
+              id: "cj-2", modo: "lei", fonte: "CPC, art. 503, §§1º e 2º",
+              enunciado: "A resolução de questão PREJUDICIAL, decidida expressa e incidentemente no processo, faz coisa julgada:",
+              alternativas: [
+                "em nenhuma hipótese, pois a coisa julgada limita-se ao dispositivo da sentença",
+                "se houver contraditório prévio e efetivo (não em caso de revelia) e o juízo tiver competência para resolvê-la como questão principal",
+                "sempre, desde que mencionada na fundamentação da sentença transitada em julgado",
+                "somente quando ambas as partes requererem expressamente, na inicial e na contestação, a extensão do julgado",
+                "apenas nos procedimentos de jurisdição voluntária, por economia processual"
+              ],
+              correta: 1,
+              explicacao: "Art. 503, §1º, do CPC: a questão prejudicial decidida expressa e incidentemente faz coisa julgada SE (i) da sua resolução depender o julgamento do mérito, (ii) houver contraditório prévio e efetivo — NÃO se aplicando no caso de revelia — e (iii) o juízo tiver competência para resolvê-la como questão principal. Não se aplica se houver restrições probatórias no processo (§2º). Inovação do CPC/2015, dispensando a antiga ação declaratória incidental."
+            },
+            {
+              id: "cj-3", modo: "lei", fonte: "CPC, art. 506",
+              enunciado: "Quanto aos limites subjetivos, a sentença faz coisa julgada:",
+              alternativas: [
+                "entre as partes e contra os terceiros que tinham ciência inequívoca da demanda",
+                "entre as partes entre as quais é dada, não prejudicando terceiros (podendo, porém, beneficiá-los)",
+                "erga omnes, alcançando indistintamente todos os que não participaram do processo",
+                "entre as partes e os seus advogados, solidariamente responsáveis pelo resultado",
+                "apenas em relação ao autor, podendo o réu rediscutir a matéria em nova ação"
+              ],
+              correta: 1,
+              explicacao: "Art. 506 do CPC: a sentença faz coisa julgada às partes entre as quais é dada, NÃO PREJUDICANDO terceiros. O CPC/2015 suprimiu o 'nem beneficiando' do código anterior — admite-se que terceiros sejam beneficiados pela coisa julgada alheia. A eficácia erga omnes/ultra partes é própria do processo COLETIVO (art. 103 do CDC)."
+            },
+            {
+              id: "cj-4", modo: "lei", fonte: "CPC, art. 975",
+              enunciado: "O prazo para a propositura da ação rescisória é de:",
+              alternativas: [
+                "2 anos, contados do trânsito em julgado de cada capítulo autônomo da decisão",
+                "2 anos do trânsito da última decisão do processo; se fundada em prova nova, conta-se da descoberta (teto de 5 anos)",
+                "5 anos, contados da publicação da decisão rescindenda, qualquer que seja o fundamento invocado",
+                "1 ano, prorrogável até o primeiro dia útil seguinte, se o termo cair em férias forenses",
+                "4 anos, quando fundada em vício de citação, contados da ciência do vício pela parte"
+              ],
+              correta: 1,
+              explicacao: "Art. 975 do CPC: o direito à rescisão extingue-se em 2 anos contados do trânsito em julgado da ÚLTIMA decisão proferida no processo. Fundada em prova nova (art. 966, VII), o termo inicial é a descoberta da prova, observado o teto de 5 anos do trânsito (§2º). Vício de citação enseja querela nullitatis (art. 525, §1º, I), que não se sujeita a prazo."
+            },
+            {
+              id: "cj-5", modo: "lei", fonte: "CPC, art. 927",
+              enunciado: "São de observância obrigatória pelos juízes e tribunais, nos termos do art. 927 do CPC, entre outros:",
+              alternativas: [
+                "todos os acórdãos unânimes dos tribunais de justiça, ainda que não sumulados",
+                "os acórdãos em IRDR e em incidente de assunção de competência e os julgados em recursos repetitivos",
+                "as decisões monocráticas dos relatores nos tribunais superiores, após a publicação",
+                "os enunciados administrativos e as notas técnicas aprovados pelo Conselho Nacional de Justiça",
+                "os pareceres vinculantes da Advocacia-Geral da União aprovados pelo Presidente"
+              ],
+              correta: 1,
+              explicacao: "Art. 927 do CPC: vinculam os juízes e tribunais as decisões do STF em controle concentrado, as súmulas vinculantes, os acórdãos em incidente de assunção de competência e em IRDR, os julgamentos de recursos extraordinário e especial repetitivos, as súmulas do STF (matéria constitucional) e do STJ (infraconstitucional) e a orientação do plenário ou órgão especial a que estiverem vinculados."
+            },
+            {
+              id: "cj-6", modo: "caso", fonte: "CPC, arts. 489, §1º, VI, e 927, §1º",
+              enunciado: "Um juiz pretende deixar de aplicar precedente vinculante ao caso concreto. Ele:",
+              alternativas: [
+                "não pode, em nenhuma hipótese, sob pena de reclamação e responsabilidade funcional",
+                "pode, desde que demonstre fundamentadamente a distinção do caso (distinguishing) ou a superação do entendimento",
+                "pode, por livre convencimento motivado, bastando indicar a sua discordância doutrinária",
+                "pode, se o precedente tiver sido firmado por maioria apertada no tribunal de origem",
+                "só pode após suscitar incidente de revisão da tese perante o próprio tribunal"
+              ],
+              correta: 1,
+              explicacao: "Art. 489, §1º, VI, do CPC: não é fundamentada a decisão que deixa de seguir precedente invocado pela parte 'sem demonstrar a existência de distinção no caso em julgamento ou a superação do entendimento'. O afastamento legítimo exige DISTINGUISHING (caso materialmente distinto) ou demonstração de OVERRULING — mera discordância pessoal não basta e enseja reclamação (art. 988)."
+            }
+          ]
+        }
+      ]
+    },
+
     /* --------------------------------------------------- 5. CDC — VÍCIO/FATO */
     {
       id: "cdc-responsabilidade",
@@ -1495,6 +1592,90 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Art. 13, §2º, do CP: no crime comissivo por omissão, o omitente responde pelo RESULTADO porque devia e podia agir — posição de GARANTIDOR: (a) dever legal de cuidado, proteção ou vigilância; (b) assunção voluntária da responsabilidade de impedir o resultado; (c) ingerência (criação do risco com o comportamento anterior). Sem posição de garante, a omissão gera, no máximo, crime omissivo próprio (ex.: omissão de socorro)."
+            }
+          ]
+        },
+        {
+          id: "penal-juris-4",
+          titulo: "Lei de Drogas",
+          questoes: [
+            {
+              id: "ld-1", modo: "juris", fonte: "STF, Tema 506 (RE 635.659)",
+              enunciado: "Sobre o porte de maconha para consumo próprio, o STF (Tema 506) decidiu que a conduta:",
+              alternativas: [
+                "permanece criminosa, mas com penas restritivas de direitos aplicadas pelo Jecrim",
+                "não é infração penal, presumindo-se usuário quem porta até 40 g ou seis plantas fêmeas, salvo indícios de traficância",
+                "foi integralmente legalizada, vedada inclusive a apreensão da substância pela polícia",
+                "só deixa de ser punível se a quantidade não exceder 25 g, limite fixado expressamente em lei",
+                "descriminaliza o porte de qualquer droga para uso pessoal, por extensão analógica"
+              ],
+              correta: 1,
+              explicacao: "Tema 506 do STF: o porte de cannabis para consumo próprio deixou de ser infração penal (o art. 28 segue válido para as demais drogas). Presume-se usuário quem porta até 40 g ou 6 plantas fêmeas — presunção RELATIVA, afastável diante de elementos concretos de traficância. A droga continua sujeita a apreensão, e a tese vale até o Congresso disciplinar a matéria."
+            },
+            {
+              id: "ld-2", modo: "lei", fonte: "Lei 11.343/06, art. 28",
+              enunciado: "Quem adquire ou porta droga (diversa da maconha) para consumo pessoal sujeita-se, nos termos do art. 28 da Lei de Drogas, a:",
+              alternativas: [
+                "pena de detenção de seis meses a dois anos, substituível por restritivas de direitos",
+                "advertência, prestação de serviços à comunidade ou medida educativa — nunca pena privativa de liberdade",
+                "multa administrativa aplicada diretamente pela autoridade policial, sem processo",
+                "reclusão de um a três anos, quando se tratar de reincidente específico na conduta",
+                "internação compulsória para tratamento, mediante requerimento do Ministério Público"
+              ],
+              correta: 1,
+              explicacao: "Art. 28 da Lei 11.343/06: as penas são advertência sobre os efeitos das drogas, prestação de serviços à comunidade e medida educativa de comparecimento a programa ou curso — em NENHUMA hipótese há pena privativa de liberdade. Em caso de descumprimento, admoestação verbal e multa (§6º)."
+            },
+            {
+              id: "ld-3", modo: "lei", fonte: "Lei 11.343/06, art. 33, §4º",
+              enunciado: "A causa de diminuição do tráfico privilegiado (art. 33, §4º) exige que o agente, CUMULATIVAMENTE:",
+              alternativas: [
+                "seja primário OU tenha bons antecedentes, bastando o preenchimento de qualquer um desses requisitos alternativos",
+                "seja primário, tenha bons antecedentes e não se dedique a atividades criminosas nem integre organização criminosa",
+                "seja menor de 21 anos e tenha confessado espontaneamente a prática do tráfico",
+                "tenha sido flagrado com pequena quantidade, qualquer que seja o seu histórico criminal",
+                "colabore voluntariamente com a investigação, identificando os demais coautores"
+              ],
+              correta: 1,
+              explicacao: "Art. 33, §4º: redução de 1/6 a 2/3 desde que o agente seja primário, de bons antecedentes, não se dedique às atividades criminosas nem integre organização criminosa — requisitos CUMULATIVOS. Preenchidos, o tráfico privilegiado não é hediondo (SV 63) e admite regime aberto e substituição por restritivas (SV 59)."
+            },
+            {
+              id: "ld-4", modo: "lei", fonte: "Lei 11.343/06, art. 28, §2º",
+              enunciado: "Para distinguir o porte para consumo pessoal do tráfico, o juiz atenderá, nos termos do art. 28, §2º:",
+              alternativas: [
+                "exclusivamente à quantidade de droga apreendida, conforme tabela fixada em regulamento do Poder Executivo",
+                "à natureza e à quantidade da droga, ao local e às condições da ação e às circunstâncias pessoais e antecedentes do agente",
+                "à confissão do agente, elemento indispensável para o enquadramento como usuário",
+                "ao laudo toxicológico definitivo, que classificará o grau de dependência química",
+                "apenas aos antecedentes criminais, presumindo-se o tráfico em caso de reincidência"
+              ],
+              correta: 1,
+              explicacao: "Art. 28, §2º: o juiz considera a natureza e a quantidade da substância, o local e as condições da ação, as circunstâncias sociais e pessoais e a conduta e os antecedentes do agente — análise CONJUNTA, sem quantidade fixa em lei (a presunção de 40 g do Tema 506 vale apenas para a maconha, e é relativa)."
+            },
+            {
+              id: "ld-5", modo: "juris", fonte: "STJ, Súmulas 587 e 607",
+              enunciado: "Quanto às majorantes do art. 40 da Lei de Drogas, o STJ consolidou que:",
+              alternativas: [
+                "ambas as majorantes exigem a efetiva transposição da fronteira estadual ou nacional",
+                "a interestadualidade dispensa a efetiva transposição de fronteira entre estados, bastando a demonstração inequívoca dessa intenção",
+                "a transnacionalidade só incide com a consumação da saída da droga do território nacional",
+                "as majorantes do art. 40 são incompatíveis com o reconhecimento do tráfico privilegiado",
+                "a interestadualidade incide sempre que a droga tiver sido adquirida em outro estado, mesmo sem intenção de difusão interestadual"
+              ],
+              correta: 1,
+              explicacao: "Súmula 587 do STJ: para a majorante interestadual (art. 40, V) é DESNECESSÁRIA a efetiva transposição de fronteira entre estados, bastando a demonstração inequívoca da intenção. Na mesma linha, a Súmula 607: a transnacional (art. 40, I) configura-se com a prova da destinação internacional, ainda que não consumada a transposição."
+            },
+            {
+              id: "ld-6", modo: "juris", fonte: "STF, Temas 626 e 959",
+              enunciado: "Sobre as vedações abstratas da Lei de Drogas aos acusados de tráfico, o STF declarou inconstitucionais:",
+              alternativas: [
+                "somente a vedação à liberdade provisória, mantida a proibição de substituição da pena por restritivas de direitos",
+                "a vedação à conversão da pena em restritivas de direitos e a vedação à liberdade provisória, impondo análise caso a caso",
+                "apenas a vedação ao livramento condicional dos condenados reincidentes específicos",
+                "as penas mínimas cominadas ao tráfico, por ofensa à proporcionalidade em abstrato",
+                "a própria criminalização do tráfico privilegiado, convertido em infração administrativa"
+              ],
+              correta: 1,
+              explicacao: "Tema 626 do STF: é inconstitucional a vedação abstrata à conversão da pena em restritivas de direitos (arts. 33, §4º, e 44 da Lei 11.343/06). Tema 959: é inconstitucional a expressão 'e liberdade provisória' do art. 44. Em ambos, o STF rejeitou proibições automáticas: a análise deve ser feita caso a caso pelo juiz."
             }
           ]
         }
