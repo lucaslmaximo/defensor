@@ -2324,6 +2324,90 @@ window.APP_DATA = {
               explicacao: "Regra: o Estado não responde por atos jurisdicionais típicos. Exceções constitucionais (art. 5º, LXXV): o ERRO JUDICIÁRIO e a prisão ALÉM DO TEMPO fixado na sentença. Também responde quando o juiz age com dolo ou fraude (art. 143 do CPC). Reforma em recurso e divergência interpretativa não geram, por si, indenização."
             }
           ]
+        },
+        {
+          id: "administrativo-3",
+          titulo: "Atos administrativos e licitações",
+          questoes: [
+            {
+              id: "ata-1", modo: "caso", fonte: "Doutrina; Lei 9.784/99",
+              enunciado: "São ATRIBUTOS do ato administrativo:",
+              alternativas: [
+                "competência, finalidade, forma, motivo e objeto do ato praticado",
+                "presunção de legitimidade, imperatividade, autoexecutoriedade e tipicidade",
+                "legalidade, impessoalidade, moralidade, publicidade e eficiência",
+                "vinculação, discricionariedade, hierarquia e poder disciplinar",
+                "anulabilidade, revogabilidade e convalidação compulsória"
+              ],
+              correta: 1,
+              explicacao: "Atributos (qualidades) do ato: presunção de legitimidade/veracidade, imperatividade, autoexecutoriedade e, para parte da doutrina, tipicidade. A pegadinha clássica é confundir com os ELEMENTOS/requisitos (competência, finalidade, forma, motivo e objeto — art. 2º da Lei 4.717/65) ou com os princípios do art. 37 da CF."
+            },
+            {
+              id: "ata-2", modo: "juris", fonte: "STF, Súmula 473; Lei 9.784/99, arts. 53-54",
+              enunciado: "Quanto ao desfazimento dos atos administrativos, é correto afirmar que a Administração:",
+              alternativas: [
+                "só pode anular ou revogar os próprios atos mediante prévia autorização do Poder Judiciário",
+                "anula os atos ilegais (efeitos ex tunc) e revoga os inconvenientes (ex nunc), respeitados os direitos adquiridos",
+                "revoga os atos ilegais com efeitos retroativos (ex tunc) à data da sua prática",
+                "pode revogar inclusive os atos vinculados e os que geraram direitos adquiridos",
+                "anula os atos ilegais com efeitos apenas prospectivos, preservando o período anterior"
+              ],
+              correta: 1,
+              explicacao: "Súmula 473 do STF: a Administração pode ANULAR seus atos ilegais (ex tunc) e REVOGAR os inconvenientes ou inoportunos (ex nunc), respeitados os direitos adquiridos. Atenção ao prazo: o direito de anular atos com efeitos favoráveis ao administrado decai em 5 anos, salvo comprovada má-fé (art. 54 da Lei 9.784/99)."
+            },
+            {
+              id: "ata-3", modo: "lei", fonte: "Lei 9.784/99, art. 55",
+              enunciado: "A convalidação do ato administrativo defeituoso (art. 55 da Lei 9.784/99) é possível quando:",
+              alternativas: [
+                "o vício recair sobre a finalidade ou o motivo do ato, mediante justificativa superveniente do agente público",
+                "os defeitos forem sanáveis (competência ou forma) e não houver lesão ao interesse público nem prejuízo a terceiros",
+                "houver o decurso de dois anos da prática do ato, qualquer que seja a natureza do vício",
+                "o ato tiver sido praticado com desvio de poder, desde que comprovada a boa-fé do agente",
+                "o beneficiário renunciar expressamente aos efeitos já produzidos"
+              ],
+              correta: 1,
+              explicacao: "Art. 55 da Lei 9.784/99: em decisão na qual se evidencie não acarretarem lesão ao interesse público nem prejuízo a terceiros, os atos com defeitos SANÁVEIS podem ser convalidados. São sanáveis, em regra, os vícios de competência (salvo exclusiva) e de forma (salvo essencial); vícios de finalidade, motivo e objeto não se convalidam."
+            },
+            {
+              id: "ata-4", modo: "lei", fonte: "Lei 14.133/2021, art. 28",
+              enunciado: "São modalidades de licitação previstas na Lei 14.133/2021:",
+              alternativas: [
+                "tomada de preços e convite, além do pregão e da concorrência",
+                "pregão, concorrência, concurso, leilão e diálogo competitivo",
+                "pregão, regime diferenciado de contratações, consulta e chamamento",
+                "concorrência, leilão, carta-convite e manifestação de interesse",
+                "apenas o pregão eletrônico, unificadas as demais modalidades"
+              ],
+              correta: 1,
+              explicacao: "Art. 28 da Lei 14.133/2021: as modalidades são pregão, concorrência, concurso, leilão e o DIÁLOGO COMPETITIVO (novidade). A tomada de preços e o convite, da antiga Lei 8.666/93, foram EXTINTOS — distrator clássico de prova."
+            },
+            {
+              id: "ata-5", modo: "lei", fonte: "Lei 14.133/2021, arts. 6º, XLII, e 32",
+              enunciado: "O diálogo competitivo, modalidade criada pela Lei 14.133/2021, destina-se a contratações que envolvam:",
+              alternativas: [
+                "contratações de pequeno valor, dispensadas a publicação de edital e a fase de julgamento",
+                "inovação tecnológica ou necessidade cuja solução exija adaptação das alternativas disponíveis no mercado",
+                "bens comuns, cujos padrões de qualidade sejam objetivamente definidos pelo edital",
+                "a alienação de bens móveis e imóveis inservíveis, mediante lances públicos sucessivos",
+                "a escolha de trabalho técnico, científico ou artístico mediante a instituição de prêmios"
+              ],
+              correta: 1,
+              explicacao: "Art. 32 da Lei 14.133/2021: o diálogo competitivo cabe em contratações que envolvam inovação tecnológica ou técnica, impossibilidade de satisfação da necessidade sem adaptação das soluções de mercado, ou impossibilidade de definição precisa das especificações. Os distratores descrevem outras modalidades: pregão (bens comuns), leilão (alienação) e concurso (prêmios)."
+            },
+            {
+              id: "ata-6", modo: "caso", fonte: "CTN, art. 78; doutrina",
+              enunciado: "O poder de polícia ADMINISTRATIVA caracteriza-se por:",
+              alternativas: [
+                "aplicar sanções disciplinares aos servidores públicos por infrações funcionais",
+                "condicionar e restringir o exercício de direitos e atividades privadas em favor do interesse público",
+                "editar decretos e regulamentos para a fiel execução das leis administrativas",
+                "escalonar e rever a atuação dos órgãos subordinados da Administração",
+                "investigar e reprimir infrações penais, com o apoio da força pública"
+              ],
+              correta: 1,
+              explicacao: "Poder de polícia (art. 78 do CTN): condiciona e limita o exercício de direitos, bens e atividades dos particulares em prol da coletividade. Difere do poder disciplinar (servidores), do regulamentar (decretos) e do hierárquico (subordinação). A repressão a infrações penais é polícia JUDICIÁRIA. O STF (Tema 532) admite delegar atos de consentimento e fiscalização a estatais de direito privado prestadoras de serviço público."
+            }
+          ]
         }
       ]
     },
@@ -2503,6 +2587,90 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Art. 1º, III, da Lei 9.474/97: além do fundado temor de perseguição (Convenção de 1951), é refugiado quem, devido a GRAVE E GENERALIZADA VIOLAÇÃO DE DIREITOS HUMANOS, é obrigado a deixar seu país — conceito ampliado inspirado na Declaração de Cartagena. Migração econômica e desastres naturais não estão abrangidos pela lei (podem ensejar acolhida humanitária, instituto diverso)."
+            }
+          ]
+        },
+        {
+          id: "direitos-humanos-3",
+          titulo: "Sistema global (ONU)",
+          questoes: [
+            {
+              id: "sg-1", modo: "lei", fonte: "Sistema ONU (treaty bodies)",
+              enunciado: "No sistema global (ONU), os chamados órgãos CONVENCIONAIS (treaty bodies) de direitos humanos são:",
+              alternativas: [
+                "os órgãos criados com base na Carta da ONU, a exemplo do Conselho de Direitos Humanos",
+                "comitês criados pelos próprios tratados para monitorar o seu cumprimento (ex.: Comitê de Direitos Humanos)",
+                "tribunais internacionais permanentes, com jurisdição penal obrigatória e universal",
+                "as agências especializadas, como a OIT e a Organização Mundial da Saúde",
+                "as organizações não governamentais com estatuto consultivo junto ao ECOSOC"
+              ],
+              correta: 1,
+              explicacao: "Órgãos CONVENCIONAIS (treaty bodies) são os comitês instituídos pelos próprios tratados para monitorar seu cumprimento (Comitê de Direitos Humanos/PIDCP, Comitê DESC, CEDAW, CAT etc.), por relatórios periódicos e, quando aceito, petições individuais. Órgãos EXTRACONVENCIONAIS decorrem da Carta da ONU — como o Conselho de Direitos Humanos e seus procedimentos especiais."
+            },
+            {
+              id: "sg-2", modo: "lei", fonte: "Conselho de Direitos Humanos da ONU",
+              enunciado: "A Revisão Periódica Universal (RPU), conduzida pelo Conselho de Direitos Humanos da ONU, consiste:",
+              alternativas: [
+                "no julgamento vinculante de petições individuais apresentadas contra os Estados",
+                "no exame periódico da situação de direitos humanos de todos os Estados-membros, por avaliação entre pares",
+                "na inspeção anual restrita aos países submetidos a sanções do Conselho de Segurança",
+                "na revisão das sentenças proferidas pelos tribunais constitucionais nacionais",
+                "na auditoria das contribuições financeiras dos Estados ao sistema das Nações Unidas"
+              ],
+              correta: 1,
+              explicacao: "A RPU é mecanismo do Conselho de Direitos Humanos em que TODOS os Estados-membros da ONU têm sua situação de direitos humanos examinada periodicamente pelos demais Estados (peer review), com recomendações. Não é órgão judicial: não julga petições nem impõe sanções."
+            },
+            {
+              id: "sg-3", modo: "lei", fonte: "DUDH (1948)",
+              enunciado: "A Declaração Universal dos Direitos Humanos (1948), quanto à sua natureza jurídica originária:",
+              alternativas: [
+                "é um tratado multilateral ratificado pelo Brasil, com hierarquia supralegal desde 2008",
+                "é resolução da Assembleia Geral — não um tratado —, hoje amplamente reconhecida como direito costumeiro",
+                "possui força vinculante imediata, com sanções aplicadas pela Corte Internacional de Justiça",
+                "vincula apenas os Estados que a incorporaram por lei interna específica",
+                "foi revogada e substituída integralmente pelos Pactos Internacionais de 1966"
+              ],
+              correta: 1,
+              explicacao: "A DUDH foi adotada como RESOLUÇÃO da Assembleia Geral (não é tratado e não foi 'ratificada'). Sem força vinculante formal na origem, seu conteúdo é hoje amplamente reconhecido como direito internacional costumeiro. Os Pactos de 1966 a densificaram juridicamente, sem revogá-la — juntos formam a 'Carta Internacional de Direitos Humanos'."
+            },
+            {
+              id: "sg-4", modo: "lei", fonte: "PIDCP e PIDESC (1966)",
+              enunciado: "Os dois Pactos Internacionais de 1966 dividem os direitos humanos em:",
+              alternativas: [
+                "direitos de primeira e de segunda geração, com idêntico regime de exigibilidade",
+                "civis e políticos (exigibilidade imediata) e econômicos, sociais e culturais (realização progressiva)",
+                "direitos individuais e transindividuais, conforme a titularidade do bem jurídico protegido",
+                "direitos absolutos e relativos, segundo a possibilidade de restrição estatal",
+                "normas de jus cogens e normas de soft law, conforme o seu grau de imperatividade"
+              ],
+              correta: 1,
+              explicacao: "PIDCP (civis e políticos): obrigações de respeito e garantia imediatas. PIDESC (econômicos, sociais e culturais): implementação PROGRESSIVA, 'até o máximo dos recursos disponíveis' (art. 2.1) — o que não elimina obrigações mínimas imediatas (núcleo essencial e vedação do retrocesso). A diferença de regime é o ponto cobrado."
+            },
+            {
+              id: "sg-5", modo: "lei", fonte: "Estatuto de Roma; CF, art. 5º, §4º",
+              enunciado: "O Tribunal Penal Internacional (Estatuto de Roma), a cuja jurisdição o Brasil se submete (art. 5º, §4º, da CF), caracteriza-se por:",
+              alternativas: [
+                "julgar Estados soberanos por violações de direitos humanos, com jurisdição obrigatória",
+                "ser complementar às jurisdições nacionais, julgando indivíduos (não Estados) pelos crimes mais graves",
+                "substituir integralmente os tribunais nacionais sempre que houver crime internacional",
+                "atuar como instância recursal das cortes constitucionais dos Estados-partes",
+                "processar apenas chefes de Estado em exercício, afastadas as demais autoridades"
+              ],
+              correta: 1,
+              explicacao: "O TPI julga INDIVÍDUOS (não Estados) por genocídio, crimes contra a humanidade, crimes de guerra e agressão, sob o princípio da COMPLEMENTARIDADE: só atua quando o Estado não quer ou não pode processar. A irrelevância da função oficial afasta imunidades de chefes de Estado, mas não restringe o Tribunal a eles."
+            },
+            {
+              id: "sg-6", modo: "lei", fonte: "OPCAT; Lei 12.847/2013",
+              enunciado: "O Protocolo Facultativo à Convenção da ONU contra a Tortura (OPCAT) levou o Brasil a criar:",
+              alternativas: [
+                "a Comissão Nacional da Verdade, destinada a apurar as violações do período autoritário",
+                "o Mecanismo Nacional de Prevenção e Combate à Tortura, cujos peritos visitam locais de privação de liberdade",
+                "o Conselho Nacional de Justiça, com atribuição correicional sobre o sistema prisional",
+                "a Ouvidoria Nacional de Direitos Humanos, órgão vinculado ao Ministério Público Federal",
+                "o Departamento Penitenciário Nacional, órgão gestor do fundo penitenciário federal"
+              ],
+              correta: 1,
+              explicacao: "O OPCAT exige mecanismos preventivos nacionais de visitação. A Lei 12.847/2013 instituiu o Sistema Nacional de Prevenção e Combate à Tortura, com o MNPCT — peritos com acesso a quaisquer locais de privação de liberdade, e o Comitê Nacional (CNPCT). Tema do edital ('órgãos nacionais e internacionais de monitoramento') e conectado ao Protocolo de Istambul."
             }
           ]
         }

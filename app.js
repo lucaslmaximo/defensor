@@ -7,7 +7,7 @@
   var DATA = window.APP_DATA;
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "2.0"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "2.1"; // exibida no Perfil; usada pela checagem de atualização
   var HEART_MAX = 5;
   var HEART_REGEN_MS = 2 * 3600000; // 1 vida a cada 2 horas
 
