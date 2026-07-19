@@ -496,3 +496,32 @@ textarea.f-input{resize:none;line-height:1.4}
 .dr-s{font-size:.72rem;color:var(--ink-soft)}
 svg.ic.dr-check{color:var(--acc);width:19px;height:19px}
 .dr-sep{height:1px;background:var(--line);margin:10px 4px}
+
+/* ---------- Modo Blitz ---------- */
+.blitz-card{
+  display:flex;align-items:center;gap:14px;width:100%;text-align:left;margin-top:18px;
+  background:linear-gradient(135deg,var(--flame),color-mix(in srgb,var(--flame) 70%,#C23A2B));
+  border:none;border-radius:var(--radius);padding:16px;color:#fff;
+  box-shadow:0 10px 24px -10px color-mix(in srgb,var(--flame) 70%,transparent);
+  transition:transform .25s var(--spring);
+}
+.blitz-card:active{transform:scale(.97)}
+.blitz-card .bz-ico{width:46px;height:46px;flex:none;border-radius:14px;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.blitz-card .bz-ico svg.ic{width:24px;height:24px}
+.bz-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.bz-t{font-weight:800;font-size:1.05rem;letter-spacing:-.01em}
+.bz-s{font-size:.78rem;opacity:.94;line-height:1.4}
+.bz-rec{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:800;margin-top:6px;background:rgba(255,255,255,.16);border-radius:999px;padding:4px 10px;width:fit-content}
+.bz-go{flex:none;font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--flame);background:#fff;padding:9px 14px;border-radius:999px;box-shadow:0 3px 8px rgba(0,0,0,.18)}
+
+/* topo do quiz no Blitz */
+.bz-score{flex:1;display:inline-flex;align-items:center;gap:6px;font-weight:800;color:var(--flame);font-size:.95rem}
+.bz-score b{font-variant-numeric:tabular-nums;color:var(--ink)}
+.bz-lives svg.ic{width:20px;height:20px}
+svg.ic.off{opacity:.22}
+
+/* resultado do Blitz */
+.bz-big{width:64px;height:64px;margin:6px auto 12px;border-radius:20px;background:var(--flame-soft);color:var(--flame);display:grid;place-items:center}
+.bz-big svg.ic{width:30px;height:30px}
+.bz-num{font-size:3.2rem;font-weight:800;line-height:1;letter-spacing:-.04em;color:var(--flame);font-variant-numeric:tabular-nums}
+.bz-cap{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint);margin:6px 0 14px}

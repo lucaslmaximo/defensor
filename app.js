@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "3.1"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "3.2"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -68,6 +68,7 @@
   }
   var HEART_MAX = 5;
   var HEART_REGEN_MS = 2 * 3600000; // 1 vida a cada 2 horas
+  var BLITZ_LIVES = 3; // vidas próprias do Modo Blitz (não gastam as normais)
 
   /* Patentes: carreira por matéria, movida a XP */
   var RANKS = [
@@ -166,7 +167,7 @@
     return {
       prova: null,
       xp: 0, hearts: 5, heartT: null, streak: 0, lastStudyDay: null,
-      lessons: {}, srs: {}, errors: {}, answered: 0, correctTotal: 0,
+      lessons: {}, srs: {}, errors: {}, blitz: {}, answered: 0, correctTotal: 0,
       byMateria: {}, xpByMateria: {}, theme: null,
       social: { uid: null, nome: "", avatar: "🦉", friends: {}, grupo: null, grupoCache: null },
       week: { id: null, xp: 0, answered: 0, correct: 0 }
@@ -498,6 +499,30 @@
     return "open";
   }
 
+  /* ---------- Modo Blitz ---------- */
+  function blitzBest() {
+    var b = PROVA && S.blitz[PROVA.id];
+    return b ? (b.best || 0) : 0;
+  }
+  function blitzPool() {
+    // sorteio embaralhado dentro de cada banca, na ordem Banca I → II → III
+    var by = { I: [], II: [], III: [] }, resto = [];
+    DATA.units.forEach(function (u) {
+      var arr = by[u.banca] || resto;
+      u.licoes.forEach(function (l) {
+        l.questoes.forEach(function (q) { arr.push(q); });
+      });
+    });
+    function shuf(a) {
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+    return shuf(by.I).concat(shuf(by.II), shuf(by.III), shuf(resto));
+  }
+
   /* ================= RENDER ================= */
   var app = document.getElementById("app");
   var view = { name: "inicio" };
@@ -565,12 +590,13 @@
     var xv = document.querySelector("[data-count]");
     if (xv) {
       var alvo = parseInt(xv.getAttribute("data-count"), 10) || 0;
-      if (REDUCED) { xv.textContent = "+" + alvo; return; }
+      var pref = xv.hasAttribute("data-plain") ? "" : "+";
+      if (REDUCED) { xv.textContent = pref + alvo; return; }
       var t0 = performance.now();
       (function tick(t) {
         var k = Math.min(1, (t - t0) / 700);
         k = 1 - Math.pow(1 - k, 3);
-        xv.textContent = "+" + Math.round(alvo * k);
+        xv.textContent = pref + Math.round(alvo * k);
         if (k < 1) requestAnimationFrame(tick);
       })(t0);
     }
@@ -647,6 +673,16 @@
   screens.trilha = function () {
     var h = '<div class="trail-head"><h1>Sua trilha</h1><p>' +
       esc(DATA.meta.concurso) + ' · ' + esc(DATA.meta.fase) + '</p></div>';
+    var rec = blitzBest();
+    h += '<button class="blitz-card" data-action="start-blitz">' +
+      '<span class="bz-ico">' + icon("bolt") + '</span>' +
+      '<span class="bz-info">' +
+      '<span class="bz-t">Modo Blitz</span>' +
+      '<span class="bz-s">Questões aleatórias das três bancas, em sequência. 3 vidas, sem pausa: quantas você acerta?</span>' +
+      (rec ? '<span class="bz-rec">' + icon("trophy") + ' Recorde: ' + rec + (rec === 1 ? ' acerto' : ' acertos') + '</span>' : '') +
+      '</span>' +
+      '<span class="bz-go">Jogar</span>' +
+      '</button>';
     var currentBanca = null;
     DATA.units.forEach(function (u) {
       var banca = u.banca || "I";
@@ -937,6 +973,7 @@
       qs: questions.map(shuffleQuestion),
       i: 0, correct: 0, xpGained: 0, wrong: [], rankBefore: {},
       kind: opts.kind, lessonId: opts.lessonId,
+      lives: opts.kind === "blitz" ? BLITZ_LIVES : null,
       selected: null, checked: false
     };
     view.name = "quiz";
@@ -947,11 +984,20 @@
     var q = quiz.qs[quiz.i];
     var pct = Math.round(quiz.i / quiz.qs.length * 100);
     var modoTxt = q.modo === "lei" ? "Letra de lei" : q.modo === "juris" ? "Jurisprudência" : "Caso concreto";
+    var top;
+    if (quiz.kind === "blitz") {
+      var lv = '';
+      for (var bi = 0; bi < BLITZ_LIVES; bi++) lv += icon("heart", bi < quiz.lives ? "" : "off");
+      top = '<span class="bz-score">' + icon("bolt") + '<b>' + quiz.correct + '</b>' +
+        (quiz.correct === 1 ? 'acerto' : 'acertos') + '</span>' +
+        '<span class="stat heart bz-lives">' + lv + '</span>';
+    } else {
+      top = '<span class="progress"><i style="width:' + pct + '%"></i></span>' + heartHud();
+    }
     var h = '<div class="screen" style="padding-bottom:120px">' +
       '<div class="quiz-top">' +
       '<button class="x" data-action="quit-quiz">✕</button>' +
-      '<span class="progress"><i style="width:' + pct + '%"></i></span>' +
-      heartHud() +
+      top +
       '</div>' +
       '<div class="q-head">' +
       '<span class="q-modo ' + q.modo + '">' + modoTxt + '</span>' +
@@ -1011,7 +1057,8 @@
     if (ok) {
       if (S.errors[q.id] && !S.errors[q.id].resolved) S.errors[q.id].resolved = true; // acertou o que errava
     } else {
-      loseHeart();
+      if (quiz.kind === "blitz") quiz.lives -= 1;
+      else loseHeart();
       quiz.wrong.push(q.id);
       var e = S.errors[q.id] || { count: 0, resolved: false };
       e.count += 1; e.resolved = false; e.lastWrong = Date.now();
@@ -1022,6 +1069,7 @@
   }
 
   function nextQuestion() {
+    if (quiz.kind === "blitz" && quiz.lives <= 0) { finishSession(); return; }
     quiz.i += 1; quiz.selected = null; quiz.checked = false;
     if (quiz.i >= quiz.qs.length) finishSession();
     else render();
@@ -1042,6 +1090,14 @@
       if (!(bm in quiz.rankBefore)) quiz.rankBefore[bm] = rankFor(materiaXp(bm)).idx;
       S.xpByMateria[bm] = (S.xpByMateria[bm] || 0) + 5;
     }
+    // Blitz: registra a rodada e o recorde da prova
+    if (quiz.kind === "blitz") {
+      var bb = S.blitz[PROVA.id] || { best: 0, runs: 0 };
+      bb.runs += 1;
+      quiz.newRecord = quiz.correct > (bb.best || 0);
+      if (quiz.newRecord) bb.best = quiz.correct;
+      S.blitz[PROVA.id] = bb;
+    }
     // subiu de patente em alguma matéria?
     quiz.rankUps = [];
     for (var rm in quiz.rankBefore) {
@@ -1056,7 +1112,41 @@
     render();
   }
 
+  function renderBlitzResult() {
+    var resp = quiz.correct + quiz.wrong.length;
+    var zerou = quiz.i >= quiz.qs.length;
+    var titulo = zerou ? "Você respondeu o banco inteiro!" : quiz.newRecord ? "Novo recorde!" : "Fim da rodada!";
+    var h = '<div class="screen"><div class="result">' +
+      '<div class="bz-big">' + icon("bolt") + '</div>' +
+      '<div class="bz-num" data-count="' + quiz.correct + '" data-plain>0</div>' +
+      '<div class="bz-cap">' + (quiz.correct === 1 ? 'acerto' : 'acertos') + ' no Modo Blitz</div>' +
+      '<h1>' + titulo + '</h1>' +
+      '<div class="result-tiles">' +
+      '<div class="rt"><div class="rv">' + resp + '</div><div class="rl">respondidas</div></div>' +
+      '<div class="rt"><div class="rv">+' + quiz.xpGained + '</div><div class="rl">XP ganho</div></div>' +
+      '<div class="rt acc"><div class="rv">' + blitzBest() + '</div><div class="rl">recorde</div></div>' +
+      '</div>' +
+      (quiz.newRecord && quiz.correct > 0
+        ? '<div class="rankup" style="border-color:var(--flame)"><span class="ru-ico" style="color:var(--flame)">' + icon("trophy") + '</span><div>' +
+          '<div class="ru-t">Modo Blitz</div><div class="ru-n">Novo recorde: ' + quiz.correct + (quiz.correct === 1 ? ' acerto' : ' acertos') + '</div></div></div>'
+        : '') +
+      (quiz.rankUps && quiz.rankUps.length ? quiz.rankUps.map(function (r) {
+        return '<div class="rankup"><span class="ru-ico">' + insignia(r.idx) + '</span><div>' +
+          '<div class="ru-t">' + esc(r.materia) + ' — nova patente</div>' +
+          '<div class="ru-n">' + r.rank.nome + '</div></div></div>';
+      }).join('') : '') +
+      '<div style="max-width:340px;margin:0 auto">' +
+      (quiz.wrong.length
+        ? '<button class="btn danger" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
+        : '') +
+      '<button class="btn" data-action="start-blitz" style="margin-bottom:12px">' + icon("bolt") + ' Jogar de novo</button>' +
+      '<button class="btn ghost" data-action="home">Voltar à trilha</button>' +
+      '</div></div></div>';
+    return h;
+  }
+
   function renderResult() {
+    if (quiz.kind === "blitz") return renderBlitzResult();
     var total = quiz.qs.length;
     var acc = Math.round(quiz.correct / total * 100);
     var titulo = acc === 100 ? "Perfeito!" : acc >= 70 ? "Muito bom!" : acc >= 40 ? "Continue firme!" : "Bora revisar!";
@@ -1159,8 +1249,13 @@
     else if (a === "open-menu") { drawerOpen = true; render(); }
     else if (a === "close-menu") closeDrawer();
     else if (a === "go-inicio") { drawerOpen = false; view.name = "inicio"; render(); }
-    else if (a === "quit-quiz") { if (confirm("Sair da lição? O progresso desta rodada será perdido.")) { view.name = "trilha"; render(); } }
+    else if (a === "quit-quiz") {
+      if (quiz && quiz.kind === "blitz") {
+        if (confirm("Encerrar a rodada Blitz? Seu placar será registrado.")) finishSession();
+      } else if (confirm("Sair da lição? O progresso desta rodada será perdido.")) { view.name = "trilha"; render(); }
+    }
     else if (a === "home") { view.name = "trilha"; render(); }
+    else if (a === "start-blitz") startSession(blitzPool(), { kind: "blitz" });
     else if (a === "create-profile") {
       var inp = document.getElementById("social-name");
       var nome = ((inp && inp.value) || "").trim();
