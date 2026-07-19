@@ -4,10 +4,10 @@
 (function () {
   "use strict";
 
-  var DATA = window.APP_DATA;
+  var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "3.0"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "3.1"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -39,7 +39,9 @@
     moon: '<path d="M20 14.5A8.5 8.5 0 1110 4a6.8 6.8 0 0010 10.5z"/>',
     printer: '<path d="M7 8V4h10v4M5 8h14v7.5h-3.5M8.5 15.5H5V8M8.5 13h7v7h-7z"/>',
     share: '<path d="M12 3.5V15M8 7l4-4 4 4M5.5 12.5V20h13v-7.5"/>',
-    trophy: '<path d="M8 4h8v5a4 4 0 01-8 0zM8 5H4.5c0 3 1.5 4.5 3.5 5M16 5h3.5c0 3-1.5 4.5-3.5 5M12 13v4M8.5 20.5h7M10 17h4v3.5h-4z"/>'
+    trophy: '<path d="M8 4h8v5a4 4 0 01-8 0zM8 5H4.5c0 3 1.5 4.5 3.5 5M16 5h3.5c0 3-1.5 4.5-3.5 5M12 13v4M8.5 20.5h7M10 17h4v3.5h-4z"/>',
+    menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    grad: '<path d="M12 4.5L2.5 9 12 13.5 21.5 9zM6 11v4.5c0 1.5 2.7 2.8 6 2.8s6-1.3 6-2.8V11M21.5 9v5"/>'
   };
   function icon(name, extra) {
     return '<svg class="ic' + (extra ? ' ' + extra : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
@@ -106,28 +108,63 @@
     "III":{ nome: "Banca III", tema: "Público" }
   };
 
-  /* ---------- índices ---------- */
+  /* ---------- provas disponíveis ---------- */
+  // Para adicionar uma prova nova: crie um data-<prova>.js no mesmo formato
+  // do data.js (definindo um objeto global próprio, ex.: window.APP_DATA_MPRJ),
+  // inclua o <script> dele no index.html e acrescente uma entrada aqui.
+  // IDs de unidades/lições/questões devem ser únicos entre as provas.
+  var PROVAS = [
+    {
+      id: "dpe-rj",
+      nome: "Defensoria Pública · RJ",
+      detalhe: "XXIX Concurso · FGV",
+      icone: "shield",
+      data: window.APP_DATA
+    }
+  ];
+  function provaById(id) {
+    for (var i = 0; i < PROVAS.length; i++) if (PROVAS[i].id === id) return PROVAS[i];
+    return null;
+  }
+  function provaStats(p) {
+    var lic = 0, feitas = 0, qs = 0;
+    p.data.units.forEach(function (u) {
+      u.licoes.forEach(function (l) {
+        lic += 1; qs += l.questoes.length;
+        if (S.lessons[l.id] && S.lessons[l.id].completed) feitas += 1;
+      });
+    });
+    return { licoes: lic, feitas: feitas, questoes: qs };
+  }
+
+  /* ---------- índices (montados por prova) ---------- */
+  var PROVA = null;            // prova ativa
   var LESSONS = [];            // ordem plana de lições
   var LESSON_BY_ID = {};
   var UNIT_BY_LESSON = {};
   var Q_BY_ID = {};
-  DATA.units.forEach(function (u) {
-    u.licoes.forEach(function (l, i) {
-      l._unit = u; l._idx = i;
-      LESSONS.push(l);
-      LESSON_BY_ID[l.id] = l;
-      UNIT_BY_LESSON[l.id] = u;
-      l.questoes.forEach(function (q) {
-        q._materia = u.materia; q._topico = u.titulo;
-        Q_BY_ID[q.id] = q;
+  function loadProva(p) {
+    PROVA = p; DATA = p.data;
+    LESSONS = []; LESSON_BY_ID = {}; UNIT_BY_LESSON = {}; Q_BY_ID = {};
+    DATA.units.forEach(function (u) {
+      u.licoes.forEach(function (l, i) {
+        l._unit = u; l._idx = i;
+        LESSONS.push(l);
+        LESSON_BY_ID[l.id] = l;
+        UNIT_BY_LESSON[l.id] = u;
+        l.questoes.forEach(function (q) {
+          q._materia = u.materia; q._topico = u.titulo;
+          Q_BY_ID[q.id] = q;
+        });
       });
     });
-  });
+  }
 
   /* ---------- estado ---------- */
   var S = load();
   function defaultState() {
     return {
+      prova: null,
       xp: 0, hearts: 5, heartT: null, streak: 0, lastStudyDay: null,
       lessons: {}, srs: {}, errors: {}, answered: 0, correctTotal: 0,
       byMateria: {}, xpByMateria: {}, theme: null,
@@ -463,14 +500,16 @@
 
   /* ================= RENDER ================= */
   var app = document.getElementById("app");
-  var view = { name: "trilha" };
+  var view = { name: "inicio" };
   var quiz = null;
+  var drawerOpen = false;
 
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 
   function hud() {
     return '' +
       '<div class="hud">' +
+      '  <button class="menu-btn" data-action="open-menu" aria-label="Abrir menu">' + icon("menu") + '</button>' +
       '  <div class="brand"><span class="logo">§</span> Defensor</div>' +
       '  <span class="stat flame">' + icon("flame") + '<b>' + S.streak + '</b></span>' +
       '  <span class="stat xp">' + icon("bolt") + '<b>' + S.xp + '</b></span>' +
@@ -498,9 +537,11 @@
   var lastView = null;
   function renderCore() {
     var body;
-    if (view.name === "quiz") body = renderQuiz();
+    if (view.name === "inicio") body = renderInicio();
+    else if (view.name === "quiz") body = renderQuiz();
     else if (view.name === "result") body = renderResult();
     else body = hud() + '<div class="screen">' + screens[view.name]() + '</div>' + nav();
+    if (drawerOpen && PROVA && !/^(inicio|quiz|result)$/.test(view.name)) body += renderDrawer();
     app.innerHTML = body;
     wire();
     if (view.name === "result") setTimeout(animateResult, 40);
@@ -535,11 +576,77 @@
     }
   }
 
+  /* ---------- Menu inicial: escolha da prova ---------- */
+  function renderInicio() {
+    var h = '<div class="inicio"><div class="inicio-hero">' +
+      '<span class="logo xl">§</span>' +
+      '<h1>Defensor</h1>' +
+      '<p>Para qual prova você quer estudar? Dá para trocar depois pelo menu ☰.</p>' +
+      '</div><div class="prova-list">';
+    PROVAS.forEach(function (p) {
+      var st = provaStats(p);
+      var pct = st.licoes ? Math.round(st.feitas / st.licoes * 100) : 0;
+      h += '<button class="prova-card" data-prova="' + p.id + '">' +
+        '<span class="pc-ico">' + icon(p.icone || "book") + '</span>' +
+        '<span class="pc-info">' +
+        '<span class="pc-nome">' + esc(p.nome) + '</span>' +
+        '<span class="pc-meta">' + esc(p.detalhe) + ' · ' + st.questoes + ' questões</span>' +
+        (st.feitas
+          ? '<span class="pc-track"><i style="width:' + pct + '%"></i></span>' +
+            '<span class="pc-prog">' + st.feitas + '/' + st.licoes + ' lições concluídas</span>'
+          : '') +
+        '</span>' +
+        '<span class="pc-go">' + (st.feitas ? 'Continuar' : 'Começar') + '</span>' +
+        '</button>';
+    });
+    h += '<div class="prova-card breve">' +
+      '<span class="pc-ico">' + icon("trophy") + '</span>' +
+      '<span class="pc-info"><span class="pc-nome">Mais provas em breve</span>' +
+      '<span class="pc-meta">Novos concursos serão adicionados aqui.</span></span>' +
+      '</div>';
+    h += '</div></div>';
+    return h;
+  }
+
+  /* ---------- Menu lateral ---------- */
+  function renderDrawer() {
+    var h = '<div class="drawer-back" data-action="close-menu"></div>' +
+      '<aside class="drawer">' +
+      '<div class="dr-head"><span class="logo">§</span>' +
+      '<div class="dr-t"><b>Defensor</b><span>' + esc(PROVA.nome) + '</span></div>' +
+      '<button class="dr-x" data-action="close-menu" aria-label="Fechar menu">✕</button></div>' +
+      '<div class="dr-label">Estudando para</div>';
+    PROVAS.forEach(function (p) {
+      var on = PROVA && p.id === PROVA.id;
+      h += '<button class="dr-item' + (on ? ' on' : '') + '" data-prova="' + p.id + '">' +
+        icon(p.icone || "book") +
+        '<span class="dr-info"><span class="dr-n">' + esc(p.nome) + '</span>' +
+        '<span class="dr-s">' + esc(p.detalhe) + '</span></span>' +
+        (on ? icon("check", "dr-check") : '') +
+        '</button>';
+    });
+    h += '<div class="dr-sep"></div>' +
+      '<button class="dr-item" data-action="go-inicio">' + icon("grad") +
+      '<span class="dr-info"><span class="dr-n">Tela inicial</span>' +
+      '<span class="dr-s">Ver todas as provas</span></span></button>' +
+      '</aside>';
+    return h;
+  }
+  function closeDrawer() {
+    drawerOpen = false;
+    var d = app.querySelector(".drawer"), bk = app.querySelector(".drawer-back");
+    if (d && !REDUCED) {
+      d.classList.add("closing");
+      if (bk) bk.classList.add("closing");
+      setTimeout(render, 170);
+    } else render();
+  }
+
   /* ---------- Screen: Trilha ---------- */
   var screens = {};
   screens.trilha = function () {
     var h = '<div class="trail-head"><h1>Sua trilha</h1><p>' +
-      esc(DATA.meta.fase) + '</p></div>';
+      esc(DATA.meta.concurso) + ' · ' + esc(DATA.meta.fase) + '</p></div>';
     var currentBanca = null;
     DATA.units.forEach(function (u) {
       var banca = u.banca || "I";
@@ -989,6 +1096,17 @@
         render();
       };
     });
+    // escolher/trocar prova (menu inicial e menu lateral)
+    app.querySelectorAll("[data-prova]").forEach(function (b) {
+      b.onclick = function () {
+        var p = provaById(b.getAttribute("data-prova"));
+        if (!p) return;
+        if (!PROVA || PROVA.id !== p.id) { loadProva(p); S.prova = p.id; save(); }
+        drawerOpen = false;
+        view.name = "trilha";
+        render();
+      };
+    });
     // iniciar lição
     app.querySelectorAll("[data-lesson]").forEach(function (b) {
       b.onclick = function () {
@@ -1038,6 +1156,9 @@
   function action(a) {
     if (a === "check") checkAnswer();
     else if (a === "next") nextQuestion();
+    else if (a === "open-menu") { drawerOpen = true; render(); }
+    else if (a === "close-menu") closeDrawer();
+    else if (a === "go-inicio") { drawerOpen = false; view.name = "inicio"; render(); }
     else if (a === "quit-quiz") { if (confirm("Sair da lição? O progresso desta rodada será perdido.")) { view.name = "trilha"; render(); } }
     else if (a === "home") { view.name = "trilha"; render(); }
     else if (a === "create-profile") {
@@ -1100,7 +1221,7 @@
       save(); render(); toast("Você saiu do grupo.");
     }
     else if (a === "toggle-theme") toggleTheme();
-    else if (a === "reset") { if (confirm("Isso apaga todo o seu progresso. Continuar? (Seu grupo de amigos é mantido.)")) { var soc = S.social; S = defaultState(); S.social = soc; applyTheme(); save(); view.name = "trilha"; render(); toast("Progresso zerado."); } }
+    else if (a === "reset") { if (confirm("Isso apaga todo o seu progresso. Continuar? (Seu grupo de amigos é mantido.)")) { var soc = S.social, pv = S.prova; S = defaultState(); S.social = soc; S.prova = pv; applyTheme(); save(); view.name = "trilha"; render(); toast("Progresso zerado."); } }
   }
 
   /* ---------- tema ---------- */
@@ -1126,6 +1247,9 @@
   applyTheme();
   applyHeartRegen();
   ensureWeek();
+  // prova já escolhida: abre direto na trilha; senão, mostra o menu inicial
+  var provaSalva = provaById(S.prova);
+  if (provaSalva) { loadProva(provaSalva); view.name = "trilha"; }
   if (grupoAtivo()) syncAmigos();
   render();
 

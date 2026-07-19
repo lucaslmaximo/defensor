@@ -433,3 +433,66 @@ textarea.f-input{resize:none;line-height:1.4}
 @media (prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
 }
+
+/* ---------- Menu inicial (escolha de prova) ---------- */
+.inicio{flex:1;display:flex;flex-direction:column;justify-content:center;padding:44px 20px 52px;animation:rise .3s var(--easeout)}
+.logo.xl{width:64px;height:64px;border-radius:20px;background:var(--acc);display:inline-grid;place-items:center;color:#fff;font-size:2rem;font-weight:800;box-shadow:var(--sh-acc)}
+.inicio-hero{text-align:center;margin-bottom:26px}
+.inicio-hero h1{margin:14px 0 6px;font-size:1.8rem;font-weight:800;letter-spacing:-.03em}
+.inicio-hero p{margin:0 auto;max-width:310px;color:var(--ink-soft);font-size:.92rem}
+.prova-list{display:flex;flex-direction:column;gap:12px;max-width:430px;width:100%;margin:0 auto}
+.prova-card{
+  display:flex;align-items:center;gap:14px;text-align:left;width:100%;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px;box-shadow:var(--sh-card);font-size:1rem;
+  transition:transform .25s var(--spring),border-color .2s;
+}
+.prova-card:not(.breve):active{transform:scale(.97)}
+.prova-card:not(.breve):hover{border-color:var(--acc)}
+.prova-card .pc-ico{width:46px;height:46px;flex:none;border-radius:14px;background:var(--acc-soft);color:var(--acc);display:grid;place-items:center}
+.prova-card .pc-ico svg.ic{width:24px;height:24px}
+.pc-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.pc-nome{font-weight:800;letter-spacing:-.01em}
+.pc-meta{font-size:.78rem;color:var(--ink-soft)}
+.pc-track{display:block;height:6px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:6px}
+.pc-track > i{display:block;height:100%;border-radius:4px;background:var(--acc)}
+.pc-prog{font-size:.68rem;font-weight:700;color:var(--ink-faint);margin-top:2px}
+.pc-go{flex:none;font-weight:800;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);background:var(--acc-soft);padding:8px 12px;border-radius:999px}
+.prova-card.breve{opacity:.65;border-style:dashed;box-shadow:none;cursor:default}
+.prova-card.breve .pc-ico{background:var(--bg);color:var(--ink-faint)}
+
+/* ---------- Menu lateral ---------- */
+.menu-btn{background:none;border:none;padding:6px;margin:-6px 0 -6px -6px;border-radius:10px;color:var(--ink-soft);display:grid;place-items:center;transition:transform .25s var(--spring)}
+.menu-btn svg.ic{width:22px;height:22px}
+.menu-btn:active{transform:scale(.85)}
+.drawer-back{position:fixed;inset:0;background:rgba(10,14,18,.45);z-index:60;animation:dr-fade .2s both}
+.drawer{
+  position:fixed;top:0;bottom:0;left:max(0px,calc(50vw - 300px));
+  width:min(80vw,290px);z-index:61;
+  background:var(--bg-2);border-right:1px solid var(--line);box-shadow:var(--sh-pop);
+  padding:16px 14px calc(16px + env(safe-area-inset-bottom));overflow-y:auto;
+  animation:dr-in .28s var(--easeout) both;
+}
+@keyframes dr-fade{from{opacity:0}}
+@keyframes dr-in{from{transform:translateX(-104%)}}
+.drawer.closing{animation:dr-out .18s var(--easeout) both}
+.drawer-back.closing{animation:dr-fade-out .18s both}
+@keyframes dr-out{to{transform:translateX(-104%)}}
+@keyframes dr-fade-out{to{opacity:0}}
+.dr-head{display:flex;align-items:center;gap:10px;padding:4px 4px 14px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.dr-head .logo{width:34px;height:34px;border-radius:11px;background:var(--acc);display:grid;place-items:center;color:#fff;font-weight:800;flex:none}
+.dr-t{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.dr-t b{font-size:.98rem;letter-spacing:-.01em}
+.dr-t span{font-size:.72rem;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dr-x{background:none;border:none;color:var(--ink-faint);font-size:1.05rem;padding:6px;border-radius:9px}
+.dr-label{font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:4px 6px 8px}
+.dr-item{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:none;border:none;border-radius:var(--radius-sm);padding:11px 10px;color:var(--ink);transition:background .15s}
+.dr-item:active{background:var(--bg)}
+.dr-item > svg.ic{width:21px;height:21px;flex:none;color:var(--ink-soft)}
+.dr-item.on{background:var(--acc-soft)}
+.dr-item.on > svg.ic{color:var(--acc)}
+.dr-info{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.3}
+.dr-n{font-weight:800;font-size:.9rem}
+.dr-s{font-size:.72rem;color:var(--ink-soft)}
+svg.ic.dr-check{color:var(--acc);width:19px;height:19px}
+.dr-sep{height:1px;background:var(--line);margin:10px 4px}
