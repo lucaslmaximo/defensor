@@ -529,3 +529,24 @@ svg.ic.off{opacity:.22}
 /* ---------- Conta e backup ---------- */
 .acct-mail{font-weight:800;font-size:1rem;letter-spacing:-.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .acct-sync{font-size:.74rem;color:var(--ink-faint);font-weight:700;margin-top:4px}
+
+/* ---------- Treino do dia ---------- */
+.treino-card{
+  display:flex;align-items:center;gap:14px;width:100%;text-align:left;margin-top:18px;
+  background:linear-gradient(135deg,var(--acc),var(--acc-dark));
+  border:none;border-radius:var(--radius);padding:16px;color:#fff;
+  box-shadow:var(--sh-acc);
+  transition:transform .25s var(--spring);
+}
+.treino-card:active:not(:disabled){transform:scale(.97)}
+.treino-card:disabled{opacity:.6;cursor:not-allowed}
+.treino-card .tc-ico{width:46px;height:46px;flex:none;border-radius:14px;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.treino-card .tc-ico svg.ic{width:24px;height:24px}
+.treino-card .tc-go{flex:none;font-weight:800;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);background:#fff;padding:9px 14px;border-radius:999px;box-shadow:0 3px 8px rgba(0,0,0,.18)}
+.treino-card.done{
+  background:var(--card);color:var(--ink);border:1px solid var(--acc);box-shadow:var(--sh-card);
+}
+.treino-card.done .tc-ico{background:var(--acc-soft);color:var(--acc)}
+.treino-card.done .bz-s{color:var(--ink-soft)}
+.treino-card.done .tc-go{background:var(--acc-soft);color:var(--acc);box-shadow:none}
+.treino-card + .blitz-card{margin-top:12px}

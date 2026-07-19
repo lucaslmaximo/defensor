@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "3.3"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "3.4"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -41,7 +41,8 @@
     share: '<path d="M12 3.5V15M8 7l4-4 4 4M5.5 12.5V20h13v-7.5"/>',
     trophy: '<path d="M8 4h8v5a4 4 0 01-8 0zM8 5H4.5c0 3 1.5 4.5 3.5 5M16 5h3.5c0 3-1.5 4.5-3.5 5M12 13v4M8.5 20.5h7M10 17h4v3.5h-4z"/>',
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
-    grad: '<path d="M12 4.5L2.5 9 12 13.5 21.5 9zM6 11v4.5c0 1.5 2.7 2.8 6 2.8s6-1.3 6-2.8V11M21.5 9v5"/>'
+    grad: '<path d="M12 4.5L2.5 9 12 13.5 21.5 9zM6 11v4.5c0 1.5 2.7 2.8 6 2.8s6-1.3 6-2.8V11M21.5 9v5"/>',
+    target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>'
   };
   function icon(name, extra) {
     return '<svg class="ic' + (extra ? ' ' + extra : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
@@ -171,6 +172,7 @@
       byMateria: {}, xpByMateria: {}, theme: null,
       social: { uid: null, nome: "", avatar: "🦉", friends: {}, grupo: null, grupoCache: null },
       week: { id: null, xp: 0, answered: 0, correct: 0 },
+      treino: {},    // por prova: último dia em que o Treino do dia foi concluído
       conta: null,   // { uid, email, refresh, syncAt } quando logado (não vai para a nuvem)
       mudadoEm: 0    // última mudança relevante de progresso (decide quem é mais novo no sync)
     };
@@ -426,12 +428,13 @@
   function cloudPush(cb) {
     if (!contaAtiva()) { if (cb) cb(false); return; }
     authFetchToken(function (t) {
-      if (!t) { if (cb) cb(false); return; }
+      if (!t) { if (cb) cb(false, "login"); return; }
       fetch(cloudUrl(t), { method: "PUT", body: JSON.stringify(estadoParaNuvem()) })
         .then(function (r) {
-          if (r.ok && S.conta) { S.conta.syncAt = Date.now(); save(); }
-          if (cb) cb(r.ok);
-        }).catch(function () { if (cb) cb(false); });
+          if (r.ok && S.conta) { S.conta.syncAt = Date.now(); save(); if (cb) cb(true); return; }
+          r.json().then(function (d) { if (cb) cb(false, (d && d.error) || "HTTP " + r.status); })
+            .catch(function () { if (cb) cb(false, "HTTP " + r.status); });
+        }).catch(function () { if (cb) cb(false, "rede"); });
     });
   }
   function cloudPull(cb) { // cb(payload|null)
@@ -584,6 +587,7 @@
     }
     c.ef = Math.max(1.3, c.ef + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02)));
     c.due = Date.now() + c.interval * DAY;
+    c.at = Date.now(); // última vez respondida (o Treino do dia usa para não repetir o que foi visto hoje)
     S.srs[qid] = c;
   }
   function dueQuestions() {
@@ -636,6 +640,69 @@
       return a;
     }
     return shuf(by.I).concat(shuf(by.II), shuf(by.III), shuf(resto));
+  }
+
+  /* ---------- Treino do dia ---------- */
+  var TREINO_ALVO = 12; // ~15 minutos de estudo
+  // as 2 matérias com pior acerto (mínimo de 4 respostas e menos de 85%)
+  function materiasFracas() {
+    var arr = [];
+    for (var m in S.byMateria) {
+      var b = S.byMateria[m];
+      if ((b.total || 0) >= 4 && b.correct / b.total < 0.85) arr.push({ m: m, acc: b.correct / b.total });
+    }
+    arr.sort(function (a, b) { return a.acc - b.acc; });
+    return arr.slice(0, 2).map(function (x) { return x.m; });
+  }
+  // monta a dose diária: revisões vencidas + reforço nas matérias fracas + questões novas
+  function treinoDoDia() {
+    var hoje = dayStr(), usados = {}, out = [];
+    function add(q) { if (q && !usados[q.id]) { usados[q.id] = 1; out.push(q); return true; } return false; }
+
+    // revisões vencidas, as mais atrasadas primeiro
+    var due = dueQuestions().sort(function (a, b) { return S.srs[a.id].due - S.srs[b.id].due; });
+
+    // reforço: já vistas (não vencidas, não respondidas hoje) das matérias fracas,
+    // priorizando erros ainda não resolvidos e questões com mais lapsos
+    var fracas = materiasFracas();
+    var reforco = [];
+    LESSONS.forEach(function (l) {
+      l.questoes.forEach(function (q) {
+        var c = S.srs[q.id];
+        if (!c || c.due <= Date.now()) return;
+        if (c.at && dayStr(c.at) === hoje) return;
+        if (fracas.indexOf(q._materia) === -1) return;
+        reforco.push(q);
+      });
+    });
+    reforco.sort(function (a, b) {
+      var ea = S.errors[a.id] && !S.errors[a.id].resolved ? 1 : 0;
+      var eb = S.errors[b.id] && !S.errors[b.id].resolved ? 1 : 0;
+      if (ea !== eb) return eb - ea;
+      return ((S.srs[b.id].lapses) || 0) - ((S.srs[a.id].lapses) || 0);
+    });
+
+    // novas: nunca respondidas, na ordem da trilha
+    var novas = [];
+    LESSONS.forEach(function (l) {
+      l.questoes.forEach(function (q) { if (!S.srs[q.id]) novas.push(q); });
+    });
+
+    due.slice(0, 6).forEach(add);
+    var nRev = out.length;
+    reforco.slice(0, 3).forEach(add);
+    var nRef = out.length - nRev;
+    for (var i = 0; i < novas.length && out.length < TREINO_ALVO; i++) add(novas[i]);
+    var nNov = out.length - nRev - nRef;
+    // faltou? completa com o excedente de revisões e reforços
+    for (var j = 6; j < due.length && out.length < TREINO_ALVO; j++) { if (add(due[j])) nRev++; }
+    for (var k = 3; k < reforco.length && out.length < TREINO_ALVO; k++) { if (add(reforco[k])) nRef++; }
+    // embaralha para intercalar os tipos
+    for (var x = out.length - 1; x > 0; x--) {
+      var y = Math.floor(Math.random() * (x + 1));
+      var t = out[x]; out[x] = out[y]; out[y] = t;
+    }
+    return { qs: out, rev: nRev, ref: nRef, novas: nNov };
   }
 
   /* ================= RENDER ================= */
@@ -788,6 +855,23 @@
   screens.trilha = function () {
     var h = '<div class="trail-head"><h1>Sua trilha</h1><p>' +
       esc(DATA.meta.concurso) + ' · ' + esc(DATA.meta.fase) + '</p></div>';
+    var tdo = treinoDoDia();
+    var feitoHoje = (S.treino || {})[PROVA.id] === dayStr();
+    var partes = [];
+    if (tdo.rev) partes.push(tdo.rev + (tdo.rev === 1 ? " revisão" : " revisões"));
+    if (tdo.ref) partes.push(tdo.ref + (tdo.ref === 1 ? " reforço" : " reforços"));
+    if (tdo.novas) partes.push(tdo.novas + (tdo.novas === 1 ? " questão nova" : " questões novas"));
+    h += '<button class="treino-card' + (feitoHoje ? ' done' : '') + '" data-action="start-treino"' + (tdo.qs.length ? '' : ' disabled') + '>' +
+      '<span class="tc-ico">' + icon(feitoHoje ? "check" : "target") + '</span>' +
+      '<span class="bz-info">' +
+      '<span class="bz-t">Treino do dia</span>' +
+      '<span class="bz-s">' + (feitoHoje
+        ? 'Concluído hoje! Amanhã tem uma dose nova — ou repita agora.'
+        : (tdo.qs.length ? 'Sua dose de hoje: ' + partes.join(' · ') + '. Uns 15 minutinhos.' : 'Nada para treinar por aqui ainda.')) + '</span>' +
+      (S.hearts < HEART_MAX && !feitoHoje && tdo.qs.length ? '<span class="bz-rec">💡 Concluir recupera 1 ❤️</span>' : '') +
+      '</span>' +
+      '<span class="tc-go">' + (feitoHoje ? 'De novo' : 'Treinar') + '</span>' +
+      '</button>';
     var rec = blitzBest();
     h += '<button class="blitz-card" data-action="start-blitz">' +
       '<span class="bz-ico">' + icon("bolt") + '</span>' +
@@ -1231,6 +1315,12 @@
       if (!(bm in quiz.rankBefore)) quiz.rankBefore[bm] = rankFor(materiaXp(bm)).idx;
       S.xpByMateria[bm] = (S.xpByMateria[bm] || 0) + 5;
     }
+    // Treino do dia: bônus de conclusão e registro do dia
+    if (quiz.kind === "treino") {
+      S.xp += 5; quiz.xpGained += 5; ensureWeek(); S.week.xp += 5;
+      if (!S.treino) S.treino = {};
+      S.treino[PROVA.id] = dayStr();
+    }
     // Blitz: registra a rodada e o recorde da prova
     if (quiz.kind === "blitz") {
       var bb = S.blitz[PROVA.id] || { best: 0, runs: 0 };
@@ -1245,8 +1335,8 @@
       var rNow = rankFor(materiaXp(rm));
       if (rNow.idx > quiz.rankBefore[rm]) quiz.rankUps.push({ materia: rm, rank: rNow.cur, idx: rNow.idx });
     }
-    // concluir revisão recupera 1 vida
-    if (quiz.kind === "review" && S.hearts < HEART_MAX) { gainHeart(); quiz.heartWon = true; }
+    // concluir revisão ou treino recupera 1 vida
+    if ((quiz.kind === "review" || quiz.kind === "treino") && S.hearts < HEART_MAX) { gainHeart(); quiz.heartWon = true; }
     touch();
     save();
     pushMyStats(); // atualiza o placar do grupo em tempo real
@@ -1309,7 +1399,7 @@
           '<div class="ru-n">' + r.rank.nome + '</div></div></div>';
       }).join('') : '') +
       (quiz.heartWon ? '<div class="rankup" style="border-color:var(--heart)"><span class="ru-ico" style="color:var(--heart)">' + icon("heart") + '</span><div>' +
-        '<div class="ru-t">Revisão concluída</div><div class="ru-n">+1 vida recuperada</div></div></div>' : '') +
+        '<div class="ru-t">' + (quiz.kind === "treino" ? "Treino do dia concluído" : "Revisão concluída") + '</div><div class="ru-n">+1 vida recuperada</div></div></div>' : '') +
       '<div style="max-width:340px;margin:0 auto">' +
       (hasWrong
         ? '<button class="btn danger" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
@@ -1399,6 +1489,7 @@
     }
     else if (a === "home") { view.name = "trilha"; render(); }
     else if (a === "start-blitz") startSession(blitzPool(), { kind: "blitz" });
+    else if (a === "start-treino") startSession(treinoDoDia().qs, { kind: "treino" });
     else if (a === "create-profile") {
       var inp = document.getElementById("social-name");
       var nome = ((inp && inp.value) || "").trim();
@@ -1479,9 +1570,13 @@
     }
     else if (a === "sync-now") {
       toast("Sincronizando…");
-      cloudPush(function (ok) {
+      cloudPush(function (ok, motivo) {
         render();
-        toast(ok ? "Backup atualizado ☁️" : "Sem conexão — tente de novo mais tarde.");
+        if (ok) toast("Backup atualizado ☁️");
+        else if (/permission/i.test(motivo || "")) toast("O banco recusou o acesso — falta publicar as Regras novas (passo 4 do LEIA-ME).");
+        else if (motivo === "login") toast("Sessão expirada — saia da conta e entre de novo.");
+        else if (motivo === "rede") toast("Sem conexão — tente de novo mais tarde.");
+        else toast("Não deu certo: " + motivo);
       });
     }
     else if (a === "logout") {
