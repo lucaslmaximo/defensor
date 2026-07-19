@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "3.4"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "3.7"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -70,6 +70,34 @@
   var HEART_MAX = 5;
   var HEART_REGEN_MS = 2 * 3600000; // 1 vida a cada 2 horas
   var BLITZ_LIVES = 3; // vidas próprias do Modo Blitz (não gastam as normais)
+
+  /* ---------- sons e vibração (WebAudio sintetizado, sem arquivos) ---------- */
+  var AC = null;
+  function tone(freq, when, dur, type, vol) {
+    var o = AC.createOscillator(), g = AC.createGain();
+    o.type = type || "sine"; o.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, when);
+    g.gain.exponentialRampToValueAtTime(vol || 0.1, when + 0.015);
+    g.gain.exponentialRampToValueAtTime(0.0001, when + dur);
+    o.connect(g); g.connect(AC.destination);
+    o.start(when); o.stop(when + dur + 0.05);
+  }
+  function sfx(kind) {
+    if (S.sons === false) return;
+    try {
+      if (!AC) AC = new (window.AudioContext || window.webkitAudioContext)();
+      if (AC.state === "suspended") AC.resume();
+      var t = AC.currentTime + 0.01;
+      if (kind === "ok") { tone(880, t, 0.09); tone(1174.7, t + 0.08, 0.13); }
+      else if (kind === "no") { tone(196, t, 0.16, "sawtooth", 0.05); tone(185, t + 0.09, 0.2, "sawtooth", 0.05); }
+      else if (kind === "fim") { [523.3, 659.3, 784, 1046.5].forEach(function (f, i) { tone(f, t + i * 0.11, 0.15); }); }
+      else if (kind === "premio") { tone(1318.5, t, 0.1); tone(1568, t + 0.09, 0.1); tone(2093, t + 0.18, 0.22); }
+    } catch (e) {}
+  }
+  function vib(p) {
+    if (S.sons === false) return;
+    try { if (navigator.vibrate) navigator.vibrate(p); } catch (e) {}
+  }
 
   /* Patentes: carreira por matéria, movida a XP */
   var RANKS = [
@@ -173,6 +201,14 @@
       social: { uid: null, nome: "", avatar: "🦉", friends: {}, grupo: null, grupoCache: null },
       week: { id: null, xp: 0, answered: 0, correct: 0 },
       treino: {},    // por prova: último dia em que o Treino do dia foi concluído
+      treinos: 0,    // total de Treinos do dia concluídos
+      conquistas: {},// medalhas desbloqueadas: id -> timestamp
+      missao: null,  // missão do dia: { day, t, materia, alvo, prog, done }
+      sons: true,    // sons e vibração
+      duelo: null,   // Duelo Blitz: { week, best } — melhor resultado na semana
+      meta: { data: null, diaria: 20 }, // data da prova (YYYY-MM-DD) e meta de questões/dia
+      hoje: { day: null, answered: 0, correct: 0, metaOk: false }, // contadores do dia
+      dias: {},      // histórico: "YYYY-MM-DD" -> questões respondidas (calendário)
       conta: null,   // { uid, email, refresh, syncAt } quando logado (não vai para a nuvem)
       mudadoEm: 0    // última mudança relevante de progresso (decide quem é mais novo no sync)
     };
@@ -199,6 +235,10 @@
     return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
   }
   function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function ensureHoje() {
+    var d = dayStr();
+    if (!S.hoje || S.hoje.day !== d) S.hoje = { day: d, answered: 0, correct: 0, metaOk: false };
+  }
   function registerStudyToday() {
     var today = dayStr();
     if (S.lastStudyDay === today) return;
@@ -262,7 +302,8 @@
   function b64d(s) { return decodeURIComponent(escape(atob(s))); }
   function myCode() {
     ensureWeek();
-    var p = { v: 1, id: S.social.uid, n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, c: S.week.correct, s: S.streak, t: S.xp };
+    var p = { v: 1, id: S.social.uid, n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, c: S.week.correct, s: S.streak, t: S.xp,
+      dw: (S.duelo && S.duelo.week) || null, ds: (S.duelo && S.duelo.best) | 0 };
     // o "." final é terminador: base64 nunca contém ponto, então o código
     // sobrevive mesmo colado no meio de um texto sem espaços
     return "DPE1." + b64e(JSON.stringify(p)) + ".";
@@ -305,7 +346,7 @@
     if (!p) { toast("Código inválido — confira se copiou a parte que começa com DPE1."); return; }
     if (p.id === S.social.uid) { toast("Esse código é o seu 😄"); return; }
     var novo = !S.social.friends[p.id];
-    S.social.friends[p.id] = { n: String(p.n).slice(0, 18), a: p.a || "🙂", w: p.w, x: p.x | 0, q: p.q | 0, c: p.c | 0, s: p.s | 0, t: p.t | 0, at: Date.now() };
+    S.social.friends[p.id] = { n: String(p.n).slice(0, 18), a: p.a || "🙂", w: p.w, x: p.x | 0, q: p.q | 0, c: p.c | 0, s: p.s | 0, t: p.t | 0, dw: p.dw || null, ds: p.ds | 0, at: Date.now() };
     save(); render();
     toast(novo ? String(p.n) + " entrou no grupo! 🎉" : String(p.n) + " atualizado(a) no placar ✅");
   }
@@ -324,7 +365,8 @@
   function pushMyStats() {
     if (!grupoAtivo() || !S.social.uid || !S.social.nome) return;
     ensureWeek();
-    var p = { n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, c: S.week.correct, s: S.streak, t: S.xp, at: Date.now() };
+    var p = { n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, c: S.week.correct, s: S.streak, t: S.xp,
+      dw: (S.duelo && S.duelo.week) || null, ds: (S.duelo && S.duelo.best) | 0, at: Date.now() };
     try { dbFetch("/membros/" + S.social.uid, { method: "PUT", body: JSON.stringify(p) }).catch(function () {}); } catch (e) {}
   }
   function pullGroup(cb) {
@@ -623,7 +665,20 @@
     var b = PROVA && S.blitz[PROVA.id];
     return b ? (b.best || 0) : 0;
   }
-  function blitzPool() {
+  // gerador pseudoaleatório com semente — o Duelo usa a mesma semente para
+  // todo mundo (semana + prova), então as questões saem na mesma ordem
+  function seededRand(seedStr) {
+    var h = 2166136261;
+    for (var i = 0; i < seedStr.length; i++) { h ^= seedStr.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return function () {
+      h = Math.imul(h ^ (h >>> 15), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      h ^= h >>> 16;
+      return (h >>> 0) / 4294967296;
+    };
+  }
+  function blitzPool(rnd) {
+    var rand = rnd || Math.random;
     // sorteio embaralhado dentro de cada banca, na ordem Banca I → II → III
     var by = { I: [], II: [], III: [] }, resto = [];
     DATA.units.forEach(function (u) {
@@ -634,7 +689,7 @@
     });
     function shuf(a) {
       for (var i = a.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
+        var j = Math.floor(rand() * (i + 1));
         var t = a[i]; a[i] = a[j]; a[j] = t;
       }
       return a;
@@ -703,6 +758,152 @@
       var t = out[x]; out[x] = out[y]; out[y] = t;
     }
     return { qs: out, rev: nRev, ref: nRef, novas: nNov };
+  }
+
+  /* ---------- conquistas (medalhas) ---------- */
+  function lessonsDoneCount() { var n = 0; for (var k in S.lessons) if (S.lessons[k].completed) n++; return n; }
+  function blitzMax() { var m = 0; for (var k in (S.blitz || {})) m = Math.max(m, S.blitz[k].best || 0); return m; }
+  function unidadeCompleta() {
+    if (!DATA) return false;
+    for (var i = 0; i < DATA.units.length; i++) {
+      var u = DATA.units[i], all = u.licoes.length > 0;
+      for (var j = 0; j < u.licoes.length; j++) {
+        if (!(S.lessons[u.licoes[j].id] && S.lessons[u.licoes[j].id].completed)) { all = false; break; }
+      }
+      if (all) return true;
+    }
+    return false;
+  }
+  var CONQUISTAS = [
+    { id: "licao1",   ico: "👣", nome: "Primeiro passo",  desc: "Conclua sua primeira lição",            cond: function () { return lessonsDoneCount() >= 1; } },
+    { id: "gabarito", ico: "💯", nome: "Gabaritou!",      desc: "Termine uma lição com 100% de acerto",  cond: function () { for (var k in S.lessons) if (S.lessons[k].best === 100) return true; return false; } },
+    { id: "unidade",  ico: "🏛️", nome: "Dominou o tópico", desc: "Complete todas as lições de uma unidade", cond: unidadeCompleta },
+    { id: "q50",      ico: "✏️", nome: "Aquecendo",       desc: "Responda 50 questões",                  cond: function () { return S.answered >= 50; } },
+    { id: "q100",     ico: "📚", nome: "Centurião",       desc: "Responda 100 questões",                 cond: function () { return S.answered >= 100; } },
+    { id: "q500",     ico: "🧠", nome: "Maratonista",     desc: "Responda 500 questões",                 cond: function () { return S.answered >= 500; } },
+    { id: "streak3",  ico: "🔥", nome: "Pegando fogo",    desc: "Estude 3 dias seguidos",                cond: function () { return S.streak >= 3; } },
+    { id: "streak7",  ico: "🚀", nome: "Semana perfeita", desc: "Estude 7 dias seguidos",                cond: function () { return S.streak >= 7; } },
+    { id: "streak30", ico: "🌋", nome: "Imparável",       desc: "Estude 30 dias seguidos",               cond: function () { return S.streak >= 30; } },
+    { id: "blitz10",  ico: "⚡", nome: "Relâmpago",       desc: "Faça 10+ acertos numa rodada Blitz",    cond: function () { return blitzMax() >= 10; } },
+    { id: "blitz20",  ico: "🌩️", nome: "Tempestade",      desc: "Faça 20+ acertos numa rodada Blitz",    cond: function () { return blitzMax() >= 20; } },
+    { id: "treino1",  ico: "🎯", nome: "Na rotina",       desc: "Conclua seu primeiro Treino do dia",    cond: function () { return (S.treinos || 0) >= 1; } },
+    { id: "treino7",  ico: "🥋", nome: "Disciplina",      desc: "Conclua 7 Treinos do dia",              cond: function () { return (S.treinos || 0) >= 7; } },
+    { id: "limpou10", ico: "🧹", nome: "Caderno em dia",  desc: "Resolva 10 erros do caderno",           cond: function () { var n = 0; for (var k in S.errors) if (S.errors[k].resolved) n++; return n >= 10; } },
+    { id: "social",   ico: "🤝", nome: "Time formado",    desc: "Crie seu perfil na aba Amigos",         cond: function () { return !!S.social.uid; } }
+  ];
+  function checkConquistas() {
+    var novas = [];
+    if (!S.conquistas) S.conquistas = {};
+    CONQUISTAS.forEach(function (c) {
+      if (S.conquistas[c.id]) return;
+      var ok = false;
+      try { ok = c.cond(); } catch (e) {}
+      if (ok) { S.conquistas[c.id] = Date.now(); novas.push(c); }
+    });
+    if (novas.length) { touch(); save(); }
+    return novas;
+  }
+
+  /* ---------- missão do dia ---------- */
+  var MISSAO_XP = 20;
+  function ensureMissao() {
+    if (!PROVA) return;
+    var hoje = dayStr();
+    if (S.missao && S.missao.day === hoje) return;
+    var mats = {};
+    DATA.units.forEach(function (u) { mats[u.materia] = 1; });
+    var nomes = Object.keys(mats);
+    var tipos = [
+      { t: "mat", materia: nomes[Math.floor(Math.random() * nomes.length)], alvo: 6 },
+      { t: "geral", alvo: 15 },
+      { t: "treino", alvo: 1 },
+      { t: "blitz", alvo: 5 }
+    ];
+    var due = dueQuestions().length;
+    if (due >= 3 && due <= 15) tipos.push({ t: "zerar-rev", alvo: due });
+    var m = tipos[Math.floor(Math.random() * tipos.length)];
+    S.missao = { day: hoje, t: m.t, materia: m.materia || null, alvo: m.alvo, prog: 0, done: false };
+    save();
+  }
+  function missaoTexto(m) {
+    if (m.t === "mat") return "Acerte " + m.alvo + " questões de " + m.materia + " hoje";
+    if (m.t === "geral") return "Acerte " + m.alvo + " questões hoje";
+    if (m.t === "treino") return "Conclua o Treino do dia";
+    if (m.t === "blitz") return "Faça " + m.alvo + "+ acertos numa rodada Blitz";
+    return "Zere as revisões pendentes de hoje";
+  }
+  function missaoAtiva() { return S.missao && !S.missao.done && S.missao.day === dayStr(); }
+  function concluirMissao() {
+    S.missao.done = true;
+    S.xp += MISSAO_XP; ensureWeek(); S.week.xp += MISSAO_XP;
+    if (quiz) { quiz.xpGained += MISSAO_XP; quiz.missaoDone = true; }
+    touch(); save();
+    sfx("premio"); vib([15, 30, 15, 30, 40]);
+    toast("Missão do dia cumprida! +" + MISSAO_XP + " XP 🎯");
+  }
+  /* ---------- meta diária + data da prova ---------- */
+  function metaStripHtml() {
+    ensureHoje();
+    var metaD = (S.meta && S.meta.diaria) || 20;
+    var hj = S.hoje.answered;
+    var pct = Math.min(100, Math.round(hj / metaD * 100));
+    var esq;
+    if (S.meta && S.meta.data) {
+      var p = S.meta.data.split("-");
+      var alvo = new Date(+p[0], +p[1] - 1, +p[2]);
+      var hoje0 = new Date(); hoje0.setHours(0, 0, 0, 0);
+      var dias = Math.round((alvo - hoje0) / DAY);
+      esq = dias > 1 ? '📅 Faltam <b>' + dias + '</b> dias'
+        : dias === 1 ? '📅 A prova é <b>amanhã</b>!'
+        : dias === 0 ? '🚀 <b>É hoje!</b> Boa prova!'
+        : '<button class="ms-set" data-action="go-perfil">📅 A prova passou — defina a próxima</button>';
+    } else {
+      esq = '<button class="ms-set" data-action="go-perfil">📅 Definir data da prova</button>';
+    }
+    return '<div class="meta-strip"><span class="ms-esq">' + esq + '</span>' +
+      '<span class="ms-dir">hoje <b>' + hj + '/' + metaD + '</b>' +
+      '<span class="ms-track"><i style="width:' + pct + '%"></i></span></span></div>';
+  }
+  // calendário de constância do mês corrente (Perfil)
+  function calendarioHtml() {
+    var agora = new Date();
+    var ano = agora.getFullYear(), mes = agora.getMonth();
+    var nDias = new Date(ano, mes + 1, 0).getDate();
+    var off = (new Date(ano, mes, 1).getDay() + 6) % 7; // semana começa na segunda
+    var metaD = (S.meta && S.meta.diaria) || 20;
+    var nomes = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    var h = '<div class="cal-head">' + nomes[mes] + ' de ' + ano + '</div><div class="cal-grid">';
+    ["S", "T", "Q", "Q", "S", "S", "D"].forEach(function (d) { h += '<span class="cal-wd">' + d + '</span>'; });
+    for (var i = 0; i < off; i++) h += '<span></span>';
+    for (var d2 = 1; d2 <= nDias; d2++) {
+      var n = (S.dias || {})[ano + "-" + pad(mes + 1) + "-" + pad(d2)] || 0;
+      var cls = "cal-d";
+      if (n >= metaD) cls += " full"; else if (n > 0) cls += " some";
+      if (d2 === agora.getDate()) cls += " today";
+      else if (d2 > agora.getDate()) cls += " fut";
+      h += '<span class="' + cls + '" title="' + n + (n === 1 ? ' questão' : ' questões') + '">' + d2 + '</span>';
+    }
+    h += '</div><div class="cal-leg"><span class="cal-d some"></span> estudou' +
+      '<span class="cal-d full"></span> meta batida (' + metaD + '/dia)</div>';
+    return h;
+  }
+
+  // banners de missão/conquistas para as telas de resultado
+  function bannersExtras() {
+    var h = '';
+    if (quiz.metaHit) {
+      h += '<div class="rankup" style="border-color:var(--acc)"><span class="ru-ico emj">📅</span><div>' +
+        '<div class="ru-t">Meta diária batida</div><div class="ru-n">+10 XP</div></div></div>';
+    }
+    if (quiz.missaoDone) {
+      h += '<div class="rankup" style="border-color:var(--acc)"><span class="ru-ico emj">🎯</span><div>' +
+        '<div class="ru-t">Missão do dia cumprida</div><div class="ru-n">+' + MISSAO_XP + ' XP</div></div></div>';
+    }
+    (quiz.novasConquistas || []).forEach(function (c) {
+      h += '<div class="rankup" style="border-color:var(--gold)"><span class="ru-ico emj">' + c.ico + '</span><div>' +
+        '<div class="ru-t">Conquista desbloqueada</div><div class="ru-n">' + esc(c.nome) + '</div></div></div>';
+    });
+    return h;
   }
 
   /* ================= RENDER ================= */
@@ -854,7 +1055,23 @@
   var screens = {};
   screens.trilha = function () {
     var h = '<div class="trail-head"><h1>Sua trilha</h1><p>' +
-      esc(DATA.meta.concurso) + ' · ' + esc(DATA.meta.fase) + '</p></div>';
+      esc(DATA.meta.concurso) + ' · ' + esc(DATA.meta.fase) + '</p>' +
+      metaStripHtml() + '</div>';
+    // missão do dia (faixa compacta)
+    ensureMissao();
+    var mio = S.missao;
+    if (mio && mio.day === dayStr()) {
+      var progM = mio.t === "zerar-rev" ? Math.max(0, mio.alvo - dueQuestions().length) : Math.min(mio.prog, mio.alvo);
+      var pctM = Math.round(progM / mio.alvo * 100);
+      h += '<div class="missao' + (mio.done ? ' done' : '') + '">' +
+        '<span class="mi-ico">' + (mio.done ? '✅' : '🎯') + '</span>' +
+        '<div class="mi-info"><div class="mi-t">Missão do dia <span class="mi-xp">+' + MISSAO_XP + ' XP</span></div>' +
+        '<div class="mi-desc">' + esc(missaoTexto(mio)) + '</div>' +
+        (mio.done ? '' : '<div class="mi-track"><i style="width:' + pctM + '%"></i></div>') +
+        '</div>' +
+        '<span class="mi-prog">' + (mio.done ? 'Feita!' : (mio.t === "treino" || mio.t === "blitz" ? '' : progM + '/' + mio.alvo)) + '</span>' +
+        '</div>';
+    }
     var tdo = treinoDoDia();
     var feitoHoje = (S.treino || {})[PROVA.id] === dayStr();
     var partes = [];
@@ -963,6 +1180,46 @@
 
   /* ---------- Screen: Amigos ---------- */
   var AVATARES = ["🦉", "🦁", "🐯", "🦊", "🐼", "🦅", "🐺", "🦈", "🐢", "🐝"];
+  // Duelo Blitz da semana: todo mundo joga as mesmas questões, na mesma ordem
+  function duelHtml() {
+    ensureWeek();
+    var rows = [];
+    var meu = (S.duelo && S.duelo.week === S.week.id) ? S.duelo.best : null;
+    if (meu !== null) rows.push({ me: true, n: S.social.nome, a: S.social.avatar, ds: meu });
+    if (grupoAtivo() && S.social.grupoCache) {
+      var mb = S.social.grupoCache.membros || {};
+      for (var id in mb) {
+        if (id === S.social.uid) continue;
+        var mm = mb[id];
+        if (mm && mm.n && mm.dw === S.week.id) rows.push({ n: mm.n, a: mm.a || "🙂", ds: mm.ds | 0 });
+      }
+    } else {
+      for (var fid in S.social.friends) {
+        var f = S.social.friends[fid];
+        if (f.dw === S.week.id) rows.push({ n: f.n, a: f.a, ds: f.ds | 0 });
+      }
+    }
+    rows.sort(function (a, b) { return b.ds - a.ds; });
+    var h = '<div class="page-title" style="font-size:1.05rem">⚔️ Duelo Blitz da semana</div>' +
+      '<div class="card">' +
+      '<p class="page-sub" style="margin:0 0 10px">As mesmas questões, na mesma ordem, para todo mundo — vale o melhor resultado até domingo.</p>' +
+      '<button class="btn" data-action="start-duelo">' + icon("bolt") + (meu === null ? ' Jogar o duelo' : ' Tentar melhorar (meu melhor: ' + meu + ')') + '</button>';
+    if (rows.length) {
+      h += '<div style="margin-top:12px">';
+      rows.forEach(function (r, i) {
+        h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
+          '<span class="pos p' + i + '">' + (i + 1) + '</span>' +
+          '<span class="fr-av">' + r.a + '</span>' +
+          '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div></div>' +
+          '<div class="fr-x"><div class="fr-xp">' + r.ds + '</div><div class="fr-sub">acertos</div></div>' +
+          '</div>';
+      });
+      h += '</div>';
+    } else {
+      h += '<div class="fr-sub" style="padding:8px 0 0">Ninguém jogou nesta semana ainda. Seja o(a) primeiro(a)! ⚡</div>';
+    }
+    return h + '</div>';
+  }
   screens.amigos = function () {
     ensureWeek();
     var h = '<div class="page-title">Grupo de amigos</div>';
@@ -988,6 +1245,8 @@
         return '<button class="av' + (a === S.social.avatar ? ' sel' : '') + '" data-avatar="' + a + '">' + a + '</button>';
       }).join('') + '</div>' +
       '</div>';
+
+    h += duelHtml();
 
     /* --- modo grupo (tempo real) --- */
     if (grupoAtivo()) {
@@ -1108,6 +1367,20 @@
       tile(Object.keys(S.srs).length, "em revisão") +
       '</div>';
 
+    // meta e data da prova + calendário de constância
+    h += '<div class="page-title" style="font-size:1.1rem">Meta e data da prova</div>' +
+      '<div class="card">' +
+      '<div class="f-label">Data da prova</div>' +
+      '<input type="date" id="meta-data" class="f-input" value="' + esc((S.meta && S.meta.data) || "") + '">' +
+      '<div class="f-label" style="margin-top:10px">Meta diária de questões</div>' +
+      '<select id="meta-diaria" class="f-input">' + [10, 20, 30, 50].map(function (n) {
+        return '<option value="' + n + '"' + ((((S.meta && S.meta.diaria) || 20) === n) ? ' selected' : '') + '>' + n + ' questões por dia</option>';
+      }).join('') + '</select>' +
+      '<button class="btn" data-action="save-meta" style="margin-top:12px">Salvar meta</button>' +
+      '</div>';
+    h += '<div class="page-title" style="font-size:1.1rem">Constância</div>' +
+      '<div class="card">' + calendarioHtml() + '</div>';
+
     // patentes por matéria
     var rksHtml = '';
     var matNames = Object.keys(S.xpByMateria);
@@ -1123,6 +1396,20 @@
     if (rksHtml) {
       h += '<div class="page-title" style="font-size:1.1rem">Patentes por matéria</div><div class="card">' + rksHtml + '</div>';
     }
+
+    // conquistas
+    var desb = Object.keys(S.conquistas || {}).length;
+    h += '<div class="page-title" style="font-size:1.1rem">Conquistas <span class="conq-count">' + desb + '/' + CONQUISTAS.length + '</span></div>' +
+      '<div class="card conq-grid">';
+    CONQUISTAS.forEach(function (c) {
+      var un = (S.conquistas || {})[c.id];
+      h += '<div class="conq' + (un ? '' : ' lk') + '">' +
+        '<span class="cq-ico">' + c.ico + '</span>' +
+        '<span class="cq-n">' + c.nome + '</span>' +
+        '<span class="cq-d">' + c.desc + (un ? ' · ' + new Date(un).toLocaleDateString("pt-BR") : '') + '</span>' +
+        '</div>';
+    });
+    h += '</div>';
 
     // desempenho por matéria
     var mats = {};
@@ -1167,6 +1454,7 @@
     }
 
     h += '<button class="btn ghost" data-action="check-update" style="margin-top:8px">' + icon("refresh") + ' Buscar atualização</button>' +
+      '<button class="btn ghost" data-action="toggle-sons" style="margin-top:10px">' + (S.sons === false ? '🔇 Sons e vibração: desligados' : '🔊 Sons e vibração: ligados') + '</button>' +
       '<button class="btn ghost" data-action="toggle-theme" style="margin-top:10px">' + icon("moon") + ' Alternar tema</button>' +
       '<button class="btn ghost" data-action="reset" style="margin-top:10px;color:var(--no)">Zerar progresso</button>' +
       '<p class="page-sub" style="margin-top:18px;text-align:center">Versão ' + APP_VERSION + ' · ' +
@@ -1198,6 +1486,7 @@
       i: 0, correct: 0, xpGained: 0, wrong: [], rankBefore: {},
       kind: opts.kind, lessonId: opts.lessonId,
       lives: opts.kind === "blitz" ? BLITZ_LIVES : null,
+      duelo: !!opts.duelo,
       selected: null, checked: false
     };
     view.name = "quiz";
@@ -1266,6 +1555,18 @@
     // estatística global
     ensureWeek();
     S.answered += 1; S.week.answered += 1;
+    // contadores do dia (meta diária + calendário de constância)
+    ensureHoje();
+    S.hoje.answered += 1; if (ok) S.hoje.correct += 1;
+    if (!S.dias) S.dias = {};
+    S.dias[S.hoje.day] = (S.dias[S.hoje.day] || 0) + 1;
+    if (!S.hoje.metaOk && S.hoje.answered >= ((S.meta && S.meta.diaria) || 20)) {
+      S.hoje.metaOk = true;
+      S.xp += 10; S.week.xp += 10;
+      if (quiz) { quiz.xpGained += 10; quiz.metaHit = true; }
+      sfx("premio");
+      toast("Meta diária batida! +10 XP 📅");
+    }
     var mat = q._materia;
     if (!(mat in quiz.rankBefore)) quiz.rankBefore[mat] = rankFor(materiaXp(mat)).idx;
     if (ok) {
@@ -1276,6 +1577,18 @@
     S.byMateria[mat] = S.byMateria[mat] || { total: 0, correct: 0 };
     S.byMateria[mat].total += 1;
     if (ok) S.byMateria[mat].correct += 1;
+
+    // missão do dia: progresso por acerto
+    if (ok && missaoAtiva()) {
+      var mi = S.missao;
+      if (mi.t === "geral" || (mi.t === "mat" && q._materia === mi.materia)) {
+        mi.prog += 1;
+        if (mi.prog >= mi.alvo) concluirMissao();
+      }
+    }
+
+    // som e vibração do feedback
+    if (ok) { sfx("ok"); vib(12); } else { sfx("no"); vib([60, 40, 80]); }
 
     // SRS + vidas + erros
     srsUpdate(q.id, ok);
@@ -1320,6 +1633,7 @@
       S.xp += 5; quiz.xpGained += 5; ensureWeek(); S.week.xp += 5;
       if (!S.treino) S.treino = {};
       S.treino[PROVA.id] = dayStr();
+      S.treinos = (S.treinos || 0) + 1;
     }
     // Blitz: registra a rodada e o recorde da prova
     if (quiz.kind === "blitz") {
@@ -1328,6 +1642,15 @@
       quiz.newRecord = quiz.correct > (bb.best || 0);
       if (quiz.newRecord) bb.best = quiz.correct;
       S.blitz[PROVA.id] = bb;
+      // Duelo da semana: guarda o melhor resultado desta semana
+      if (quiz.duelo) {
+        var wk = weekId();
+        var atual = (S.duelo && S.duelo.week === wk) ? S.duelo.best : null;
+        if (atual === null || quiz.correct > atual) {
+          S.duelo = { week: wk, best: quiz.correct };
+          quiz.duelBest = true;
+        }
+      }
     }
     // subiu de patente em alguma matéria?
     quiz.rankUps = [];
@@ -1337,10 +1660,18 @@
     }
     // concluir revisão ou treino recupera 1 vida
     if ((quiz.kind === "review" || quiz.kind === "treino") && S.hearts < HEART_MAX) { gainHeart(); quiz.heartWon = true; }
+    // missão do dia: tipos ligados a sessões
+    if (missaoAtiva()) {
+      if (S.missao.t === "treino" && quiz.kind === "treino") concluirMissao();
+      else if (S.missao.t === "blitz" && quiz.kind === "blitz" && quiz.correct >= S.missao.alvo) concluirMissao();
+      else if (S.missao.t === "zerar-rev" && dueQuestions().length === 0) concluirMissao();
+    }
+    quiz.novasConquistas = checkConquistas();
     touch();
     save();
     pushMyStats(); // atualiza o placar do grupo em tempo real
     cloudPush();   // backup do progresso na nuvem (se logado)
+    sfx("fim"); vib([25, 40, 25]);
     view.name = "result";
     render();
   }
@@ -1348,11 +1679,14 @@
   function renderBlitzResult() {
     var resp = quiz.correct + quiz.wrong.length;
     var zerou = quiz.i >= quiz.qs.length;
-    var titulo = zerou ? "Você respondeu o banco inteiro!" : quiz.newRecord ? "Novo recorde!" : "Fim da rodada!";
+    var titulo = zerou ? "Você respondeu o banco inteiro!"
+      : quiz.newRecord ? "Novo recorde!"
+      : quiz.duelBest ? "Novo melhor no duelo!"
+      : "Fim da rodada!";
     var h = '<div class="screen"><div class="result">' +
       '<div class="bz-big">' + icon("bolt") + '</div>' +
       '<div class="bz-num" data-count="' + quiz.correct + '" data-plain>0</div>' +
-      '<div class="bz-cap">' + (quiz.correct === 1 ? 'acerto' : 'acertos') + ' no Modo Blitz</div>' +
+      '<div class="bz-cap">' + (quiz.correct === 1 ? 'acerto' : 'acertos') + (quiz.duelo ? ' no Duelo da semana' : ' no Modo Blitz') + '</div>' +
       '<h1>' + titulo + '</h1>' +
       '<div class="result-tiles">' +
       '<div class="rt"><div class="rv">' + resp + '</div><div class="rl">respondidas</div></div>' +
@@ -1363,16 +1697,22 @@
         ? '<div class="rankup" style="border-color:var(--flame)"><span class="ru-ico" style="color:var(--flame)">' + icon("trophy") + '</span><div>' +
           '<div class="ru-t">Modo Blitz</div><div class="ru-n">Novo recorde: ' + quiz.correct + (quiz.correct === 1 ? ' acerto' : ' acertos') + '</div></div></div>'
         : '') +
+      (quiz.duelBest && quiz.correct > 0
+        ? '<div class="rankup" style="border-color:var(--blue)"><span class="ru-ico emj">⚔️</span><div>' +
+          '<div class="ru-t">Duelo da semana</div><div class="ru-n">Seu melhor: ' + quiz.correct + (quiz.correct === 1 ? ' acerto' : ' acertos') + '</div></div></div>'
+        : '') +
       (quiz.rankUps && quiz.rankUps.length ? quiz.rankUps.map(function (r) {
         return '<div class="rankup"><span class="ru-ico">' + insignia(r.idx) + '</span><div>' +
           '<div class="ru-t">' + esc(r.materia) + ' — nova patente</div>' +
           '<div class="ru-n">' + r.rank.nome + '</div></div></div>';
       }).join('') : '') +
+      bannersExtras() +
       '<div style="max-width:340px;margin:0 auto">' +
       (quiz.wrong.length
         ? '<button class="btn danger" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
         : '') +
-      '<button class="btn" data-action="start-blitz" style="margin-bottom:12px">' + icon("bolt") + ' Jogar de novo</button>' +
+      '<button class="btn" data-action="' + (quiz.duelo ? 'start-duelo' : 'start-blitz') + '" style="margin-bottom:12px">' + icon("bolt") + ' Jogar de novo</button>' +
+      (quiz.duelo ? '<button class="btn ghost" data-action="go-amigos" style="margin-bottom:12px">⚔️ Ver placar do duelo</button>' : '') +
       '<button class="btn ghost" data-action="home">Voltar à trilha</button>' +
       '</div></div></div>';
     return h;
@@ -1400,6 +1740,7 @@
       }).join('') : '') +
       (quiz.heartWon ? '<div class="rankup" style="border-color:var(--heart)"><span class="ru-ico" style="color:var(--heart)">' + icon("heart") + '</span><div>' +
         '<div class="ru-t">' + (quiz.kind === "treino" ? "Treino do dia concluído" : "Revisão concluída") + '</div><div class="ru-n">+1 vida recuperada</div></div></div>' : '') +
+      bannersExtras() +
       '<div style="max-width:340px;margin:0 auto">' +
       (hasWrong
         ? '<button class="btn danger" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
@@ -1489,14 +1830,27 @@
     }
     else if (a === "home") { view.name = "trilha"; render(); }
     else if (a === "start-blitz") startSession(blitzPool(), { kind: "blitz" });
+    else if (a === "start-duelo") startSession(blitzPool(seededRand(weekId() + "|" + PROVA.id)), { kind: "blitz", duelo: true });
+    else if (a === "go-amigos") { view.name = "amigos"; syncAmigos(); render(); }
     else if (a === "start-treino") startSession(treinoDoDia().qs, { kind: "treino" });
+    else if (a === "go-perfil") { view.name = "perfil"; render(); }
+    else if (a === "save-meta") {
+      var mdt = ((document.getElementById("meta-data") || {}).value || "").trim();
+      var mdi = parseInt((document.getElementById("meta-diaria") || {}).value, 10) || 20;
+      S.meta = { data: mdt || null, diaria: mdi };
+      touch(); save(); render();
+      toast(mdt ? "Meta salva! Contagem regressiva ligada 📅" : "Meta diária salva ✅");
+    }
     else if (a === "create-profile") {
       var inp = document.getElementById("social-name");
       var nome = ((inp && inp.value) || "").trim();
       if (!nome) { toast("Digite um nome para entrar no placar."); return; }
       if (!S.social.uid) S.social.uid = Math.random().toString(36).slice(2, 10);
       S.social.nome = nome.slice(0, 18);
-      touch(); save(); render(); toast("Perfil criado! Agora compartilhe seu código 📣");
+      touch(); save();
+      var cq = checkConquistas();
+      render();
+      toast(cq.length ? "Conquista desbloqueada: " + cq[0].nome + " " + cq[0].ico : "Perfil criado! Agora compartilhe seu código 📣");
     }
     else if (a === "edit-name") {
       var novo = prompt("Seu nome no placar:", S.social.nome);
@@ -1583,6 +1937,12 @@
       if (!confirm("Sair da conta? O progresso continua salvo neste aparelho e na nuvem.")) return;
       S.conta = null; authToken = null; save(); render(); toast("Você saiu da conta.");
     }
+    else if (a === "toggle-sons") {
+      S.sons = S.sons === false; // alterna
+      save(); render();
+      if (S.sons) { sfx("ok"); vib(15); }
+      toast(S.sons ? "Sons e vibração ligados 🔊" : "Sons e vibração desligados 🔇");
+    }
     else if (a === "toggle-theme") toggleTheme();
     else if (a === "reset") {
       var avisoNuvem = contaAtiva() ? " O backup na nuvem também será zerado." : "";
@@ -1622,7 +1982,14 @@
   var provaSalva = provaById(S.prova);
   if (provaSalva) { loadProva(provaSalva); view.name = "trilha"; }
   if (grupoAtivo()) syncAmigos();
+  // conquistas retroativas (ex.: quem já tinha 100 respostas antes desta versão)
+  var retro = checkConquistas();
   render();
+  if (retro.length) {
+    toast(retro.length === 1
+      ? "Conquista desbloqueada: " + retro[0].nome + " " + retro[0].ico
+      : retro.length + " conquistas desbloqueadas — veja no Perfil 🏅");
+  }
 
   // conta na nuvem: adota o backup se ele for mais novo que este aparelho
   if (contaAtiva()) {

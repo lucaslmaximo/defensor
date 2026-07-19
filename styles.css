@@ -550,3 +550,51 @@ svg.ic.off{opacity:.22}
 .treino-card.done .bz-s{color:var(--ink-soft)}
 .treino-card.done .tc-go{background:var(--acc-soft);color:var(--acc);box-shadow:none}
 .treino-card + .blitz-card{margin-top:12px}
+
+/* ---------- Missão do dia ---------- */
+.missao{display:flex;align-items:center;gap:12px;margin-top:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;box-shadow:var(--sh-card)}
+.missao .mi-ico{font-size:1.35rem;flex:none}
+.mi-info{flex:1;min-width:0}
+.mi-t{font-size:.64rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-faint)}
+.mi-t .mi-xp{color:var(--acc)}
+.mi-desc{font-weight:700;font-size:.86rem;margin-top:1px;line-height:1.3}
+.mi-track{height:5px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:7px}
+.mi-track > i{display:block;height:100%;background:var(--acc);border-radius:3px;transition:width .5s var(--easeout)}
+.mi-prog{font-weight:800;font-size:.8rem;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap;flex:none}
+.missao.done{border-color:var(--acc)}
+.missao.done .mi-prog{color:var(--acc)}
+
+/* ---------- Conquistas ---------- */
+.conq-count{font-size:.8rem;font-weight:800;color:var(--ink-faint);margin-left:6px}
+.conq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.conq{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;padding:12px 6px;border-radius:var(--radius-sm);background:var(--bg)}
+.conq .cq-ico{font-size:1.7rem;line-height:1.2}
+.conq .cq-n{font-weight:800;font-size:.72rem;letter-spacing:-.01em}
+.conq .cq-d{font-size:.62rem;color:var(--ink-faint);line-height:1.35}
+.conq.lk{opacity:.5;filter:grayscale(1)}
+.rankup .ru-ico.emj{font-size:1.5rem}
+
+/* ---------- Meta diária + data da prova ---------- */
+.meta-strip{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:.8rem;color:var(--ink-soft);font-weight:700}
+.ms-esq b{color:var(--ink)}
+.ms-set{background:none;border:none;padding:0;color:var(--acc);font-weight:800;font-size:.8rem}
+.ms-dir{margin-left:auto;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.ms-dir b{color:var(--ink);font-variant-numeric:tabular-nums}
+.ms-track{width:64px;height:6px;border-radius:4px;background:var(--line);overflow:hidden;display:inline-block}
+.ms-track > i{display:block;height:100%;background:var(--acc);border-radius:4px;transition:width .5s var(--easeout)}
+
+/* calendário de constância */
+.cal-head{font-weight:800;font-size:.92rem;margin-bottom:10px;text-transform:capitalize}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;text-align:center}
+.cal-wd{font-size:.6rem;font-weight:800;color:var(--ink-faint)}
+.cal-d{aspect-ratio:1;display:grid;place-items:center;border-radius:9px;font-size:.72rem;font-weight:700;color:var(--ink-soft);background:var(--bg)}
+.cal-d.some{background:var(--acc-soft);color:var(--acc)}
+.cal-d.full{background:var(--acc);color:#fff}
+.cal-d.today{outline:2px solid var(--acc);outline-offset:1px}
+.cal-d.fut{opacity:.38}
+.cal-leg{display:flex;align-items:center;gap:7px;font-size:.68rem;color:var(--ink-faint);font-weight:700;margin-top:12px}
+.cal-leg .cal-d{width:16px;height:16px;aspect-ratio:auto;border-radius:5px}
+
+/* nova ordem: missão acima do treino */
+.missao{margin-top:16px}
+.missao + .treino-card{margin-top:12px}
