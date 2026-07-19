@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "3.2"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "3.3"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -170,7 +170,9 @@
       lessons: {}, srs: {}, errors: {}, blitz: {}, answered: 0, correctTotal: 0,
       byMateria: {}, xpByMateria: {}, theme: null,
       social: { uid: null, nome: "", avatar: "🦉", friends: {}, grupo: null, grupoCache: null },
-      week: { id: null, xp: 0, answered: 0, correct: 0 }
+      week: { id: null, xp: 0, answered: 0, correct: 0 },
+      conta: null,   // { uid, email, refresh, syncAt } quando logado (não vai para a nuvem)
+      mudadoEm: 0    // última mudança relevante de progresso (decide quem é mais novo no sync)
     };
   }
   function load() {
@@ -309,6 +311,9 @@
   /* ---------- grupo em tempo real (Firebase Realtime DB via REST) ---------- */
   // URL do Realtime Database (ex.: https://seu-projeto-default-rtdb.firebaseio.com)
   var DB_URL = window.DPE_DB_URL || "https://defensor-app-default-rtdb.firebaseio.com";
+  // Web API Key do Firebase (Configurações do projeto → Geral). Habilita a
+  // conta por e-mail + backup do progresso na nuvem. Vazia = recurso oculto.
+  var AUTH_KEY = window.DPE_AUTH_KEY || "AIzaSyA-UB5QDQe28lL4mPrKzIm2QnzkSi92gXw";
   function grupoAtivo() { return !!(S.social.grupo && S.social.grupo.url && S.social.grupo.gid); }
   function dbFetch(path, opts) {
     var g = S.social.grupo;
@@ -360,6 +365,116 @@
         var ae = document.activeElement;
         if (!(ae && /INPUT|TEXTAREA/.test(ae.tagName))) render();
       }
+    });
+  }
+
+  /* ---------- conta por e-mail + backup na nuvem (Firebase Auth via REST) ---------- */
+  var authToken = null, authTokenExp = 0; // idToken em memória (expira em ~1h)
+  function contaAtiva() { return !!(AUTH_KEY && S.conta && S.conta.refresh); }
+  function touch() { S.mudadoEm = Date.now(); }
+  var AUTH_ERROS = {
+    EMAIL_EXISTS: "Esse e-mail já tem conta — use Entrar.",
+    EMAIL_NOT_FOUND: "E-mail não encontrado — confira ou crie a conta.",
+    INVALID_PASSWORD: "Senha incorreta.",
+    INVALID_LOGIN_CREDENTIALS: "E-mail ou senha incorretos.",
+    WEAK_PASSWORD: "Senha muito curta — use pelo menos 6 caracteres.",
+    INVALID_EMAIL: "E-mail inválido.",
+    TOO_MANY_ATTEMPTS_TRY_LATER: "Muitas tentativas — aguarde alguns minutos."
+  };
+  function authErro(d) {
+    var m = (d && d.error && d.error.message) || "";
+    for (var k in AUTH_ERROS) if (m.indexOf(k) === 0) return AUTH_ERROS[k];
+    return "Não deu certo (" + (m || "sem conexão") + "). Tente de novo.";
+  }
+  function authApi(action, payload, cb) {
+    fetch("https://identitytoolkit.googleapis.com/v1/accounts:" + action + "?key=" + AUTH_KEY, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload)
+    }).then(function (r) { return r.json(); }).then(cb).catch(function () { cb(null); });
+  }
+  // garante um idToken válido (renova com o refresh token quando preciso)
+  function authFetchToken(cb) {
+    if (!contaAtiva()) { cb(null); return; }
+    if (authToken && Date.now() < authTokenExp - 60000) { cb(authToken); return; }
+    fetch("https://securetoken.googleapis.com/v1/token?key=" + AUTH_KEY, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: "grant_type=refresh_token&refresh_token=" + encodeURIComponent(S.conta.refresh)
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (d && d.id_token) {
+        authToken = d.id_token;
+        authTokenExp = Date.now() + (parseInt(d.expires_in, 10) || 3600) * 1000;
+        if (d.refresh_token && d.refresh_token !== S.conta.refresh) { S.conta.refresh = d.refresh_token; save(); }
+        cb(authToken);
+      } else {
+        var m = (d && d.error && (d.error.message || d.error)) + "";
+        if (/TOKEN_EXPIRED|USER_DISABLED|USER_NOT_FOUND|INVALID_REFRESH_TOKEN/.test(m)) {
+          S.conta = null; authToken = null; save(); render();
+          toast("Sessão expirada — entre de novo no Perfil para manter o backup.");
+        }
+        cb(null);
+      }
+    }).catch(function () { cb(null); });
+  }
+  function estadoParaNuvem() {
+    var c = {};
+    for (var k in S) if (k !== "conta") c[k] = S[k];
+    return { at: Date.now(), v: APP_VERSION, estado: c };
+  }
+  function cloudUrl(token) {
+    return DB_URL.replace(/\/+$/, "") + "/usuarios/" + encodeURIComponent(S.conta.uid) + "/estado.json?auth=" + encodeURIComponent(token);
+  }
+  function cloudPush(cb) {
+    if (!contaAtiva()) { if (cb) cb(false); return; }
+    authFetchToken(function (t) {
+      if (!t) { if (cb) cb(false); return; }
+      fetch(cloudUrl(t), { method: "PUT", body: JSON.stringify(estadoParaNuvem()) })
+        .then(function (r) {
+          if (r.ok && S.conta) { S.conta.syncAt = Date.now(); save(); }
+          if (cb) cb(r.ok);
+        }).catch(function () { if (cb) cb(false); });
+    });
+  }
+  function cloudPull(cb) { // cb(payload|null)
+    if (!contaAtiva()) { cb(null); return; }
+    authFetchToken(function (t) {
+      if (!t) { cb(null); return; }
+      fetch(cloudUrl(t), {}).then(function (r) { return r.json(); })
+        .then(function (d) { cb(d && d.estado ? d : null); })
+        .catch(function () { cb(null); });
+    });
+  }
+  // substitui o estado local pelo da nuvem (mantendo a conta deste aparelho)
+  function adotarNuvem(payload) {
+    var conta = S.conta;
+    var novo = defaultState(), e = payload.estado || {};
+    for (var k in novo) if (k !== "conta" && (k in e)) novo[k] = e[k];
+    // o Firebase descarta objetos vazios — repõe subcampos que possam ter sumido
+    var ds = defaultState();
+    for (var k2 in ds.social) if (!(k2 in novo.social)) novo.social[k2] = ds.social[k2];
+    for (var k3 in ds.week) if (!(k3 in novo.week)) novo.week[k3] = ds.week[k3];
+    S = novo; S.conta = conta;
+    applyTheme(); save();
+    var p = provaById(S.prova);
+    if (p) loadProva(p);
+    else { PROVA = null; DATA = null; view.name = "inicio"; }
+  }
+  function aposLogin(d, criouAgora) {
+    S.conta = { uid: d.localId, email: d.email, refresh: d.refreshToken, syncAt: 0 };
+    authToken = d.idToken;
+    authTokenExp = Date.now() + (parseInt(d.expiresIn, 10) || 3600) * 1000;
+    save();
+    cloudPull(function (nuvem) {
+      var temLocal = S.answered > 0 || Object.keys(S.lessons).length > 0;
+      if (nuvem) {
+        var qtd = (nuvem.estado.answered || 0);
+        var quando = new Date(nuvem.at || 0).toLocaleDateString("pt-BR");
+        if (!temLocal || confirm("Há um progresso salvo na nuvem (" + qtd + " respostas, " + quando + ").\n\nOK = usar o da nuvem neste aparelho\nCancelar = manter o local (a nuvem será sobrescrita)")) {
+          adotarNuvem(nuvem);
+        }
+      }
+      cloudPush();
+      render();
+      toast(criouAgora ? "Conta criada! Backup na nuvem ativado ☁️" : "Bem-vindo(a) de volta! ☁️");
     });
   }
 
@@ -942,6 +1057,31 @@
       h += '</div>';
     }
 
+    // conta e backup na nuvem
+    h += '<div class="page-title" style="font-size:1.1rem">Conta e backup</div>';
+    if (!AUTH_KEY) {
+      h += '<div class="card"><p class="page-sub" style="margin:0">☁️ Backup na nuvem ainda não configurado nesta instalação — veja "Ativar backup por e-mail" no LEIA-ME.</p></div>';
+    } else if (contaAtiva()) {
+      h += '<div class="card">' +
+        '<div class="f-label">Conectado como</div>' +
+        '<div class="acct-mail">' + esc(S.conta.email) + '</div>' +
+        '<div class="acct-sync">' + (S.conta.syncAt ? '☁️ Último backup: ' + new Date(S.conta.syncAt).toLocaleString("pt-BR") : 'Ainda não sincronizado') + '</div>' +
+        '<button class="btn" data-action="sync-now" style="margin-top:12px">Sincronizar agora</button>' +
+        '<button class="btn ghost" data-action="logout" style="margin-top:10px">Sair da conta</button>' +
+        '</div>';
+    } else {
+      h += '<div class="card">' +
+        '<p class="page-sub" style="margin:0 0 10px">Vincule um e-mail para salvar seu progresso na nuvem e continuar de onde parou em qualquer aparelho.</p>' +
+        '<input type="email" id="acct-email" class="f-input" placeholder="seu@email.com" autocomplete="email">' +
+        '<input type="password" id="acct-pass" class="f-input" placeholder="senha (mín. 6 caracteres)" style="margin-top:8px" autocomplete="current-password">' +
+        '<div class="exp-row" style="margin-top:12px">' +
+        '<button class="btn" data-action="login">Entrar</button>' +
+        '<button class="btn ghost" data-action="signup">Criar conta</button>' +
+        '</div>' +
+        '<button class="btn ghost" data-action="forgot" style="margin-top:10px">Esqueci a senha</button>' +
+        '</div>';
+    }
+
     h += '<button class="btn ghost" data-action="check-update" style="margin-top:8px">' + icon("refresh") + ' Buscar atualização</button>' +
       '<button class="btn ghost" data-action="toggle-theme" style="margin-top:10px">' + icon("moon") + ' Alternar tema</button>' +
       '<button class="btn ghost" data-action="reset" style="margin-top:10px;color:var(--no)">Zerar progresso</button>' +
@@ -1037,6 +1177,7 @@
     var q = quiz.qs[quiz.i];
     var ok = quiz.selected === q.correta;
     quiz.checked = true;
+    touch();
 
     // estatística global
     ensureWeek();
@@ -1106,8 +1247,10 @@
     }
     // concluir revisão recupera 1 vida
     if (quiz.kind === "review" && S.hearts < HEART_MAX) { gainHeart(); quiz.heartWon = true; }
+    touch();
     save();
     pushMyStats(); // atualiza o placar do grupo em tempo real
+    cloudPush();   // backup do progresso na nuvem (se logado)
     view.name = "result";
     render();
   }
@@ -1232,7 +1375,7 @@
     });
     // amigos: avatar e remoção
     app.querySelectorAll("[data-avatar]").forEach(function (b) {
-      b.onclick = function () { S.social.avatar = b.getAttribute("data-avatar"); save(); render(); };
+      b.onclick = function () { S.social.avatar = b.getAttribute("data-avatar"); touch(); save(); render(); };
     });
     app.querySelectorAll("[data-unfriend]").forEach(function (b) {
       b.onclick = function () {
@@ -1262,11 +1405,11 @@
       if (!nome) { toast("Digite um nome para entrar no placar."); return; }
       if (!S.social.uid) S.social.uid = Math.random().toString(36).slice(2, 10);
       S.social.nome = nome.slice(0, 18);
-      save(); render(); toast("Perfil criado! Agora compartilhe seu código 📣");
+      touch(); save(); render(); toast("Perfil criado! Agora compartilhe seu código 📣");
     }
     else if (a === "edit-name") {
       var novo = prompt("Seu nome no placar:", S.social.nome);
-      if (novo && novo.trim()) { S.social.nome = novo.trim().slice(0, 18); save(); render(); }
+      if (novo && novo.trim()) { S.social.nome = novo.trim().slice(0, 18); touch(); save(); render(); }
     }
     else if (a === "check-update") checkUpdate(true);
     else if (a === "export-errors-print") printCaderno();
@@ -1315,8 +1458,46 @@
       S.social.grupo = null; S.social.grupoCache = null;
       save(); render(); toast("Você saiu do grupo.");
     }
+    else if (a === "login" || a === "signup") {
+      var aem = ((document.getElementById("acct-email") || {}).value || "").trim();
+      var apw = (document.getElementById("acct-pass") || {}).value || "";
+      if (!aem || !apw) { toast("Preencha e-mail e senha."); return; }
+      toast(a === "login" ? "Entrando…" : "Criando conta…");
+      authApi(a === "login" ? "signInWithPassword" : "signUp",
+        { email: aem, password: apw, returnSecureToken: true },
+        function (d) {
+          if (d && d.idToken) aposLogin(d, a === "signup");
+          else toast(authErro(d));
+        });
+    }
+    else if (a === "forgot") {
+      var fem = ((document.getElementById("acct-email") || {}).value || "").trim();
+      if (!fem) { toast("Digite seu e-mail no campo acima primeiro."); return; }
+      authApi("sendOobCode", { requestType: "PASSWORD_RESET", email: fem }, function (d) {
+        toast(d && d.email ? "E-mail de redefinição enviado 📬 Confira a caixa de entrada." : authErro(d));
+      });
+    }
+    else if (a === "sync-now") {
+      toast("Sincronizando…");
+      cloudPush(function (ok) {
+        render();
+        toast(ok ? "Backup atualizado ☁️" : "Sem conexão — tente de novo mais tarde.");
+      });
+    }
+    else if (a === "logout") {
+      if (!confirm("Sair da conta? O progresso continua salvo neste aparelho e na nuvem.")) return;
+      S.conta = null; authToken = null; save(); render(); toast("Você saiu da conta.");
+    }
     else if (a === "toggle-theme") toggleTheme();
-    else if (a === "reset") { if (confirm("Isso apaga todo o seu progresso. Continuar? (Seu grupo de amigos é mantido.)")) { var soc = S.social, pv = S.prova; S = defaultState(); S.social = soc; S.prova = pv; applyTheme(); save(); view.name = "trilha"; render(); toast("Progresso zerado."); } }
+    else if (a === "reset") {
+      var avisoNuvem = contaAtiva() ? " O backup na nuvem também será zerado." : "";
+      if (confirm("Isso apaga todo o seu progresso." + avisoNuvem + " Continuar? (Seu grupo de amigos e sua conta são mantidos.)")) {
+        var soc = S.social, pv = S.prova, ct = S.conta;
+        S = defaultState(); S.social = soc; S.prova = pv; S.conta = ct;
+        touch(); applyTheme(); save(); cloudPush();
+        view.name = "trilha"; render(); toast("Progresso zerado.");
+      }
+    }
   }
 
   /* ---------- tema ---------- */
@@ -1348,10 +1529,23 @@
   if (grupoAtivo()) syncAmigos();
   render();
 
+  // conta na nuvem: adota o backup se ele for mais novo que este aparelho
+  if (contaAtiva()) {
+    cloudPull(function (nuvem) {
+      if (nuvem && (nuvem.at || 0) > (S.mudadoEm || 0)) {
+        adotarNuvem(nuvem);
+        render();
+        toast("Progresso sincronizado da nuvem ☁️");
+      }
+    });
+  }
+
   /* checagem de atualização: ao abrir e sempre que o app voltar ao primeiro plano */
   setTimeout(function () { checkUpdate(false); }, 4000);
   document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === "visible") checkUpdate(false);
+    // ao sair do app, garante o backup do que mudou desde o último sync
+    else if (contaAtiva() && (S.mudadoEm || 0) > (S.conta.syncAt || 0)) cloudPush();
   });
 
   /* relógio das vidas: repõe e atualiza o contador sem recarregar a tela */
