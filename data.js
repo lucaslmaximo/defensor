@@ -402,6 +402,103 @@ window.APP_DATA = {
               explicacao: "Art. 1.653 do CC: é nulo o pacto antenupcial se não for feito por escritura pública, e ineficaz se não lhe seguir o casamento. A forma pública é requisito de validade."
             }
           ]
+        },
+        {
+          id: "familia-regime-2",
+          titulo: "Guarda, alimentos e filiação",
+          questoes: [
+            {
+              id: "gaf-1", modo: "lei", fonte: "CC, art. 1.584, §2º",
+              enunciado: "Não havendo acordo entre os genitores quanto à guarda do filho:",
+              alternativas: [
+                "o juiz aplicará a guarda unilateral em favor da mãe, por presunção legal",
+                "será aplicada a guarda COMPARTILHADA, mesmo sem consenso — salvo se um dos genitores declarar que não deseja a guarda ou se um deles for inapto ao exercício do poder familiar",
+                "a guarda compartilhada só é possível mediante acordo homologado",
+                "o juiz decidirá sempre pela guarda alternada, com residências sucessivas",
+                "a guarda ficará com quem detiver melhores condições financeiras"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.584, §2º, do CC (redação da Lei 13.058/2014): a guarda compartilhada é a REGRA, aplicável inclusive sem consenso entre os pais. Exceções: genitor que declara não desejar a guarda ou inaptidão para o poder familiar. Não confunda compartilhada (decisões conjuntas) com alternada (revezamento de residência), que não tem previsão legal como regra."
+            },
+            {
+              id: "gaf-2", modo: "lei", fonte: "Lei 12.318/2010, arts. 2º e 6º",
+              enunciado: "Caracterizada a alienação parental, o juiz poderá, conforme a gravidade:",
+              alternativas: [
+                "apenas advertir o alienador, pois as demais medidas dependem de ação autônoma",
+                "decretar automaticamente a perda do poder familiar do alienador",
+                "aplicar medidas cumulativas ou não — da advertência à ampliação da convivência em favor do genitor alienado, multa, acompanhamento psicológico, alteração da guarda para compartilhada ou sua inversão —, sem prejuízo da responsabilidade civil ou criminal",
+                "somente encaminhar as partes à mediação obrigatória",
+                "suspender de imediato todo contato entre a criança e o alienador"
+              ],
+              correta: 2,
+              explicacao: "Art. 6º da Lei 12.318/2010 traz rol progressivo de medidas (I a VII). A perda do poder familiar NÃO está entre elas — a Lei 14.340/2022 substituiu a antiga suspensão da autoridade parental por medidas menos drásticas nesse rol. Alienação parental é ato de interferência na formação psicológica promovido por quem tenha a criança sob sua autoridade (art. 2º)."
+            },
+            {
+              id: "gaf-3", modo: "lei", fonte: "CPC, art. 528, §§3º e 7º; STJ, Súmula 309",
+              enunciado: "No cumprimento de sentença de alimentos pelo rito da prisão:",
+              alternativas: [
+                "podem ser cobradas todas as prestações vencidas, ainda que antigas",
+                "o débito que autoriza a prisão é o das 3 (três) prestações anteriores ao ajuizamento E das que vencerem no curso do processo; a prisão é cumprida em regime FECHADO, separado dos presos comuns",
+                "a prisão civil pode durar até um ano, prorrogável",
+                "o pagamento parcial da dívida impede a decretação da prisão",
+                "prestações antigas não podem mais ser cobradas por nenhum rito"
+              ],
+              correta: 1,
+              explicacao: "Art. 528, §7º, do CPC (positivou a Súmula 309/STJ): débito atual = 3 prestações anteriores ao ajuizamento + vincendas. Prisão de 1 a 3 meses, regime fechado, preso separado dos comuns (§§3º e 4º). As prestações mais antigas não se perdem: cobram-se pelo rito da expropriação (§8º) — só não autorizam prisão. E o cumprimento da pena não exime o devedor das prestações (§5º)."
+            },
+            {
+              id: "gaf-4", modo: "lei", fonte: "Lei 11.804/2008, arts. 2º e 6º",
+              enunciado: "Sobre os alimentos gravídicos:",
+              alternativas: [
+                "exigem prova pericial da paternidade ainda durante a gestação",
+                "são fixados diante de INDÍCIOS de paternidade, cobrem as despesas do período de gravidez (alimentação, assistência médica, parto) e, após o nascimento com vida, convertem-se em pensão alimentícia em favor da criança até eventual revisão",
+                "cessam automaticamente com o parto, exigindo nova ação",
+                "só podem ser pedidos após o sexto mês de gestação",
+                "são devidos exclusivamente pelo suposto pai, vedado considerar recursos da gestante"
+              ],
+              correta: 1,
+              explicacao: "Lei 11.804/2008: basta a convicção por INDÍCIOS de paternidade (art. 6º) — sem exame invasivo na gestação. Os alimentos referem-se à parcela das despesas da gravidez (art. 2º) e consideram as possibilidades de AMBOS os genitores. Após o nascimento com vida, convertem-se automaticamente em pensão em favor do filho (art. 6º, parágrafo único), sem necessidade de nova ação."
+            },
+            {
+              id: "gaf-5", modo: "juris", fonte: "STF, Tema 622 (RE 898.060)",
+              enunciado: "Quanto à filiação socioafetiva e à biológica, o STF fixou que:",
+              alternativas: [
+                "a paternidade socioafetiva prevalece sempre sobre a biológica",
+                "a paternidade biológica prevalece sempre sobre a socioafetiva",
+                "a paternidade socioafetiva, declarada ou não em registro público, NÃO IMPEDE o reconhecimento do vínculo de filiação concomitante baseado na origem biológica, com todos os efeitos jurídicos próprios — admitida a multiparentalidade",
+                "o reconhecimento do vínculo biológico gera apenas efeitos patrimoniais, nunca registrais",
+                "a multiparentalidade é vedada no direito brasileiro"
+              ],
+              correta: 2,
+              explicacao: "Tese do Tema 622/STF: as duas filiações podem COEXISTIR (multiparentalidade), com efeitos plenos — nome, alimentos e herança em relação a todos os pais. Não há hierarquia abstrata entre socioafetividade e biologia. Consequência prática: o filho pode ter dois pais no registro e cobrar alimentos de ambos."
+            },
+            {
+              id: "gaf-6", modo: "lei", fonte: "Lei 8.560/92, art. 2º-A, parágrafo único; STJ, Súmula 301",
+              enunciado: "Na ação de investigação de paternidade, a recusa do suposto pai em se submeter ao exame de DNA:",
+              alternativas: [
+                "implica confissão e procedência automática do pedido",
+                "é direito absoluto, nada podendo ser extraído do silêncio",
+                "autoriza a condução coercitiva para coleta de material genético",
+                "gera presunção RELATIVA de paternidade, a ser apreciada em conjunto com o contexto probatório — não podendo, sozinha, fundamentar a procedência",
+                "transfere o dever de realizar o exame para os avós"
+              ],
+              correta: 3,
+              explicacao: "Súmula 301/STJ e art. 2º-A, parágrafo único, da Lei 8.560/92: a recusa gera presunção juris tantum, apreciada com as demais provas (relacionamento à época da concepção etc.). Ninguém é obrigado a fornecer material genético (direito à integridade), mas o silêncio tem custo probatório. A presunção é relativa: exige contexto, não vale isolada."
+            },
+            {
+              id: "gaf-7", modo: "juris", fonte: "CC, art. 1.698; STJ, Súmula 596",
+              enunciado: "A obrigação alimentar dos avós em relação aos netos:",
+              alternativas: [
+                "é solidária com a dos pais, podendo o credor escolher quem demandar",
+                "tem natureza COMPLEMENTAR e SUBSIDIÁRIA: só se configura demonstrada a impossibilidade total ou parcial dos genitores de cumprir a obrigação",
+                "inexiste no direito brasileiro, pois alimentos só se devem entre pais e filhos",
+                "é automática quando o pai atrasa qualquer prestação",
+                "limita-se aos avós paternos"
+              ],
+              correta: 1,
+              explicacao: "Súmula 596/STJ: a obrigação avoenga é complementar e subsidiária — pressupõe o esgotamento (total ou parcial) da capacidade dos pais. Não é solidária: primeiro se demanda dos genitores. Exceção da solidariedade existe, sim, quando o CREDOR é pessoa idosa (Estatuto, art. 12) — cuidado para não inverter os polos."
+            }
+          ]
         }
       ]
     },
@@ -1011,6 +1108,116 @@ window.APP_DATA = {
       ]
     },
 
+    /* ---------------------------- RELAÇÃO DE CONSUMO E CONTRATOS (CDC) */
+    {
+      id: "relacao-consumo",
+      titulo: "Relação de Consumo e Contratos",
+      materia: "Direito do Consumidor",
+      banca: "I",
+      icone: "🛒",
+      cor: "rosa",
+      descricao: "Conceitos, equiparação, cláusulas abusivas, arrependimento e práticas comerciais.",
+      licoes: [
+        {
+          id: "relacao-consumo-1",
+          titulo: "Consumidor, cláusulas abusivas e oferta",
+          questoes: [
+            {
+              id: "rel-1", modo: "lei", fonte: "CDC, arts. 2º, 17 e 29",
+              enunciado: "Um pedestre é atingido pela queda de um letreiro mal instalado por empresa contratada por uma loja. Embora não tenha comprado nada, ele:",
+              alternativas: [
+                "não tem proteção do CDC, por não ser destinatário final de produto ou serviço",
+                "é consumidor por EQUIPARAÇÃO (bystander): o art. 17 equipara a consumidor todas as vítimas do evento danoso, atraindo a responsabilidade objetiva pelo fato do serviço",
+                "só pode acionar a loja com base na culpa aquiliana do Código Civil",
+                "precisa provar a culpa da empresa instaladora",
+                "é considerado fornecedor por estar na área de risco"
+              ],
+              correta: 1,
+              explicacao: "Além do consumidor padrão (art. 2º: destinatário final), o CDC protege equiparados: a coletividade (art. 2º, p.ú.), as VÍTIMAS DO EVENTO (art. 17 — bystanders, no campo do fato do produto/serviço) e as pessoas expostas às práticas comerciais (art. 29). O pedestre atingido litiga sob responsabilidade objetiva do CDC, não sob a culpa do CC."
+            },
+            {
+              id: "rel-2", modo: "juris", fonte: "CDC, art. 2º; STJ (teoria finalista mitigada)",
+              enunciado: "Sobre a pessoa jurídica como consumidora, o STJ adota a posição de que:",
+              alternativas: [
+                "pessoa jurídica jamais pode ser consumidora, pois todo insumo integra sua atividade",
+                "toda pessoa jurídica que adquire produtos é consumidora (teoria maximalista pura)",
+                "pela teoria FINALISTA MITIGADA, a pessoa jurídica que adquire o bem como destinatária final pode ser consumidora quando demonstrar sua VULNERABILIDADE (técnica, jurídica ou econômica) frente ao fornecedor",
+                "basta ser microempresa para incidir automaticamente o CDC",
+                "a condição de consumidora depende de cláusula contratual expressa"
+              ],
+              correta: 2,
+              explicacao: "O STJ parte do finalismo (destinatário final fático E econômico), mas o mitiga: admite o CDC para a PJ — em regra fora da relação de consumo quando o bem é insumo — se comprovada vulnerabilidade concreta (ex.: pequena empresa ante concessionária). A vulnerabilidade do consumidor pessoa física é presumida; a da PJ deve ser demonstrada."
+            },
+            {
+              id: "rel-3", modo: "lei", fonte: "CDC, art. 51, caput e §2º",
+              enunciado: "As cláusulas abusivas em contratos de consumo:",
+              alternativas: [
+                "são anuláveis no prazo decadencial de quatro anos",
+                "são NULAS DE PLENO DIREITO, em rol meramente EXEMPLIFICATIVO — e a nulidade de uma cláusula não invalida o contrato, salvo se, apesar dos esforços de integração, decorrer ônus excessivo a qualquer das partes",
+                "só podem ser afastadas se o consumidor as impugnar na contratação",
+                "tornam nulo todo o contrato, em qualquer hipótese",
+                "dependem de prévia declaração administrativa do Procon"
+              ],
+              correta: 1,
+              explicacao: "Art. 51 do CDC: nulidade de pleno direito (conhecível de ofício — com a ressalva da Súmula 381/STJ quanto a juros em contratos bancários), rol aberto ('entre outras') e princípio da conservação do contrato (§2º). Exemplos clássicos do rol: cláusula de não indenizar, inversão do ônus da prova em prejuízo do consumidor, renúncia compulsória a direitos."
+            },
+            {
+              id: "rel-4", modo: "lei", fonte: "CDC, art. 49",
+              enunciado: "O direito de arrependimento do consumidor:",
+              alternativas: [
+                "aplica-se a qualquer compra, inclusive na loja física, no prazo de 7 dias",
+                "existe apenas para produtos com defeito",
+                "pode ser exercido em 7 dias a contar da assinatura ou do recebimento do produto, sempre que a contratação ocorrer FORA do estabelecimento comercial (telefone, internet, domicílio) — com devolução imediata dos valores pagos, monetariamente atualizados",
+                "exige justificativa razoável do consumidor",
+                "implica perda do valor do frete pago"
+              ],
+              correta: 2,
+              explicacao: "Art. 49 do CDC: o prazo de reflexão de 7 dias vale para contratações FORA do estabelecimento — a compra presencial em loja física não gera arrependimento legal (só se o fornecedor conceder). O parágrafo único garante a devolução imediata e atualizada de TODOS os valores pagos — o que inclui o frete, segundo o STJ. Não se exige motivação."
+            },
+            {
+              id: "rel-5", modo: "lei", fonte: "CDC, arts. 24, 26 e 50",
+              enunciado: "Sobre as garantias legal e contratual no CDC:",
+              alternativas: [
+                "a garantia legal depende de termo escrito entregue ao consumidor",
+                "a garantia contratual substitui a legal quando concedida",
+                "vencida a garantia contratual, nada mais pode ser reclamado",
+                "a garantia LEGAL independe de termo expresso (vedada a exoneração), e a contratual é COMPLEMENTAR: os prazos se SOMAM — o prazo decadencial do art. 26 (30/90 dias) conta a partir do término da garantia contratual",
+                "as garantias valem apenas para produtos duráveis novos"
+              ],
+              correta: 3,
+              explicacao: "Art. 24 (garantia legal obrigatória e inderrogável) + art. 50 (contratual complementar, mediante termo escrito). STJ: os prazos se somam — esgotada a garantia contratual, o consumidor ainda dispõe do prazo do art. 26 (30 dias para não duráveis, 90 para duráveis). Para vício oculto, o prazo conta da descoberta (art. 26, §3º), balizado pela vida útil do produto (critério do STJ)."
+            },
+            {
+              id: "rel-6", modo: "juris", fonte: "CDC, art. 42, parágrafo único; STJ, EAREsp 600.663",
+              enunciado: "A repetição em dobro do que foi cobrado indevidamente do consumidor (art. 42, parágrafo único, do CDC) exige:",
+              alternativas: [
+                "prova da má-fé subjetiva do fornecedor, segundo o STJ",
+                "apenas a emissão da cobrança, ainda que o consumidor nada tenha pago",
+                "cobrança indevida E pagamento do excesso pelo consumidor, salvo engano justificável — dispensada a prova de má-fé: basta que a cobrança contrarie a boa-fé objetiva (STJ, Corte Especial)",
+                "prévia reclamação administrativa frustrada",
+                "que a dívida tenha origem contratual escrita"
+              ],
+              correta: 2,
+              explicacao: "Requisitos do art. 42, p.ú.: cobrança indevida + PAGAMENTO em excesso (sem pagamento não há repetição, simples cobrança pode gerar outras sanções). A Corte Especial do STJ (EAREsp 600.663) assentou que a devolução em dobro independe da natureza do elemento volitivo (não exige má-fé), bastando conduta contrária à boa-fé objetiva — ressalvado o engano justificável, que o fornecedor deve provar."
+            },
+            {
+              id: "rel-7", modo: "lei", fonte: "CDC, arts. 30 e 35",
+              enunciado: "Publicada oferta suficientemente precisa e recusando-se o fornecedor a cumpri-la, o consumidor pode, À SUA ESCOLHA:",
+              alternativas: [
+                "apenas rescindir o contrato com devolução do que pagou",
+                "exigir o cumprimento forçado da obrigação nos termos da oferta, OU aceitar outro produto/serviço equivalente, OU rescindir o contrato com restituição atualizada e perdas e danos",
+                "somente aceitar produto equivalente indicado pelo fornecedor",
+                "exigir o dobro do valor anunciado, a título de sanção",
+                "registrar reclamação no Procon como condição para acionar a Justiça"
+              ],
+              correta: 1,
+              explicacao: "Art. 30: a oferta suficientemente precisa VINCULA o fornecedor e integra o contrato. Art. 35: a escolha entre as três alternativas é do CONSUMIDOR — não do fornecedor. Ressalva jurisprudencial: erro grosseiro e evidente de sistema (ex.: TV por R$ 1) não vincula, por não gerar confiança legítima."
+            }
+          ]
+        }
+      ]
+    },
+
     /* --------------------------------------------------- 5. CDC — VÍCIO/FATO */
     {
       id: "cdc-responsabilidade",
@@ -1374,6 +1581,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Art. 83 da Lei 11.101/05: entre os concursais, vêm primeiro os créditos trabalhistas (limitados a 150 salários mínimos por credor) e os de acidente de trabalho; depois os com garantia real (até o limite do bem), os tributários e assim por diante. Antes de todos eles, porém, pagam-se os créditos EXTRACONCURSAIS (art. 84)."
+            }
+          ]
+        },
+        {
+          id: "empresarial-2",
+          titulo: "Sociedades, desconsideração e recuperação",
+          questoes: [
+            {
+              id: "soc-1", modo: "lei", fonte: "CC, art. 1.052",
+              enunciado: "Na sociedade limitada, a responsabilidade de cada sócio:",
+              alternativas: [
+                "é ilimitada e solidária pelas obrigações sociais",
+                "é restrita ao valor de suas quotas, MAS todos respondem SOLIDARIAMENTE pela integralização do capital social",
+                "limita-se ao valor de suas quotas, sem nenhuma solidariedade entre os sócios",
+                "alcança o patrimônio pessoal sempre que a sociedade for condenada judicialmente",
+                "é subsidiária à do administrador não sócio"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.052 do CC: a regra da limitação vem acompanhada do condicionante que derruba candidatos — enquanto o capital não estiver INTEGRALIZADO, todos os sócios respondem solidariamente pela parte que faltar, ainda que já tenham pago as próprias quotas. Integralizado o capital, o patrimônio pessoal só é alcançado por desconsideração."
+            },
+            {
+              id: "soc-2", modo: "lei", fonte: "CC, art. 50, §3º",
+              enunciado: "A desconsideração INVERSA da personalidade jurídica consiste em:",
+              alternativas: [
+                "atingir os bens dos sócios por dívidas da sociedade",
+                "extinguir a pessoa jurídica usada de forma abusiva",
+                "atingir os bens da PESSOA JURÍDICA por obrigações do SÓCIO que nela ocultou patrimônio — modalidade hoje expressa no Código Civil e frequente em execuções de alimentos e partilhas",
+                "transferir a administração da sociedade a um interventor judicial",
+                "responsabilizar apenas o administrador não sócio"
+              ],
+              correta: 2,
+              explicacao: "Art. 50, §3º, do CC (incluído pela Lei 13.874/2019) positivou a desconsideração inversa: o devedor esvazia o patrimônio pessoal transferindo bens à PJ que controla — o juiz então alcança os bens da sociedade. Exige os mesmos pressupostos da teoria maior (desvio de finalidade ou confusão patrimonial) e observa o incidente dos arts. 133-137 do CPC."
+            },
+            {
+              id: "soc-3", modo: "lei", fonte: "CC, arts. 1.003, parágrafo único, e 1.032",
+              enunciado: "O sócio que se retira da sociedade:",
+              alternativas: [
+                "libera-se de toda responsabilidade na data da assinatura da alteração contratual",
+                "continua responsável pelas obrigações sociais anteriores por até DOIS ANOS após averbada a modificação do contrato social",
+                "responde pelas dívidas futuras da sociedade por cinco anos",
+                "nunca responde por obrigações sociais após a retirada",
+                "só responde se tiver sido administrador"
+              ],
+              correta: 1,
+              explicacao: "Arts. 1.003, parágrafo único, e 1.032 do CC: a retirada, exclusão ou morte não exime o sócio (ou herdeiros) das obrigações anteriores até 2 anos APÓS A AVERBAÇÃO da resolução. O marco é a averbação no registro — sem ela, a responsabilidade se prolonga. Pegadinha clássica: contar o prazo da assinatura, e não da averbação."
+            },
+            {
+              id: "soc-4", modo: "lei", fonte: "CC, art. 1.052, §1º (Lei 13.874/2019)",
+              enunciado: "Sobre a Sociedade Limitada Unipessoal (SLU):",
+              alternativas: [
+                "é vedada, pois toda sociedade exige pluralidade de sócios",
+                "exige capital mínimo de cem salários mínimos, como a antiga EIRELI",
+                "a sociedade limitada PODE ser constituída por uma só pessoa, sem exigência de capital mínimo — mantendo a separação entre o patrimônio pessoal e o da sociedade",
+                "só pode ser constituída por pessoa jurídica",
+                "converte-se automaticamente em empresário individual após um ano"
+              ],
+              correta: 2,
+              explicacao: "Art. 1.052, §§1º e 2º, do CC (Lei da Liberdade Econômica): a limitada unipessoal dispensa pluralidade e não tem capital mínimo — vantagens que levaram à extinção da EIRELI (Lei 14.195/2021, que converteu as existentes em SLU). Importante para o pequeno empreendedor: limitação de responsabilidade sem precisar de sócio de fachada."
+            },
+            {
+              id: "soc-5", modo: "lei", fonte: "Lei 11.101/05, art. 49, caput e §3º",
+              enunciado: "Estão sujeitos à recuperação judicial:",
+              alternativas: [
+                "apenas os créditos vencidos na data do pedido",
+                "todos os créditos existentes na data do pedido, AINDA QUE NÃO VENCIDOS — com exceções relevantes, como o credor proprietário fiduciário, cujo crédito não se submete aos efeitos da recuperação (a chamada trava bancária)",
+                "todos os créditos, inclusive os constituídos após o pedido",
+                "somente os créditos quirografários",
+                "apenas os créditos trabalhistas e tributários"
+              ],
+              correta: 1,
+              explicacao: "Art. 49, caput: sujeitam-se TODOS os créditos existentes na data do pedido, mesmo vincendos. O §3º excepciona o proprietário fiduciário, o arrendador mercantil e o vendedor com reserva de domínio, entre outros — que mantêm seus direitos, respeitado o período de suspensão (stay) quanto a bens de capital essenciais. Créditos posteriores ao pedido são extraconcursais e estimulam o financiamento da empresa em crise."
+            },
+            {
+              id: "soc-6", modo: "lei", fonte: "Lei 6.404/76, art. 1º",
+              enunciado: "Na sociedade anônima, a responsabilidade do acionista:",
+              alternativas: [
+                "é limitada ao valor nominal total das ações subscritas por todos os acionistas, solidariamente",
+                "é limitada ao PREÇO DE EMISSÃO das ações subscritas ou adquiridas — sem a solidariedade pela integralização do capital que caracteriza a sociedade limitada",
+                "é ilimitada para o acionista controlador em qualquer hipótese",
+                "alcança o patrimônio pessoal quando a companhia for fechada",
+                "depende do que dispuser o estatuto social"
+              ],
+              correta: 1,
+              explicacao: "Art. 1º da Lei 6.404/76: responsabilidade limitada ao preço de emissão das ações. Contraste de prova com a limitada (CC, art. 1.052): na S.A. NÃO há solidariedade dos acionistas pela integralização do capital — cada um responde apenas pelas próprias ações. O controlador responde por atos com abuso de poder (art. 117), o que é outra via, não regra geral."
+            },
+            {
+              id: "soc-7", modo: "lei", fonte: "CC, art. 1.085",
+              enunciado: "A exclusão EXTRAJUDICIAL de sócio minoritário da sociedade limitada, por justa causa, exige:",
+              alternativas: [
+                "apenas deliberação da maioria simples, comunicada por escrito ao excluído",
+                "sempre ação judicial de dissolução parcial",
+                "previsão EXPRESSA no contrato social, deliberação de titulares de mais da metade do capital por atos de inegável gravidade, e reunião ou assembleia especialmente convocada, ciente o acusado em tempo hábil para comparecer e se DEFENDER",
+                "aprovação unânime dos demais sócios em cartório",
+                "prévia autorização da Junta Comercial"
+              ],
+              correta: 2,
+              explicacao: "Art. 1.085 do CC, com seus três condicionantes: cláusula permissiva no contrato social, maioria absoluta do capital reconhecendo atos de inegável gravidade, e assembleia/reunião específica com direito de defesa do excluído. Sem previsão contratual, resta a via judicial (art. 1.030). Exceção ao rito (parágrafo único): sociedade de apenas dois sócios dispensa a reunião."
             }
           ]
         }
