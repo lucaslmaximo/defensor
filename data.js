@@ -72,7 +72,7 @@ window.APP_DATA = {
               enunciado: "Assinada uma confissão de dívida sob coação, o negócio jurídico é:",
               alternativas: [
                 "nulo de pleno direito, insuscetível de confirmação",
-                "anulável, no prazo decadencial de quatro anos contado do dia em que CESSAR a coação — e não da data da celebração",
+                "anulável, no prazo decadencial de quatro anos contado do dia em que cessar a coação — e não da data da celebração",
                 "anulável em quatro anos contados sempre da assinatura do instrumento",
                 "válido, desde que a dívida confessada realmente exista",
                 "ineficaz até homologação judicial da confissão"
@@ -88,7 +88,7 @@ window.APP_DATA = {
                 "o CDC também exige a prova do desvio de finalidade ou da confusão patrimonial",
                 "a desconsideração dissolve e extingue a pessoa jurídica",
                 "somente pode ser decretada em processo autônomo, nunca incidentalmente",
-                "no Código Civil vigora a teoria MAIOR — exige abuso, por desvio de finalidade ou confusão patrimonial —, enquanto no CDC vigora a teoria MENOR: basta que a personalidade seja obstáculo ao ressarcimento do consumidor"
+                "no Código Civil vigora a teoria maior — exige abuso, por desvio de finalidade ou confusão patrimonial —, enquanto no CDC vigora a teoria menor: basta que a personalidade seja obstáculo ao ressarcimento do consumidor"
               ],
               correta: 4,
               explicacao: "Art. 50 do CC (teoria maior): abuso da personalidade caracterizado por desvio de finalidade ou confusão patrimonial. Art. 28, §5º, do CDC (teoria menor, STJ, REsp 279.273): basta o obstáculo ao ressarcimento. A desconsideração é episódica — não extingue a pessoa jurídica, apenas estende os efeitos de certas obrigações aos sócios/administradores, e pode ser requerida incidentalmente (CPC, arts. 133-137)."
@@ -412,7 +412,7 @@ window.APP_DATA = {
               enunciado: "Não havendo acordo entre os genitores quanto à guarda do filho:",
               alternativas: [
                 "o juiz aplicará a guarda unilateral em favor da mãe, por presunção legal",
-                "será aplicada a guarda COMPARTILHADA, mesmo sem consenso — salvo se um dos genitores declarar que não deseja a guarda ou se um deles for inapto ao exercício do poder familiar",
+                "será aplicada a guarda compartilhada, mesmo sem consenso — salvo se um dos genitores declarar que não deseja a guarda ou se um deles for inapto ao exercício do poder familiar",
                 "a guarda compartilhada só é possível mediante acordo homologado",
                 "o juiz decidirá sempre pela guarda alternada, com residências sucessivas",
                 "a guarda ficará com quem detiver melhores condições financeiras"
@@ -438,7 +438,7 @@ window.APP_DATA = {
               enunciado: "No cumprimento de sentença de alimentos pelo rito da prisão:",
               alternativas: [
                 "podem ser cobradas todas as prestações vencidas, ainda que antigas",
-                "o débito que autoriza a prisão é o das 3 (três) prestações anteriores ao ajuizamento E das que vencerem no curso do processo; a prisão é cumprida em regime FECHADO, separado dos presos comuns",
+                "o débito que autoriza a prisão é o das 3 (três) prestações anteriores ao ajuizamento e das que vencerem no curso do processo; a prisão é cumprida em regime fechado, separado dos presos comuns",
                 "a prisão civil pode durar até um ano, prorrogável",
                 "o pagamento parcial da dívida impede a decretação da prisão",
                 "prestações antigas não podem mais ser cobradas por nenhum rito"
@@ -451,7 +451,7 @@ window.APP_DATA = {
               enunciado: "Sobre os alimentos gravídicos:",
               alternativas: [
                 "exigem prova pericial da paternidade ainda durante a gestação",
-                "são fixados diante de INDÍCIOS de paternidade, cobrem as despesas do período de gravidez (alimentação, assistência médica, parto) e, após o nascimento com vida, convertem-se em pensão alimentícia em favor da criança até eventual revisão",
+                "são fixados diante de indícios de paternidade, cobrem as despesas do período de gravidez (alimentação, assistência médica, parto) e, após o nascimento com vida, convertem-se em pensão alimentícia em favor da criança até eventual revisão",
                 "cessam automaticamente com o parto, exigindo nova ação",
                 "só podem ser pedidos após o sexto mês de gestação",
                 "são devidos exclusivamente pelo suposto pai, vedado considerar recursos da gestante"
@@ -465,7 +465,7 @@ window.APP_DATA = {
               alternativas: [
                 "a paternidade socioafetiva prevalece sempre sobre a biológica",
                 "a paternidade biológica prevalece sempre sobre a socioafetiva",
-                "a paternidade socioafetiva, declarada ou não em registro público, NÃO IMPEDE o reconhecimento do vínculo de filiação concomitante baseado na origem biológica, com todos os efeitos jurídicos próprios — admitida a multiparentalidade",
+                "a paternidade socioafetiva, declarada ou não em registro público, não impede o reconhecimento do vínculo de filiação concomitante baseado na origem biológica, com todos os efeitos jurídicos próprios — admitida a multiparentalidade",
                 "o reconhecimento do vínculo biológico gera apenas efeitos patrimoniais, nunca registrais",
                 "a multiparentalidade é vedada no direito brasileiro"
               ],
@@ -479,7 +479,7 @@ window.APP_DATA = {
                 "implica confissão e procedência automática do pedido",
                 "é direito absoluto, nada podendo ser extraído do silêncio",
                 "autoriza a condução coercitiva para coleta de material genético",
-                "gera presunção RELATIVA de paternidade, a ser apreciada em conjunto com o contexto probatório — não podendo, sozinha, fundamentar a procedência",
+                "gera presunção relativa de paternidade, a ser apreciada em conjunto com o contexto probatório — não podendo, sozinha, fundamentar a procedência",
                 "transfere o dever de realizar o exame para os avós"
               ],
               correta: 3,
@@ -490,7 +490,7 @@ window.APP_DATA = {
               enunciado: "A obrigação alimentar dos avós em relação aos netos:",
               alternativas: [
                 "é solidária com a dos pais, podendo o credor escolher quem demandar",
-                "tem natureza COMPLEMENTAR e SUBSIDIÁRIA: só se configura demonstrada a impossibilidade total ou parcial dos genitores de cumprir a obrigação",
+                "tem natureza complementar e subsidiária: só se configura demonstrada a impossibilidade total ou parcial dos genitores de cumprir a obrigação",
                 "inexiste no direito brasileiro, pois alimentos só se devem entre pais e filhos",
                 "é automática quando o pai atrasa qualquer prestação",
                 "limita-se aos avós paternos"
@@ -561,7 +561,7 @@ window.APP_DATA = {
               enunciado: "Quanto à cláusula penal, o Código Civil determina que o juiz:",
               alternativas: [
                 "somente pode reduzi-la mediante requerimento expresso do devedor, formulado na contestação",
-                "DEVE reduzi-la equitativamente se a obrigação foi cumprida em parte ou se o montante é manifestamente excessivo",
+                "deve reduzi-la equitativamente se a obrigação foi cumprida em parte ou se o montante é manifestamente excessivo",
                 "não pode alterá-la, por força da obrigatoriedade dos contratos (pacta sunt servanda)",
                 "deve limitá-la a dez por cento do valor da obrigação, como nas dívidas de consumo",
                 "só a reduz nos contratos de adesão, presumida a vulnerabilidade do aderente"
@@ -620,7 +620,7 @@ window.APP_DATA = {
               alternativas: [
                 "exige posse de cinco anos sobre imóvel urbano de qualquer metragem",
                 "aplica-se também a imóveis rurais de até cinquenta hectares",
-                "exige posse direta e exclusiva por DOIS anos sobre imóvel urbano de até 250m² cuja propriedade era dividida com ex-cônjuge ou ex-companheiro que abandonou o lar, usado para moradia, sem que o usucapiente tenha outro imóvel — e só pode ser reconhecida uma única vez",
+                "exige posse direta e exclusiva por dois anos sobre imóvel urbano de até 250m² cuja propriedade era dividida com ex-cônjuge ou ex-companheiro que abandonou o lar, usado para moradia, sem que o usucapiente tenha outro imóvel — e só pode ser reconhecida uma única vez",
                 "pode ser invocada repetidas vezes pelo mesmo possuidor",
                 "dispensa o abandono do lar, bastando a separação de fato"
               ],
@@ -632,7 +632,7 @@ window.APP_DATA = {
               enunciado: "A usucapião especial rural (pro labore) exige:",
               alternativas: [
                 "posse de dez anos e justo título",
-                "posse ininterrupta de cinco anos, sem oposição, de área rural NÃO superior a cinquenta hectares, tornada produtiva pelo trabalho do possuidor ou de sua família, que nela tenha moradia — não podendo ele ser proprietário de outro imóvel",
+                "posse ininterrupta de cinco anos, sem oposição, de área rural não superior a cinquenta hectares, tornada produtiva pelo trabalho do possuidor ou de sua família, que nela tenha moradia — não podendo ele ser proprietário de outro imóvel",
                 "apenas a posse quinquenal, dispensada a produtividade da terra",
                 "renda familiar inferior a um salário mínimo",
                 "prévio cadastro do possuidor no registro de imóveis"
@@ -660,7 +660,7 @@ window.APP_DATA = {
                 "é vedada em qualquer hipótese, por atingir o direito à moradia",
                 "só é válida na locação residencial",
                 "só é válida na locação comercial",
-                "é válida tanto na locação residencial quanto na comercial, por expressa exceção legal à impenhorabilidade, como decidiu o STF — exceção que NÃO se estende ao bem de família do próprio locatário devedor",
+                "é válida tanto na locação residencial quanto na comercial, por expressa exceção legal à impenhorabilidade, como decidiu o STF — exceção que não se estende ao bem de família do próprio locatário devedor",
                 "alcança inclusive o imóvel residencial do locatário inadimplente"
               ],
               correta: 3,
@@ -671,7 +671,7 @@ window.APP_DATA = {
               enunciado: "O direito real de laje:",
               alternativas: [
                 "atribui ao titular da laje fração ideal do terreno e das demais áreas da construção-base",
-                "constitui unidade imobiliária AUTÔNOMA na projeção da construção-base (espaço aéreo ou subsolo), com abertura de matrícula própria — sem atribuir ao lajeário fração ideal do terreno",
+                "constitui unidade imobiliária autônoma na projeção da construção-base (espaço aéreo ou subsolo), com abertura de matrícula própria — sem atribuir ao lajeário fração ideal do terreno",
                 "é mera detenção tolerada pelo proprietário da construção-base",
                 "pressupõe a instituição formal de condomínio edilício",
                 "não pode ser alienado nem gravado pelo seu titular"
@@ -687,7 +687,7 @@ window.APP_DATA = {
                 "somente o proprietário pode valer-se do desforço possessório",
                 "a alegação de propriedade impede a reintegração do possuidor não proprietário",
                 "a autotutela da posse é vedada no direito brasileiro",
-                "o possuidor turbado ou esbulhado pode manter-se ou restituir-se por força própria, desde que o faça LOGO e sem ir além do indispensável — e a alegação de propriedade NÃO obsta a manutenção ou reintegração"
+                "o possuidor turbado ou esbulhado pode manter-se ou restituir-se por força própria, desde que o faça logo e sem ir além do indispensável — e a alegação de propriedade não obsta a manutenção ou reintegração"
               ],
               correta: 4,
               explicacao: "Art. 1.210, §1º, do CC: a reação deve ser imediata (contanto que o faça logo) e proporcional (atos que não vão além do indispensável). §2º: não obsta à manutenção ou reintegração a alegação de propriedade ou de outro direito sobre a coisa — é a separação entre os juízos possessório e petitório."
@@ -698,12 +698,122 @@ window.APP_DATA = {
               alternativas: [
                 "todos os ocupantes devem ser citados pessoalmente, sob pena de nulidade",
                 "a citação é dispensada em razão da urgência da medida",
-                "serão citados pessoalmente os ocupantes encontrados no local e por edital os demais, com intimação do Ministério Público e — se houver pessoas em situação de hipossuficiência econômica — da DEFENSORIA PÚBLICA",
+                "serão citados pessoalmente os ocupantes encontrados no local e por edital os demais, com intimação do Ministério Público e — se houver pessoas em situação de hipossuficiência econômica — da Defensoria Pública",
                 "o processo corre sem participação do MP ou da Defensoria",
                 "o juiz nomeia administrador provisório para representar os ocupantes"
               ],
               correta: 2,
               explicacao: "Art. 554, §1º, do CPC. E quando o esbulho ou turbação coletivos tiverem mais de ano e dia (força velha), o art. 565 impõe audiência de mediação prévia à concessão da liminar, também com intimação da Defensoria Pública se houver hipossuficientes (§2º) — dispositivos centrais para a defesa possessória de comunidades vulneráveis."
+            }
+          ]
+        }
+      ]
+    },
+
+    /* ---------------------------- CURATELA, EPD E SAÚDE MENTAL (CIVIL) */
+    {
+      id: "curatela-epd",
+      titulo: "Curatela, Deficiência e Saúde Mental",
+      materia: "Direito Civil",
+      banca: "I",
+      icone: "🫶",
+      cor: "dourado",
+      descricao: "Estatuto da Pessoa com Deficiência, tomada de decisão apoiada e Lei 10.216.",
+      licoes: [
+        {
+          id: "curatela-epd-1",
+          titulo: "Capacidade, curatela e internação",
+          questoes: [
+            {
+              id: "cur-1", modo: "lei", fonte: "EPD (Lei 13.146/2015), arts. 6º, 84 e 85",
+              enunciado: "Após o Estatuto da Pessoa com Deficiência, a curatela da pessoa com deficiência:",
+              alternativas: [
+                "voltou a ser a regra, dada a proteção integral devida a essas pessoas",
+                "é medida protetiva extraordinária, proporcional e pelo menor tempo possível, restrita aos atos de natureza patrimonial e negocial — não alcançando o direito ao próprio corpo, à sexualidade, ao matrimônio, ao voto, à educação, à saúde e ao trabalho",
+                "abrange todos os atos da vida civil, inclusive os existenciais, para maior segurança do curatelado",
+                "foi extinta do ordenamento, substituída integralmente pela tomada de decisão apoiada",
+                "depende de laudo que ateste incapacidade absoluta do interditando"
+              ],
+              correta: 1,
+              explicacao: "Arts. 84, §3º, e 85 do EPD: a pessoa com deficiência tem assegurada a capacidade legal em igualdade de condições; a curatela é EXCEPCIONAL e afeta tão somente atos patrimoniais e negociais (art. 85, caput e §1º). A definição da curatela não alcança os direitos existenciais listados — mudança de paradigma da Convenção de Nova York, com status de emenda constitucional."
+            },
+            {
+              id: "cur-2", modo: "lei", fonte: "CC, arts. 3º e 4º (redação do EPD)",
+              enunciado: "No regime atual das incapacidades do Código Civil:",
+              alternativas: [
+                "a pessoa com deficiência mental é absolutamente incapaz",
+                "são absolutamente incapazes os menores de dezesseis anos e os enfermos sem discernimento",
+                "os únicos absolutamente incapazes são os menores de dezesseis anos; quem, por causa transitória ou permanente, não puder exprimir sua vontade é relativamente incapaz — e a deficiência, por si, não é causa de incapacidade",
+                "o pródigo é absolutamente incapaz para atos patrimoniais",
+                "a incapacidade absoluta pode ser declarada por sentença para maiores, em casos graves"
+              ],
+              correta: 2,
+              explicacao: "Redação dada pelo EPD: o art. 3º hoje contém uma única hipótese de incapacidade absoluta (menor de 16). O art. 4º lista os relativamente incapazes: maiores de 16 e menores de 18, ébrios habituais e viciados em tóxico, os que não puderem exprimir a vontade (causa transitória ou permanente) e os pródigos. Não existe mais maior absolutamente incapaz no Brasil — pegadinha recorrente."
+            },
+            {
+              id: "cur-3", modo: "lei", fonte: "CC, art. 1.783-A",
+              enunciado: "A tomada de decisão apoiada (TDA):",
+              alternativas: [
+                "é espécie de curatela simplificada, decretada de ofício pelo juiz",
+                "é o processo pelo qual a própria pessoa com deficiência elege pelo menos duas pessoas de sua confiança para apoiá-la nas decisões sobre atos da vida civil — mantendo ela sua capacidade e a validade dos atos que praticar",
+                "transfere aos apoiadores o poder de decidir pela pessoa apoiada",
+                "só pode ser requerida pelo Ministério Público ou pela família",
+                "torna anuláveis os atos praticados sem a assinatura dos apoiadores"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.783-A do CC (incluído pelo EPD): a legitimidade para requerer é da PRÓPRIA pessoa apoiada (§2º), que indica 2 ou mais apoiadores. A TDA não retira capacidade: a decisão é da pessoa, com apoio — modelo de apoio, não de substituição de vontade. Terceiro contratante pode solicitar a contra-assinatura dos apoiadores (§5º), mas a validade do ato não depende dela."
+            },
+            {
+              id: "cur-4", modo: "lei", fonte: "CC, art. 1.550, §2º (redação do EPD)",
+              enunciado: "Quanto ao casamento da pessoa com deficiência mental ou intelectual:",
+              alternativas: [
+                "é nulo, por ausência de consentimento válido",
+                "é anulável, dependendo de autorização judicial prévia",
+                "depende de aprovação do curador, sob pena de inexistência",
+                "a pessoa com deficiência mental ou intelectual em idade núbil poderá contrair matrimônio, expressando sua vontade diretamente ou por meio de seu responsável ou curador",
+                "só é admitido sob o regime da separação obrigatória de bens"
+              ],
+              correta: 3,
+              explicacao: "Art. 1.550, §2º, do CC, com a redação do EPD: o casamento é direito existencial garantido — a curatela não o alcança (EPD, art. 85, §1º). A antiga causa de nulidade do casamento do 'enfermo mental sem discernimento' foi revogada. E não incide separação obrigatória por esse motivo: as hipóteses do art. 1.641 são outras (ex.: maiores de 70 anos)."
+            },
+            {
+              id: "cur-5", modo: "lei", fonte: "Lei 10.216/2001, arts. 4º, 6º e 8º, §1º",
+              enunciado: "Sobre a internação psiquiátrica na Lei da Reforma Psiquiátrica (Lei 10.216/2001):",
+              alternativas: [
+                "pode ser indicada sempre que a família a solicitar formalmente",
+                "só é indicada quando os recursos extra-hospitalares se mostrarem insuficientes; a internação involuntária deve ser comunicada ao Ministério Público em até setenta e duas horas, e a compulsória é somente a determinada pela Justiça",
+                "a internação voluntária dispensa laudo médico circunstanciado",
+                "a internação compulsória pode ser determinada pelo delegado de polícia",
+                "é permitida em instituições de características asilares, se especializadas"
+              ],
+              correta: 1,
+              explicacao: "Art. 4º: internação como ultima ratio, vedada em instituições asilares (§3º). Art. 6º: toda internação exige laudo médico circunstanciado; espécies — voluntária, involuntária e compulsória (esta, determinada pelo juiz, art. 9º). Art. 8º, §1º: a involuntária deve ser comunicada ao MP estadual em 72 horas, pelo responsável técnico do estabelecimento — mesmo prazo para a alta."
+            },
+            {
+              id: "cur-6", modo: "lei", fonte: "CC, art. 1.782",
+              enunciado: "A interdição do pródigo o priva apenas de:",
+              alternativas: [
+                "todos os atos da vida civil, inclusive casar e trabalhar",
+                "atos de administração ordinária do próprio patrimônio",
+                "emprestar, transigir, dar quitação, alienar, hipotecar, demandar ou ser demandado e demais atos que não sejam de mera administração — conservando ele os atos existenciais e a administração cotidiana",
+                "atos negociais de valor superior a dez salários mínimos",
+                "receber diretamente seus rendimentos, que passam ao curador"
+              ],
+              correta: 2,
+              explicacao: "Art. 1.782 do CC: a curatela do pródigo é a mais restrita do sistema — alcança só os atos que possam comprometer o patrimônio (o rol legal: emprestar, transigir, dar quitação, alienar, hipotecar, demandar ou ser demandado). Ele pode casar, votar, trabalhar e administrar o dia a dia. Prodigalidade é hipótese de incapacidade RELATIVA (art. 4º, IV)."
+            },
+            {
+              id: "cur-7", modo: "lei", fonte: "CPC, art. 755, I e II; CC, art. 1.772",
+              enunciado: "Na sentença que decreta a curatela, o juiz:",
+              alternativas: [
+                "declara a incapacidade total do interditando para todos os atos",
+                "fixa os limites da curatela segundo o estado e o desenvolvimento mental do interdito, considerando suas potencialidades, vontade e preferências — e nomeia curador que melhor atenda aos seus interesses",
+                "nomeia obrigatoriamente o parente mais próximo como curador",
+                "transfere ao curador a titularidade dos bens do curatelado",
+                "está dispensado de entrevistar pessoalmente o interditando"
+              ],
+              correta: 1,
+              explicacao: "Art. 755, I e II, do CPC: curatela sob medida — limites conforme o estado da pessoa, considerando vontade e preferências. A entrevista pessoal do interditando é obrigatória (art. 751). O curador administra, mas não vira dono; e a escolha observa os interesses do curatelado (§1º), admitida inclusive a curatela compartilhada (CC, art. 1.775-A)."
             }
           ]
         }
@@ -732,7 +842,7 @@ window.APP_DATA = {
                 "somente quem recebe até um salário mínimo tem direito ao benefício",
                 "a pessoa jurídica jamais faz jus à gratuidade",
                 "o benefício exige prévio atendimento pela Defensoria Pública",
-                "presume-se verdadeira a alegação de insuficiência deduzida por pessoa NATURAL; a pessoa jurídica pode obter o benefício, mas precisa DEMONSTRAR a impossibilidade de arcar com os encargos"
+                "presume-se verdadeira a alegação de insuficiência deduzida por pessoa natural; a pessoa jurídica pode obter o benefício, mas precisa demonstrar a impossibilidade de arcar com os encargos"
               ],
               correta: 4,
               explicacao: "Art. 99, §3º, do CPC: a presunção (relativa) vale só para pessoa natural. Para pessoa jurídica — com ou sem fins lucrativos — o ônus de demonstrar é dela (Súmula 481 do STJ). Antes de indeferir, o juiz deve permitir a comprovação (art. 99, §2º). E não confunda: gratuidade judiciária e assistência jurídica pela Defensoria são institutos distintos."
@@ -742,7 +852,7 @@ window.APP_DATA = {
               enunciado: "O beneficiário da gratuidade de justiça que perde a causa:",
               alternativas: [
                 "fica isento da condenação em custas e honorários advocatícios",
-                "é condenado nas verbas de sucumbência, mas a EXIGIBILIDADE fica suspensa: o credor só pode executá-las se demonstrar, em até CINCO anos, que cessou a insuficiência de recursos — após o quê as obrigações se extinguem",
+                "é condenado nas verbas de sucumbência, mas a exigibilidade fica suspensa: o credor só pode executá-las se demonstrar, em até cinco anos, que cessou a insuficiência de recursos — após o quê as obrigações se extinguem",
                 "paga apenas metade dos honorários fixados",
                 "tem a dívida cancelada automaticamente na sentença",
                 "responde com bens futuros a qualquer tempo, sem limite temporal"
@@ -756,7 +866,7 @@ window.APP_DATA = {
               alternativas: [
                 "réu revel que foi citado pessoalmente e simplesmente não contestou",
                 "autor beneficiário da gratuidade de justiça",
-                "incapaz sem representante legal (ou com interesses colidentes com os dele) e ao réu PRESO revel, bem como ao revel citado por EDITAL ou com hora certa, enquanto não constituir advogado — curatela exercida pela Defensoria Pública",
+                "incapaz sem representante legal (ou com interesses colidentes com os dele) e ao réu preso revel, bem como ao revel citado por edital ou com hora certa, enquanto não constituir advogado — curatela exercida pela Defensoria Pública",
                 "réu que constituir advogado particular no curso do prazo",
                 "executado que tiver bens penhorados"
               ],
@@ -770,7 +880,7 @@ window.APP_DATA = {
                 "gera presunção absoluta de veracidade dos fatos alegados pelo autor",
                 "implica automática procedência do pedido",
                 "impede o revel de intervir no processo",
-                "a presunção de veracidade é RELATIVA e nem sempre opera: não incide, por exemplo, se o litígio versar sobre direitos indisponíveis ou se, havendo pluralidade de réus, algum deles contestar",
+                "a presunção de veracidade é relativa e nem sempre opera: não incide, por exemplo, se o litígio versar sobre direitos indisponíveis ou se, havendo pluralidade de réus, algum deles contestar",
                 "atinge inclusive o réu defendido por curador especial que apresentou contestação"
               ],
               correta: 3,
@@ -781,7 +891,7 @@ window.APP_DATA = {
               enunciado: "A distribuição dinâmica do ônus da prova:",
               alternativas: [
                 "pode ser determinada livremente pelo juiz, sem fundamentação específica",
-                "é cabível nos casos legais ou diante da impossibilidade/excessiva dificuldade de provar ou da maior facilidade da parte contrária — por decisão FUNDAMENTADA e prévia, com chance de desincumbência, vedado tornar a prova impossível ou excessivamente difícil para quem recebe o encargo",
+                "é cabível nos casos legais ou diante da impossibilidade/excessiva dificuldade de provar ou da maior facilidade da parte contrária — por decisão fundamentada e prévia, com chance de desincumbência, vedado tornar a prova impossível ou excessivamente difícil para quem recebe o encargo",
                 "aplica-se exclusivamente às relações de consumo",
                 "pode ocorrer na própria sentença, ainda que surpreenda a parte onerada",
                 "é vedada no processo civil brasileiro"
@@ -796,7 +906,7 @@ window.APP_DATA = {
                 "ambas exigem a demonstração de perigo de dano",
                 "a tutela da evidência só pode ser concedida na sentença",
                 "a tutela de urgência dispensa a probabilidade do direito",
-                "a de urgência exige probabilidade do direito E perigo de dano ou risco ao resultado útil; a da EVIDÊNCIA dispensa o perigo — cabendo, por exemplo, quando as alegações têm prova documental e tese firmada em precedentes obrigatórios, hipótese que admite liminar",
+                "a de urgência exige probabilidade do direito e perigo de dano ou risco ao resultado útil; a da evidência dispensa o perigo — cabendo, por exemplo, quando as alegações têm prova documental e tese firmada em precedentes obrigatórios, hipótese que admite liminar",
                 "a tutela da evidência não se sujeita a contraditório posterior"
               ],
               correta: 3,
@@ -808,7 +918,7 @@ window.APP_DATA = {
               alternativas: [
                 "faz coisa julgada material se não for impugnada",
                 "perde a eficácia automaticamente em trinta dias",
-                "torna-se ESTÁVEL se não interposto o respectivo recurso, com extinção do processo — mas a estabilidade NÃO se confunde com coisa julgada, e qualquer das partes pode rever a decisão em ação própria no prazo de dois anos",
+                "torna-se estável se não interposto o respectivo recurso, com extinção do processo — mas a estabilidade não se confunde com coisa julgada, e qualquer das partes pode rever a decisão em ação própria no prazo de dois anos",
                 "não pode ser revista em nenhuma hipótese",
                 "depende de caução para se estabilizar"
               ],
@@ -934,7 +1044,7 @@ window.APP_DATA = {
               alternativas: [
                 "a Defensoria não tem legitimidade, pois o rol constitucional dos legitimados à ACP é taxativo",
                 "a Defensoria tem legitimidade para a ACP, desde que a tutela possa beneficiar grupo que contenha pessoas necessitadas/vulneráveis",
-                "a Defensoria só tem legitimidade se TODOS os beneficiados comprovarem individualmente a pobreza",
+                "a Defensoria só tem legitimidade se todos os beneficiados comprovarem individualmente a pobreza",
                 "a legitimidade depende de pertinência temática aferida mediante autorização judicial prévia",
                 "a Defensoria só pode atuar em ACP na condição de fiscal da ordem jurídica"
               ],
@@ -959,7 +1069,7 @@ window.APP_DATA = {
               enunciado: "Julgada IMPROCEDENTE a ação coletiva sobre direitos individuais homogêneos, quanto às vítimas e sucessores:",
               alternativas: [
                 "todos ficam impedidos de ajuizar ações individuais, por força da coisa julgada erga omnes",
-                "os interessados que NÃO intervieram como litisconsortes podem propor suas ações de indenização individuais",
+                "os interessados que não intervieram como litisconsortes podem propor suas ações de indenização individuais",
                 "as ações individuais em curso são extintas sem resolução do mérito, por litispendência",
                 "só podem demandar individualmente após a desconstituição do julgado coletivo por rescisória",
                 "a improcedência os beneficia por transporte in utilibus"
@@ -1108,6 +1218,116 @@ window.APP_DATA = {
       ]
     },
 
+    /* ---------------------------------- RECURSOS E TRIBUNAIS (CPC) */
+    {
+      id: "recursos",
+      titulo: "Recursos e Tribunais",
+      materia: "Direito Processual Civil",
+      banca: "I",
+      icone: "🏛️",
+      cor: "indigo",
+      descricao: "Apelação, agravo, embargos, prazo em dobro da DP, reclamação, IRDR e remessa.",
+      licoes: [
+        {
+          id: "recursos-1",
+          titulo: "Recursos, reclamação e remessa necessária",
+          questoes: [
+            {
+              id: "rec-1", modo: "lei", fonte: "CPC, art. 1.012, caput e §1º",
+              enunciado: "Quanto aos efeitos da apelação:",
+              alternativas: [
+                "não tem efeito suspensivo em nenhuma hipótese, produzindo a sentença efeitos imediatos",
+                "tem, em regra, efeito suspensivo automático — mas produz efeitos imediatos, por exceção, a sentença que condena a pagar alimentos, que confirma, concede ou revoga tutela provisória, ou que decreta a interdição",
+                "tem efeito suspensivo somente quando o relator o conceder expressamente, a requerimento do apelante",
+                "tem efeito suspensivo apenas nas causas de valor superior a sessenta salários mínimos",
+                "suspende inclusive a sentença que homologa acordo entre as partes"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.012 do CPC: a apelação tem efeito suspensivo AUTOMÁTICO (regra que o CPC/2015 manteve). O §1º lista as exceções de eficácia imediata: homologação de divisão/demarcação, condenação a ALIMENTOS, extinção sem mérito ou improcedência dos embargos do executado, procedência do pedido de arbitragem, tutela provisória e INTERDIÇÃO. Nesses casos, cabe pedir efeito suspensivo ao relator (§§3º e 4º)."
+            },
+            {
+              id: "rec-2", modo: "juris", fonte: "CPC, art. 1.015; STJ, Tema 988",
+              enunciado: "Sobre o cabimento do agravo de instrumento contra decisões interlocutórias, o STJ fixou que o rol do art. 1.015:",
+              alternativas: [
+                "é absolutamente taxativo, não comportando nenhuma ampliação",
+                "é meramente exemplificativo, cabendo agravo contra qualquer interlocutória",
+                "tem taxatividade mitigada: admite-se o agravo fora das hipóteses listadas quando houver urgência decorrente da inutilidade do julgamento da questão só no recurso de apelação",
+                "foi revogado, aplicando-se o regime recursal do código anterior",
+                "só se aplica aos processos de execução e cumprimento de sentença"
+              ],
+              correta: 2,
+              explicacao: "Tema 988/STJ (REsp 1.704.520): taxatividade MITIGADA. As interlocutórias não agraváveis não precluem — podem ser suscitadas em preliminar de apelação (art. 1.009, §1º) —, mas quando esperar a apelação tornar inútil o exame (ex.: decisão sobre competência, segredo de justiça), cabe o agravo desde logo."
+            },
+            {
+              id: "rec-3", modo: "lei", fonte: "CPC, arts. 1.022, 1.023 e 1.026",
+              enunciado: "Os embargos de declaração:",
+              alternativas: [
+                "seguem o prazo geral de quinze dias úteis dos demais recursos",
+                "suspendem automaticamente a eficácia da decisão embargada",
+                "cabem apenas contra sentenças e acórdãos, nunca contra interlocutórias",
+                "têm prazo de cinco dias, cabem contra qualquer decisão judicial (obscuridade, contradição, omissão ou erro material) e interrompem o prazo recursal para ambas as partes",
+                "quando rejeitados, impedem a interposição dos demais recursos"
+              ],
+              correta: 3,
+              explicacao: "Arts. 1.022 e 1.023 do CPC: prazo de 5 dias (exceção à regra geral de 15) e cabimento amplo, contra qualquer decisão. Art. 1.026: INTERROMPEM (não suspendem) o prazo para os outros recursos — o prazo recomeça inteiro, e para as duas partes. Em regra não têm efeito suspensivo; embargos protelatórios geram multa de até 2% (§2º)."
+            },
+            {
+              id: "rec-4", modo: "lei", fonte: "CPC, art. 186; LC 80/94, art. 128, I",
+              enunciado: "Sobre as prerrogativas processuais da Defensoria Pública quanto a prazos:",
+              alternativas: [
+                "goza de prazo em dobro apenas para contestar e recorrer",
+                "tem prazo em dobro para todas as manifestações processuais, contado da intimação pessoal (carga, remessa ou meio eletrônico) — salvo quando a lei estabelecer, de forma expressa, prazo próprio para a Defensoria",
+                "tem prazo em quádruplo para contestar, como a Fazenda Pública",
+                "os prazos correm da publicação no diário oficial, como para os advogados privados",
+                "as prerrogativas se estendem automaticamente a todo advogado dativo"
+              ],
+              correta: 1,
+              explicacao: "Art. 186 do CPC: prazo em dobro para TODAS as manifestações, com termo inicial na intimação pessoal (§1º c/c art. 183, §1º). A exceção do §4º é a pegadinha: não há dobro quando a lei fixa prazo próprio e expresso para a DP. O benefício também alcança escritórios de prática jurídica de faculdades e entidades conveniadas (§3º) — mas não o advogado dativo em geral."
+            },
+            {
+              id: "rec-5", modo: "lei", fonte: "CPC, art. 988; STF, Súmula 734",
+              enunciado: "A reclamação constitucional é cabível para:",
+              alternativas: [
+                "rever qualquer decisão judicial injusta, como sucedâneo recursal",
+                "preservar a competência do tribunal, garantir a autoridade de suas decisões e a observância de súmula vinculante e de acórdão de IRDR ou IAC — vedado o uso após o trânsito em julgado da decisão reclamada",
+                "impugnar decisões transitadas em julgado que contrariem súmula vinculante",
+                "garantir a observância de qualquer precedente, inclusive súmulas persuasivas, independentemente de esgotamento das instâncias",
+                "substituir a ação rescisória quando esgotado o seu prazo"
+              ],
+              correta: 1,
+              explicacao: "Art. 988 do CPC. Limites que a prova adora: proposta APÓS o trânsito em julgado, não cabe (§5º, I, e Súmula 734/STF — reclamação não é sucedâneo de rescisória); e para garantir observância de acórdão de RE com repercussão geral ou de recursos repetitivos, exige-se o ESGOTAMENTO das instâncias ordinárias (§5º, II)."
+            },
+            {
+              id: "rec-6", modo: "lei", fonte: "CPC, arts. 976 e 982",
+              enunciado: "A instauração do Incidente de Resolução de Demandas Repetitivas (IRDR) pressupõe, simultaneamente:",
+              alternativas: [
+                "apenas a multiplicidade de recursos sobre questão de fato relevante",
+                "efetiva repetição de processos com controvérsia sobre a mesma questão unicamente de direito e risco de ofensa à isonomia e à segurança jurídica — e, admitido o incidente, suspendem-se os processos pendentes no estado ou região",
+                "requerimento conjunto de todas as partes dos processos repetitivos",
+                "prévia decisão divergente de tribunal superior sobre o tema",
+                "que a questão já tenha sido afetada como recurso repetitivo no STJ"
+              ],
+              correta: 1,
+              explicacao: "Art. 976, I e II, do CPC: os dois pressupostos são cumulativos, e a questão deve ser unicamente de DIREITO (material ou processual). Admitido, o relator suspende os processos pendentes, individuais ou coletivos, no âmbito do tribunal (art. 982, I), pelo prazo de 1 ano (art. 980). Legitimados: partes, juiz de ofício, MP e Defensoria Pública (art. 977)."
+            },
+            {
+              id: "rec-7", modo: "lei", fonte: "CPC, art. 496, §§3º e 4º",
+              enunciado: "A remessa necessária das sentenças proferidas contra a Fazenda Pública é dispensada quando:",
+              alternativas: [
+                "a condenação for líquida e inferior a determinados tetos (por exemplo, mil salários mínimos para a União e quinhentos para os Estados), ou quando a sentença se fundar em súmula de tribunal superior ou em tese firmada em casos repetitivos",
+                "a Fazenda deixar de apelar no prazo legal, operando-se a preclusão",
+                "houver qualquer condenação em obrigação de fazer, ainda que ilíquida",
+                "o beneficiário da decisão for pessoa assistida pela Defensoria Pública",
+                "a causa tramitar pelo procedimento comum ordinário"
+              ],
+              correta: 0,
+              explicacao: "Art. 496, §3º (tetos: 1.000 SM para União; 500 para Estados, DF e capitais; 100 para os demais municípios) e §4º (sentença fundada em súmula de tribunal superior, acórdão de repetitivo, entendimento firmado em IRDR/IAC ou orientação vinculante da própria administração). Fora das dispensas, a sentença não transita em julgado sem o reexame — mesmo sem apelação da Fazenda."
+            }
+          ]
+        }
+      ]
+    },
+
     /* ---------------------------- RELAÇÃO DE CONSUMO E CONTRATOS (CDC) */
     {
       id: "relacao-consumo",
@@ -1127,7 +1347,7 @@ window.APP_DATA = {
               enunciado: "Um pedestre é atingido pela queda de um letreiro mal instalado por empresa contratada por uma loja. Embora não tenha comprado nada, ele:",
               alternativas: [
                 "não tem proteção do CDC, por não ser destinatário final de produto ou serviço",
-                "é consumidor por EQUIPARAÇÃO (bystander): o art. 17 equipara a consumidor todas as vítimas do evento danoso, atraindo a responsabilidade objetiva pelo fato do serviço",
+                "é consumidor por equiparação (bystander): o art. 17 equipara a consumidor todas as vítimas do evento danoso, atraindo a responsabilidade objetiva pelo fato do serviço",
                 "só pode acionar a loja com base na culpa aquiliana do Código Civil",
                 "precisa provar a culpa da empresa instaladora",
                 "é considerado fornecedor por estar na área de risco"
@@ -1141,7 +1361,7 @@ window.APP_DATA = {
               alternativas: [
                 "pessoa jurídica jamais pode ser consumidora, pois todo insumo integra sua atividade",
                 "toda pessoa jurídica que adquire produtos é consumidora (teoria maximalista pura)",
-                "pela teoria FINALISTA MITIGADA, a pessoa jurídica que adquire o bem como destinatária final pode ser consumidora quando demonstrar sua VULNERABILIDADE (técnica, jurídica ou econômica) frente ao fornecedor",
+                "pela teoria finalista mitigada, a pessoa jurídica que adquire o bem como destinatária final pode ser consumidora quando demonstrar sua vulnerabilidade (técnica, jurídica ou econômica) frente ao fornecedor",
                 "basta ser microempresa para incidir automaticamente o CDC",
                 "a condição de consumidora depende de cláusula contratual expressa"
               ],
@@ -1153,7 +1373,7 @@ window.APP_DATA = {
               enunciado: "As cláusulas abusivas em contratos de consumo:",
               alternativas: [
                 "são anuláveis no prazo decadencial de quatro anos",
-                "são NULAS DE PLENO DIREITO, em rol meramente EXEMPLIFICATIVO — e a nulidade de uma cláusula não invalida o contrato, salvo se, apesar dos esforços de integração, decorrer ônus excessivo a qualquer das partes",
+                "são nulas de pleno direito, em rol meramente exemplificativo — e a nulidade de uma cláusula não invalida o contrato, salvo se, apesar dos esforços de integração, decorrer ônus excessivo a qualquer das partes",
                 "só podem ser afastadas se o consumidor as impugnar na contratação",
                 "tornam nulo todo o contrato, em qualquer hipótese",
                 "dependem de prévia declaração administrativa do Procon"
@@ -1167,7 +1387,7 @@ window.APP_DATA = {
               alternativas: [
                 "aplica-se a qualquer compra, inclusive na loja física, no prazo de 7 dias",
                 "existe apenas para produtos com defeito",
-                "pode ser exercido em 7 dias a contar da assinatura ou do recebimento do produto, sempre que a contratação ocorrer FORA do estabelecimento comercial (telefone, internet, domicílio) — com devolução imediata dos valores pagos, monetariamente atualizados",
+                "pode ser exercido em 7 dias a contar da assinatura ou do recebimento do produto, sempre que a contratação ocorrer fora do estabelecimento comercial (telefone, internet, domicílio) — com devolução imediata dos valores pagos, monetariamente atualizados",
                 "exige justificativa razoável do consumidor",
                 "implica perda do valor do frete pago"
               ],
@@ -1181,7 +1401,7 @@ window.APP_DATA = {
                 "a garantia legal depende de termo escrito entregue ao consumidor",
                 "a garantia contratual substitui a legal quando concedida",
                 "vencida a garantia contratual, nada mais pode ser reclamado",
-                "a garantia LEGAL independe de termo expresso (vedada a exoneração), e a contratual é COMPLEMENTAR: os prazos se SOMAM — o prazo decadencial do art. 26 (30/90 dias) conta a partir do término da garantia contratual",
+                "a garantia legal independe de termo expresso (vedada a exoneração), e a contratual é complementar: os prazos se somam — o prazo decadencial do art. 26 (30/90 dias) conta a partir do término da garantia contratual",
                 "as garantias valem apenas para produtos duráveis novos"
               ],
               correta: 3,
@@ -1193,7 +1413,7 @@ window.APP_DATA = {
               alternativas: [
                 "prova da má-fé subjetiva do fornecedor, segundo o STJ",
                 "apenas a emissão da cobrança, ainda que o consumidor nada tenha pago",
-                "cobrança indevida E pagamento do excesso pelo consumidor, salvo engano justificável — dispensada a prova de má-fé: basta que a cobrança contrarie a boa-fé objetiva (STJ, Corte Especial)",
+                "cobrança indevida e pagamento do excesso pelo consumidor, salvo engano justificável — dispensada a prova de má-fé: basta que a cobrança contrarie a boa-fé objetiva (STJ, Corte Especial)",
                 "prévia reclamação administrativa frustrada",
                 "que a dívida tenha origem contratual escrita"
               ],
@@ -1205,13 +1425,110 @@ window.APP_DATA = {
               enunciado: "Publicada oferta suficientemente precisa e recusando-se o fornecedor a cumpri-la, o consumidor pode, À SUA ESCOLHA:",
               alternativas: [
                 "apenas rescindir o contrato com devolução do que pagou",
-                "exigir o cumprimento forçado da obrigação nos termos da oferta, OU aceitar outro produto/serviço equivalente, OU rescindir o contrato com restituição atualizada e perdas e danos",
+                "exigir o cumprimento forçado da obrigação nos termos da oferta, ou aceitar outro produto/serviço equivalente, ou rescindir o contrato com restituição atualizada e perdas e danos",
                 "somente aceitar produto equivalente indicado pelo fornecedor",
                 "exigir o dobro do valor anunciado, a título de sanção",
                 "registrar reclamação no Procon como condição para acionar a Justiça"
               ],
               correta: 1,
               explicacao: "Art. 30: a oferta suficientemente precisa VINCULA o fornecedor e integra o contrato. Art. 35: a escolha entre as três alternativas é do CONSUMIDOR — não do fornecedor. Ressalva jurisprudencial: erro grosseiro e evidente de sistema (ex.: TV por R$ 1) não vincula, por não gerar confiança legítima."
+            }
+          ]
+        },
+        {
+          id: "relacao-consumo-2",
+          titulo: "LGPD, cadastros e comércio eletrônico",
+          questoes: [
+            {
+              id: "dig-1", modo: "juris", fonte: "CDC, art. 43, §§1º e 2º; STJ, Súmulas 359 e 404",
+              enunciado: "Sobre a inscrição do consumidor em cadastros de inadimplentes:",
+              alternativas: [
+                "a comunicação prévia ao consumidor cabe ao credor que solicitou a inscrição",
+                "a comunicação prévia é dispensada quando a dívida está documentada",
+                "cabe ao órgão mantenedor do cadastro a comunicação prévia por escrito, dispensado o aviso de recebimento — e a anotação não pode permanecer por mais de cinco anos, nem além do prazo de prescrição da dívida",
+                "a anotação pode permanecer por dez anos, se a dívida não for paga",
+                "a inscrição exige autorização judicial quando o débito for contestado"
+              ],
+              correta: 2,
+              explicacao: "Súmula 359/STJ: o dever de comunicar é do órgão mantenedor (Serasa/SPC), não do credor. Súmula 404/STJ: dispensa-se o AR — basta o envio ao endereço. Limites temporais do art. 43: máximo de 5 anos (§1º) e, consumada a prescrição da cobrança, a anotação deve cair (§5º) — o que vier primeiro."
+            },
+            {
+              id: "dig-2", modo: "juris", fonte: "STJ, Súmula 385",
+              enunciado: "Consumidor com inscrição legítima preexistente em cadastro de inadimplentes sofre nova anotação, desta vez irregular. Nesse caso:",
+              alternativas: [
+                "faz jus a indenização por dano moral, como em qualquer inscrição indevida",
+                "não cabe indenização por dano moral pela nova anotação irregular, ressalvado o direito ao cancelamento dela — pois a inscrição legítima anterior afasta o abalo ao crédito",
+                "o dano moral é presumido, mas reduzido pela metade",
+                "só cabe indenização se as duas inscrições forem do mesmo credor",
+                "a inscrição anterior também se torna automaticamente inexigível"
+              ],
+              correta: 1,
+              explicacao: "Súmula 385/STJ: da anotação irregular em cadastro de proteção ao crédito não cabe dano moral quando preexiste legítima inscrição — o crédito já estava abalado por causa lícita. Permanece o direito de exigir o CANCELAMENTO da anotação irregular. Se a preexistente também for ilegítima, a súmula não se aplica."
+            },
+            {
+              id: "dig-3", modo: "juris", fonte: "STJ, REsp 1.419.697 (Tema 710)",
+              enunciado: "Sobre o sistema de pontuação de crédito (credit scoring), o STJ decidiu que:",
+              alternativas: [
+                "é prática ilegal, por criar perfil do consumidor sem autorização",
+                "depende de consentimento prévio e expresso do consumidor avaliado",
+                "é prática comercial lícita, que dispensa o consentimento do avaliado — assegurados a transparência e o acesso às informações consideradas, e cabendo indenização quando houver recusa indevida de crédito baseada em dados incorretos ou desatualizados",
+                "só pode ser utilizado por instituições financeiras públicas",
+                "gera dano moral presumido sempre que a nota for baixa"
+              ],
+              correta: 2,
+              explicacao: "Tema 710/STJ: o scoring é método lícito de avaliação de risco (hoje amparado também pela Lei do Cadastro Positivo), não exige consentimento, mas deve respeitar transparência, direito de acesso e revisão dos dados. O ilícito indenizável surge do uso de informações excessivas ou incorretas que causem recusa indevida — não da simples existência da nota."
+            },
+            {
+              id: "dig-4", modo: "lei", fonte: "LGPD, art. 7º",
+              enunciado: "No regime da Lei Geral de Proteção de Dados, o tratamento de dados pessoais:",
+              alternativas: [
+                "só é lícito mediante consentimento expresso do titular",
+                "pode ocorrer com base em dez hipóteses legais — o consentimento é apenas uma delas, ao lado, por exemplo, da execução de contrato, do cumprimento de obrigação legal, da proteção da vida e do legítimo interesse do controlador",
+                "é livre para dados tornados públicos pelo próprio titular, sem qualquer limite",
+                "depende sempre de autorização prévia da Autoridade Nacional",
+                "é vedado para fins comerciais de qualquer natureza"
+              ],
+              correta: 1,
+              explicacao: "Art. 7º da LGPD: dez bases legais autônomas — a prova adora sugerir que o consentimento é a única. O legítimo interesse (inciso IX) exige teste de balanceamento e pode ser revisto pela ANPD. Para dados SENSÍVEIS (art. 11), o regime é mais restrito. E dado publicizado pelo titular ainda exige respeito à finalidade e à boa-fé."
+            },
+            {
+              id: "dig-5", modo: "juris", fonte: "LGPD, arts. 42 a 44; STJ, AREsp 2.130.619",
+              enunciado: "Quanto à responsabilidade civil por vazamento de dados pessoais, o STJ entende que:",
+              alternativas: [
+                "todo vazamento gera dano moral presumido (in re ipsa) ao titular",
+                "o vazamento de dados pessoais comuns (nome, CPF, endereço) não gera dano moral presumido — o titular deve comprovar o efetivo prejuízo; tratando-se de dados sensíveis, a exposição indevida tem maior aptidão lesiva",
+                "não há responsabilidade civil sem prova de dolo do controlador",
+                "a responsabilidade é exclusiva do agente criminoso que invadiu o sistema",
+                "somente a ANPD pode reconhecer o dever de indenizar"
+              ],
+              correta: 1,
+              explicacao: "STJ (AREsp 2.130.619, 2023): vazamento de dados COMUNS não configura dano moral in re ipsa — exige prova do dano concreto (ex.: fraudes decorrentes). Dados sensíveis (saúde, biometria, orientação sexual — art. 5º, II) elevam o potencial lesivo. A responsabilidade do controlador decorre dos arts. 42-44 da LGPD; ataque externo não o exime automaticamente se faltaram medidas de segurança adequadas."
+            },
+            {
+              id: "dig-6", modo: "juris", fonte: "Marco Civil, arts. 19 e 21; STF, Temas 533 e 987 (2025)",
+              enunciado: "Sobre a responsabilidade dos provedores de aplicação por conteúdo de terceiros, após o julgamento do STF em 2025:",
+              alternativas: [
+                "permanece integral a regra do art. 19: só há responsabilidade após descumprimento de ordem judicial específica",
+                "o art. 19 do Marco Civil foi declarado parcialmente inconstitucional: em regra, o provedor responde se não remover conteúdo ilícito após notificação extrajudicial — mantida a exigência de ordem judicial para crimes contra a honra e prevista responsabilidade qualificada para anúncios pagos e redes de contas inautênticas",
+                "os provedores passaram a responder objetivamente por todo conteúdo publicado por usuários",
+                "a remoção de qualquer conteúdo passou a depender de decisão da ANPD",
+                "o STF validou integralmente o art. 19, vedando a notificação extrajudicial"
+              ],
+              correta: 1,
+              explicacao: "STF, Temas 987 e 533 (jun/2025): inconstitucionalidade PARCIAL e progressiva do art. 19. Enquanto não vier lei nova, aplica-se como regra o regime do art. 21 (responsabilidade após notificação extrajudicial); crimes contra a honra seguem exigindo ordem judicial; e há dever de cuidado agravado — com responsabilidade mesmo sem notificação — para conteúdos impulsionados/pagos e redes de distribuição artificial, além de rol de crimes graves com dever de atuação proativa."
+            },
+            {
+              id: "dig-7", modo: "juris", fonte: "STJ, Súmula 479",
+              enunciado: "Em fraudes e golpes praticados por terceiros no âmbito de operações bancárias (ex.: contratos abertos por estelionatários com dados vazados):",
+              alternativas: [
+                "o banco só responde se o consumidor provar falha específica de segurança",
+                "a instituição financeira responde objetivamente, por se tratar de fortuito interno ligado ao risco do empreendimento — podendo a responsabilidade ser afastada quando comprovada culpa exclusiva do consumidor",
+                "trata-se de fortuito externo, que sempre exclui a responsabilidade do banco",
+                "a responsabilidade é subjetiva, dependendo de prova de negligência grave",
+                "somente o criminoso responde, na esfera penal"
+              ],
+              correta: 1,
+              explicacao: "Súmula 479/STJ: fraudes e delitos de terceiros em operações bancárias são FORTUITO INTERNO — risco da atividade — e geram responsabilidade objetiva (CDC, art. 14). A válvula de escape é a culpa exclusiva da vítima (art. 14, §3º, II): em golpes de engenharia social em que o próprio cliente entrega senha e cartão, o STJ tem afastado o dever de indenizar, conforme as circunstâncias."
             }
           ]
         }
@@ -1299,9 +1616,9 @@ window.APP_DATA = {
               enunciado: "A inversão do ônus da prova em favor do consumidor (art. 6º, VIII, do CDC):",
               alternativas: [
                 "é automática em toda ação consumerista",
-                "depende de decisão do juiz, presente a verossimilhança OU a hipossuficiência",
+                "depende de decisão do juiz, presente a verossimilhança ou a hipossuficiência",
                 "só ocorre se houver expressa previsão contratual",
-                "exige, cumulativamente, verossimilhança E hipossuficiência",
+                "exige, cumulativamente, verossimilhança e hipossuficiência",
                 "é vedada quando o fornecedor for microempresa"
               ],
               correta: 1,
@@ -1593,7 +1910,7 @@ window.APP_DATA = {
               enunciado: "Na sociedade limitada, a responsabilidade de cada sócio:",
               alternativas: [
                 "é ilimitada e solidária pelas obrigações sociais",
-                "é restrita ao valor de suas quotas, MAS todos respondem SOLIDARIAMENTE pela integralização do capital social",
+                "é restrita ao valor de suas quotas, mas todos respondem solidariamente pela integralização do capital social",
                 "limita-se ao valor de suas quotas, sem nenhuma solidariedade entre os sócios",
                 "alcança o patrimônio pessoal sempre que a sociedade for condenada judicialmente",
                 "é subsidiária à do administrador não sócio"
@@ -1607,7 +1924,7 @@ window.APP_DATA = {
               alternativas: [
                 "atingir os bens dos sócios por dívidas da sociedade",
                 "extinguir a pessoa jurídica usada de forma abusiva",
-                "atingir os bens da PESSOA JURÍDICA por obrigações do SÓCIO que nela ocultou patrimônio — modalidade hoje expressa no Código Civil e frequente em execuções de alimentos e partilhas",
+                "atingir os bens da pessoa jurídica por obrigações do sócio que nela ocultou patrimônio — modalidade hoje expressa no Código Civil e frequente em execuções de alimentos e partilhas",
                 "transferir a administração da sociedade a um interventor judicial",
                 "responsabilizar apenas o administrador não sócio"
               ],
@@ -1619,7 +1936,7 @@ window.APP_DATA = {
               enunciado: "O sócio que se retira da sociedade:",
               alternativas: [
                 "libera-se de toda responsabilidade na data da assinatura da alteração contratual",
-                "continua responsável pelas obrigações sociais anteriores por até DOIS ANOS após averbada a modificação do contrato social",
+                "continua responsável pelas obrigações sociais anteriores por até dois anos após averbada a modificação do contrato social",
                 "responde pelas dívidas futuras da sociedade por cinco anos",
                 "nunca responde por obrigações sociais após a retirada",
                 "só responde se tiver sido administrador"
@@ -1633,7 +1950,7 @@ window.APP_DATA = {
               alternativas: [
                 "é vedada, pois toda sociedade exige pluralidade de sócios",
                 "exige capital mínimo de cem salários mínimos, como a antiga EIRELI",
-                "a sociedade limitada PODE ser constituída por uma só pessoa, sem exigência de capital mínimo — mantendo a separação entre o patrimônio pessoal e o da sociedade",
+                "a sociedade limitada pode ser constituída por uma só pessoa, sem exigência de capital mínimo — mantendo a separação entre o patrimônio pessoal e o da sociedade",
                 "só pode ser constituída por pessoa jurídica",
                 "converte-se automaticamente em empresário individual após um ano"
               ],
@@ -1645,7 +1962,7 @@ window.APP_DATA = {
               enunciado: "Estão sujeitos à recuperação judicial:",
               alternativas: [
                 "apenas os créditos vencidos na data do pedido",
-                "todos os créditos existentes na data do pedido, AINDA QUE NÃO VENCIDOS — com exceções relevantes, como o credor proprietário fiduciário, cujo crédito não se submete aos efeitos da recuperação (a chamada trava bancária)",
+                "todos os créditos existentes na data do pedido, ainda que não vencidos — com exceções relevantes, como o credor proprietário fiduciário, cujo crédito não se submete aos efeitos da recuperação (a chamada trava bancária)",
                 "todos os créditos, inclusive os constituídos após o pedido",
                 "somente os créditos quirografários",
                 "apenas os créditos trabalhistas e tributários"
@@ -1658,7 +1975,7 @@ window.APP_DATA = {
               enunciado: "Na sociedade anônima, a responsabilidade do acionista:",
               alternativas: [
                 "é limitada ao valor nominal total das ações subscritas por todos os acionistas, solidariamente",
-                "é limitada ao PREÇO DE EMISSÃO das ações subscritas ou adquiridas — sem a solidariedade pela integralização do capital que caracteriza a sociedade limitada",
+                "é limitada ao preço de emissão das ações subscritas ou adquiridas — sem a solidariedade pela integralização do capital que caracteriza a sociedade limitada",
                 "é ilimitada para o acionista controlador em qualquer hipótese",
                 "alcança o patrimônio pessoal quando a companhia for fechada",
                 "depende do que dispuser o estatuto social"
@@ -1672,7 +1989,7 @@ window.APP_DATA = {
               alternativas: [
                 "apenas deliberação da maioria simples, comunicada por escrito ao excluído",
                 "sempre ação judicial de dissolução parcial",
-                "previsão EXPRESSA no contrato social, deliberação de titulares de mais da metade do capital por atos de inegável gravidade, e reunião ou assembleia especialmente convocada, ciente o acusado em tempo hábil para comparecer e se DEFENDER",
+                "previsão expressa no contrato social, deliberação de titulares de mais da metade do capital por atos de inegável gravidade, e reunião ou assembleia especialmente convocada, ciente o acusado em tempo hábil para comparecer e se defender",
                 "aprovação unânime dos demais sócios em cartório",
                 "prévia autorização da Junta Comercial"
               ],
@@ -1716,7 +2033,7 @@ window.APP_DATA = {
               enunciado: "Sobre o Conselho Tutelar, é correto afirmar que:",
               alternativas: [
                 "é órgão auxiliar do Poder Judiciário, com função jurisdicional na aplicação de medidas protetivas",
-                "é órgão permanente e autônomo, NÃO jurisdicional, encarregado de zelar pelos direitos da criança e do adolescente",
+                "é órgão permanente e autônomo, não jurisdicional, encarregado de zelar pelos direitos da criança e do adolescente",
                 "pode aplicar, inclusive, a medida socioeducativa de internação em caso de ato infracional grave",
                 "tem atribuição para decretar, de ofício, a destituição do poder familiar dos pais negligentes",
                 "é composto por membros de livre nomeação e exoneração pelo chefe do Executivo municipal"
@@ -1787,7 +2104,7 @@ window.APP_DATA = {
               enunciado: "Na proteção de crianças e adolescentes vítimas ou testemunhas de violência, distinguem-se:",
               alternativas: [
                 "escuta especializada e depoimento especial, ambos colhidos exclusivamente pelo juiz",
-                "a ESCUTA ESPECIALIZADA, realizada por órgão da rede de proteção e LIMITADA ao estritamente necessário, e o DEPOIMENTO ESPECIAL, colhido perante autoridade policial ou judiciária como meio de prova, em rito próprio e acolhedor",
+                "a escuta especializada, realizada por órgão da rede de proteção e limitada ao estritamente necessário, e o depoimento especial, colhido perante autoridade policial ou judiciária como meio de prova, em rito próprio e acolhedor",
                 "a escuta especializada, que serve de prova judicial, e o depoimento especial, de finalidade meramente protetiva",
                 "inquirição comum e acareação com o suposto agressor",
                 "dois procedimentos idênticos, com nomes distintos"
@@ -1802,7 +2119,7 @@ window.APP_DATA = {
                 "as medidas protetivas de urgência dependem de prévia audiência do agressor",
                 "somente o Ministério Público pode requerer medidas protetivas",
                 "a lei alcança apenas agressões praticadas pelos pais",
-                "as medidas protetivas de urgência podem ser concedidas de IMEDIATO, independentemente de audiência das partes; havendo risco atual ou iminente, o afastamento do agressor do lar pode ser determinado até pelo delegado ou policial, quando o município não for sede de comarca",
+                "as medidas protetivas de urgência podem ser concedidas de imediato, independentemente de audiência das partes; havendo risco atual ou iminente, o afastamento do agressor do lar pode ser determinado até pelo delegado ou policial, quando o município não for sede de comarca",
                 "as medidas aplicam-se somente a casos de violência sexual"
               ],
               correta: 3,
@@ -1813,7 +2130,7 @@ window.APP_DATA = {
               enunciado: "Quanto aos alimentos devidos à pessoa idosa:",
               alternativas: [
                 "seguem a regra do Código Civil, em que a obrigação entre parentes é divisível",
-                "a obrigação alimentar é SOLIDÁRIA, e a pessoa idosa pode optar entre os prestadores — exceção à regra geral do Código Civil, que consagra a divisibilidade",
+                "a obrigação alimentar é solidária, e a pessoa idosa pode optar entre os prestadores — exceção à regra geral do Código Civil, que consagra a divisibilidade",
                 "somente podem ser cobrados dos filhos que residem com a pessoa idosa",
                 "excluem qualquer responsabilidade do Poder Público",
                 "dependem da prova de abandono material pelos familiares"
@@ -1827,7 +2144,7 @@ window.APP_DATA = {
               alternativas: [
                 "a operadora pode recusar a admissão de beneficiário em razão da idade avançada",
                 "o reajuste por faixa etária é sempre inválido, em qualquer idade",
-                "é VEDADA a discriminação com cobrança de valores diferenciados em razão da idade; o STJ, porém, admite o reajuste na última faixa etária (59 anos) se houver previsão contratual clara, conformidade com as normas da ANS e percentuais razoáveis",
+                "é vedada a discriminação com cobrança de valores diferenciados em razão da idade; o STJ, porém, admite o reajuste na última faixa etária (59 anos) se houver previsão contratual clara, conformidade com as normas da ANS e percentuais razoáveis",
                 "a vedação de discriminação só alcança planos coletivos empresariais",
                 "a mensalidade fica congelada aos 60 anos, vedado inclusive o reajuste anual"
               ],
@@ -1842,7 +2159,7 @@ window.APP_DATA = {
                 "apenas quando houver violência física comprovada",
                 "exclusivamente a requerimento da própria pessoa idosa",
                 "mediante prévia sentença condenatória do agressor",
-                "por ação ou omissão da sociedade ou do Estado, por falta, omissão ou ABUSO DA FAMÍLIA, curador ou entidade de atendimento, ou ainda em razão da própria CONDIÇÃO PESSOAL da pessoa idosa"
+                "por ação ou omissão da sociedade ou do Estado, por falta, omissão ou abuso da família, curador ou entidade de atendimento, ou ainda em razão da própria condição pessoal da pessoa idosa"
               ],
               correta: 4,
               explicacao: "Art. 43 do Estatuto — rol que inclui a violação praticada pela própria família e a situação de vulnerabilidade pessoal. O art. 45 traz as medidas (encaminhamento à família, requisição de tratamento, inclusão em programa de auxílio, abrigo em entidade etc.), campo típico de atuação protetiva da Defensoria."
@@ -1854,7 +2171,7 @@ window.APP_DATA = {
                 "são de ação penal pública condicionada à representação da vítima",
                 "dependem de queixa-crime da pessoa idosa ou de seu curador",
                 "admitem as imunidades familiares dos arts. 181 e 182 do Código Penal",
-                "são de ação penal pública INCONDICIONADA — e as escusas absolutórias entre familiares não se aplicam nos crimes patrimoniais contra maiores de 60 anos",
+                "são de ação penal pública incondicionada — e as escusas absolutórias entre familiares não se aplicam nos crimes patrimoniais contra maiores de 60 anos",
                 "somente se processam mediante requisição do Ministério da Justiça"
               ],
               correta: 3,
@@ -2618,7 +2935,7 @@ window.APP_DATA = {
               id: "ld-3", modo: "lei", fonte: "Lei 11.343/06, art. 33, §4º",
               enunciado: "A causa de diminuição do tráfico privilegiado (art. 33, §4º) exige que o agente, CUMULATIVAMENTE:",
               alternativas: [
-                "seja primário OU tenha bons antecedentes, bastando o preenchimento de qualquer um desses requisitos alternativos",
+                "seja primário ou tenha bons antecedentes, bastando o preenchimento de qualquer um desses requisitos alternativos",
                 "seja primário, tenha bons antecedentes e não se dedique a atividades criminosas nem integre organização criminosa",
                 "seja menor de 21 anos e tenha confessado espontaneamente a prática do tráfico",
                 "tenha sido flagrado com pequena quantidade, qualquer que seja o seu histórico criminal",
@@ -3556,7 +3873,7 @@ window.APP_DATA = {
               enunciado: "A LC 80/94 (art. 4º-A, incluído pela LC 132/2009) assegura aos assistidos da Defensoria Pública, entre outros direitos:",
               alternativas: [
                 "a livre escolha, a qualquer tempo, do defensor público de sua preferência na unidade",
-                "o patrocínio de seus direitos e interesses pelo DEFENSOR NATURAL e a qualidade e eficiência do atendimento",
+                "o patrocínio de seus direitos e interesses pelo defensor natural e a qualidade e eficiência do atendimento",
                 "o atendimento domiciliar obrigatório e prioritário a todas as pessoas maiores de sessenta anos",
                 "a dispensa incondicionada de custas em qualquer processo, sem análise de renda",
                 "a indenização automática pelos prejuízos decorrentes do indeferimento da assistência"
