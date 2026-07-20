@@ -9,16 +9,127 @@ window.APP_DATA = {
   meta: {
     concurso: "XXIX Concurso — DPE-RJ",
     banca: "FGV",
-    fase: "Objetiva · Bancas I e II"
+    fase: "Objetiva · Bancas I, II e III"
   },
 
   // Cada unidade = um tópico da trilha; cada lição = um bloco de questões.
   units: [
+    /* ---------------------------------------- PARTE GERAL (CIVIL) */
+    {
+      id: "parte-geral",
+      titulo: "Parte Geral do Direito Civil",
+      materia: "Direito Civil",
+      banca: "I",
+      icone: "📖",
+      cor: "grafite",
+      descricao: "Prescrição e decadência, negócios jurídicos, personalidade e desconsideração.",
+      licoes: [
+        {
+          id: "parte-geral-1",
+          titulo: "Prescrição, invalidades e personalidade",
+          questoes: [
+            {
+              id: "pg-1", modo: "lei", fonte: "CC, arts. 205 e 206, §3º, V",
+              enunciado: "A pretensão de reparação civil (responsabilidade extracontratual) prescreve em:",
+              alternativas: [
+                "dez anos, aplicando-se sempre o prazo geral do art. 205",
+                "três anos, pois há prazo específico que afasta o prazo geral de dez anos — este é residual e só vale na falta de previsão menor",
+                "cinco anos, como toda pretensão condenatória contra particulares",
+                "dois anos, prazo comum a todas as pretensões indenizatórias",
+                "não prescreve, por envolver dano a direito da personalidade"
+              ],
+              correta: 1,
+              explicacao: "O art. 206, §3º, V, do CC fixa em 3 anos a prescrição da pretensão de reparação civil. O prazo de 10 anos do art. 205 é residual: só incide quando a lei não fixa prazo menor. Atenção à exceção do STJ: no inadimplemento CONTRATUAL aplica-se o prazo de 10 anos (EREsp 1.280.825) — os 3 anos valem para a responsabilidade extracontratual."
+            },
+            {
+              id: "pg-2", modo: "lei", fonte: "CC, arts. 3º e 198, I",
+              enunciado: "Quanto ao curso do prazo prescricional em face de menores de idade:",
+              alternativas: [
+                "a prescrição corre normalmente contra qualquer menor, que é protegido pela representação",
+                "a prescrição não corre contra nenhum menor de dezoito anos",
+                "a prescrição não corre contra o menor de dezesseis anos, absolutamente incapaz — mas corre contra o menor entre dezesseis e dezoito anos",
+                "a prescrição fica suspensa até os vinte e um anos completos",
+                "apenas a decadência deixa de correr contra menores"
+              ],
+              correta: 2,
+              explicacao: "Art. 198, I, c/c art. 3º do CC: não corre a prescrição contra os absolutamente incapazes — hoje, apenas os menores de 16 anos. O relativamente incapaz (16 a 18) não tem essa proteção: contra ele a prescrição corre, restando-lhe ação regressiva contra o assistente que der causa à perda do prazo (art. 195)."
+            },
+            {
+              id: "pg-3", modo: "lei", fonte: "CC, arts. 167 e 169",
+              enunciado: "Sobre o negócio jurídico simulado, é correto afirmar que:",
+              alternativas: [
+                "é anulável, no prazo decadencial de quatro anos",
+                "é válido entre as partes e ineficaz apenas perante terceiros",
+                "convalesce se não for impugnado em dez anos",
+                "é nulo — vício alegável a qualquer tempo, pois não convalesce nem se confirma —, mas pode subsistir o negócio dissimulado, se válido na substância e na forma",
+                "é inexistente e não produz efeito algum, nem quanto ao negócio dissimulado"
+              ],
+              correta: 3,
+              explicacao: "Art. 167 do CC: é NULO o negócio simulado, mas subsistirá o que se dissimulou, se válido na substância e na forma (simulação relativa). Art. 169: o nulo não é suscetível de confirmação nem convalesce pelo decurso do tempo. O prazo de 4 anos é dos negócios ANULÁVEIS (art. 178) — desde 2002 a simulação é causa de nulidade, não de anulabilidade."
+            },
+            {
+              id: "pg-4", modo: "lei", fonte: "CC, arts. 171, II, e 178, I",
+              enunciado: "Assinada uma confissão de dívida sob coação, o negócio jurídico é:",
+              alternativas: [
+                "nulo de pleno direito, insuscetível de confirmação",
+                "anulável, no prazo decadencial de quatro anos contado do dia em que CESSAR a coação — e não da data da celebração",
+                "anulável em quatro anos contados sempre da assinatura do instrumento",
+                "válido, desde que a dívida confessada realmente exista",
+                "ineficaz até homologação judicial da confissão"
+              ],
+              correta: 1,
+              explicacao: "Coação gera ANULABILIDADE (art. 171, II). O prazo é de 4 anos (art. 178), mas o termo inicial da coação é peculiar: conta do dia em que ela cessar (art. 178, I). Nos demais defeitos (erro, dolo, fraude contra credores, estado de perigo e lesão), conta do dia em que se realizou o negócio (inciso II)."
+            },
+            {
+              id: "pg-5", modo: "lei", fonte: "CC, art. 50; CDC, art. 28, §5º",
+              enunciado: "Sobre a desconsideração da personalidade jurídica no direito brasileiro:",
+              alternativas: [
+                "basta a insolvência da pessoa jurídica para desconsiderá-la em qualquer relação jurídica",
+                "o CDC também exige a prova do desvio de finalidade ou da confusão patrimonial",
+                "a desconsideração dissolve e extingue a pessoa jurídica",
+                "somente pode ser decretada em processo autônomo, nunca incidentalmente",
+                "no Código Civil vigora a teoria MAIOR — exige abuso, por desvio de finalidade ou confusão patrimonial —, enquanto no CDC vigora a teoria MENOR: basta que a personalidade seja obstáculo ao ressarcimento do consumidor"
+              ],
+              correta: 4,
+              explicacao: "Art. 50 do CC (teoria maior): abuso da personalidade caracterizado por desvio de finalidade ou confusão patrimonial. Art. 28, §5º, do CDC (teoria menor, STJ, REsp 279.273): basta o obstáculo ao ressarcimento. A desconsideração é episódica — não extingue a pessoa jurídica, apenas estende os efeitos de certas obrigações aos sócios/administradores, e pode ser requerida incidentalmente (CPC, arts. 133-137)."
+            },
+            {
+              id: "pg-6", modo: "lei", fonte: "CC, art. 11; Enunciado 4 da I Jornada",
+              enunciado: "Os direitos da personalidade são intransmissíveis e irrenunciáveis. Quanto ao seu exercício:",
+              alternativas: [
+                "não admite nenhuma espécie de limitação, nem mesmo voluntária",
+                "pode ser cedido definitivamente por escritura pública",
+                "pode sofrer limitação voluntária — como na cessão de uso da imagem —, desde que não seja permanente nem geral",
+                "só pode ser limitado por decisão judicial fundamentada",
+                "a renúncia é válida quando remunerada"
+              ],
+              correta: 2,
+              explicacao: "Art. 11 do CC: salvo os casos previstos em lei, os direitos da personalidade são intransmissíveis e irrenunciáveis, e seu exercício não pode sofrer limitação voluntária. A doutrina (Enunciado 4 da I Jornada de Direito Civil) tempera a literalidade: admite-se limitação voluntária do EXERCÍCIO, desde que não permanente nem geral — é o que legitima, por exemplo, os contratos de licença de uso de imagem."
+            },
+            {
+              id: "pg-7", modo: "lei", fonte: "LINDB, art. 6º; CF, art. 5º, XXXVI",
+              enunciado: "Uma lei nova entra em vigor alterando o regime jurídico de certo contrato. Essa lei:",
+              alternativas: [
+                "aplica-se imediatamente, inclusive desfazendo efeitos já produzidos sob a lei anterior",
+                "tem efeito imediato e geral, mas deve respeitar o ato jurídico perfeito, o direito adquirido e a coisa julgada",
+                "pode retroagir livremente, desde que o diga de forma expressa, ainda que prejudique direito adquirido",
+                "jamais alcança contratos em curso, qualquer que seja o aspecto regulado",
+                "só entra em vigor após regulamentação pelo Executivo"
+              ],
+              correta: 1,
+              explicacao: "Art. 6º da LINDB: a lei em vigor tem efeito imediato e geral, respeitados o ato jurídico perfeito, o direito adquirido e a coisa julgada — proteção que também é constitucional (art. 5º, XXXVI, da CF). Retroatividade exige previsão expressa E não pode ofender essa tríade."
+            }
+          ]
+        }
+      ]
+    },
+
     /* ---------------------------------------------------------- 1. SUCESSÕES */
     {
       id: "sucessoes",
       titulo: "Sucessões",
       materia: "Direito Civil",
+      banca: "I",
       icone: "⚱️",
       cor: "roxo",
       descricao: "Ordem de vocação hereditária, herdeiros necessários, representação.",
@@ -112,6 +223,7 @@ window.APP_DATA = {
       id: "resp-civil",
       titulo: "Responsabilidade Civil",
       materia: "Direito Civil",
+      banca: "I",
       icone: "⚖️",
       cor: "verde",
       descricao: "Ato ilícito, culpa, risco, responsabilidade objetiva e por terceiros.",
@@ -205,6 +317,7 @@ window.APP_DATA = {
       id: "familia-regime",
       titulo: "Família e Regime de Bens",
       materia: "Direito Civil",
+      banca: "I",
       icone: "💍",
       cor: "rosa",
       descricao: "Regimes de bens, separação obrigatória, outorga e pacto antenupcial.",
@@ -390,11 +503,232 @@ window.APP_DATA = {
       ]
     },
 
+    /* ---------------------------------- POSSE E DIREITOS REAIS (CIVIL) */
+    {
+      id: "posse-reais",
+      titulo: "Posse e Direitos Reais",
+      materia: "Direito Civil",
+      banca: "I",
+      icone: "🏠",
+      cor: "petroleo",
+      descricao: "Usucapião especiais, bem de família, direito de laje e proteção possessória.",
+      licoes: [
+        {
+          id: "posse-reais-1",
+          titulo: "Usucapião, bem de família e posse",
+          questoes: [
+            {
+              id: "dr-1", modo: "lei", fonte: "CC, art. 1.240-A",
+              enunciado: "Sobre a usucapião familiar (por abandono de lar), é correto afirmar:",
+              alternativas: [
+                "exige posse de cinco anos sobre imóvel urbano de qualquer metragem",
+                "aplica-se também a imóveis rurais de até cinquenta hectares",
+                "exige posse direta e exclusiva por DOIS anos sobre imóvel urbano de até 250m² cuja propriedade era dividida com ex-cônjuge ou ex-companheiro que abandonou o lar, usado para moradia, sem que o usucapiente tenha outro imóvel — e só pode ser reconhecida uma única vez",
+                "pode ser invocada repetidas vezes pelo mesmo possuidor",
+                "dispensa o abandono do lar, bastando a separação de fato"
+              ],
+              correta: 2,
+              explicacao: "Art. 1.240-A do CC: é o menor prazo de usucapião do sistema (2 anos), e acumula requisitos — imóvel URBANO de até 250m², copropriedade com ex-cônjuge/companheiro que ABANDONOU o lar, moradia própria ou da família, ausência de outro imóvel e reconhecimento único ao mesmo possuidor (§1º)."
+            },
+            {
+              id: "dr-2", modo: "lei", fonte: "CF, art. 191; CC, art. 1.239",
+              enunciado: "A usucapião especial rural (pro labore) exige:",
+              alternativas: [
+                "posse de dez anos e justo título",
+                "posse ininterrupta de cinco anos, sem oposição, de área rural NÃO superior a cinquenta hectares, tornada produtiva pelo trabalho do possuidor ou de sua família, que nela tenha moradia — não podendo ele ser proprietário de outro imóvel",
+                "apenas a posse quinquenal, dispensada a produtividade da terra",
+                "renda familiar inferior a um salário mínimo",
+                "prévio cadastro do possuidor no registro de imóveis"
+              ],
+              correta: 1,
+              explicacao: "CF, art. 191, e CC, art. 1.239: a modalidade dispensa justo título e boa-fé, mas soma requisitos — 5 anos + até 50ha + produtividade pelo trabalho + moradia + não ser proprietário de outro imóvel (rural ou urbano). Lembre a exceção absoluta: imóveis PÚBLICOS não se adquirem por usucapião (CF, arts. 183, §3º, e 191, parágrafo único)."
+            },
+            {
+              id: "dr-3", modo: "lei", fonte: "CC, art. 1.238, parágrafo único",
+              enunciado: "Na usucapião extraordinária, o prazo de quinze anos cai para dez quando:",
+              alternativas: [
+                "o possuidor tiver justo título registrado",
+                "o imóvel for público e estiver abandonado",
+                "houver autorização expressa do antigo proprietário",
+                "o possuidor houver estabelecido no imóvel sua moradia habitual, ou nele realizado obras ou serviços de caráter produtivo — sempre independentemente de justo título e boa-fé",
+                "o possuidor for pessoa idosa ou com deficiência"
+              ],
+              correta: 3,
+              explicacao: "Art. 1.238, parágrafo único, do CC. A usucapião extraordinária dispensa justo título e boa-fé nas duas faixas (15 ou 10 anos com posse-trabalho). Não confunda: a ORDINÁRIA (art. 1.242) exige justo título e boa-fé (10 anos, reduzíveis a 5), e a especial urbana (art. 1.240) exige 5 anos + 250m² + moradia + não ter outro imóvel."
+            },
+            {
+              id: "dr-4", modo: "juris", fonte: "Lei 8.009/90, art. 3º, VII; STF, Tema 1127",
+              enunciado: "Quanto à penhora do bem de família do FIADOR de contrato de locação:",
+              alternativas: [
+                "é vedada em qualquer hipótese, por atingir o direito à moradia",
+                "só é válida na locação residencial",
+                "só é válida na locação comercial",
+                "é válida tanto na locação residencial quanto na comercial, por expressa exceção legal à impenhorabilidade, como decidiu o STF — exceção que NÃO se estende ao bem de família do próprio locatário devedor",
+                "alcança inclusive o imóvel residencial do locatário inadimplente"
+              ],
+              correta: 3,
+              explicacao: "Art. 3º, VII, da Lei 8.009/90 excepciona a impenhorabilidade por obrigação decorrente de fiança em locação. O STF (Tema 1127, RE 1.307.334) declarou constitucional a penhora do bem de família do fiador em locação residencial OU comercial. O paradoxo é assumido pela jurisprudência: o fiador pode perder a moradia; o locatário devedor principal, não."
+            },
+            {
+              id: "dr-5", modo: "lei", fonte: "CC, art. 1.510-A",
+              enunciado: "O direito real de laje:",
+              alternativas: [
+                "atribui ao titular da laje fração ideal do terreno e das demais áreas da construção-base",
+                "constitui unidade imobiliária AUTÔNOMA na projeção da construção-base (espaço aéreo ou subsolo), com abertura de matrícula própria — sem atribuir ao lajeário fração ideal do terreno",
+                "é mera detenção tolerada pelo proprietário da construção-base",
+                "pressupõe a instituição formal de condomínio edilício",
+                "não pode ser alienado nem gravado pelo seu titular"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.510-A do CC (incluído pela Lei 13.465/2017): o titular da laje pode usar, gozar e dispor de unidade distinta daquela da construção-base, com matrícula própria (§3º). O §4º é a pegadinha clássica: a instituição da laje NÃO implica atribuição de fração ideal de terreno. Instituto criado para a realidade das comunidades — tema caro à Defensoria."
+            },
+            {
+              id: "dr-6", modo: "lei", fonte: "CC, art. 1.210, §§1º e 2º",
+              enunciado: "Sobre a autotutela e a defesa da posse:",
+              alternativas: [
+                "o desforço imediato pode ser exercido a qualquer tempo depois do esbulho",
+                "somente o proprietário pode valer-se do desforço possessório",
+                "a alegação de propriedade impede a reintegração do possuidor não proprietário",
+                "a autotutela da posse é vedada no direito brasileiro",
+                "o possuidor turbado ou esbulhado pode manter-se ou restituir-se por força própria, desde que o faça LOGO e sem ir além do indispensável — e a alegação de propriedade NÃO obsta a manutenção ou reintegração"
+              ],
+              correta: 4,
+              explicacao: "Art. 1.210, §1º, do CC: a reação deve ser imediata (contanto que o faça logo) e proporcional (atos que não vão além do indispensável). §2º: não obsta à manutenção ou reintegração a alegação de propriedade ou de outro direito sobre a coisa — é a separação entre os juízos possessório e petitório."
+            },
+            {
+              id: "dr-7", modo: "lei", fonte: "CPC, arts. 554, §1º, e 565",
+              enunciado: "Em ação possessória proposta contra grande número de pessoas (litígio coletivo pela posse):",
+              alternativas: [
+                "todos os ocupantes devem ser citados pessoalmente, sob pena de nulidade",
+                "a citação é dispensada em razão da urgência da medida",
+                "serão citados pessoalmente os ocupantes encontrados no local e por edital os demais, com intimação do Ministério Público e — se houver pessoas em situação de hipossuficiência econômica — da DEFENSORIA PÚBLICA",
+                "o processo corre sem participação do MP ou da Defensoria",
+                "o juiz nomeia administrador provisório para representar os ocupantes"
+              ],
+              correta: 2,
+              explicacao: "Art. 554, §1º, do CPC. E quando o esbulho ou turbação coletivos tiverem mais de ano e dia (força velha), o art. 565 impõe audiência de mediação prévia à concessão da liminar, também com intimação da Defensoria Pública se houver hipossuficientes (§2º) — dispositivos centrais para a defesa possessória de comunidades vulneráveis."
+            }
+          ]
+        }
+      ]
+    },
+
+    /* ---------------------------------- PROCESSO DE CONHECIMENTO (CPC) */
+    {
+      id: "proc-conhecimento",
+      titulo: "Conhecimento, Gratuidade e Tutelas",
+      materia: "Direito Processual Civil",
+      banca: "I",
+      icone: "⚖️",
+      cor: "ciano",
+      descricao: "Gratuidade de justiça, curadoria especial, revelia, ônus da prova e tutela provisória.",
+      licoes: [
+        {
+          id: "proc-conhecimento-1",
+          titulo: "Gratuidade, curadoria especial e tutelas",
+          questoes: [
+            {
+              id: "gj-1", modo: "lei", fonte: "CPC, art. 99, §3º; STJ, Súmula 481",
+              enunciado: "Quanto à concessão da gratuidade de justiça:",
+              alternativas: [
+                "a alegação de insuficiência gera presunção de veracidade para qualquer requerente, inclusive empresas",
+                "somente quem recebe até um salário mínimo tem direito ao benefício",
+                "a pessoa jurídica jamais faz jus à gratuidade",
+                "o benefício exige prévio atendimento pela Defensoria Pública",
+                "presume-se verdadeira a alegação de insuficiência deduzida por pessoa NATURAL; a pessoa jurídica pode obter o benefício, mas precisa DEMONSTRAR a impossibilidade de arcar com os encargos"
+              ],
+              correta: 4,
+              explicacao: "Art. 99, §3º, do CPC: a presunção (relativa) vale só para pessoa natural. Para pessoa jurídica — com ou sem fins lucrativos — o ônus de demonstrar é dela (Súmula 481 do STJ). Antes de indeferir, o juiz deve permitir a comprovação (art. 99, §2º). E não confunda: gratuidade judiciária e assistência jurídica pela Defensoria são institutos distintos."
+            },
+            {
+              id: "gj-2", modo: "lei", fonte: "CPC, art. 98, §§2º e 3º",
+              enunciado: "O beneficiário da gratuidade de justiça que perde a causa:",
+              alternativas: [
+                "fica isento da condenação em custas e honorários advocatícios",
+                "é condenado nas verbas de sucumbência, mas a EXIGIBILIDADE fica suspensa: o credor só pode executá-las se demonstrar, em até CINCO anos, que cessou a insuficiência de recursos — após o quê as obrigações se extinguem",
+                "paga apenas metade dos honorários fixados",
+                "tem a dívida cancelada automaticamente na sentença",
+                "responde com bens futuros a qualquer tempo, sem limite temporal"
+              ],
+              correta: 1,
+              explicacao: "Art. 98, §§2º e 3º, do CPC: a gratuidade NÃO afasta a responsabilidade pela sucumbência — apenas suspende a exigibilidade pelo prazo de 5 anos, extinguindo-se as obrigações se o credor não demonstrar a mudança da situação econômica. Pegadinha clássica: dizer que o beneficiário 'não é condenado' torna a alternativa errada."
+            },
+            {
+              id: "gj-3", modo: "lei", fonte: "CPC, art. 72",
+              enunciado: "O juiz nomeará curador especial ao:",
+              alternativas: [
+                "réu revel que foi citado pessoalmente e simplesmente não contestou",
+                "autor beneficiário da gratuidade de justiça",
+                "incapaz sem representante legal (ou com interesses colidentes com os dele) e ao réu PRESO revel, bem como ao revel citado por EDITAL ou com hora certa, enquanto não constituir advogado — curatela exercida pela Defensoria Pública",
+                "réu que constituir advogado particular no curso do prazo",
+                "executado que tiver bens penhorados"
+              ],
+              correta: 2,
+              explicacao: "Art. 72, I e II, e parágrafo único do CPC: a curatela especial é função institucional da Defensoria Pública. O detalhe que derruba candidatos: o réu revel citado PESSOALMENTE não recebe curador — a proteção existe para a citação ficta (edital/hora certa) e para o réu preso revel."
+            },
+            {
+              id: "gj-4", modo: "lei", fonte: "CPC, arts. 344 a 346",
+              enunciado: "Sobre os efeitos da revelia:",
+              alternativas: [
+                "gera presunção absoluta de veracidade dos fatos alegados pelo autor",
+                "implica automática procedência do pedido",
+                "impede o revel de intervir no processo",
+                "a presunção de veracidade é RELATIVA e nem sempre opera: não incide, por exemplo, se o litígio versar sobre direitos indisponíveis ou se, havendo pluralidade de réus, algum deles contestar",
+                "atinge inclusive o réu defendido por curador especial que apresentou contestação"
+              ],
+              correta: 3,
+              explicacao: "Art. 344 (presunção de veracidade) temperado pelo art. 345: a presunção não opera havendo contestação de litisconsorte (I), direitos indisponíveis (II), exigência de prova por instrumento público (III) ou alegações inverossímeis/contrariadas pela prova (IV). O revel pode intervir a qualquer tempo (art. 346, p.ú.), e a contestação do curador especial afasta os efeitos materiais da revelia."
+            },
+            {
+              id: "gj-5", modo: "lei", fonte: "CPC, art. 373, §§1º e 2º",
+              enunciado: "A distribuição dinâmica do ônus da prova:",
+              alternativas: [
+                "pode ser determinada livremente pelo juiz, sem fundamentação específica",
+                "é cabível nos casos legais ou diante da impossibilidade/excessiva dificuldade de provar ou da maior facilidade da parte contrária — por decisão FUNDAMENTADA e prévia, com chance de desincumbência, vedado tornar a prova impossível ou excessivamente difícil para quem recebe o encargo",
+                "aplica-se exclusivamente às relações de consumo",
+                "pode ocorrer na própria sentença, ainda que surpreenda a parte onerada",
+                "é vedada no processo civil brasileiro"
+              ],
+              correta: 1,
+              explicacao: "Art. 373, §1º, do CPC. O §2º proíbe a chamada prova diabólica reversa. A decisão deve vir antes da fase instrutória, dando à parte a oportunidade de se desincumbir. Não confunda com a inversão do CDC (art. 6º, VIII — ope judicis, exige verossimilhança OU hipossuficiência) nem com as inversões ope legis (ex.: CDC, arts. 12, §3º, e 14, §3º)."
+            },
+            {
+              id: "gj-6", modo: "lei", fonte: "CPC, arts. 300 e 311",
+              enunciado: "Sobre a distinção entre tutela de urgência e tutela da evidência:",
+              alternativas: [
+                "ambas exigem a demonstração de perigo de dano",
+                "a tutela da evidência só pode ser concedida na sentença",
+                "a tutela de urgência dispensa a probabilidade do direito",
+                "a de urgência exige probabilidade do direito E perigo de dano ou risco ao resultado útil; a da EVIDÊNCIA dispensa o perigo — cabendo, por exemplo, quando as alegações têm prova documental e tese firmada em precedentes obrigatórios, hipótese que admite liminar",
+                "a tutela da evidência não se sujeita a contraditório posterior"
+              ],
+              correta: 3,
+              explicacao: "Art. 300 (urgência: probabilidade + perigo) versus art. 311 (evidência: independentemente da demonstração de perigo). Nas hipóteses dos incisos II e III do art. 311, o juiz pode decidir liminarmente (parágrafo único). Na urgência, ainda: caução facultativa (§1º) e vedação quando houver perigo de irreversibilidade (§3º)."
+            },
+            {
+              id: "gj-7", modo: "lei", fonte: "CPC, art. 304",
+              enunciado: "A tutela antecipada concedida em caráter antecedente:",
+              alternativas: [
+                "faz coisa julgada material se não for impugnada",
+                "perde a eficácia automaticamente em trinta dias",
+                "torna-se ESTÁVEL se não interposto o respectivo recurso, com extinção do processo — mas a estabilidade NÃO se confunde com coisa julgada, e qualquer das partes pode rever a decisão em ação própria no prazo de dois anos",
+                "não pode ser revista em nenhuma hipótese",
+                "depende de caução para se estabilizar"
+              ],
+              correta: 2,
+              explicacao: "Art. 304, caput e §§2º a 6º, do CPC: estabilização sem coisa julgada (§6º), com ação autônoma de revisão em 2 anos (§5º). O STJ abranda o texto: não só o agravo, mas qualquer impugnação tempestiva do réu (como a contestação) impede a estabilização (REsp 1.760.966)."
+            }
+          ]
+        }
+      ]
+    },
+
     /* ---------------------------------- 4. EXECUÇÃO E IMPENHORABILIDADE (CPC) */
     {
       id: "impenhorabilidade",
       titulo: "Execução e Impenhorabilidade",
       materia: "Direito Processual Civil",
+      banca: "I",
       icone: "💸",
       cor: "azul",
       descricao: "Letra de lei pura: bens impenhoráveis, exceções e ordem de penhora.",
@@ -682,6 +1016,7 @@ window.APP_DATA = {
       id: "cdc-responsabilidade",
       titulo: "CDC — Responsabilidade e Prazos",
       materia: "Direito do Consumidor",
+      banca: "I",
       icone: "🛒",
       cor: "laranja",
       descricao: "Fato x vício, prazos de decadência/prescrição e arrependimento.",
@@ -859,6 +1194,7 @@ window.APP_DATA = {
       id: "planos-saude",
       titulo: "Planos de Saúde",
       materia: "Direito do Consumidor",
+      banca: "I",
       icone: "🏥",
       cor: "ciano",
       descricao: "Súmulas do STJ, cláusulas abusivas e cobertura (rol da ANS, TEA).",
@@ -1135,6 +1471,90 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Arts. 142, parágrafo único, do ECA e 72, I, do CPC: dá-se curador especial ao incapaz sempre que seus interesses colidirem com os do representante ou faltar representação. Essa curatela especial é função institucional da Defensoria Pública (art. 4º, XVI, da LC 80/94)."
+            }
+          ]
+        },
+        {
+          id: "infancia-idoso-2",
+          titulo: "Escuta protegida, Henry Borel e pessoa idosa",
+          questoes: [
+            {
+              id: "vid-1", modo: "lei", fonte: "Lei 13.431/2017, arts. 7º, 8º e 11",
+              enunciado: "Na proteção de crianças e adolescentes vítimas ou testemunhas de violência, distinguem-se:",
+              alternativas: [
+                "escuta especializada e depoimento especial, ambos colhidos exclusivamente pelo juiz",
+                "a ESCUTA ESPECIALIZADA, realizada por órgão da rede de proteção e LIMITADA ao estritamente necessário, e o DEPOIMENTO ESPECIAL, colhido perante autoridade policial ou judiciária como meio de prova, em rito próprio e acolhedor",
+                "a escuta especializada, que serve de prova judicial, e o depoimento especial, de finalidade meramente protetiva",
+                "inquirição comum e acareação com o suposto agressor",
+                "dois procedimentos idênticos, com nomes distintos"
+              ],
+              correta: 1,
+              explicacao: "Arts. 7º e 8º da Lei 13.431/2017. O depoimento especial segue procedimento protetivo (art. 12): local apropriado, gravação, vedação de contato com o acusado. Regra de ouro (art. 11): será realizado UMA única vez e como produção antecipada de prova quando a vítima tiver menos de 7 anos ou em caso de violência sexual — para evitar a revitimização."
+            },
+            {
+              id: "vid-2", modo: "lei", fonte: "Lei 14.344/2022 (Lei Henry Borel), arts. 16 e 20",
+              enunciado: "Segundo a Lei Henry Borel (violência doméstica e familiar contra criança e adolescente):",
+              alternativas: [
+                "as medidas protetivas de urgência dependem de prévia audiência do agressor",
+                "somente o Ministério Público pode requerer medidas protetivas",
+                "a lei alcança apenas agressões praticadas pelos pais",
+                "as medidas protetivas de urgência podem ser concedidas de IMEDIATO, independentemente de audiência das partes; havendo risco atual ou iminente, o afastamento do agressor do lar pode ser determinado até pelo delegado ou policial, quando o município não for sede de comarca",
+                "as medidas aplicam-se somente a casos de violência sexual"
+              ],
+              correta: 3,
+              explicacao: "A Lei 14.344/2022 espelha a Maria da Penha: medidas protetivas imediatas, sem audiência prévia das partes (art. 20), e afastamento emergencial do lar decidido por delegado ou policial onde não houver comarca instalada, com comunicação ao juiz em 24 horas (art. 16). A violência pode partir de qualquer pessoa do convívio doméstico ou familiar."
+            },
+            {
+              id: "vid-3", modo: "lei", fonte: "Estatuto da Pessoa Idosa, arts. 12 e 14",
+              enunciado: "Quanto aos alimentos devidos à pessoa idosa:",
+              alternativas: [
+                "seguem a regra do Código Civil, em que a obrigação entre parentes é divisível",
+                "a obrigação alimentar é SOLIDÁRIA, e a pessoa idosa pode optar entre os prestadores — exceção à regra geral do Código Civil, que consagra a divisibilidade",
+                "somente podem ser cobrados dos filhos que residem com a pessoa idosa",
+                "excluem qualquer responsabilidade do Poder Público",
+                "dependem da prova de abandono material pelos familiares"
+              ],
+              correta: 1,
+              explicacao: "Art. 12 do Estatuto (Lei 10.741/2003): a obrigação alimentar é solidária, podendo a pessoa idosa optar entre os prestadores — pode demandar apenas o filho com melhores condições, sem litisconsórcio necessário. No CC a regra é outra (arts. 1.696-1.698: divisibilidade e chamamento). Se nem a pessoa idosa nem a família têm condições, a obrigação é do Poder Público, no âmbito da assistência social (art. 14)."
+            },
+            {
+              id: "vid-4", modo: "juris", fonte: "Estatuto da Pessoa Idosa, art. 15, §3º; STJ, Tema 952",
+              enunciado: "Nos planos de saúde, em relação à pessoa idosa:",
+              alternativas: [
+                "a operadora pode recusar a admissão de beneficiário em razão da idade avançada",
+                "o reajuste por faixa etária é sempre inválido, em qualquer idade",
+                "é VEDADA a discriminação com cobrança de valores diferenciados em razão da idade; o STJ, porém, admite o reajuste na última faixa etária (59 anos) se houver previsão contratual clara, conformidade com as normas da ANS e percentuais razoáveis",
+                "a vedação de discriminação só alcança planos coletivos empresariais",
+                "a mensalidade fica congelada aos 60 anos, vedado inclusive o reajuste anual"
+              ],
+              correta: 2,
+              explicacao: "Art. 15, §3º, do Estatuto: é vedada a discriminação da pessoa idosa pela cobrança de valores diferenciados em razão da idade. Por isso as faixas etárias da ANS terminam aos 59 anos. O STJ (Tema 952) valida o reajuste da última faixa quando previsto em cláusula clara, conforme as normas regulamentares e sem percentuais desarrazoados — o reajuste anual ordinário continua lícito."
+            },
+            {
+              id: "vid-5", modo: "lei", fonte: "Estatuto da Pessoa Idosa, arts. 43 e 45",
+              enunciado: "As medidas de proteção à pessoa idosa são aplicáveis quando seus direitos forem ameaçados ou violados:",
+              alternativas: [
+                "somente por ação ou omissão da sociedade ou do Estado",
+                "apenas quando houver violência física comprovada",
+                "exclusivamente a requerimento da própria pessoa idosa",
+                "mediante prévia sentença condenatória do agressor",
+                "por ação ou omissão da sociedade ou do Estado, por falta, omissão ou ABUSO DA FAMÍLIA, curador ou entidade de atendimento, ou ainda em razão da própria CONDIÇÃO PESSOAL da pessoa idosa"
+              ],
+              correta: 4,
+              explicacao: "Art. 43 do Estatuto — rol que inclui a violação praticada pela própria família e a situação de vulnerabilidade pessoal. O art. 45 traz as medidas (encaminhamento à família, requisição de tratamento, inclusão em programa de auxílio, abrigo em entidade etc.), campo típico de atuação protetiva da Defensoria."
+            },
+            {
+              id: "vid-6", modo: "lei", fonte: "Estatuto da Pessoa Idosa, art. 95; CP, art. 183, III",
+              enunciado: "Os crimes definidos no Estatuto da Pessoa Idosa:",
+              alternativas: [
+                "são de ação penal pública condicionada à representação da vítima",
+                "dependem de queixa-crime da pessoa idosa ou de seu curador",
+                "admitem as imunidades familiares dos arts. 181 e 182 do Código Penal",
+                "são de ação penal pública INCONDICIONADA — e as escusas absolutórias entre familiares não se aplicam nos crimes patrimoniais contra maiores de 60 anos",
+                "somente se processam mediante requisição do Ministério da Justiça"
+              ],
+              correta: 3,
+              explicacao: "Art. 95 do Estatuto: ação penal pública incondicionada. E o art. 183, III, do CP afasta as imunidades dos arts. 181/182 quando a vítima tem 60 anos ou mais: o filho ou cônjuge que pratica crime patrimonial contra a pessoa idosa responde normalmente — chave para enfrentar a violência patrimonial e financeira intrafamiliar."
             }
           ]
         }
