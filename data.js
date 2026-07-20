@@ -214,6 +214,103 @@ window.APP_DATA = {
               explicacao: "A deserdação só pode ser ordenada em testamento, com expressa declaração da causa (art. 1.964), e as causas são taxativas (arts. 1.962 e 1.963). Sem testamento válido indicando a causa legal, não há deserdação."
             }
           ]
+        },
+        {
+          id: "sucessoes-2",
+          titulo: "Renúncia, exclusão, colação e inventário",
+          questoes: [
+            {
+              id: "suc2-1", modo: "lei", fonte: "CC, arts. 1.804 e 1.806",
+              enunciado: "Sobre a renúncia da herança, é correto afirmar que:",
+              alternativas: [
+                "pode ser feita verbalmente perante o inventariante e duas testemunhas",
+                "deve constar expressamente de instrumento público ou termo judicial, presumindo-se que o renunciante nunca foi herdeiro, com efeitos retroativos à abertura da sucessão",
+                "admite condição ou termo, desde que aprovados pelo juiz",
+                "pode ser parcial, limitada a alguns bens da herança",
+                "retira o quinhão do renunciante, que passa a integrar a meação do cônjuge"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.806: a renúncia exige forma solene (escritura pública ou termo nos autos), não admitindo forma verbal. Art. 1.804, parágrafo único: renunciada a herança, tem-se o renunciante por nunca havê-la possuído — efeito retroativo. E a renúncia é ato indivisível: não cabe renúncia parcial nem sob condição/termo (art. 1.808)."
+            },
+            {
+              id: "suc2-2", modo: "lei", fonte: "CC, arts. 1.810 e 1.811",
+              enunciado: "Quando o herdeiro renuncia à herança, o direito de representação em favor de seus descendentes:",
+              alternativas: [
+                "opera normalmente, herdando os netos por representação do renunciante",
+                "não se aplica: ninguém pode suceder representando herdeiro renunciante, mas os filhos do renunciante podem herdar por direito próprio (por cabeça), se forem os únicos da classe, ou por sua conta",
+                "fica suspenso até a partilha final dos bens",
+                "transfere-se automaticamente ao cônjuge do renunciante",
+                "depende de autorização judicial específica"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.811: não se representa o renunciante — a representação existe na premoriência e na exclusão por indignidade/deserdação, não na renúncia. Mas os descendentes do renunciante não ficam desamparados: podem herdar por direito próprio e por cabeça (art. 1.810), se chamados na sua classe. Diferença fina que a FGV explora."
+            },
+            {
+              id: "suc2-3", modo: "lei", fonte: "CC, arts. 1.814 e 1.816",
+              enunciado: "Sobre a exclusão do herdeiro por indignidade:",
+              alternativas: [
+                "opera automaticamente com a prática do ato, independentemente de sentença",
+                "depende de sentença em ação própria, e seus efeitos são pessoais: os descendentes do excluído herdam por representação, como se ele fosse morto",
+                "atinge também os descendentes do indigno, que ficam privados da herança",
+                "só pode ser pedida pelo Ministério Público",
+                "impede o excluído de administrar os bens que os filhos herdarem em seu lugar"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.815: a exclusão exige sentença (ação em até 4 anos da abertura da sucessão). Art. 1.816: os efeitos são pessoais — os descendentes do indigno herdam por representação, como se ele fosse morto antes da abertura. Ressalva importante: o excluído não terá direito ao usufruto ou à administração dos bens que couberem a seus filhos, nem à sucessão eventual deles (parágrafo único)."
+            },
+            {
+              id: "suc2-4", modo: "lei", fonte: "CC, arts. 2.002 e 2.003",
+              enunciado: "A colação, no inventário, consiste no dever de:",
+              alternativas: [
+                "trazer à partilha todos os bens do espólio, inclusive os já vendidos",
+                "os descendentes que concorrem à sucessão conferirem o valor das doações que receberam em vida do ascendente, para igualar as legítimas dos herdeiros necessários",
+                "pagar as dívidas do falecido antes de qualquer partilha",
+                "reservar a quota do herdeiro ausente até seu aparecimento",
+                "restituir em espécie todos os bens doados, sob pena de sonegação"
+              ],
+              correta: 1,
+              explicacao: "Arts. 2.002 a 2.003: colação é o retorno (conferência) do valor das doações feitas em vida aos descendentes, para igualar as legítimas. Presume-se que a doação de pais a filhos é adiantamento da legítima (art. 544). Fica dispensada a colação quando o doador determinou que a doação saísse da parte disponível (art. 2.005). Pela regra atual (art. 2.004), colaciona-se o valor ao tempo da doação, não o bem em espécie."
+            },
+            {
+              id: "suc2-5", modo: "lei", fonte: "CC, art. 1.992",
+              enunciado: "O herdeiro que sonega bens da herança — ocultando-os dolosamente do inventário — sofre a pena de:",
+              alternativas: [
+                "multa de dez por cento sobre o valor dos bens ocultados",
+                "perder o direito que sobre os bens sonegados lhe cabia, além de responder pela sua restituição ou pelo equivalente",
+                "responder criminalmente, sem qualquer efeito sucessório",
+                "ter suspensa a sua condição de herdeiro por cinco anos",
+                "pagar em dobro o valor dos bens, revertido ao Estado"
+              ],
+              correta: 1,
+              explicacao: "Art. 1.992: a pena de sonegados é a perda do direito sobre os bens sonegados (não sobre toda a herança). Se o sonegador for o inventariante, será removido (art. 1.993). A pena só se aplica após a declaração de que não existem outros bens a inventariar — antes disso, não há sonegação caracterizada (STJ)."
+            },
+            {
+              id: "suc2-6", modo: "lei", fonte: "CPC, art. 610, §1º; CC, art. 2.015",
+              enunciado: "O inventário e a partilha podem ser feitos por escritura pública, em cartório, quando:",
+              alternativas: [
+                "houver herdeiro menor, desde que assistido pelos pais",
+                "todos os interessados forem capazes e concordes e não houver testamento — hipótese em que a via extrajudicial é uma faculdade, e não obrigatória",
+                "o valor do espólio não ultrapassar mil salários mínimos",
+                "houver acordo dos herdeiros, ainda que exista incapaz entre eles",
+                "o inventariante requerer, independentemente de consenso"
+              ],
+              correta: 1,
+              explicacao: "Art. 610, §1º, do CPC: escritura pública se todos capazes e concordes e sem testamento — com participação obrigatória de advogado. É via facultativa (o STJ admite inclusive inventário extrajudicial havendo testamento, se todos capazes/concordes e com autorização judicial ou do juízo sucessório). Havendo incapaz ou litígio, a via judicial é obrigatória."
+            },
+            {
+              id: "suc2-7", modo: "juris", fonte: "CC, art. 1.829, I; STJ, REsp 1.368.123",
+              enunciado: "No regime da comunhão parcial de bens, concorrendo o cônjuge sobrevivente com os descendentes, o cônjuge:",
+              alternativas: [
+                "herda em concorrência sobre todos os bens deixados pelo falecido",
+                "não concorre com os descendentes, ficando apenas com a meação",
+                "concorre com os descendentes apenas quanto aos bens particulares do falecido, não sobre os bens comuns (dos quais já é meeiro)",
+                "concorre apenas sobre os bens comuns, ficando os particulares só com os descendentes",
+                "herda a totalidade dos bens, excluindo os descendentes"
+              ],
+              correta: 2,
+              explicacao: "Art. 1.829, I: na comunhão parcial, havendo bens particulares do falecido, o cônjuge concorre com os descendentes SOBRE ESSES bens particulares (posição consolidada no STJ, REsp 1.368.123). Sobre os bens comuns ele já tem a meação — não herda em concorrência. É um dos pontos mais cobrados de sucessões: separar meação (metade que já é do cônjuge) de herança (concorrência sobre os particulares)."
+            }
+          ]
         }
       ]
     },
@@ -1018,6 +1115,45 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Art. 835, I e § 1º, do CPC: a penhora observa preferencialmente a ordem legal, e o dinheiro (em espécie ou em depósito/aplicação) tem prioridade — é considerado prioritário sobre os demais bens da lista."
+            },
+            {
+              id: "exe-1", modo: "juris", fonte: "CPC, art. 139, IV; STJ/STF (ADI 5941)",
+              enunciado: "Sobre as medidas executivas atípicas (art. 139, IV, do CPC), como apreensão de passaporte ou suspensão de CNH do devedor:",
+              alternativas: [
+                "são inconstitucionais, por violarem o direito de ir e vir",
+                "podem ser adotadas de ofício, sem contraditório, em qualquer execução",
+                "são admissíveis de forma subsidiária e excepcional, mediante decisão fundamentada, respeitados o contraditório e a proporcionalidade, quando esgotados os meios típicos e havendo indícios de que o devedor oculta patrimônio",
+                "substituem a penhora, dispensando a busca de bens do executado",
+                "só cabem na execução de alimentos"
+              ],
+              correta: 2,
+              explicacao: "O STF (ADI 5941) declarou a constitucionalidade das medidas atípicas do art. 139, IV. Não são automáticas: exigem esgotamento dos meios típicos, contraditório prévio, fundamentação idônea e proporcionalidade. O STJ veda o uso como punição ou quando o devedor comprovadamente não tem patrimônio — a medida deve ter aptidão para coagir ao pagamento, não apenas restringir direitos."
+            },
+            {
+              id: "exe-2", modo: "lei", fonte: "CPC, arts. 525 e 917",
+              enunciado: "No cumprimento de sentença, a defesa típica do executado é a impugnação; na execução de título extrajudicial, os embargos. Sobre elas:",
+              alternativas: [
+                "ambas exigem a garantia prévia do juízo (penhora ou depósito) para serem admitidas",
+                "nenhuma das duas depende de garantia do juízo, mas apenas os embargos à execução têm, em regra, matéria de defesa mais ampla",
+                "a impugnação ao cumprimento de sentença independe de garantia do juízo, ao passo que os embargos à execução também dispensam garantia — e ambas, em regra, não têm efeito suspensivo automático",
+                "os embargos exigem garantia; a impugnação, não",
+                "a impugnação suspende automaticamente a execução; os embargos, não"
+              ],
+              correta: 2,
+              explicacao: "Desde o CPC/2015, nem a impugnação (art. 525) nem os embargos (art. 914) exigem garantia do juízo para serem opostos. E nenhuma tem efeito suspensivo automático: ele depende de requerimento, garantia e demonstração de dano (arts. 525, §6º, e 919, §1º). Não confundir com a objeção de pré-executividade, que independe de embargos e cabe para matérias de ordem pública conhecíveis de ofício, sem dilação probatória (Súmula 393/STJ)."
+            },
+            {
+              id: "exe-3", modo: "lei", fonte: "CPC, arts. 528, §7º, e 833, IV; CF, art. 5º, LXVII",
+              enunciado: "Sobre a execução de alimentos pelo rito da penhora (expropriação), diferente do rito da prisão:",
+              alternativas: [
+                "não admite penhora de salário, pois é verba absolutamente impenhorável",
+                "admite a penhora de parte da remuneração do devedor, pois a impenhorabilidade do salário é excepcionada quando se trata de pagamento de prestação alimentícia, qualquer que seja sua origem",
+                "só permite penhora de bens imóveis do devedor",
+                "exige a prisão civil como etapa prévia obrigatória",
+                "impede qualquer constrição sobre a conta bancária do devedor"
+              ],
+              correta: 1,
+              explicacao: "Art. 833, IV, protege salários e proventos, MAS o § 2º excepciona o pagamento de prestação alimentícia, independentemente de sua origem — e a Corte Especial do STJ admite a penhora de percentual razoável da remuneração mesmo para dívidas não alimentares, conforme o caso concreto. O rito da prisão (art. 528, §7º) alcança as 3 últimas parcelas + vincendas; o rito da penhora serve para o débito pretérito."
             }
           ]
         }
@@ -1529,6 +1665,77 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Súmula 479/STJ: fraudes e delitos de terceiros em operações bancárias são FORTUITO INTERNO — risco da atividade — e geram responsabilidade objetiva (CDC, art. 14). A válvula de escape é a culpa exclusiva da vítima (art. 14, §3º, II): em golpes de engenharia social em que o próprio cliente entrega senha e cartão, o STJ tem afastado o dever de indenizar, conforme as circunstâncias."
+            }
+          ]
+        },
+        {
+          id: "relacao-consumo-3",
+          titulo: "Publicidade, oferta e práticas abusivas",
+          questoes: [
+            {
+              id: "pub-1", modo: "lei", fonte: "CDC, art. 37, §§1º e 2º",
+              enunciado: "Sobre a distinção entre publicidade enganosa e abusiva no CDC:",
+              alternativas: [
+                "ambas exigem a prova da intenção de enganar do fornecedor",
+                "enganosa é a informação falsa ou capaz de induzir o consumidor em erro; abusiva é, entre outras, a discriminatória, a que incita à violência ou se aproveita da deficiência de julgamento da criança — e a enganosa por omissão ocorre quando se deixa de informar dado essencial",
+                "só a publicidade enganosa é vedada; a abusiva é mera infração ética",
+                "a publicidade abusiva depende de dano efetivo ao consumidor para ser ilícita",
+                "a enganosa se refere ao preço e a abusiva apenas à qualidade do produto"
+              ],
+              correta: 1,
+              explicacao: "Art. 37: §1º define a enganosa (informação falsa ou que induza em erro, comissiva ou por omissão de dado essencial — §3º); §2º define a abusiva (discriminatória, que incite violência, explore medo/superstição, se aproveite da criança, desrespeite valores ambientais etc.). A responsabilidade é OBJETIVA — independe de intenção de enganar. O ônus de provar a veracidade da informação é do fornecedor (art. 38)."
+            },
+            {
+              id: "pub-2", modo: "lei", fonte: "CDC, art. 39, I",
+              enunciado: "A chamada 'venda casada' — condicionar o fornecimento de produto ou serviço ao de outro — é prática:",
+              alternativas: [
+                "lícita, se houver desconto na aquisição conjunta",
+                "abusiva e vedada, salvo quando houver limites justificáveis ou o fornecimento estiver condicionado por lei",
+                "permitida entre instituições financeiras e seus clientes",
+                "válida desde que informada previamente ao consumidor",
+                "vedada apenas quando envolver produtos de valor superior a um salário mínimo"
+              ],
+              correta: 1,
+              explicacao: "Art. 39, I: é vedado condicionar o fornecimento de produto/serviço ao de outro, ou a limites quantitativos, sem justa causa. A ressalva do próprio inciso ('sem justa causa') permite limites razoáveis (ex.: quantidade máxima em promoção). Exemplo clássico no STJ: exigir a contratação de seguro para conceder empréstimo com a seguradora do próprio banco caracteriza venda casada."
+            },
+            {
+              id: "pub-3", modo: "lei", fonte: "CDC, art. 39, III e parágrafo único",
+              enunciado: "O consumidor recebe em casa um produto que não solicitou, acompanhado de cobrança. Nesse caso:",
+              alternativas: [
+                "deve devolver o produto às suas custas e pagar o valor cobrado",
+                "o envio de produto sem solicitação prévia é prática abusiva, e a amostra equipara-se a amostra grátis: o consumidor pode ficar com o produto sem obrigação de pagar",
+                "tem trinta dias para devolver, sob pena de aceitação tácita",
+                "deve pagar apenas o valor do frete de devolução",
+                "fica obrigado a pagar se não recusar por escrito em cinco dias"
+              ],
+              correta: 1,
+              explicacao: "Art. 39, III (envio de produto/serviço sem solicitação prévia é prática abusiva) c/c parágrafo único: os serviços prestados e os produtos remetidos sem solicitação equiparam-se a amostras grátis, inexistindo obrigação de pagamento. O consumidor não precisa devolver nem pagar. Aplicável hoje também a serviços 'empurrados' e cobranças automáticas não autorizadas."
+            },
+            {
+              id: "pub-4", modo: "lei", fonte: "CDC, art. 39, V e X",
+              enunciado: "Constitui prática abusiva expressamente vedada pelo CDC:",
+              alternativas: [
+                "conceder desconto para pagamento à vista",
+                "exigir do consumidor vantagem manifestamente excessiva e elevar sem justa causa o preço de produtos ou serviços",
+                "oferecer garantia contratual superior à legal",
+                "informar o preço total parcelado do produto",
+                "recusar orçamento prévio quando solicitado pelo fornecedor"
+              ],
+              correta: 1,
+              explicacao: "Art. 39: são abusivas, entre outras, exigir vantagem manifestamente excessiva (V) e elevar sem justa causa o preço (X). O rol do art. 39 é EXEMPLIFICATIVO ('entre outras práticas abusivas'). Repare no distrator: recusar orçamento é dever do fornecedor prestá-lo (art. 40), não uma prática do consumidor."
+            },
+            {
+              id: "pub-5", modo: "juris", fonte: "CDC, art. 35; STJ",
+              enunciado: "Uma loja anuncia produto em oferta e, procurada, recusa-se a vendê-lo pelo preço anunciado. O consumidor:",
+              alternativas: [
+                "só pode reclamar no órgão de defesa do consumidor",
+                "pode exigir o cumprimento forçado da oferta, aceitar produto equivalente ou rescindir com devolução — cabendo a ele a escolha, pois a oferta precisa vincula o fornecedor",
+                "nada pode exigir, pois a oferta é mero convite a contratar",
+                "deve aceitar necessariamente o produto substituto que a loja indicar",
+                "só tem direito à diferença de preço em relação ao concorrente"
+              ],
+              correta: 1,
+              explicacao: "Arts. 30 e 35: a oferta suficientemente precisa integra o contrato e vincula o fornecedor; recusado o cumprimento, a escolha entre as três opções (cumprimento forçado, produto equivalente ou rescisão com restituição e perdas e danos) é do CONSUMIDOR. Ressalva jurisprudencial: erro grosseiro e evidente (preço irrisório por falha de sistema) não vincula, por ausência de confiança legítima."
             }
           ]
         }
@@ -2176,6 +2383,90 @@ window.APP_DATA = {
               ],
               correta: 3,
               explicacao: "Art. 95 do Estatuto: ação penal pública incondicionada. E o art. 183, III, do CP afasta as imunidades dos arts. 181/182 quando a vítima tem 60 anos ou mais: o filho ou cônjuge que pratica crime patrimonial contra a pessoa idosa responde normalmente — chave para enfrentar a violência patrimonial e financeira intrafamiliar."
+            }
+          ]
+        },
+        {
+          id: "infancia-idoso-3",
+          titulo: "Adoção, acolhimento e educação",
+          questoes: [
+            {
+              id: "ado-1", modo: "lei", fonte: "ECA, arts. 39, §1º, e 50",
+              enunciado: "Sobre a adoção no ECA, é correto afirmar que:",
+              alternativas: [
+                "é medida prioritária, buscada antes da tentativa de manutenção na família natural",
+                "é medida excepcional e irrevogável, à qual se recorre quando esgotados os recursos de manutenção na família natural ou extensa — em regra precedida de habilitação e cadastro dos pretendentes",
+                "pode ser revogada a qualquer tempo pelos pais adotivos",
+                "dispensa o cadastro sempre que os adotantes tiverem boa condição financeira",
+                "só é admitida para casais heterossexuais casados"
+              ],
+              correta: 1,
+              explicacao: "Art. 39, §1º: a adoção é medida EXCEPCIONAL e IRREVOGÁVEL — recorre-se a ela esgotadas as tentativas de manutenção na família natural/extensa (prioridade da convivência familiar, art. 19). Regra: habilitação prévia e cadastro (art. 50). Excepciona-se o cadastro em três hipóteses do §13 (adoção unilateral, por parente com vínculo, ou por quem detém guarda/tutela de criança maior de 3 anos com vínculo afetivo comprovado)."
+            },
+            {
+              id: "ado-2", modo: "juris", fonte: "ECA, art. 50, §13; STJ",
+              enunciado: "Sobre a chamada adoção 'intuitu personae' (dirigida a pessoa determinada, fora da ordem do cadastro):",
+              alternativas: [
+                "é sempre vedada, prevalecendo em qualquer caso a ordem do cadastro",
+                "é livre, podendo os pais biológicos escolher os adotantes sem controle judicial",
+                "não é prevista expressamente, mas o STJ a admite excepcionalmente quando demonstrado o vínculo de afinidade e afetividade já constituído, à luz do melhor interesse da criança, ainda que os pretendentes não estejam no topo do cadastro",
+                "só é admitida para parentes de até segundo grau",
+                "depende exclusivamente da concordância do Ministério Público"
+              ],
+              correta: 2,
+              explicacao: "O cadastro (art. 50) é a regra e resguarda a impessoalidade, mas não é absoluto: o STJ, com base no princípio do melhor interesse e no §13, admite a adoção fora da ordem quando já existe vínculo afetivo consolidado (ex.: criança que vive há tempo com a família), evitando romper laços em nome da mera ordem cronológica. Não confundir com 'adoção à brasileira' (registro de filho alheio como próprio), que é crime (CP, art. 242)."
+            },
+            {
+              id: "ado-3", modo: "lei", fonte: "ECA, art. 46",
+              enunciado: "O estágio de convivência, na adoção:",
+              alternativas: [
+                "é sempre dispensável quando os adotantes já têm outros filhos",
+                "será acompanhado pela equipe interprofissional e terá prazo máximo de noventa dias, prorrogável por igual período — podendo ser dispensado se o adotando já estiver sob a tutela ou guarda legal do adotante por tempo suficiente para avaliar o vínculo",
+                "tem prazo mínimo de um ano, improrrogável",
+                "só existe na adoção internacional",
+                "é substituído automaticamente pela guarda provisória em todos os casos"
+              ],
+              correta: 1,
+              explicacao: "Art. 46: prazo máximo de 90 dias, prorrogável uma vez por igual período mediante decisão fundamentada (§2º-A). Dispensa possível quando já há convivência anterior (tutela/guarda legal) suficiente para aferir o vínculo (§1º) — mas a simples guarda de fato não basta. Na adoção internacional o estágio é obrigatório e cumprido no Brasil (§3º), com prazo mínimo próprio."
+            },
+            {
+              id: "ado-4", modo: "lei", fonte: "ECA, arts. 19, §1º, e 101, §§1º e 10",
+              enunciado: "Sobre o acolhimento institucional e o Plano Individual de Atendimento (PIA):",
+              alternativas: [
+                "o acolhimento é medida definitiva de colocação em família substituta",
+                "o acolhimento é medida provisória e excepcional, reavaliada no máximo a cada três meses, não devendo a permanência exceder dezoito meses, salvo comprovada necessidade — e cabe à equipe elaborar o PIA visando à reintegração familiar",
+                "a criança acolhida não pode ser reintegrada à família de origem",
+                "o PIA é elaborado apenas na adoção internacional",
+                "a reavaliação da medida é anual, feita exclusivamente pelo Conselho Tutelar"
+              ],
+              correta: 1,
+              explicacao: "Art. 19, §1º: reavaliação no máximo a cada 3 meses; art. 19, §2º: permanência em acolhimento não deve exceder 18 meses, salvo necessidade que atenda ao melhor interesse (redação da Lei 13.509/2017). O PIA (art. 101, §§4º a 6º) é elaborado pela equipe do serviço, com prioridade à reintegração familiar. As audiências concentradas (Lei 12.010/2009) revisam periodicamente todas as crianças acolhidas."
+            },
+            {
+              id: "ado-5", modo: "juris", fonte: "CF, art. 208, IV; ECA, art. 54, IV; STF, Tema 548",
+              enunciado: "Sobre o direito à educação infantil (creche e pré-escola) e sua judicialização:",
+              alternativas: [
+                "trata-se de norma programática, insuscetível de exigência judicial",
+                "o atendimento em creche e pré-escola é direito subjetivo, podendo o Judiciário determinar sua efetivação sem que isso viole a separação de poderes ou a reserva do possível",
+                "só pode ser exigido judicialmente após esgotada a via administrativa por dois anos",
+                "depende de disponibilidade orçamentária, cuja alegação afasta a obrigação do ente público",
+                "é dever exclusivo dos pais, não do Estado"
+              ],
+              correta: 1,
+              explicacao: "STF, Tema 548 (RE 1.008.166): a educação infantil (creche até 3 anos e pré-escola de 4-5) é direito subjetivo, e o Judiciário pode impor ao município a criação de vagas, sem ofensa à separação de poderes nem à reserva do possível — que não pode ser invocada para frustrar o mínimo existencial. Frente clássica de atuação da Defensoria em tutela individual e coletiva."
+            },
+            {
+              id: "ado-6", modo: "lei", fonte: "Lei 12.764/2012, art. 3º, IV, 'a'; ECA, art. 54, III",
+              enunciado: "Uma escola recusa matrícula de criança com Transtorno do Espectro Autista alegando falta de estrutura. Essa recusa:",
+              alternativas: [
+                "é lícita, pois a escola não é obrigada a se adaptar",
+                "é vedada: constitui direito da pessoa com TEA o acesso à educação e ao ensino, e a recusa de matrícula por escola regular em razão da deficiência é expressamente proibida, sujeitando o gestor a sanção",
+                "só é ilícita em escolas públicas, não nas privadas",
+                "é válida se a escola oferecer reembolso da mensalidade",
+                "depende de laudo que ateste a impossibilidade de inclusão"
+              ],
+              correta: 1,
+              explicacao: "Lei Berenice Piana (12.764/2012), art. 3º, parágrafo único: é vedado recusar matrícula a aluno em razão da deficiência — e o gestor ou autoridade competente responde por sanção (multa). No mesmo sentido, o Estatuto da Pessoa com Deficiência (art. 28, §1º) e o dever de atendimento educacional especializado (CF, art. 208, III). A escola, pública ou privada, deve adaptar-se (não repassar custos das adaptações ao aluno)."
             }
           ]
         }
