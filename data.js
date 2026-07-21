@@ -4736,6 +4736,200 @@ window.APP_DATA = {
               explicacao: "Art. 97 da CF e Súmula Vinculante 10: viola a cláusula de reserva de plenário a decisão de órgão fracionário que afasta a incidência de lei/ato do poder público, ainda que sem declarar expressamente a inconstitucionalidade. A declaração exige maioria absoluta do plenário ou do órgão especial."
             }
           ]
+        },
+        {
+          id: "constitucional-2",
+          titulo: "Tratados, convencionalidade e IDC",
+          questoes: [
+            {
+              id: "trat-1", modo: "juris", fonte: "CF, art. 5º, §§2º e 3º; STF, RE 466.343",
+              enunciado: "Sobre a posição hierárquica dos tratados internacionais de direitos humanos no ordenamento brasileiro:",
+              alternativas: [
+                "todos os tratados de direitos humanos ingressam com estatura constitucional por força do art. 5º, §2º, da Constituição Federal, independentemente do rito de aprovação parlamentar adotado no Congresso",
+                "os aprovados pelo rito do art. 5º, §3º (dois turnos, três quintos, nas duas Casas) equivalem a emenda constitucional; os demais têm status supralegal — acima da lei ordinária e abaixo da Constituição",
+                "todos os tratados internacionais, versem ou não sobre direitos humanos, ingressam no ordenamento com força de lei ordinária, podendo ser revogados por legislação superveniente",
+                "os tratados de direitos humanos anteriores à Emenda Constitucional 45/2004 foram automaticamente recepcionados com estatura de emenda constitucional pelo Supremo Tribunal Federal",
+                "a hierarquia é definida caso a caso pelo Supremo, conforme a relevância da matéria versada no tratado e o grau de consenso internacional a seu respeito"
+              ],
+              correta: 1,
+              explicacao: "RE 466.343 (2008) firmou a tese da SUPRALEGALIDADE: tratados de direitos humanos não aprovados pelo rito especial ficam acima das leis e abaixo da Constituição. Os aprovados pelo art. 5º, §3º equivalem a emenda (ex.: Convenção de Nova York sobre pessoas com deficiência e o Tratado de Marraqueche). Efeito prático da supralegalidade: a prisão civil do depositário infiel foi paralisada (Súmula Vinculante 25)."
+            },
+            {
+              id: "trat-2", modo: "caso", fonte: "Controle de convencionalidade; Corte IDH, caso Almonacid Arellano",
+              enunciado: "O controle de convencionalidade consiste em:",
+              alternativas: [
+                "verificar a compatibilidade das leis internas com a Constituição Federal, competência privativa do Supremo Tribunal Federal no exercício do controle concentrado de constitucionalidade",
+                "aferir a compatibilidade das normas internas com os tratados de direitos humanos ratificados — controle que, segundo a Corte IDH, deve ser exercido também de ofício por todos os juízes nacionais",
+                "submeter os tratados internacionais assinados pelo Brasil ao crivo prévio do Congresso Nacional antes de sua ratificação pelo Presidente da República no plano externo",
+                "permitir que a Corte Interamericana revise diretamente as sentenças transitadas em julgado proferidas pelos tribunais superiores dos Estados que reconheceram sua jurisdição",
+                "harmonizar as decisões dos tribunais nacionais com a jurisprudência estrangeira dos países que integram o mesmo bloco econômico regional"
+              ],
+              correta: 1,
+              explicacao: "A Corte IDH (Almonacid Arellano vs. Chile, 2006) firmou que o Poder Judiciário nacional deve exercer o controle de convencionalidade de ofício, entre as normas internas e a Convenção Americana, considerando também a interpretação dada pela própria Corte. No Brasil, é ferramenta central da Defensoria: uma lei pode ser constitucional e, ainda assim, inconvencional."
+            },
+            {
+              id: "trat-3", modo: "lei", fonte: "CF, art. 109, §5º (EC 45/2004)",
+              enunciado: "O incidente de deslocamento de competência (IDC), previsto no art. 109, §5º, da Constituição:",
+              alternativas: [
+                "pode ser suscitado por qualquer interessado perante o Supremo Tribunal Federal, em casos de grave violação de direitos humanos ocorridos no âmbito estadual",
+                "é suscitado pelo Procurador-Geral da República perante o STJ, em qualquer fase do inquérito ou processo, nas hipóteses de grave violação de direitos humanos e com a finalidade de assegurar o cumprimento de tratados internacionais",
+                "desloca automaticamente para a Justiça Federal todos os processos que envolvam violação de direitos humanos, independentemente de decisão judicial prévia sobre o caso concreto",
+                "foi declarado inconstitucional pelo Supremo Tribunal Federal por violar o princípio do juiz natural e o pacto federativo consagrado na Constituição de 1988",
+                "cabe exclusivamente ao Conselho Nacional de Justiça, no exercício de sua competência de controle da atuação administrativa do Poder Judiciário nacional"
+              ],
+              correta: 1,
+              explicacao: "Art. 109, §5º (federalização dos crimes contra direitos humanos): legitimidade EXCLUSIVA do PGR, competência do STJ, cabível em qualquer fase do inquérito ou processo. Requisitos construídos pelo STJ: grave violação de direitos humanos, risco de responsabilização internacional e incapacidade das instâncias locais. Casos emblemáticos: Manoel Mattos (IDC 2) e o caso da Chacina de Unaí."
+            },
+            {
+              id: "trat-4", modo: "juris", fonte: "Corte IDH; CF, art. 7º do ADCT",
+              enunciado: "Quanto aos efeitos das sentenças da Corte Interamericana de Direitos Humanos condenatórias do Brasil:",
+              alternativas: [
+                "dependem de homologação pelo Superior Tribunal de Justiça, tal como as sentenças estrangeiras em geral, para produzir efeitos no território nacional brasileiro",
+                "são obrigatórias e de cumprimento imediato pelo Estado, que responde internacionalmente pelo descumprimento — abrangendo reparações, garantias de não repetição e, por vezes, dever de adequar a legislação interna",
+                "têm caráter meramente recomendatório, cabendo ao Estado brasileiro avaliar discricionariamente a conveniência política de seu cumprimento em cada caso concreto",
+                "só vinculam o Poder Executivo federal, não alcançando decisões já transitadas em julgado no âmbito do Poder Judiciário brasileiro em nenhuma hipótese",
+                "podem ser revistas pelo Supremo Tribunal Federal em sede de recurso extraordinário, quando contrariarem a interpretação constitucional firmada internamente"
+              ],
+              correta: 1,
+              explicacao: "As sentenças da Corte IDH são obrigatórias (art. 68 da Convenção Americana) e dispensam homologação — não são sentenças estrangeiras, mas de tribunal internacional cuja jurisdição o Brasil reconheceu (Decreto 4.463/2002). Casos como Gomes Lund (Guerrilha do Araguaia), Favela Nova Brasília e Herzog impuseram ao Brasil deveres de investigar, reparar e adequar sua legislação."
+            },
+            {
+              id: "trat-5", modo: "juris", fonte: "STF, Súmula Vinculante 25; Pacto de San José, art. 7.7",
+              enunciado: "Sobre a prisão civil por dívida no direito brasileiro:",
+              alternativas: [
+                "é admitida nas duas hipóteses constitucionais originais — devedor de alimentos e depositário infiel —, pois a Constituição prevalece sobre o tratado internacional de hierarquia inferior",
+                "somente é lícita a do devedor de alimentos: a do depositário infiel tornou-se ilícita, pois o Pacto de San José, com status supralegal, paralisou a eficácia da legislação ordinária que a previa",
+                "foi integralmente abolida do ordenamento jurídico brasileiro pela adesão do Brasil ao Pacto de San José da Costa Rica, inclusive quanto ao devedor de alimentos inadimplente",
+                "depende de lei complementar que regulamente as hipóteses de cabimento, inexistente até o presente momento no ordenamento jurídico nacional brasileiro",
+                "é cabível também contra o devedor fiduciante na alienação fiduciária em garantia, por equiparação legal expressa à figura do depositário infiel"
+              ],
+              correta: 1,
+              explicacao: "SV 25: é ilícita a prisão civil do depositário infiel, qualquer que seja a modalidade do depósito. Mecanismo: o art. 5º, LXVII, da CF permitia as duas hipóteses, mas o Pacto de San José (art. 7.7), com status supralegal, PARALISOU a eficácia da legislação infraconstitucional que disciplinava a prisão do depositário. Sobrevive apenas a do devedor de alimentos — exemplo didático do efeito da supralegalidade."
+            },
+            {
+              id: "trat-6", modo: "caso", fonte: "Diálogo das cortes; princípio pro homine",
+              enunciado: "Diante de conflito aparente entre a norma constitucional interna e a norma internacional de direitos humanos, o critério de solução preconizado pela doutrina e pela Corte IDH é:",
+              alternativas: [
+                "a prevalência automática da norma constitucional, por força do princípio da supremacia da Constituição no ordenamento jurídico interno de cada Estado soberano",
+                "a aplicação da norma mais favorável à pessoa humana (princípio pro homine ou pro persona), independentemente de sua origem interna ou internacional",
+                "a prevalência da norma internacional em qualquer hipótese, dada a natureza cogente das obrigações assumidas pelo Estado no plano das relações internacionais",
+                "a aplicação da norma mais recente, segundo o critério cronológico tradicional de resolução de antinomias entre normas de mesma hierarquia no sistema jurídico",
+                "a suspensão da eficácia de ambas as normas até que o Supremo Tribunal Federal defina a questão em sede de controle concentrado de constitucionalidade"
+              ],
+              correta: 1,
+              explicacao: "Princípio pro homine (ou pro persona): prevalece sempre a norma que melhor proteja a pessoa, seja ela interna ou internacional — positivado no art. 29 da Convenção Americana. Daí o 'diálogo das fontes/cortes': o sistema internacional estabelece um piso mínimo (standard), não um teto. Argumento estruturante da atuação da Defensoria em direitos humanos."
+            },
+            {
+              id: "trat-7", modo: "juris", fonte: "STF, ADPF 153 × Corte IDH, caso Gomes Lund",
+              enunciado: "No confronto entre a decisão do STF na ADPF 153 (Lei de Anistia) e a condenação do Brasil pela Corte IDH no caso Gomes Lund, tem-se que:",
+              alternativas: [
+                "a decisão do STF prevaleceu integralmente, tendo a Corte IDH revisto seu entendimento para reconhecer a validade das anistias aprovadas em contexto de transição democrática",
+                "o STF considerou recepcionada a Lei de Anistia, ao passo que a Corte IDH declarou que suas disposições carecem de efeitos jurídicos por serem incompatíveis com a Convenção Americana — tensão ainda não resolvida",
+                "o Supremo revogou sua decisão na ADPF 153 imediatamente após a sentença internacional, promovendo a persecução penal dos agentes envolvidos nos crimes do período ditatorial",
+                "ambas as decisões convergiram no sentido da imprescritibilidade dos crimes contra a humanidade praticados durante o regime militar brasileiro no país",
+                "a Corte IDH reconheceu não ter competência para examinar fatos anteriores ao reconhecimento de sua jurisdição pelo Estado brasileiro em 1998, arquivando o caso"
+              ],
+              correta: 1,
+              explicacao: "ADPF 153 (2010): o STF considerou a Lei de Anistia recepcionada. Meses depois, no caso Gomes Lund (Guerrilha do Araguaia), a Corte IDH decidiu que as disposições de anistia sobre graves violações são incompatíveis com a Convenção e carecem de efeitos jurídicos. A tensão persiste (a ADPF 320 discute o cumprimento) — tema central de Justiça de Transição, item expresso do edital."
+            }
+          ]
+        },
+        {
+          id: "constitucional-3",
+          titulo: "Poder constituinte e controle de constitucionalidade",
+          questoes: [
+            {
+              id: "pcs-1", modo: "caso", fonte: "Teoria do poder constituinte",
+              enunciado: "Sobre as espécies de poder constituinte, é correto afirmar que o poder constituinte derivado reformador:",
+              alternativas: [
+                "é inicial, autônomo e ilimitado, podendo romper integralmente com a ordem jurídica anterior para instaurar uma nova Constituição no Estado",
+                "é secundário e condicionado: sujeita-se a limites formais, circunstanciais e materiais — estes últimos representados pelas cláusulas pétreas do art. 60, §4º",
+                "pode ser exercido livremente durante a vigência de estado de sítio ou de intervenção federal, desde que observado o quórum qualificado de três quintos",
+                "autoriza a supressão de cláusulas pétreas quando houver aprovação por plebiscito ou referendo convocado especificamente para essa finalidade",
+                "compete exclusivamente aos Estados-membros na elaboração de suas próprias Constituições estaduais, no exercício da autonomia federativa"
+              ],
+              correta: 1,
+              explicacao: "O originário é inicial, autônomo e juridicamente ilimitado; o derivado REFORMADOR (emendas) é secundário e condicionado — limites formais (iniciativa, quórum de 3/5 em dois turnos), circunstanciais (vedação durante intervenção federal, estado de defesa e de sítio — art. 60, §1º) e materiais (cláusulas pétreas do §4º). O derivado DECORRENTE é o dos Estados, para suas Constituições."
+            },
+            {
+              id: "pcs-2", modo: "lei", fonte: "CF, art. 60, §4º",
+              enunciado: "Não será objeto de deliberação a proposta de emenda tendente a abolir:",
+              alternativas: [
+                "a forma republicana de governo, o presidencialismo, o pluripartidarismo e os direitos sociais previstos no art. 6º da Constituição Federal de 1988",
+                "a forma federativa de Estado, o voto direto, secreto, universal e periódico, a separação dos Poderes e os direitos e garantias individuais",
+                "todos os direitos fundamentais previstos no Título II da Constituição, incluídos os direitos sociais, de nacionalidade e políticos, sem exceção alguma",
+                "a gratuidade dos serviços públicos essenciais e o regime de previdência social dos servidores públicos titulares de cargos efetivos da União",
+                "qualquer dispositivo constitucional que tenha sido aprovado pela Assembleia Nacional Constituinte por unanimidade de seus membros em 1988"
+              ],
+              correta: 1,
+              explicacao: "Art. 60, §4º: forma federativa de Estado; voto direto, secreto, universal e periódico; separação dos Poderes; direitos e garantias individuais. Pegadinhas clássicas: a forma REPUBLICANA e o presidencialismo NÃO são cláusulas pétreas expressas (foram objeto do plebiscito de 1993); e o STF admite que direitos fora do art. 5º possam ter natureza de cláusula pétrea (ex.: anterioridade tributária, ADI 939)."
+            },
+            {
+              id: "pcs-3", modo: "lei", fonte: "CF, art. 103; Lei 9.868/99",
+              enunciado: "Quanto à legitimidade ativa para propor ação direta de inconstitucionalidade:",
+              alternativas: [
+                "todos os legitimados do art. 103 da Constituição têm legitimidade universal, dispensada qualquer demonstração de vínculo entre suas finalidades e o objeto impugnado",
+                "alguns legitimados são universais e outros são especiais — estes precisam demonstrar pertinência temática entre suas finalidades institucionais e a norma impugnada",
+                "somente o Presidente da República, a Mesa do Senado e o Procurador-Geral da República podem propor a ação, dada a natureza excepcional do controle concentrado",
+                "qualquer cidadão no gozo dos direitos políticos pode propor a ação direta, por aplicação analógica das regras que regem a ação popular constitucional",
+                "a Defensoria Pública da União e as Defensorias estaduais foram incluídas no rol de legitimados pela Emenda Constitucional 80/2014, com legitimidade universal"
+              ],
+              correta: 1,
+              explicacao: "O STF distingue legitimados universais (Presidente, Mesas do Senado e da Câmara, PGR, Conselho Federal da OAB, partido político com representação no Congresso) dos especiais, que devem provar pertinência temática (Mesa de Assembleia Legislativa, Governador, confederação sindical ou entidade de classe de âmbito nacional). A Defensoria Pública NÃO integra o rol do art. 103 — cuidado com esse distrator."
+            },
+            {
+              id: "pcs-4", modo: "lei", fonte: "Lei 9.868/99, arts. 27 e 28",
+              enunciado: "A modulação temporal dos efeitos da declaração de inconstitucionalidade:",
+              alternativas: [
+                "é vedada no sistema brasileiro, que adota a teoria da nulidade absoluta com efeitos sempre retroativos à data de edição da norma inconstitucional",
+                "pode ser determinada por maioria de dois terços dos membros do STF, por razões de segurança jurídica ou excepcional interesse social, restringindo os efeitos ou fixando outro momento para sua eficácia",
+                "depende de aprovação prévia do Congresso Nacional, a quem cabe deliberar sobre os efeitos financeiros da decisão proferida em controle concentrado",
+                "é automática em todas as ações diretas julgadas procedentes, produzindo a decisão efeitos apenas a partir do trânsito em julgado do acórdão publicado",
+                "aplica-se somente ao controle difuso, sendo incompatível com a natureza objetiva do processo de controle concentrado de constitucionalidade"
+              ],
+              correta: 1,
+              explicacao: "Art. 27 da Lei 9.868/99: quórum de 2/3 (oito ministros) e fundamento em segurança jurídica ou excepcional interesse social. A regra continua sendo a nulidade com efeitos ex tunc; a modulação é EXCEÇÃO, permitindo efeitos ex nunc ou pro futuro. O mesmo mecanismo existe na ADPF (Lei 9.882/99, art. 11)."
+            },
+            {
+              id: "pcs-5", modo: "juris", fonte: "CF, art. 102, §1º; Lei 9.882/99, art. 4º, §1º",
+              enunciado: "A arguição de descumprimento de preceito fundamental (ADPF) caracteriza-se por:",
+              alternativas: [
+                "substituir integralmente a ação direta de inconstitucionalidade, sendo cabível contra qualquer lei ou ato normativo federal, estadual ou municipal editado após 1988",
+                "ser regida pelo princípio da subsidiariedade: só é admitida quando não houver outro meio eficaz de sanar a lesividade — o que a torna via apta a impugnar direito pré-constitucional e atos não normativos",
+                "ter cabimento restrito a atos normativos municipais, dada a impossibilidade de controle concentrado dessas normas perante o Supremo Tribunal Federal em ação direta",
+                "admitir a propositura por qualquer pessoa que demonstre lesão concreta a preceito fundamental decorrente de ato do poder público federal, estadual ou municipal",
+                "produzir efeitos exclusivamente entre as partes do processo originário, sem eficácia contra todos nem efeito vinculante aos demais órgãos do Judiciário"
+              ],
+              correta: 1,
+              explicacao: "Art. 4º, §1º, da Lei 9.882/99: subsidiariedade — não cabe ADPF havendo outro meio eficaz. Por isso ela cobre lacunas: direito pré-constitucional, atos municipais, atos não normativos e omissões (foi a via da ADPF 347 sobre o sistema prisional). Os legitimados são os mesmos da ADI, e a decisão tem eficácia erga omnes e efeito vinculante."
+            },
+            {
+              id: "pcs-6", modo: "juris", fonte: "CF, art. 52, X; STF, ADI 3.406/3.470 (2020)",
+              enunciado: "Sobre os efeitos da declaração incidental de inconstitucionalidade no controle difuso pelo STF:",
+              alternativas: [
+                "os efeitos permanecem restritos às partes, dependendo sempre de resolução do Senado Federal para que a decisão adquira eficácia contra todos os jurisdicionados",
+                "o STF passou a atribuir eficácia erga omnes e vinculante também às decisões proferidas em controle difuso (abstrativização), cabendo ao Senado apenas dar publicidade à decisão",
+                "a decisão em controle difuso não produz nenhum efeito além do caso concreto, sendo vedada sua invocação como precedente em outros processos judiciais em curso",
+                "o Senado Federal tem o dever vinculado de suspender a execução da lei declarada inconstitucional, sob pena de responsabilização por omissão inconstitucional",
+                "os efeitos são sempre ex nunc no controle difuso, ao contrário do controle concentrado, no qual a regra é a retroatividade plena da decisão de mérito"
+              ],
+              correta: 1,
+              explicacao: "Nas ADIs 3.406 e 3.470 (2020) o STF consolidou a chamada abstrativização (ou objetivação) do controle difuso: houve mutação constitucional do art. 52, X — o papel do Senado passou a ser de dar publicidade, não de conferir eficácia. As decisões do Plenário em controle difuso passam a ter eficácia geral e vinculante."
+            },
+            {
+              id: "pcs-7", modo: "caso", fonte: "Métodos de interpretação constitucional",
+              enunciado: "O princípio da interpretação conforme a Constituição impõe que:",
+              alternativas: [
+                "o intérprete escolha livremente entre os sentidos possíveis da norma, prevalecendo aquele que melhor atenda às finalidades de política pública do governo em exercício",
+                "havendo várias interpretações possíveis, adote-se a que seja compatível com a Constituição — sem que o intérprete possa atuar como legislador positivo, contrariando o sentido literal e a vontade do legislador",
+                "toda norma infraconstitucional seja declarada nula sempre que comportar ao menos uma interpretação incompatível com o texto constitucional vigente no país",
+                "as normas constitucionais sejam interpretadas a partir da legislação ordinária que as regulamenta, conferindo-se concretude aos preceitos de eficácia limitada",
+                "o Judiciário possa alterar o texto legal para adequá-lo à Constituição, exercendo função normativa de caráter substitutivo à atuação do Poder Legislativo"
+              ],
+              correta: 1,
+              explicacao: "Interpretação conforme: entre sentidos possíveis, prefere-se o compatível com a Constituição — preservando a norma (princípio da conservação). Limites: o sentido literal do texto e a vontade do legislador; o intérprete não pode virar legislador positivo. Distingue-se da declaração parcial de nulidade sem redução de texto, embora ambas apareçam no art. 28, parágrafo único, da Lei 9.868/99."
+            }
+          ]
         }
       ]
     },
@@ -5264,6 +5458,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "O OPCAT exige mecanismos preventivos nacionais de visitação. A Lei 12.847/2013 instituiu o Sistema Nacional de Prevenção e Combate à Tortura, com o MNPCT — peritos com acesso a quaisquer locais de privação de liberdade, e o Comitê Nacional (CNPCT). Tema do edital ('órgãos nacionais e internacionais de monitoramento') e conectado ao Protocolo de Istambul."
+            }
+          ]
+        },
+        {
+          id: "direitos-humanos-4",
+          titulo: "DESCs, políticas públicas e tutela coletiva",
+          questoes: [
+            {
+              id: "desc-1", modo: "caso", fonte: "PIDESC; Comentário Geral 3 do Comitê DESC",
+              enunciado: "Sobre os direitos econômicos, sociais e culturais (DESCs) no Pacto Internacional de 1966:",
+              alternativas: [
+                "são normas meramente programáticas, desprovidas de justiciabilidade e insuscetíveis de exigência perante órgãos judiciais ou internacionais de proteção",
+                "impõem realização progressiva conforme o máximo de recursos disponíveis, mas contêm obrigações de efeito imediato — como a não discriminação e a garantia de um núcleo essencial mínimo",
+                "devem ser integralmente implementados de imediato pelos Estados-partes, independentemente da disponibilidade de recursos orçamentários ou do grau de desenvolvimento econômico nacional",
+                "vinculam apenas os Estados desenvolvidos, cabendo aos países em desenvolvimento simples compromisso de cooperação técnica internacional no longo prazo",
+                "foram substituídos pelos Objetivos de Desenvolvimento Sustentável da Agenda 2030, que revogaram tacitamente as obrigações do Pacto de 1966"
+              ],
+              correta: 1,
+              explicacao: "Art. 2.1 do PIDESC: realização progressiva até o máximo dos recursos disponíveis. O Comentário Geral 3 do Comitê DESC esclarece que há obrigações de efeito IMEDIATO (não discriminação e adoção de medidas) e um núcleo essencial mínimo (minimum core) exigível desde já. Daí decorrem os princípios da proibição do retrocesso social e da vedação de medidas deliberadamente regressivas."
+            },
+            {
+              id: "desc-2", modo: "caso", fonte: "Reserva do possível e mínimo existencial; STF, ADPF 45",
+              enunciado: "Na judicialização de políticas públicas, a alegação estatal de reserva do possível:",
+              alternativas: [
+                "constitui defesa absoluta que impede o controle judicial de políticas públicas, em respeito à separação dos Poderes e à discricionariedade administrativa na alocação orçamentária",
+                "não pode ser invocada para frustrar o mínimo existencial, exigindo-se do poder público a demonstração concreta da escassez — e não a mera alegação genérica de insuficiência de recursos",
+                "só é oponível quando o pedido envolver prestações de saúde de alto custo não incorporadas pelas listas oficiais do Sistema Único de Saúde brasileiro",
+                "foi rejeitada integralmente pela jurisprudência brasileira, que reconhece direito subjetivo ilimitado a toda e qualquer prestação material postulada em juízo",
+                "aplica-se exclusivamente aos direitos de liberdade, não incidindo sobre os direitos sociais de natureza prestacional previstos no art. 6º da Constituição"
+              ],
+              correta: 1,
+              explicacao: "ADPF 45 (Celso de Mello): a reserva do possível não pode ser manipulada para exonerar o Estado do cumprimento de obrigações constitucionais, sobretudo quanto ao mínimo existencial. Exige-se ônus argumentativo e probatório concreto do poder público. O Tema 793 do STF (solidariedade dos entes na saúde) e o Tema 106 do STJ (medicamentos fora da lista) delimitam a atuação judicial."
+            },
+            {
+              id: "desc-3", modo: "juris", fonte: "LACP, art. 5º, II; STF, ADI 3.943",
+              enunciado: "Sobre a legitimidade da Defensoria Pública para a tutela coletiva:",
+              alternativas: [
+                "é restrita aos direitos individuais homogêneos de pessoas comprovadamente hipossuficientes, identificadas nominalmente na petição inicial da ação civil pública",
+                "foi reconhecida amplamente pelo STF, bastando que a tutela possa beneficiar grupo que inclua pessoas necessitadas — abrangendo direitos difusos, coletivos e individuais homogêneos",
+                "depende de autorização expressa e específica dos membros do grupo lesado, obtida em assembleia convocada pela associação representativa da comunidade atingida",
+                "existe apenas quando o Ministério Público declinar da propositura da ação, funcionando a Defensoria como legitimada subsidiária no processo coletivo",
+                "limita-se às ações que tramitem perante os Juizados Especiais da Fazenda Pública, dada a natureza da matéria e o valor da causa envolvido"
+              ],
+              correta: 1,
+              explicacao: "ADI 3.943 (2015): o STF julgou improcedente a ação da CONAMP e confirmou a legitimidade ampla da Defensoria para a ACP, bastando que o resultado possa beneficiar grupo que contenha pessoas necessitadas — sem exigir que TODOS o sejam, nem identificação individual. O conceito de 'necessitado' é ampliado (vulnerabilidade organizacional, e não só econômica)."
+            },
+            {
+              id: "desc-4", modo: "caso", fonte: "Custos vulnerabilis; STJ, EDcl no REsp 1.712.163",
+              enunciado: "A atuação da Defensoria Pública como custos vulnerabilis significa:",
+              alternativas: [
+                "a representação processual individual do assistido hipossuficiente que a procura espontaneamente para a defesa de seus interesses em juízo",
+                "a intervenção institucional em processos nos quais se discutam interesses de pessoas ou grupos vulneráveis, como guardiã dos vulneráveis, ainda que a parte tenha advogado constituído",
+                "o exercício da curadoria especial do réu revel citado por edital ou com hora certa, nos termos do art. 72 do Código de Processo Civil vigente",
+                "a fiscalização do cumprimento das decisões judiciais proferidas contra a Fazenda Pública em ações coletivas de natureza prestacional em curso",
+                "a assunção da titularidade da ação penal pública quando o Ministério Público permanecer inerte além do prazo legal para o oferecimento da denúncia"
+              ],
+              correta: 1,
+              explicacao: "Custos vulnerabilis ('guardiã dos vulneráveis'): intervenção da Defensoria em razão da vulnerabilidade envolvida no caso, ainda que a parte tenha advogado — reconhecida pelo STJ (EDcl no REsp 1.712.163, sobre medicamentos, e no HC 568.693). Distingue-se da curadoria especial (art. 72 do CPC) e do custos legis do MP. É tese institucional de expansão da atuação defensorial."
+            },
+            {
+              id: "desc-5", modo: "caso", fonte: "Processo estrutural; STF, ADPF 347",
+              enunciado: "Os chamados processos estruturais caracterizam-se por:",
+              alternativas: [
+                "resolver conflitos bipolares entre duas partes determinadas mediante sentença de eficácia imediata e cumprimento instantâneo pelo devedor condenado",
+                "enfrentar litígios policêntricos que envolvem falhas estruturais de instituições ou políticas públicas, com decisões em etapas, medidas flexíveis e monitoramento contínuo da implementação",
+                "atribuir ao Judiciário a gestão direta e permanente dos órgãos administrativos deficientes, substituindo os gestores públicos no exercício das funções executivas",
+                "converter demandas individuais repetitivas em incidente de resolução de demandas repetitivas, com suspensão dos processos pendentes no âmbito do tribunal",
+                "limitar-se às ações de improbidade administrativa nas quais se apure dano ao erário decorrente de má gestão de recursos públicos federais"
+              ],
+              correta: 1,
+              explicacao: "Processos estruturais: litígios policêntricos, com pluralidade de atores e causas complexas, exigindo provimentos em cascata, diálogo institucional, audiências públicas e monitoramento. A ADPF 347 (estado de coisas inconstitucional no sistema prisional) é o caso paradigmático brasileiro. O CPC não os disciplina expressamente, mas arts. 139, IV, e 536 dão base — e o edital cobra o tema em Banca I e III."
+            },
+            {
+              id: "desc-6", modo: "caso", fonte: "Educação em direitos humanos; PNEDH",
+              enunciado: "A educação em direitos humanos, conforme os marcos normativos nacionais e internacionais:",
+              alternativas: [
+                "restringe-se à inclusão de disciplina autônoma e obrigatória sobre direitos humanos nos currículos dos cursos de graduação em Direito das universidades brasileiras",
+                "é concebida como processo permanente e transversal, voltado à formação de sujeitos de direitos e à construção de uma sociedade antirracista e inclusiva",
+                "compete exclusivamente aos órgãos do sistema de justiça, no âmbito de suas atividades de capacitação funcional interna dos respectivos quadros de servidores",
+                "tem caráter meramente informativo, destinada à divulgação do texto da Declaração Universal dos Direitos Humanos nas escolas da rede pública de ensino",
+                "foi substituída, no Brasil, pelas ações afirmativas de acesso ao ensino superior instituídas pela Lei de Cotas, que a tornaram desnecessária"
+              ],
+              correta: 1,
+              explicacao: "O Plano Nacional de Educação em Direitos Humanos (PNEDH) e as Diretrizes Nacionais (Resolução CNE/CP 1/2012) concebem a EDH como processo sistemático e multidimensional, transversal a todos os níveis de ensino, orientado à formação de sujeitos de direitos, ao empoderamento de grupos vulnerabilizados e à educação emancipatória antirracista — item expresso do Ponto II do edital."
+            },
+            {
+              id: "desc-7", modo: "caso", fonte: "Racismo ambiental; Convenção 169 da OIT",
+              enunciado: "Sobre a relação entre direitos humanos e questões socioambientais:",
+              alternativas: [
+                "o racismo ambiental designa a distribuição desproporcional dos danos ambientais sobre populações racializadas e vulnerabilizadas — e a Convenção 169 da OIT assegura consulta prévia, livre e informada aos povos indígenas e tribais afetados",
+                "os danos ambientais atingem de forma equitativa todos os grupos sociais, razão pela qual as políticas ambientais devem ser desenhadas com critérios estritamente técnicos e universais",
+                "a consulta prévia prevista na Convenção 169 da OIT tem natureza meramente consultiva e informativa, não gerando qualquer dever jurídico para o Estado ou para o empreendedor",
+                "as comunidades quilombolas e tradicionais não integram o âmbito de aplicação da Convenção 169, restrita aos povos indígenas reconhecidos oficialmente pelo Estado",
+                "a proteção socioambiental compete exclusivamente ao Ministério Público, carecendo a Defensoria Pública de legitimidade para atuar em conflitos dessa natureza"
+              ],
+              correta: 0,
+              explicacao: "Racismo ambiental (Robert Bullard): os ônus ambientais recaem desproporcionalmente sobre populações negras, indígenas e periféricas. A Convenção 169 da OIT (Decreto 10.088/2019) garante a consulta prévia, livre e informada — direito de natureza vinculante, aplicável a povos indígenas E a comunidades tradicionais que se autoidentifiquem, como quilombolas. Tema expresso dos Pontos II e IV do edital."
             }
           ]
         }
