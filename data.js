@@ -3372,6 +3372,200 @@ window.APP_DATA = {
               explicacao: "Tema 626 do STF: é inconstitucional a vedação abstrata à conversão da pena em restritivas de direitos (arts. 33, §4º, e 44 da Lei 11.343/06). Tema 959: é inconstitucional a expressão 'e liberdade provisória' do art. 44. Em ambos, o STF rejeitou proibições automáticas: a análise deve ser feita caso a caso pelo juiz."
             }
           ]
+        },
+        {
+          id: "penal-juris-5",
+          titulo: "Teoria da pena e dosimetria",
+          questoes: [
+            {
+              id: "pen-1", modo: "lei", fonte: "CP, arts. 59 e 68",
+              enunciado: "No sistema trifásico de dosimetria da pena adotado pelo Código Penal:",
+              alternativas: [
+                "a pena-base é fixada considerando as agravantes e atenuantes genéricas, seguindo-se as circunstâncias judiciais e, ao final, as causas de aumento e de diminuição previstas na parte especial",
+                "fixa-se a pena-base pelas circunstâncias judiciais do art. 59; depois incidem as atenuantes e agravantes; por último, as causas de diminuição e de aumento — única fase em que a pena pode sair dos limites cominados",
+                "as três fases limitam-se a graduar a pena entre o mínimo e o máximo cominados, sendo vedado ao juiz ultrapassar esses limites em qualquer delas, inclusive na terceira",
+                "o juiz tem liberdade para fixar a pena definitiva em fase única, desde que fundamente cada circunstância judicial, agravante e majorante que considerou no cálculo",
+                "as qualificadoras incidem na terceira fase do cálculo, como causas especiais de aumento em fração fixa"
+              ],
+              correta: 1,
+              explicacao: "Art. 68 do CP: pena-base (art. 59) → agravantes/atenuantes → causas de diminuição e de aumento. O detalhe que decide questões: só na TERCEIRA fase a pena pode ficar abaixo do mínimo ou acima do máximo cominados. As qualificadoras não entram no cálculo trifásico — elas alteram a própria moldura penal (novo mínimo e máximo) antes de a dosimetria começar."
+            },
+            {
+              id: "pen-2", modo: "juris", fonte: "STJ, Súmula 231",
+              enunciado: "Sobre a incidência de circunstância atenuante quando a pena-base foi fixada no mínimo legal:",
+              alternativas: [
+                "a atenuante reduz a pena abaixo do mínimo, pois o art. 65 do CP diz que ela sempre atenua a pena",
+                "pela Súmula 231 do STJ, a atenuante não pode conduzir a pena abaixo do mínimo legal na segunda fase — limite que não se aplica às causas de diminuição, que podem levá-la abaixo do mínimo na terceira",
+                "a atenuante fica automaticamente compensada com eventual agravante ainda não considerada no cálculo, retornando a pena ao patamar intermediário fixado na primeira fase da dosimetria",
+                "o juiz deve deixar de aplicar a atenuante e compensá-la na fixação do regime inicial de cumprimento",
+                "a atenuante converte-se em causa de diminuição de um sexto, aplicável na fase seguinte"
+              ],
+              correta: 1,
+              explicacao: "Súmula 231/STJ: a atenuante genérica não conduz a pena abaixo do mínimo na 2ª fase (entendimento criticado pela doutrina defensiva, mas dominante). O contraste que a prova cobra: as MINORANTES (causas de diminuição, 3ª fase — ex.: tentativa, tráfico privilegiado) PODEM levar a pena abaixo do mínimo cominado."
+            },
+            {
+              id: "pen-3", modo: "juris", fonte: "STJ, Súmula 545 e Tema 585",
+              enunciado: "Quanto à atenuante da confissão espontânea:",
+              alternativas: [
+                "só incide quando a confissão é integral, coerente e mantida em todas as fases da persecução penal",
+                "não incide se o réu confessou na polícia e se retratou em juízo, ainda que a confissão tenha embasado a sentença",
+                "incide mesmo quando a confissão é parcial, qualificada ou retratada, desde que utilizada como fundamento da condenação",
+                "é incompatível com a prisão em flagrante, pois nesse caso a autoria já está demonstrada por outros meios de prova independentes da palavra do acusado",
+                "foi revogada pelo Pacote Anticrime, subsistindo apenas como argumento para o acordo de não persecução penal"
+              ],
+              correta: 2,
+              explicacao: "Súmula 545/STJ: quando a confissão for utilizada para a formação do convencimento do julgador, a atenuante deve incidir — ainda que parcial, qualificada (com tese defensiva embutida) ou posteriormente retratada. É tese cara à Defensoria: se o juiz usou a confissão na fundamentação, não pode negar a atenuante."
+            },
+            {
+              id: "pen-4", modo: "lei", fonte: "CP, art. 44, I a III e §3º",
+              enunciado: "A substituição da pena privativa de liberdade por restritivas de direitos exige, em regra, pena não superior a quatro anos e crime cometido sem violência ou grave ameaça. Quanto ao reincidente:",
+              alternativas: [
+                "a reincidência de qualquer natureza impede de forma absoluta a substituição da pena, dada a presunção legal de que a medida anterior se mostrou insuficiente para prevenir novos delitos",
+                "somente o reincidente em crime culposo fica impedido de obter o benefício da substituição",
+                "a reincidência em crime doloso veda a substituição, mas o juiz pode concedê-la se a medida for socialmente recomendável e a reincidência não for específica (pelo mesmo crime)",
+                "o reincidente tem direito à substituição desde que preste fiança e repare integralmente o dano",
+                "a substituição ao reincidente depende de prévia concordância do Ministério Público na audiência"
+              ],
+              correta: 2,
+              explicacao: "Art. 44, II, do CP: exige-se que o réu não seja reincidente em crime doloso. Mas o §3º abre a válvula defensiva: mesmo ao reincidente doloso o juiz pode aplicar a substituição, se socialmente recomendável, salvo reincidência ESPECÍFICA (mesmo crime). Nos crimes culposos, a substituição cabe qualquer que seja a pena."
+            },
+            {
+              id: "pen-5", modo: "juris", fonte: "STJ, Súmulas 269 e 440; STF, Súmulas 718 e 719",
+              enunciado: "Na fixação do regime inicial de cumprimento de pena:",
+              alternativas: [
+                "a reincidência impõe sempre o regime fechado, qualquer que seja a quantidade de pena aplicada na sentença condenatória",
+                "a gravidade abstrata do delito é fundamento idôneo para impor regime mais severo, dispensada motivação concreta",
+                "a opinião do julgador sobre a gravidade em abstrato do crime autoriza regime mais rigoroso quando se tratar de delito hediondo ou equiparado, por expressa determinação legal",
+                "é admissível o regime semiaberto ao reincidente condenado a pena igual ou inferior a quatro anos, se favoráveis as circunstâncias judiciais — e o regime mais severo que a pena permite exige motivação idônea",
+                "o regime aberto é vedado a condenados por crime cometido com violência, ainda que a pena fique abaixo de quatro anos"
+              ],
+              correta: 3,
+              explicacao: "Súmula 269/STJ: reincidente com pena de até 4 anos pode iniciar no semiaberto, se favoráveis as circunstâncias. Súmulas 440/STJ e 718-719/STF: gravidade ABSTRATA não fundamenta regime mais severo — é preciso motivação concreta. Conjunto de teses essencialmente defensivas, cobradíssimas pela FGV."
+            },
+            {
+              id: "pen-6", modo: "juris", fonte: "CP, art. 97; STJ, Súmula 527",
+              enunciado: "Sobre o prazo de duração da medida de segurança:",
+              alternativas: [
+                "é indeterminado, perdurando enquanto não averiguada a cessação da periculosidade do agente, sem limite máximo, dada a natureza curativa e não punitiva do instituto",
+                "não pode ultrapassar o limite máximo da pena abstratamente cominada ao delito praticado, segundo o STJ",
+                "limita-se ao mínimo legal de um a três anos previsto no art. 97 do Código Penal, vedada qualquer prorrogação",
+                "corresponde exatamente à pena que seria aplicada ao agente imputável, calculada em sentença pelo sistema trifásico",
+                "é de trinta anos para os crimes praticados com violência e de quinze anos para os demais"
+              ],
+              correta: 1,
+              explicacao: "Súmula 527/STJ: o tempo de duração da medida de segurança não deve ultrapassar o limite máximo da pena abstratamente cominada ao delito. O STF, por sua vez, aplica o teto geral do art. 75 do CP (hoje 40 anos). A literalidade do art. 97, §1º ('por tempo indeterminado') foi superada — vedação constitucional às penas perpétuas. Bandeira histórica da Defensoria."
+            },
+            {
+              id: "pen-7", modo: "lei", fonte: "CP, art. 115",
+              enunciado: "Os prazos prescricionais são reduzidos de metade quando o agente:",
+              alternativas: [
+                "era menor de dezoito anos na data do fato ou maior de sessenta na data do julgamento",
+                "era menor de vinte e um anos na data do fato, ou maior de setenta anos na data da sentença",
+                "for primário e tiver bons antecedentes, reparando o dano antes do recebimento da denúncia oferecida pelo Ministério Público",
+                "confessar espontaneamente a prática do delito perante a autoridade policial ou judicial, contribuindo para a elucidação dos fatos e a identificação dos demais envolvidos",
+                "era maior de sessenta e cinco anos na data do trânsito em julgado da condenação"
+              ],
+              correta: 1,
+              explicacao: "Art. 115 do CP: metade dos prazos para o menor de 21 na data do fato (a chamada menoridade relativa — sobrevive como causa de redução mesmo com a maioridade civil aos 18) e para o maior de 70 na data da sentença. O STJ estende o benefício ao réu que completa 70 anos antes do acórdão condenatório que substitui a sentença. Marcos distintos — fato × sentença — são a pegadinha padrão."
+            }
+          ]
+        },
+        {
+          id: "penal-juris-6",
+          titulo: "Crimes em espécie",
+          questoes: [
+            {
+              id: "esp-1", modo: "juris", fonte: "STJ, Súmula 582",
+              enunciado: "Sobre o momento consumativo do crime de roubo, o STJ consolidou que se consuma:",
+              alternativas: [
+                "apenas quando o agente obtém a posse mansa, pacífica e desvigiada da coisa subtraída, ainda que por curto espaço de tempo, fora da esfera de vigilância da vítima",
+                "com a inversão da posse do bem, mediante violência ou grave ameaça, ainda que por breve tempo e ainda que haja perseguição imediata e recuperação da coisa",
+                "somente com o efetivo proveito econômico obtido pelo agente com a coisa subtraída da vítima",
+                "no momento do emprego da violência ou da grave ameaça, ainda que a subtração não ocorra",
+                "quando cessa a perseguição policial, consolidando-se o apoderamento da res furtiva"
+              ],
+              correta: 1,
+              explicacao: "Súmula 582/STJ (teoria da amotio/apprehensio): o roubo se consuma com a inversão da posse, mesmo que breve e sob perseguição — dispensadas a posse mansa e pacífica e a saída da esfera de vigilância. Consequência prática: a prisão logo após o fato normalmente NÃO gera tentativa, e sim crime consumado. O mesmo raciocínio vale para o furto (Súmula 567? não — tese firmada no REsp repetitivo 1.524.450)."
+            },
+            {
+              id: "esp-2", modo: "juris", fonte: "STF, Súmula 610",
+              enunciado: "No latrocínio (roubo qualificado pelo resultado morte), há crime consumado quando:",
+              alternativas: [
+                "a subtração se consuma, ainda que a morte da vítima não ocorra, dada a natureza patrimonial do delito",
+                "o homicídio se consuma, ainda que o agente não realize a subtração dos bens da vítima",
+                "ambos os resultados — morte e subtração patrimonial — efetivamente se consumam, pois o tipo complexo exige a integralidade dos seus elementos para alcançar a consumação",
+                "a morte decorre de culpa do agente, hipótese em que o crime se desloca para o concurso formal",
+                "houver dolo de matar, ainda que nem a morte nem a subtração venham a se consumar"
+              ],
+              correta: 1,
+              explicacao: "Súmula 610/STF: há latrocínio consumado quando o homicídio se consuma, ainda que o agente não consiga subtrair os bens. O norte é o resultado morte: morte consumada + subtração tentada = latrocínio CONSUMADO; morte tentada + subtração consumada = latrocínio TENTADO. Competência: juiz singular, não o júri (Súmula 603/STF), pois o crime é patrimonial."
+            },
+            {
+              id: "esp-3", modo: "juris", fonte: "CP, art. 155, §2º; STJ, Súmula 511",
+              enunciado: "Quanto ao furto privilegiado (réu primário e coisa de pequeno valor):",
+              alternativas: [
+                "é incompatível com qualquer qualificadora, pois o privilégio pressupõe a forma simples do delito descrita no caput do tipo penal incriminador",
+                "é compatível com as qualificadoras de natureza objetiva (como concurso de agentes ou rompimento de obstáculo), conforme a Súmula 511 do STJ",
+                "exige que o valor da coisa não ultrapasse dez por cento do salário mínimo vigente à época dos fatos, patamar consolidado na jurisprudência para o reconhecimento do pequeno valor",
+                "aplica-se somente ao furto de coisa abandonada ou de valor sentimental",
+                "foi absorvido pelo princípio da insignificância após o Pacote Anticrime"
+              ],
+              correta: 1,
+              explicacao: "Súmula 511/STJ: o privilégio do art. 155, §2º (primariedade + pequeno valor — parâmetro usual: até 1 salário mínimo) convive com as qualificadoras OBJETIVAS. Só a qualificadora subjetiva (abuso de confiança) o afasta. Não confundir pequeno valor (privilégio: reduz/substitui a pena) com valor ínfimo (insignificância: exclui a tipicidade material)."
+            },
+            {
+              id: "esp-4", modo: "juris", fonte: "STF, HC 84.412 (vetores da insignificância)",
+              enunciado: "O princípio da insignificância exclui a tipicidade material quando presentes os quatro vetores do STF. Sobre sua aplicação:",
+              alternativas: [
+                "a reincidência do agente impede, por si só e em qualquer caso, o reconhecimento da atipicidade material da conduta, por expressa vedação legal introduzida pelo Pacote Anticrime",
+                "exige mínima ofensividade, ausência de periculosidade social, reduzida reprovabilidade e inexpressividade da lesão — e a reincidência não impede automaticamente sua aplicação, que se analisa caso a caso",
+                "aplica-se somente aos crimes patrimoniais praticados sem violência cujo valor não ultrapasse cinquenta reais",
+                "é vedado nos crimes contra a administração pública, sem nenhuma exceção reconhecida na jurisprudência",
+                "depende da reparação do dano ou da devolução da coisa antes do oferecimento da denúncia"
+              ],
+              correta: 1,
+              explicacao: "Vetores do HC 84.412/STF (mínima ofensividade, nenhuma periculosidade social, reduzido grau de reprovabilidade, inexpressividade da lesão). O STF decidiu que a reincidência não afasta automaticamente o princípio — a análise é casuística (HC 123.108). Atenção à exceção da Súmula 599/STJ (inaplicável aos crimes contra a Administração), que o próprio STJ já excepcionou em hipóteses concretas."
+            },
+            {
+              id: "esp-5", modo: "lei", fonte: "CP, art. 171, §5º (Pacote Anticrime)",
+              enunciado: "Após a Lei 13.964/2019, a ação penal no crime de estelionato:",
+              alternativas: [
+                "passou a ser pública condicionada à representação, salvo se a vítima for a Administração Pública, criança ou adolescente, pessoa com deficiência mental, maior de setenta anos ou incapaz",
+                "continua sendo pública incondicionada em todas as hipóteses, pois a alteração legislativa alcançou somente o crime de apropriação indébita praticado sem violência contra pessoa determinada",
+                "tornou-se de ação penal privada, dependendo de queixa-crime da vítima no prazo decadencial de seis meses",
+                "é condicionada à representação apenas quando o prejuízo não ultrapassar quarenta salários mínimos",
+                "depende de representação inclusive quando praticado contra o patrimônio de entes públicos"
+              ],
+              correta: 0,
+              explicacao: "Art. 171, §5º, do CP: a regra passou a ser a representação, com quatro exceções (Administração Pública direta/indireta; criança ou adolescente; pessoa com deficiência mental; maior de 70 anos ou incapaz), nas quais a ação segue incondicionada. O STF fixou que a exigência de representação NÃO retroage para alcançar processos com denúncia já oferecida (HC 180.421)."
+            },
+            {
+              id: "esp-6", modo: "juris", fonte: "CP, art. 121, §§1º e 2º; jurisprudência pacífica",
+              enunciado: "Sobre o homicídio privilegiado-qualificado:",
+              alternativas: [
+                "é figura juridicamente impossível, pois o privilégio e a qualificadora se excluem mutuamente na estrutura típica do crime de homicídio, conforme entendimento sumulado",
+                "admite-se quando a qualificadora é de natureza objetiva (como o meio cruel), coexistindo com o privilégio, que é sempre subjetivo — hipótese que afasta a hediondez do crime",
+                "admite-se apenas quando a qualificadora também for de natureza subjetiva, garantindo coerência entre as circunstâncias reconhecidas pelo conselho de sentença no julgamento",
+                "é reconhecido exclusivamente pelo juiz presidente do júri, na fase de dosimetria da pena",
+                "mantém a natureza hedionda do homicídio qualificado, por ausência de previsão legal em sentido contrário"
+              ],
+              correta: 1,
+              explicacao: "Jurisprudência pacífica: o privilégio (sempre subjetivo — relevante valor moral/social, violenta emoção) é compatível com qualificadoras OBJETIVAS (meio ou modo de execução). Qualificadora subjetiva (motivo torpe/fútil) não coexiste com o privilégio. Consequência defensiva relevante: o homicídio privilegiado-qualificado NÃO é hediondo."
+            },
+            {
+              id: "esp-7", modo: "lei", fonte: "CP, art. 121-A (Lei 14.994/2024)",
+              enunciado: "Com a Lei 14.994/2024, o feminicídio:",
+              alternativas: [
+                "permaneceu como qualificadora do homicídio, com a pena elevada de doze a trinta anos de reclusão e a inclusão de novas causas de aumento específicas para o contexto de violência doméstica",
+                "deixou de ser qualificadora e tornou-se tipo penal autônomo (art. 121-A), com pena de reclusão de vinte a quarenta anos",
+                "foi incorporado à Lei Maria da Penha como infração de menor potencial ofensivo agravada",
+                "passou a exigir a coabitação entre autor e vítima como elementar do tipo penal",
+                "teve a pena reduzida para harmonizar o sistema com o homicídio qualificado comum"
+              ],
+              correta: 1,
+              explicacao: "A Lei 14.994/2024 transformou o feminicídio em TIPO AUTÔNOMO: art. 121-A do CP — matar mulher por razões da condição do sexo feminino (violência doméstica/familiar ou menosprezo/discriminação) — com pena de 20 a 40 anos, a mais alta da parte especial. Continua hediondo, e a lei elevou também outras penas ligadas à violência contra a mulher. Por ser mais gravosa, NÃO retroage: fatos anteriores seguem sob a antiga qualificadora."
+            }
+          ]
         }
       ]
     },
@@ -3467,6 +3661,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "A prevenção especial desdobra-se em positiva (ressocialização) e negativa (neutralização/inocuização do condenado). A criminologia crítica denuncia que, na prática, prevalece a neutralização seletiva, esvaziando o discurso ressocializador."
+            }
+          ]
+        },
+        {
+          id: "criminologia-2",
+          titulo: "Criminologias contemporâneas e vitimologia",
+          questoes: [
+            {
+              id: "cri2-1", modo: "caso", fonte: "Paradigma da reação social (labeling approach)",
+              enunciado: "O paradigma da reação social (labeling approach) promoveu uma virada na criminologia ao sustentar que:",
+              alternativas: [
+                "as causas da criminalidade estão em fatores biológicos e psicológicos do indivíduo, que a ciência pode identificar precocemente para orientar políticas eficazes de prevenção do delito",
+                "a criminalidade não é um dado ontológico, mas um status atribuído por processos de definição e etiquetamento — deslocando o objeto de estudo do criminoso para as instâncias de controle social",
+                "o crime decorre da desorganização social das grandes cidades, devendo o Estado investir em urbanização e ocupação dos espaços públicos degradados",
+                "a pena cumpre eficazmente as funções declaradas de prevenção geral e especial, cabendo à criminologia aperfeiçoar os instrumentos de medição da reincidência",
+                "todos os indivíduos possuem igual propensão ao delito, contida pelos vínculos sociais estabelecidos com a família, a escola e o trabalho"
+              ],
+              correta: 1,
+              explicacao: "O labeling (Becker, Lemert) rompe com o paradigma etiológico: pergunta não 'por que se delinque?', mas 'quem define o que é crime e quem é criminoso?'. O desvio é resultado da reação social — o etiquetamento produz a carreira desviante (desviação secundária). É a base do paradigma da reação social cobrado em todos os pontos do edital."
+            },
+            {
+              id: "cri2-2", modo: "caso", fonte: "Zaffaroni — criminalização primária e secundária",
+              enunciado: "Na lição de Zaffaroni, distinguem-se criminalização primária e secundária. É correto afirmar que:",
+              alternativas: [
+                "a criminalização primária é a atuação policial de rua e a secundária é o julgamento pelos tribunais superiores nas instâncias recursais",
+                "a primária é o poder de definir crimes em abstrato (atividade legislativa); a secundária é o exercício concreto do poder punitivo sobre pessoas selecionadas — seleção estruturalmente orientada por estereótipos",
+                "ambas se referem a momentos da execução penal: a primária na sentença condenatória e a secundária nos incidentes da execução da pena imposta",
+                "a criminalização secundária alcança de forma uniforme todas as camadas sociais, dada a impessoalidade das agências de controle formal do Estado",
+                "a distinção perdeu relevância com a constitucionalização do processo penal brasileiro"
+              ],
+              correta: 1,
+              explicacao: "Criminalização primária = programa legislativo (definição abstrata de crimes); secundária = ação das agências (polícia, MP, Judiciário) sobre pessoas concretas. Como o programa primário é irrealizável por completo, a secundária é inevitavelmente SELETIVA — e seleciona pelos estereótipos (pobreza, raça, território). Conceito central para a Defensoria."
+            },
+            {
+              id: "cri2-3", modo: "caso", fonte: "Criminologia feminista",
+              enunciado: "A criminologia feminista contribuiu para o campo criminológico ao evidenciar, entre outros pontos, que:",
+              alternativas: [
+                "as mulheres delinquem menos por características biológicas ligadas à menor agressividade natural do sexo feminino, confirmando as teses positivistas clássicas de Lombroso e Ferri sobre a mulher criminosa",
+                "o sistema penal é neutro em relação ao gênero, tratando igualmente homens e mulheres nas fases de criminalização e de vitimização",
+                "o saber criminológico tradicional é androcêntrico: invisibiliza a mulher como autora e como vítima, e o próprio sistema penal reproduz violências — como a revitimização da mulher que busca as instâncias formais",
+                "a criminalização da violência doméstica esgotou o problema da desigualdade de gênero no campo penal",
+                "a prisão feminina reproduz as mesmas condições da masculina, sem especificidades que justifiquem tratamento normativo próprio"
+              ],
+              correta: 2,
+              explicacao: "A crítica feminista denuncia o androcentrismo do saber penal e criminológico, a dupla punição da mulher (pelo crime e pelo desvio do papel de gênero), a vitimização secundária nas instâncias formais e o encarceramento feminino crescente (mulheres-mula, seletividade da Lei de Drogas). Diálogo direto com as Regras de Bangkok, também no edital."
+            },
+            {
+              id: "cri2-4", modo: "caso", fonte: "Criminologia das relações raciais; necropolítica",
+              enunciado: "Sobre a criminologia das relações raciais e o conceito de necropolítica (Mbembe) no contexto brasileiro:",
+              alternativas: [
+                "a seletividade racial foi superada com a igualdade formal consagrada na Constituição de 1988, restando ao sistema penal apenas distorções pontuais de natureza individual, corrigíveis pela via recursal",
+                "o racismo estrutural atravessa a criminalização secundária — do perfilamento racial ao encarceramento em massa e à letalidade policial —, e a necropolítica descreve o poder de ditar quem pode viver e quem deve morrer",
+                "a letalidade policial distribui-se de modo estatisticamente uniforme entre os grupos raciais e os territórios das cidades brasileiras",
+                "a categoria necropolítica foi formulada por Zaffaroni para explicar o genocídio nas agências penais latino-americanas",
+                "o pensamento criminológico brasileiro manteve-se historicamente imune às teorias racistas do positivismo do século XIX"
+              ],
+              correta: 1,
+              explicacao: "A criminologia das relações raciais mostra o racismo como elemento ESTRUTURANTE do sistema penal brasileiro (herança escravista, teses de Nina Rodrigues, guerra às drogas racializada). Necropolítica é conceito de Achille Mbembe: soberania como poder de fazer morrer — mobilizado para ler a letalidade policial e o extermínio da juventude negra. Pauta nuclear da DPE-RJ."
+            },
+            {
+              id: "cri2-5", modo: "juris", fonte: "STF, ADO 26 e MI 4733",
+              enunciado: "Quanto à criminalização da LGBTIfobia, o STF decidiu que:",
+              alternativas: [
+                "a criação de tipo penal específico é vedada ao Judiciário, cabendo apenas recomendar ao Congresso Nacional a aprovação de lei em prazo razoável, sob pena de responsabilização por omissão",
+                "as condutas homofóbicas e transfóbicas enquadram-se nos tipos da Lei do Racismo (Lei 7.716/89), até que o Congresso edite lei específica — por interpretação conforme, sem criação de tipo novo",
+                "a homotransfobia configura o crime de injúria racial em sua modalidade qualificada, punida com reclusão e multa nos termos do Código Penal",
+                "a proteção penal da população LGBTI depende de emenda constitucional que inclua a orientação sexual entre os objetivos fundamentais da República",
+                "a matéria é de competência legislativa estadual, dada a natureza concorrente da segurança pública"
+              ],
+              correta: 1,
+              explicacao: "Na ADO 26 e no MI 4733 (2019), o STF reconheceu a mora do Congresso e determinou que a LGBTIfobia se subsume aos crimes da Lei 7.716/89 (racismo em sentido social) até a edição de lei específica. Não houve criação judicial de tipo — houve interpretação conforme do conceito de raça fixado no caso Ellwanger. Tema dos pontos de criminologia E de penal."
+            },
+            {
+              id: "cri2-6", modo: "caso", fonte: "Vitimologia — vitimização primária, secundária e terciária",
+              enunciado: "Na vitimologia, chama-se vitimização secundária (ou sobrevitimização) aquela que decorre:",
+              alternativas: [
+                "diretamente da conduta criminosa praticada pelo ofensor contra a vítima do delito",
+                "do contato da vítima com as instâncias formais de controle — quando o próprio processo penal lhe impõe novos sofrimentos, como depoimentos repetidos e desqualificação da sua palavra",
+                "do abandono da vítima pelo seu grupo social, familiar e comunitário após a repercussão pública do crime sofrido, com estigmatização duradoura e perda dos vínculos de pertencimento",
+                "da autocolocação da vítima em situação de risco, que atenua a responsabilidade penal do autor",
+                "dos danos difusos suportados pela coletividade em razão da sensação de insegurança"
+              ],
+              correta: 1,
+              explicacao: "Vitimização primária = a causada pelo crime; SECUNDÁRIA = a causada pelo próprio sistema (polícia, perícia, juízo — revitimização); terciária = a do meio social (estigma, abandono). O combate à vitimização secundária inspirou a Lei 13.431/2017 (depoimento especial) e a proteção da vítima de crimes sexuais — pontes que a prova adora cruzar."
+            },
+            {
+              id: "cri2-7", modo: "caso", fonte: "Sutherland — crimes de colarinho branco",
+              enunciado: "A teoria dos crimes de colarinho branco (Sutherland) foi revolucionária porque:",
+              alternativas: [
+                "comprovou estatisticamente que a criminalidade econômica é mais frequente nas camadas pobres, orientando o endurecimento das penas patrimoniais e a política criminal de tolerância zero",
+                "definiu o crime de colarinho branco como o cometido por pessoa de respeitabilidade e elevado status no exercício de sua ocupação — refutando as teorias que vinculavam o crime à pobreza",
+                "demonstrou que os crimes empresariais são punidos com mais rigor que os crimes de rua, dada a maior capacidade de fiscalização estatal sobre as atividades econômicas formais",
+                "propôs a descriminalização dos delitos econômicos, por sua reduzida danosidade social em comparação com a criminalidade violenta das periferias urbanas",
+                "atribuiu a criminalidade econômica a traços psicopatológicos dos dirigentes das grandes corporações"
+              ],
+              correta: 1,
+              explicacao: "Sutherland (1939) mostrou que pessoas de alto status delinquem no exercício da profissão — e quase não são alcançadas pelo sistema penal (cifra dourada). A base explicativa é a associação diferencial: o comportamento criminoso é APRENDIDO nas interações. Efeito: derruba a equação crime = pobreza e expõe a seletividade — por isso aparece nos cinco pontos do edital."
             }
           ]
         }
