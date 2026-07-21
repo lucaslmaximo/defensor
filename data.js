@@ -2907,6 +2907,200 @@ window.APP_DATA = {
               explicacao: "SV 11: uso excepcional (resistência, receio de fuga, perigo à integridade), com justificação ESCRITA, sob pena de responsabilização (disciplinar, civil e penal) do agente, nulidade da prisão ou do ato e responsabilidade civil do Estado. No júri, o uso injustificado é especialmente grave — afeta a imagem do réu perante os jurados. Não é vedação absoluta: presente o risco concreto e justificado, admite-se."
             }
           ]
+        },
+        {
+          id: "proc-penal-juris-5",
+          titulo: "Competência, ação penal e Juizados",
+          questoes: [
+            {
+              id: "comp-1", modo: "lei", fonte: "CPP, arts. 70 e 83; CP, art. 6º",
+              enunciado: "Quanto à competência territorial no processo penal brasileiro, a regra geral é que:",
+              alternativas: [
+                "a competência firma-se pelo domicílio ou residência do réu, adotando-se o lugar do crime apenas de forma subsidiária quando o acusado não tiver residência certa no território nacional",
+                "a competência é determinada pelo lugar da consumação da infração (ou, na tentativa, pelo local do último ato de execução), firmando-se por prevenção quando incerto o limite entre duas jurisdições",
+                "a competência é sempre do juízo do local onde a vítima sofreu o resultado lesivo, ainda que a conduta tenha sido praticada em comarca diversa da que se produziu o resultado",
+                "prevalece o lugar da conduta para todos os efeitos processuais, em coerência com a teoria da atividade adotada pelo art. 4º do Código Penal quanto ao tempo do crime",
+                "aplica-se exclusivamente o critério do domicílio da vítima nos crimes de ação penal pública condicionada à representação"
+              ],
+              correta: 1,
+              explicacao: "Art. 70 do CPP adota a teoria do RESULTADO para a competência (lugar da consumação), enquanto o art. 6º do CP adota a ubiquidade para o lugar do crime e o art. 4º a atividade para o tempo do crime — distinção clássica de prova. Na tentativa, competente é o local do último ato de execução. O domicílio do réu é foro SUBSIDIÁRIO (art. 72), quando desconhecido o lugar da infração."
+            },
+            {
+              id: "comp-2", modo: "juris", fonte: "CF, art. 109, IV e V; STJ, Súmula 122",
+              enunciado: "Sobre a competência da Justiça Federal em matéria criminal:",
+              alternativas: [
+                "alcança todos os crimes cometidos com repercussão interestadual ou internacional, independentemente de lesão direta a bens, serviços ou interesse da União",
+                "abrange os crimes contra bens, serviços ou interesse da União, suas autarquias ou empresas públicas — e, havendo conexão entre crime federal e estadual, a Justiça Federal julga ambos",
+                "no caso de conexão entre crime federal e crime estadual, impõe-se a separação obrigatória dos processos, cada qual perante o respectivo juízo natural competente",
+                "é fixada pela gravidade da pena cominada, cabendo à Justiça Federal os delitos punidos com reclusão superior a oito anos",
+                "compete à Justiça Federal julgar os crimes praticados contra sociedades de economia mista federais, como o Banco do Brasil e a Petrobras"
+              ],
+              correta: 1,
+              explicacao: "Art. 109, IV, da CF: bens, serviços ou interesse da União, autarquias ou EMPRESAS PÚBLICAS. Sociedade de economia mista está FORA (Súmula 42/STJ: compete à Justiça Estadual). Súmula 122/STJ: havendo conexão entre crime federal e estadual, a Justiça Federal atrai o julgamento de ambos (vis attractiva). Súmula 147/STJ e 151/STJ complementam o quadro."
+            },
+            {
+              id: "comp-3", modo: "lei", fonte: "CPP, arts. 24, 29 e 30; CP, art. 100",
+              enunciado: "Sobre as espécies de ação penal e a legitimidade para propô-las:",
+              alternativas: [
+                "a ação penal privada subsidiária da pública cabe quando o Ministério Público requer o arquivamento do inquérito policial, permitindo à vítima insistir na persecução mediante queixa-crime substitutiva",
+                "a ação penal privada subsidiária da pública é garantia constitucional cabível apenas na inércia do Ministério Público (não oferecimento no prazo legal), podendo o Parquet aditar a queixa e retomar a ação como parte principal se houver negligência do querelante",
+                "na ação penal pública condicionada, a representação da vítima é irretratável desde o momento em que oferecida perante a autoridade policial competente",
+                "a ação penal privada personalíssima admite sucessão processual pelo cônjuge, ascendente, descendente ou irmão em caso de morte do ofendido",
+                "o Ministério Público pode oferecer denúncia nos crimes de ação penal privada quando entender presente relevante interesse público na persecução"
+              ],
+              correta: 1,
+              explicacao: "CF, art. 5º, LIX, e art. 29 do CPP: a subsidiária cabe só na INÉRCIA (não oferecimento no prazo) — se o MP pediu arquivamento, não há inércia e a via está fechada. O MP mantém-se como interveniente: adita, repudia, oferece denúncia substitutiva e retoma a ação como parte principal se o querelante for negligente. A representação é retratável até o oferecimento da denúncia (art. 25)."
+            },
+            {
+              id: "comp-4", modo: "lei", fonte: "Lei 9.099/95, arts. 61, 76 e 89",
+              enunciado: "No âmbito dos Juizados Especiais Criminais, é correto afirmar que:",
+              alternativas: [
+                "infrações de menor potencial ofensivo são as contravenções e os crimes com pena máxima não superior a 2 anos; a transação penal cabe nessas infrações e a suspensão condicional do processo alcança crimes com pena mínima igual ou inferior a 1 ano, mesmo fora do Juizado",
+                "a transação penal e a suspensão condicional do processo são institutos idênticos, aplicáveis indistintamente às infrações cuja pena máxima não ultrapasse dois anos de detenção ou reclusão",
+                "a aceitação da transação penal implica reconhecimento de culpa, gera reincidência e é lançada na certidão de antecedentes criminais do autor do fato para todos os efeitos legais",
+                "a suspensão condicional do processo pode ser proposta pelo juiz de ofício quando o Ministério Público se recusar injustificadamente a formulá-la ao acusado",
+                "descumprida a transação penal, converte-se automaticamente a pena restritiva acordada em privativa de liberdade, independentemente de oferecimento de denúncia"
+              ],
+              correta: 0,
+              explicacao: "Art. 61: IMPO = contravenções + crimes com pena máxima ≤ 2 anos. Transação (art. 76) é para IMPO; sursis processual (art. 89) tem critério diverso — pena MÍNIMA ≤ 1 ano, aplicável também fora do Juizado. A transação não gera reincidência nem consta de certidão para efeitos civis (art. 76, §§4º e 6º). Descumprida, o STF (SV 35) determina o retorno ao status quo: oferece-se denúncia."
+            },
+            {
+              id: "comp-5", modo: "juris", fonte: "CPP, art. 28 (Pacote Anticrime); STF, ADI 6.298",
+              enunciado: "Sobre o arquivamento do inquérito policial após a Lei 13.964/2019:",
+              alternativas: [
+                "o juiz continua a exercer o controle do arquivamento, podendo discordar da promoção ministerial e remeter os autos ao Procurador-Geral, conforme a antiga sistemática do art. 28 do CPP",
+                "o arquivamento passou a ser ato do próprio Ministério Público, com comunicação à vítima e submissão à instância de revisão ministerial — modelo cuja eficácia foi confirmada pelo STF ao julgar as ações diretas contra o Pacote Anticrime",
+                "o arquivamento tornou-se ato privativo da autoridade policial, que o comunica ao juízo competente para simples registro estatístico do encerramento da investigação criminal",
+                "o inquérito só pode ser arquivado após manifestação favorável da vítima e do investigado, em audiência específica designada para essa finalidade",
+                "o arquivamento passou a depender de homologação judicial obrigatória, sob pena de nulidade absoluta do ato ministerial praticado"
+              ],
+              correta: 1,
+              explicacao: "O novo art. 28 retirou o juiz do controle do arquivamento (coerência com o sistema acusatório): o MP ordena o arquivamento e submete à instância de revisão do próprio órgão, comunicando vítima, investigado e autoridade policial. O STF (ADI 6.298 e outras, 2023) manteve o dispositivo, ajustando pontos do juiz das garantias. Encerra a antiga sistemática em que o juiz 'discordava' e remetia ao PGJ."
+            },
+            {
+              id: "comp-6", modo: "lei", fonte: "CPP, art. 28-A (ANPP)",
+              enunciado: "O acordo de não persecução penal (ANPP) é cabível quando:",
+              alternativas: [
+                "o investigado confessar formal e circunstancialmente a prática de infração sem violência ou grave ameaça e com pena mínima inferior a 4 anos, sendo necessário e suficiente para reprovação e prevenção — vedado, entre outros casos, se cabível transação penal ou em crimes de violência doméstica contra a mulher",
+                "houver acordo entre as partes em qualquer infração penal cuja pena máxima cominada não ultrapasse oito anos de reclusão, dispensada a confissão do investigado perante a autoridade competente",
+                "o acusado já estiver respondendo à ação penal, hipótese em que o acordo substitui a instrução e conduz diretamente à sentença homologatória de mérito",
+                "o Ministério Público entender conveniente e oportuno propô-lo ao investigado, independentemente do preenchimento de quaisquer requisitos objetivos previstos em lei, dada a natureza inteiramente discricionária que o instituto assumiu no sistema acusatório",
+                "o investigado for reincidente específico, desde que repare integralmente o dano causado à vítima antes do oferecimento da proposta"
+              ],
+              correta: 0,
+              explicacao: "Art. 28-A do CPP: confissão formal e circunstanciada + infração SEM violência ou grave ameaça + pena mínima < 4 anos + necessidade e suficiência para reprovação/prevenção. Vedações do §2º: cabimento de transação, reincidência/habitualidade, ANPP nos 5 anos anteriores e crimes de violência doméstica ou praticados contra a mulher por razões de gênero. O STJ discute a retroatividade a processos em curso (Tema 1303)."
+            },
+            {
+              id: "comp-7", modo: "juris", fonte: "CF, art. 5º, XXXVIII; CPP, art. 74",
+              enunciado: "Quanto à competência do Tribunal do Júri:",
+              alternativas: [
+                "abrange todos os crimes praticados com resultado morte, incluindo o latrocínio e a lesão corporal seguida de morte, dada a identidade do bem jurídico tutelado nesses delitos",
+                "alcança os crimes dolosos contra a vida, consumados ou tentados, e os conexos — não abrangendo o latrocínio, que é crime patrimonial julgado pelo juiz singular",
+                "é competência de natureza infraconstitucional, podendo ser afastada por lei ordinária que atribua o julgamento a órgão colegiado togado especializado",
+                "cede sempre diante do foro por prerrogativa de função previsto exclusivamente em Constituição Estadual, por especialidade da norma local sobre a regra geral do júri",
+                "restringe-se ao homicídio doloso, excluídos o induzimento ao suicídio, o infanticídio e o aborto, que seguem o procedimento comum ordinário"
+              ],
+              correta: 1,
+              explicacao: "CF, art. 5º, XXXVIII, 'd': competência para os crimes dolosos contra a vida (homicídio, induzimento/instigação/auxílio ao suicídio, infanticídio e aborto), tentados ou consumados, mais os conexos. Súmula 603/STF: latrocínio é da competência do juiz singular. Súmula Vinculante 45: a competência do júri prevalece sobre o foro por prerrogativa estabelecido exclusivamente pela Constituição Estadual."
+            }
+          ]
+        },
+        {
+          id: "proc-penal-juris-6",
+          titulo: "Júri, nulidades e ato infracional",
+          questoes: [
+            {
+              id: "jur-1", modo: "lei", fonte: "CPP, arts. 413, 414, 415 e 419",
+              enunciado: "Encerrada a primeira fase do procedimento do júri (judicium accusationis), o juiz pode proferir quatro decisões. A pronúncia:",
+              alternativas: [
+                "exige prova plena da autoria e da materialidade, com o standard de certeza próprio de uma sentença condenatória proferida ao final da instrução criminal",
+                "exige a materialidade e indícios suficientes de autoria, vigorando na dúvida o in dubio pro societate — critério hoje fortemente contestado pelo STF em favor do in dubio pro reo",
+                "só pode ser proferida se o Ministério Público e a defesa técnica manifestarem concordância expressa quanto ao envio do caso ao conselho de sentença",
+                "é cabível ainda que o fato narrado não constitua crime doloso contra a vida, hipótese em que o juiz remete os autos ao tribunal do júri para deliberação",
+                "encerra definitivamente o processo quando o juiz se convence da inexistência do fato criminoso imputado"
+              ],
+              correta: 1,
+              explicacao: "Art. 413: pronúncia exige materialidade + indícios suficientes de autoria (juízo de admissibilidade, não de certeza). As outras saídas: impronúncia (art. 414), absolvição sumária (art. 415) e desclassificação (art. 419). Sobre a dúvida, o STF vem rejeitando o in dubio pro societate como standard (ARE 1.067.392) — tese defensiva relevante: a dúvida deve favorecer o réu também na pronúncia."
+            },
+            {
+              id: "jur-2", modo: "lei", fonte: "CPP, arts. 482, 483 e 489",
+              enunciado: "Sobre a votação dos quesitos pelo conselho de sentença no plenário do júri:",
+              alternativas: [
+                "os jurados decidem por unanimidade, sendo nula a votação em que houver qualquer divergência entre os sete integrantes do conselho de sentença sorteado",
+                "as decisões são tomadas por maioria de votos, e a votação é encerrada assim que se alcançam quatro votos num mesmo sentido, preservando-se o sigilo do resultado numérico",
+                "a votação segue a ordem livremente definida pelo juiz presidente, que pode agrupar todos os quesitos numa única pergunta abrangente sobre a responsabilidade penal do acusado",
+                "o quesito da absolvição genérica foi suprimido pela reforma de 2008, devendo os jurados responder separadamente a cada tese defensiva sustentada em plenário pela defesa técnica",
+                "os jurados podem fundamentar oralmente seus votos, desde que preservada a incomunicabilidade durante os debates entre as partes"
+              ],
+              correta: 1,
+              explicacao: "Art. 489: decisões por maioria. Desde a Lei 11.689/2008, a votação para de contar ao atingir 4 votos (evita revelar a unanimidade e preserva o sigilo). A ordem dos quesitos é legal (art. 483): materialidade, autoria, quesito absolutório genérico ('o jurado absolve o acusado?'), causas de diminuição e qualificadoras. Os jurados não fundamentam — vigora a íntima convicção."
+            },
+            {
+              id: "jur-3", modo: "juris", fonte: "CPP, art. 593, III, 'd'; CF, art. 5º, XXXVIII, 'c'",
+              enunciado: "Quando o júri absolve o réu com base no quesito genérico de absolvição, a apelação da acusação por decisão manifestamente contrária à prova dos autos:",
+              alternativas: [
+                "permite ao tribunal reformar o mérito e condenar diretamente o acusado, desde que a prova dos autos seja robusta e conduza inequivocamente à responsabilidade penal",
+                "encontra forte resistência na jurisprudência atual, pois o quesito genérico admite absolvição por clemência — e, se cassado o veredicto, o tribunal apenas determina novo júri, jamais condena",
+                "é incabível em qualquer hipótese, dada a soberania absoluta dos veredictos consagrada na Constituição, que impede toda forma de revisão da decisão dos jurados",
+                "autoriza o tribunal a determinar sucessivos novos julgamentos até que o conselho de sentença profira decisão conforme a prova produzida nos autos do processo",
+                "converte o julgamento em competência do juiz singular, que profere nova sentença substitutiva do veredicto anulado pelo tribunal de segundo grau"
+              ],
+              correta: 1,
+              explicacao: "Pela soberania dos veredictos, o tribunal nunca condena em substituição ao júri: no máximo cassa a decisão e manda a novo julgamento — e só UMA vez pelo mesmo fundamento (art. 593, §3º). Como o quesito do art. 483, III, permite absolvição por clemência (sem vínculo estrito com a prova), o STF tem restringido fortemente essa apelação — o Tema 1087 tratou do tema, com repercussão para a defesa."
+            },
+            {
+              id: "jur-4", modo: "lei", fonte: "CPP, arts. 563, 564 e 566; STF, Súmula 523",
+              enunciado: "No sistema de nulidades do processo penal:",
+              alternativas: [
+                "toda inobservância de forma legal acarreta a nulidade do ato processual praticado, independentemente da demonstração de qualquer prejuízo concreto às partes envolvidas",
+                "vigora o princípio pas de nullité sans grief: nenhum ato é declarado nulo se não houver prejuízo — sendo que a falta de defesa constitui nulidade absoluta, mas a defesa deficiente só anula se houver prova de prejuízo",
+                "as nulidades absolutas precluem se não forem arguidas na primeira oportunidade de fala da parte interessada nos autos do processo criminal em curso",
+                "a nulidade decorrente de incompetência absoluta convalida-se com o trânsito em julgado da sentença condenatória proferida pelo juízo incompetente",
+                "a ausência de intimação da Defensoria Pública configura mera irregularidade sanável, por não integrar o núcleo essencial do contraditório"
+              ],
+              correta: 1,
+              explicacao: "Art. 563: pas de nullité sans grief. Súmula 523/STF: no processo penal, a falta de defesa constitui nulidade ABSOLUTA, mas a sua deficiência só o anulará se houver prova de prejuízo — distinção decisiva. As nulidades absolutas podem ser reconhecidas de ofício e a qualquer tempo (não precluem); as relativas devem ser arguidas oportunamente (art. 571)."
+            },
+            {
+              id: "jur-5", modo: "lei", fonte: "ECA, arts. 106, 108 e 121; Lei 12.594/2012",
+              enunciado: "Sobre a internação de adolescente autor de ato infracional:",
+              alternativas: [
+                "pode ser aplicada a qualquer ato infracional, desde que o adolescente seja reincidente e a medida se mostre adequada à sua ressocialização segundo o relatório da equipe técnica",
+                "sujeita-se aos princípios da brevidade, excepcionalidade e respeito à condição peculiar de pessoa em desenvolvimento, com prazo máximo de 3 anos, reavaliação a cada 6 meses e liberação compulsória aos 21 anos",
+                "tem prazo indeterminado e mínimo de um ano, admitida a reavaliação apenas mediante requerimento fundamentado da defesa técnica constituída ou nomeada nos autos",
+                "não se submete a prazo máximo quando o ato infracional for equiparado a crime hediondo, aplicando-se por analogia o regime da Lei dos Crimes Hediondos",
+                "a internação provisória, antes da sentença, pode durar até noventa dias, prorrogáveis uma vez por igual período mediante decisão fundamentada"
+              ],
+              correta: 1,
+              explicacao: "Art. 121 do ECA: brevidade, excepcionalidade e respeito à condição peculiar de pessoa em desenvolvimento; prazo máximo de 3 anos (§3º), reavaliação no máximo a cada 6 meses (§2º) e liberação compulsória aos 21 anos (§5º). A internação provisória tem prazo máximo de 45 dias (art. 108) — improrrogável. O SINASE (Lei 12.594/2012) rege a execução das socioeducativas."
+            },
+            {
+              id: "jur-6", modo: "juris", fonte: "ECA, art. 122; STJ, Súmula 492",
+              enunciado: "As hipóteses de aplicação da medida de internação são taxativas. Quanto ao tráfico de drogas praticado por adolescente:",
+              alternativas: [
+                "a gravidade abstrata do ato infracional equiparado ao tráfico conduz obrigatoriamente à internação, por expressa determinação do Estatuto da Criança e do Adolescente",
+                "o ato infracional análogo ao tráfico, por si só, não conduz obrigatoriamente à internação, conforme a Súmula 492 do STJ",
+                "a internação é vedada em qualquer caso de ato infracional relacionado a entorpecentes, cabendo apenas medidas em meio aberto e tratamento de saúde especializado",
+                "o adolescente flagrado com drogas deve ser encaminhado diretamente ao sistema prisional comum quando tiver mais de dezoito anos ao tempo da sentença",
+                "a medida de internação prescinde de defesa técnica quando o adolescente confessa a prática do ato infracional perante a autoridade policial competente"
+              ],
+              correta: 1,
+              explicacao: "Súmula 492/STJ: o ato infracional análogo ao tráfico não conduz obrigatoriamente à internação. O art. 122 traz rol TAXATIVO: violência ou grave ameaça à pessoa, reiteração de infrações graves ou descumprimento reiterado e injustificável de medida anterior. Tráfico, isoladamente, não se enquadra — tese defensiva de altíssima incidência prática."
+            },
+            {
+              id: "jur-7", modo: "lei", fonte: "Lei 9.296/96, arts. 2º e 5º",
+              enunciado: "A interceptação das comunicações telefônicas para prova em investigação criminal:",
+              alternativas: [
+                "pode ser autorizada pela autoridade policial em caso de urgência, com posterior comunicação ao juízo competente para ratificação da medida no prazo de vinte e quatro horas",
+                "depende de ordem judicial fundamentada, é vedada quando o fato for punido apenas com detenção ou houver outros meios de prova, e vigora por 15 dias renováveis por igual período",
+                "prescinde de decisão judicial quando um dos interlocutores da conversa autorizar expressamente a captação do diálogo mantido com o investigado",
+                "tem prazo máximo improrrogável de trinta dias, findo o qual a prova produzida torna-se automaticamente ilícita por derivação",
+                "aplica-se somente aos crimes hediondos e equiparados, dada a excepcionalidade da restrição ao sigilo das comunicações telefônicas"
+              ],
+              correta: 1,
+              explicacao: "Lei 9.296/96: reserva de jurisdição com decisão fundamentada (art. 5º); vedada se não houver indícios razoáveis de autoria, se a prova puder ser feita por outros meios, ou se o fato for punido no máximo com DETENÇÃO (art. 2º). Prazo de 15 dias renovável por igual período — o STF admite renovações sucessivas desde que fundamentadas. A gravação por um dos interlocutores é figura distinta (gravação clandestina), com regime próprio."
+            }
+          ]
         }
       ]
     },
@@ -3241,6 +3435,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Art. 41 da LEP: rol de direitos (assistências material, à saúde, jurídica, educacional, social e religiosa; trabalho remunerado — não inferior a 3/4 do salário mínimo, art. 29; visita; entrevista reservada com advogado/defensor). A suspensão de direitos como a visita exige ato MOTIVADO do diretor (parágrafo único) e é sindicável judicialmente. As Regras de Bangkok e a LEP (art. 14, §3º) garantem acompanhamento pré-natal e pós-parto às mulheres presas."
+            }
+          ]
+        },
+        {
+          id: "exec-penal-juris-5",
+          titulo: "Multa, restritivas, sursis e reabilitação",
+          questoes: [
+            {
+              id: "mul-1", modo: "juris", fonte: "CP, art. 51; STF, ADI 3.150",
+              enunciado: "Quanto à execução da pena de multa após o trânsito em julgado da condenação:",
+              alternativas: [
+                "a multa converte-se em pena privativa de liberdade quando o condenado deixa de pagá-la no prazo legal de dez dias contado do trânsito em julgado da sentença condenatória",
+                "a legitimidade prioritária para executá-la é do Ministério Público, na vara de execução penal; subsidiariamente, se o MP se mantiver inerte, cabe à Fazenda Pública promover a cobrança",
+                "a competência para a cobrança é exclusiva da Fazenda Pública, na vara de execuções fiscais, por se tratar de dívida de valor inscrita em dívida ativa do ente federado",
+                "o inadimplemento da multa não produz nenhum efeito sobre a execução da pena, podendo o condenado obter todos os benefícios independentemente do pagamento",
+                "a multa é sempre extinta pelo indulto que alcança a pena privativa de liberdade, por acessoriedade entre as sanções aplicadas na mesma sentença"
+              ],
+              correta: 1,
+              explicacao: "ADI 3.150: a multa mantém caráter de sanção penal — legitimidade PRIORITÁRIA do MP no juízo da execução penal e, se inerte, subsidiária da Fazenda. O art. 51 (redação do Pacote Anticrime) veda a conversão em prisão. Atenção: o STF entende que o não pagamento deliberado da multa impede a progressão e a extinção da punibilidade, salvo comprovada hipossuficiência — tese defensiva relevante."
+            },
+            {
+              id: "mul-2", modo: "lei", fonte: "CP, art. 44, §4º; LEP, art. 181",
+              enunciado: "Sobre a conversão da pena restritiva de direitos em privativa de liberdade:",
+              alternativas: [
+                "é automática diante do primeiro descumprimento noticiado pelo órgão fiscalizador, dispensada a prévia oitiva do condenado ou de sua defesa técnica constituída nos autos",
+                "cabe quando ocorrer descumprimento injustificado da restrição imposta, deduzindo-se o tempo cumprido e respeitado o saldo mínimo de 30 dias de detenção ou reclusão",
+                "é vedada no ordenamento brasileiro, restando ao juízo apenas advertir o condenado e prorrogar o prazo de cumprimento da medida restritiva descumprida",
+                "converte-se pelo total da pena originalmente aplicada, sem qualquer detração do período já cumprido em prestação de serviços à comunidade pelo sentenciado",
+                "depende de nova ação penal de conhecimento, com contraditório pleno e produção de prova sobre o descumprimento atribuído ao condenado"
+              ],
+              correta: 1,
+              explicacao: "Art. 44, §4º, do CP: descumprimento INJUSTIFICADO autoriza a conversão, deduzindo-se o tempo cumprido e respeitado o saldo mínimo de 30 dias. A LEP (art. 118, §2º, por analogia, e art. 181) exige a prévia oitiva do condenado — não há conversão automática. Se sobrevier condenação a pena privativa por outro crime, a conversão é facultativa se possível cumprir a anterior (§5º)."
+            },
+            {
+              id: "mul-3", modo: "lei", fonte: "CP, arts. 77, 78 e 81",
+              enunciado: "A suspensão condicional da pena (sursis) exige, entre outros requisitos:",
+              alternativas: [
+                "pena privativa de liberdade não superior a 4 anos e réu primário, com prazo de suspensão de 1 a 3 anos em qualquer hipótese legal prevista no Código",
+                "pena privativa não superior a 2 anos, não reincidência em crime doloso e circunstâncias favoráveis — com período de prova de 2 a 4 anos, e o sursis etário (maior de 70) alcança pena de até 4 anos",
+                "que o condenado tenha reparado integralmente o dano causado à vítima antes do trânsito em julgado, requisito indispensável em todas as modalidades de suspensão",
+                "a concordância expressa do Ministério Público em audiência admonitória, sem a qual o benefício não pode ser concedido pelo juízo sentenciante da causa",
+                "que a pena aplicada seja de detenção, sendo o instituto incabível quando a sanção cominada ao delito for de reclusão"
+              ],
+              correta: 1,
+              explicacao: "Art. 77 do CP: pena ≤ 2 anos, não reincidência em crime doloso (a condenação anterior a multa não impede — §1º) e circunstâncias favoráveis. Período de prova: 2 a 4 anos. O art. 77, §2º traz o sursis etário (maior de 70 anos) e o humanitário (razões de saúde), ambos alcançando penas de até 4 anos, com prova de 4 a 6 anos. A revogação obrigatória e a facultativa estão no art. 81."
+            },
+            {
+              id: "mul-4", modo: "lei", fonte: "CP, arts. 93 a 95; LEP, art. 202",
+              enunciado: "Sobre o instituto da reabilitação criminal:",
+              alternativas: [
+                "extingue a pena ainda não cumprida e apaga a condenação para todos os efeitos, inclusive quanto à reincidência em eventual processo criminal futuro contra o reabilitado",
+                "assegura o sigilo dos registros sobre o processo e a condenação e pode atingir os efeitos secundários da condenação, sendo requerida após 2 anos do cumprimento ou extinção da pena",
+                "opera automaticamente com o cumprimento integral da pena, independentemente de requerimento do interessado ou de decisão judicial que a declare formalmente",
+                "só pode ser concedida uma única vez na vida do condenado, sendo definitivamente vedada a quem já tenha obtido o benefício anteriormente em outro processo",
+                "tem por efeito principal a restituição do valor da multa paga e das custas processuais suportadas pelo condenado durante a persecução penal"
+              ],
+              correta: 1,
+              explicacao: "Arts. 93-94 do CP: a reabilitação alcança o sigilo dos registros e pode atingir efeitos secundários da condenação (ex.: reaquisição do poder familiar em certos casos), requerida 2 anos após a extinção ou o cumprimento da pena. Não apaga a reincidência nem extingue a pena. A LEP (art. 202) já garante sigilo após o cumprimento — o que reduziu a utilidade prática, mas o instituto permanece cobrado."
+            },
+            {
+              id: "mul-5", modo: "lei", fonte: "LEP, arts. 180 a 184",
+              enunciado: "As conversões previstas na Lei de Execução Penal permitem que:",
+              alternativas: [
+                "a pena privativa de liberdade em regime aberto, não superior a 2 anos, seja convertida em restritiva de direitos se presentes os requisitos legais; e a medida de segurança em pena, se cessada a periculosidade",
+                "qualquer pena privativa de liberdade seja convertida em restritiva de direitos a pedido do condenado, independentemente do quantum fixado e do regime de cumprimento",
+                "a pena de multa inadimplida seja convertida em detenção pelo prazo correspondente ao número de dias-multa aplicados na sentença condenatória transitada em julgado",
+                "a pena restritiva de direitos seja convertida em multa quando o condenado demonstrar impossibilidade material de cumprir a prestação de serviços imposta",
+                "o regime semiaberto seja convertido em prisão domiciliar sempre que houver superlotação no estabelecimento penal de destino do sentenciado"
+              ],
+              correta: 0,
+              explicacao: "Art. 180 da LEP: conversão da PPL em regime aberto, não superior a 2 anos, em restritiva de direitos (cumprimento em regime aberto por ao menos 1/4 da pena + antecedentes e personalidade favoráveis). O art. 183 trata da conversão da pena em medida de segurança na superveniência de doença mental. A conversão da multa em detenção foi abolida (art. 51 do CP). A SV 56 rege a falta de vaga."
+            },
+            {
+              id: "mul-6", modo: "juris", fonte: "LEP, art. 112; STJ, Súmulas 439 e 534",
+              enunciado: "Sobre o exame criminológico na progressão de regime:",
+              alternativas: [
+                "tornou-se obrigatório para todos os condenados após o Pacote Anticrime, que restabeleceu a exigência revogada pela Lei 10.792/2003 no procedimento de progressão",
+                "não é mais obrigatório, mas pode ser determinado pelo juízo em decisão concretamente fundamentada, quando as peculiaridades do caso indicarem sua necessidade",
+                "é vedado em qualquer hipótese, por configurar prova de natureza inquisitorial incompatível com o sistema acusatório adotado pela Constituição de 1988",
+                "substitui integralmente o requisito objetivo de cumprimento de percentual da pena, bastando o parecer favorável da comissão técnica de classificação",
+                "cabe exclusivamente ao Ministério Público requerê-lo, não podendo o juízo da execução determiná-lo de ofício em nenhuma circunstância"
+              ],
+              correta: 1,
+              explicacao: "A Lei 10.792/2003 retirou a obrigatoriedade do exame. Súmula 439/STJ: admite-se o exame pelas peculiaridades do caso, desde que em decisão motivada. O Pacote Anticrime não restabeleceu a obrigatoriedade geral. Súmula 534/STJ trata da falta grave e da interrupção do prazo. Tese defensiva: exigir fundamentação concreta — não basta invocar a gravidade do crime."
+            },
+            {
+              id: "mul-7", modo: "juris", fonte: "LEP, art. 117; STF, RE 641.320 e SV 56",
+              enunciado: "Reconhecido o direito à progressão para o regime semiaberto, mas inexistindo vaga em estabelecimento adequado:",
+              alternativas: [
+                "o condenado permanece no regime fechado até o surgimento de vaga, sem que isso configure constrangimento ilegal, dada a reserva do possível na execução penal",
+                "não se admite a manutenção em regime mais gravoso: cabe ao juízo determinar prisão domiciliar ou outra medida alternativa até o surgimento de vaga, conforme a Súmula Vinculante 56",
+                "a pena deve ser automaticamente extinta, por impossibilidade material de cumprimento no regime fixado pela decisão judicial que reconheceu a progressão",
+                "o condenado é transferido compulsoriamente para o regime aberto, independentemente do preenchimento dos requisitos legais próprios dessa etapa da execução",
+                "a prisão domiciliar do art. 117 da LEP só é cabível para condenados maiores de setenta anos, sendo vedada sua aplicação por analogia à falta de vagas"
+              ],
+              correta: 1,
+              explicacao: "SV 56 (a partir do RE 641.320): a falta de estabelecimento penal adequado NÃO autoriza a manutenção do condenado em regime mais gravoso. O STF indicou parâmetros: saída antecipada de outro sentenciado, liberdade eletronicamente monitorada e cumprimento de penas restritivas ou estudo. Ao lado da ADPF 347, é o principal instrumento contra o encarceramento em condições inconstitucionais."
             }
           ]
         }
@@ -3857,6 +4148,200 @@ window.APP_DATA = {
               explicacao: "A Lei 14.532/2023 deslocou a injúria racial para o art. 2º-A da Lei 7.716/89, atraindo o regime constitucional do racismo: imprescritível e inafiançável (CF, art. 5º, XLII), com pena de reclusão de 2 a 5 anos. Antes disso, na ADO 26/MI 4733 (2019), o STF já havia enquadrado a LGBTIfobia nos tipos da Lei 7.716/89 por interpretação conforme, até que sobrevenha lei específica."
             }
           ]
+        },
+        {
+          id: "penal-juris-8",
+          titulo: "Dignidade sexual e administração pública",
+          questoes: [
+            {
+              id: "dig2-1", modo: "lei", fonte: "CP, arts. 213 e 217-A",
+              enunciado: "Após a Lei 12.015/2009, quanto aos crimes de estupro e estupro de vulnerável:",
+              alternativas: [
+                "o estupro continua sendo crime próprio, admitindo apenas a mulher como sujeito passivo e o homem como sujeito ativo da conduta típica descrita no tipo penal",
+                "o estupro passou a ser crime comum quanto ao sujeito passivo (qualquer pessoa) e reuniu num só tipo a conjunção carnal e outros atos libidinosos; no estupro de vulnerável (menor de 14 anos), o consentimento é irrelevante",
+                "no estupro de vulnerável admite-se prova do consentimento da vítima menor de quatorze anos quando demonstrada sua maturidade sexual e sua experiência anterior",
+                "a ação penal nos crimes contra a dignidade sexual permanece privada, dependendo de queixa-crime da vítima ou de seu representante legal",
+                "o atentado violento ao pudor subsiste como tipo autônomo, em concurso material com o estupro sempre que praticadas as duas condutas no mesmo contexto"
+              ],
+              correta: 1,
+              explicacao: "A Lei 12.015/2009 unificou estupro e atentado violento ao pudor no art. 213 (crime comum quanto ao sujeito passivo, e o STJ admite mulher como autora). Súmula 593/STJ: no art. 217-A, a vulnerabilidade do menor de 14 é ABSOLUTA — irrelevantes consentimento, experiência sexual anterior ou existência de relacionamento. A ação penal hoje é pública incondicionada (art. 225, redação da Lei 13.718/2018)."
+            },
+            {
+              id: "dig2-2", modo: "lei", fonte: "CP, art. 215-A (Lei 13.718/2018)",
+              enunciado: "O crime de importunação sexual (art. 215-A do CP):",
+              alternativas: [
+                "consiste em praticar ato libidinoso na presença de alguém sem sua anuência, com o fim de satisfazer lascívia própria ou alheia, e é subsidiário: só incide se o fato não constituir crime mais grave",
+                "exige violência ou grave ameaça como meio de execução, distinguindo-se do estupro apenas pela menor intensidade do constrangimento imposto à vítima do delito",
+                "configura contravenção penal apurada no Juizado Especial Criminal mediante transação penal, dada a pena máxima não superior a dois anos",
+                "aplica-se apenas a condutas praticadas em transporte público coletivo, ambiente para o qual o tipo foi originalmente concebido pelo legislador",
+                "depende de representação da vítima, sendo retratável até o trânsito em julgado da sentença penal condenatória"
+              ],
+              correta: 0,
+              explicacao: "Art. 215-A (Lei 13.718/2018, resposta ao caso da ejaculação em ônibus): ato libidinoso sem anuência, para satisfazer lascívia própria ou de terceiro; pena de 1 a 5 anos, com subsidiariedade expressa ('se o ato não constitui crime mais grave'). Não é IMPO (pena máxima 5 anos), não exige violência/grave ameaça (que levaria ao art. 213) e não se limita ao transporte público. Ação penal pública incondicionada."
+            },
+            {
+              id: "dig2-3", modo: "juris", fonte: "CP, art. 217-A; STJ, Súmula 593",
+              enunciado: "Sobre o contato físico como elementar do estupro de vulnerável, a jurisprudência do STJ firmou que:",
+              alternativas: [
+                "o crime exige necessariamente contato físico direto entre autor e vítima, sob pena de desclassificação para importunação sexual ou para o crime de satisfação de lascívia",
+                "a contemplação lasciva configura o ato libidinoso do art. 217-A, sendo prescindível o contato físico entre autor e vítima para a consumação do delito",
+                "a prática de ato libidinoso por meio virtual afasta a tipicidade, por ausência de execução no mundo físico e de perigo concreto ao bem jurídico protegido",
+                "o crime só se consuma com a conjunção carnal, respondendo o agente por tentativa nas demais formas de ato libidinoso praticadas contra a vítima vulnerável",
+                "a presunção de violência foi revogada, exigindo-se prova do dissenso mesmo quando a vítima for menor de quatorze anos de idade"
+              ],
+              correta: 1,
+              explicacao: "STJ: para o art. 217-A, é PRESCINDÍVEL o contato físico — a contemplação lasciva já configura o ato libidinoso (importante para casos de exploração virtual). Súmula 593: a vulnerabilidade do menor de 14 é absoluta. O contato físico é dispensável tanto na forma presencial quanto na praticada por meio eletrônico, conforme julgados das turmas criminais."
+            },
+            {
+              id: "dig2-4", modo: "lei", fonte: "CP, art. 312; STJ, Súmula 599",
+              enunciado: "Sobre o crime de peculato e os crimes contra a Administração Pública:",
+              alternativas: [
+                "o peculato culposo, uma vez reparado o dano antes da sentença irrecorrível, tem a punibilidade extinta — e, se posterior, reduz de metade a pena imposta ao funcionário",
+                "a reparação do dano no peculato doloso, feita antes do recebimento da denúncia, extingue a punibilidade do agente por expressa previsão do Código Penal",
+                "o princípio da insignificância é amplamente aplicável aos crimes contra a Administração Pública, dada a possibilidade de reparação administrativa do prejuízo causado ao erário",
+                "o peculato é crime comum, podendo ser praticado por qualquer pessoa que se aproprie de bem público de que tenha a posse em razão de qualquer circunstância fática",
+                "o particular jamais responde por crime contra a Administração, por se tratar de delito próprio insuscetível de concurso de pessoas"
+              ],
+              correta: 0,
+              explicacao: "Art. 312, §3º: no peculato CULPOSO, a reparação do dano antes da sentença irrecorrível extingue a punibilidade; se posterior, reduz de metade a pena. No doloso, a reparação é apenas atenuante/arrependimento posterior. Súmula 599/STJ: em regra, a insignificância NÃO se aplica aos crimes contra a Administração (o STJ excepciona casos concretos, e o STF admite no descaminho). Peculato é crime próprio, mas o particular responde em concurso se conhecer a condição do funcionário (art. 30)."
+            },
+            {
+              id: "dig2-5", modo: "lei", fonte: "CP, arts. 316 e 333; Lei 13.964/2019",
+              enunciado: "Quanto à distinção entre concussão, corrupção passiva e corrupção ativa:",
+              alternativas: [
+                "concussão é exigir vantagem indevida em razão da função; corrupção passiva é solicitar, receber ou aceitar promessa de vantagem; a corrupção ativa é o crime do particular que oferece ou promete — e não há bilateralidade necessária entre passiva e ativa",
+                "concussão e corrupção passiva são o mesmo delito, distinguindo-se apenas pela qualidade do sujeito passivo da conduta praticada pelo funcionário público no exercício da função",
+                "a corrupção passiva exige, para sua configuração típica, a correspondente corrupção ativa de um particular identificado, dada a natureza bilateral necessária dessa espécie de delito",
+                "na concussão o funcionário solicita a vantagem sem qualquer constrangimento à vítima, ao passo que na corrupção passiva ele a exige mediante ameaça velada de prejuízo",
+                "a corrupção ativa só se configura quando a vantagem oferecida é efetivamente aceita e recebida pelo funcionário público destinatário do oferecimento"
+              ],
+              correta: 0,
+              explicacao: "Concussão (art. 316): EXIGIR — há constrangimento, a vítima é coagida. Corrupção passiva (art. 317): solicitar, receber ou aceitar promessa. Corrupção ativa (art. 333): oferecer ou prometer. São crimes autônomos e de encontro não necessariamente bilateral: cabe corrupção passiva por solicitação sem que ninguém ofereça, e corrupção ativa consumada com o simples oferecimento, ainda que recusado."
+            },
+            {
+              id: "dig2-6", modo: "lei", fonte: "CP, art. 327 e §2º",
+              enunciado: "Para efeitos penais, considera-se funcionário público:",
+              alternativas: [
+                "somente o servidor estatutário ocupante de cargo efetivo, excluídos os ocupantes de cargo em comissão, os empregados públicos e os contratados temporariamente pela Administração",
+                "quem, embora transitoriamente ou sem remuneração, exerce cargo, emprego ou função pública — equiparando-se quem trabalha em entidade paraestatal ou em empresa prestadora de serviço contratada para atividade típica da Administração",
+                "apenas quem recebe remuneração dos cofres públicos, ainda que exerça a função de forma transitória ou em caráter precário, por delegação ou designação da autoridade competente",
+                "todo aquele que presta qualquer serviço de interesse coletivo, incluindo profissionais liberais em atividades regulamentadas pelo poder público",
+                "exclusivamente os agentes políticos e os detentores de mandato eletivo, para os quais o Código Penal reserva o conceito funcional ampliado"
+              ],
+              correta: 1,
+              explicacao: "Art. 327, caput: conceito AMPLO — cargo, emprego ou função pública, ainda que transitoriamente ou SEM remuneração (ex.: mesário, jurado). §1º equipara quem exerce função em entidade paraestatal e quem trabalha para empresa prestadora de serviço contratada ou conveniada para atividade típica da Administração. O §2º traz causa de aumento de 1/3 para ocupantes de cargo em comissão, função de direção ou assessoramento."
+            },
+            {
+              id: "dig2-7", modo: "juris", fonte: "CP, art. 225 (Lei 13.718/2018); STJ, Súmula 608",
+              enunciado: "Sobre a ação penal nos crimes contra a dignidade sexual:",
+              alternativas: [
+                "é pública condicionada à representação da vítima, salvo quando esta for menor de dezoito anos ou pessoa vulnerável, hipóteses em que se procede mediante ação pública incondicionada",
+                "passou a ser pública incondicionada em todos os crimes contra a dignidade sexual, por força da Lei 13.718/2018 — superando o regime anterior de representação",
+                "é privada, cabendo queixa-crime no prazo decadencial de seis meses contado do conhecimento da autoria do fato pela vítima ofendida",
+                "depende de representação quando o crime for praticado sem violência real, aplicando-se a incondicionada apenas aos casos de violência ou grave ameaça efetiva",
+                "é pública condicionada, admitindo-se retratação da representação até a prolação da sentença de primeiro grau"
+              ],
+              correta: 1,
+              explicacao: "A Lei 13.718/2018 deu nova redação ao art. 225: nos crimes dos Capítulos I e II do Título VI, procede-se mediante ação penal pública INCONDICIONADA — sem exceções. Antes, a regra era a condicionada, com incondicionada só para vulneráveis. A Súmula 608/STF (estupro com violência real = ação pública incondicionada) perdeu utilidade prática, pois hoje todos os casos são incondicionados."
+            }
+          ]
+        },
+        {
+          id: "penal-juris-9",
+          titulo: "Desarmamento, trânsito e leis 2024-2026",
+          questoes: [
+            {
+              id: "arm-1", modo: "lei", fonte: "Lei 10.826/03, arts. 12, 14 e 16",
+              enunciado: "No Estatuto do Desarmamento, a distinção entre posse e porte de arma de fogo:",
+              alternativas: [
+                "é irrelevante, pois ambas as condutas configuram o mesmo tipo penal, diferenciando-se apenas quanto à dosimetria aplicada na terceira fase do cálculo da pena",
+                "posse é manter a arma no interior de residência ou local de trabalho (quando o agente for o titular); porte é trazê-la fora desses limites — e o porte tem pena mais severa que a posse",
+                "posse pressupõe registro vencido e porte pressupõe registro válido, sendo a regularidade documental o critério legal de distinção entre as duas figuras típicas",
+                "posse aplica-se somente a armas de uso restrito e porte a armas de uso permitido, conforme a classificação estabelecida em decreto regulamentador federal",
+                "a posse de arma de fogo de uso permitido foi descriminalizada, subsistindo apenas a infração administrativa de omissão de registro perante o órgão competente"
+              ],
+              correta: 1,
+              explicacao: "Posse (art. 12): dentro de casa ou no local de trabalho, se o agente for titular ou responsável — pena de 1 a 3 anos. Porte (art. 14): trazer consigo fora desses locais — pena de 2 a 4 anos. Para arma de uso RESTRITO, o art. 16 pune ambas com 3 a 6 anos, e é crime equiparado a hediondo quando se trata de arma de uso proibido (art. 16, §2º, após o Pacote Anticrime)."
+            },
+            {
+              id: "arm-2", modo: "juris", fonte: "STJ, Súmula 513; STF, RE 715.639",
+              enunciado: "Quanto ao porte de arma de fogo com o registro ou a autorização vencidos:",
+              alternativas: [
+                "a mera desatualização do registro caracteriza o crime de porte ilegal, dada a natureza formal do delito e a irrelevância da regularidade administrativa anterior do agente",
+                "a jurisprudência distingue: a posse de arma com registro vencido configura mera irregularidade administrativa (atipicidade), mas o porte fora de casa segue sendo crime",
+                "tanto a posse quanto o porte com registro vencido são atípicos, por se tratar de simples inadimplemento de obrigação administrativa de renovação periódica",
+                "a arma de fogo desmuniciada e sem munição ao alcance torna a conduta atípica em qualquer das modalidades previstas no Estatuto do Desarmamento",
+                "a abolitio criminis temporária dos prazos de regularização permanece vigente por prazo indeterminado para as armas de uso permitido"
+              ],
+              correta: 1,
+              explicacao: "A jurisprudência distingue: POSSE de arma de uso permitido com registro vencido = irregularidade administrativa (atipicidade material, STJ); PORTE nas mesmas condições = crime. Sobre a arma desmuniciada, STF e STJ firmaram que o crime é de perigo abstrato e a conduta permanece TÍPICA — cuidado com esse distrator, que inverte o entendimento consolidado."
+            },
+            {
+              id: "arm-3", modo: "lei", fonte: "Lei 9.503/97, arts. 302, 303 e 306",
+              enunciado: "No Código de Trânsito Brasileiro, quanto aos crimes de homicídio culposo na direção e embriaguez ao volante:",
+              alternativas: [
+                "o homicídio culposo no trânsito exige a comprovação do dolo eventual do condutor quando houver ingestão prévia de bebida alcoólica em qualquer quantidade",
+                "o homicídio culposo na direção tem pena majorada quando o agente conduz sob influência de álcool; e o crime de embriaguez ao volante (art. 306) é de perigo abstrato, dispensando lesão concreta",
+                "a embriaguez ao volante só se configura mediante exame de sangue ou etilômetro, sendo inadmissível a prova por vídeo, testemunhas ou constatação de sinais notórios de alteração",
+                "a recusa do condutor em se submeter ao teste do bafômetro configura, por si só, o crime de desobediência previsto no Código Penal brasileiro",
+                "o homicídio culposo no trânsito é de ação penal pública condicionada à representação dos familiares da vítima falecida no acidente"
+              ],
+              correta: 1,
+              explicacao: "Art. 302, §1º, do CTB traz as majorantes; a Lei 13.546/2017 criou a forma qualificada do §3º (conduzir sob influência de álcool ou substância psicoativa), com reclusão de 5 a 8 anos. O art. 306 é crime de perigo abstrato, e o §2º admite a prova por vídeo, testemunhas ou outros meios além do etilômetro e do exame de sangue. A recusa ao teste é infração administrativa gravíssima, não crime de desobediência."
+            },
+            {
+              id: "arm-4", modo: "lei", fonte: "Lei 15.384/2026 (vicaricídio)",
+              enunciado: "A Lei 15.384/2026 tipificou a chamada violência vicária (vicaricídio), que consiste, em síntese, em:",
+              alternativas: [
+                "praticar violência contra a mulher no ambiente de trabalho com o fim de obter vantagem econômica ou impedir sua ascensão profissional na estrutura organizacional da empresa",
+                "atingir pessoa afetivamente ligada à vítima — tipicamente o filho — como forma de causar sofrimento à mulher, instrumentalizando terceiro no contexto da violência de gênero",
+                "constranger a vítima mediante ameaça de divulgação de imagens íntimas obtidas durante relacionamento anterior, com o objetivo de impedir o rompimento do vínculo afetivo",
+                "descumprir medida protetiva de urgência deferida em favor da mulher em situação de violência doméstica e familiar, conduta já prevista na Lei Maria da Penha",
+                "omitir socorro à mulher vítima de violência doméstica quando o agente tiver o dever legal de agir para evitar o resultado lesivo"
+              ],
+              correta: 1,
+              explicacao: "Violência vicária: o agressor atinge quem a vítima ama — em regra os filhos — para causar-lhe o máximo sofrimento; a criança é instrumentalizada como meio de violência contra a mulher. A Lei 15.384/2026 deu tipificação própria à conduta, no movimento de expansão legislativa que também produziu a Lei 14.994/2024 (feminicídio autônomo). Confira o texto atualizado antes da prova, por ser legislação recentíssima."
+            },
+            {
+              id: "arm-5", modo: "lei", fonte: "Lei 14.811/2024",
+              enunciado: "A Lei 14.811/2024, no enfrentamento à violência contra crianças e adolescentes:",
+              alternativas: [
+                "revogou integralmente o Estatuto da Criança e do Adolescente na parte relativa aos crimes, transferindo essa disciplina para um capítulo próprio do Código Penal brasileiro",
+                "tipificou o bullying e o cyberbullying, instituiu política nacional de prevenção ao abuso e à exploração sexual e incluiu no rol dos hediondos crimes graves praticados contra menores",
+                "descriminalizou condutas de menor gravidade praticadas por adolescentes no ambiente escolar, substituindo-as por medidas restaurativas de mediação de conflitos",
+                "limitou-se a criar campanhas educativas de conscientização nas escolas públicas e privadas, sem produzir efeitos na esfera penal ou processual penal",
+                "estabeleceu que os crimes contra crianças e adolescentes passam a ser de ação penal privada, cabendo aos responsáveis legais o oferecimento da queixa-crime"
+              ],
+              correta: 1,
+              explicacao: "A Lei 14.811/2024 inseriu o art. 146-A no CP (bullying e cyberbullying — este com pena mais grave), criou a Política Nacional de Prevenção e Combate ao Abuso e Exploração Sexual da Criança e do Adolescente e ampliou o rol de crimes hediondos (ex.: induzimento ao suicídio de criança, sequestro de menor de 18 anos). Movimento típico de expansão penal, que o edital cobra em vários pontos."
+            },
+            {
+              id: "arm-6", modo: "lei", fonte: "Lei 12.850/2013, arts. 1º, §1º, e 4º",
+              enunciado: "Sobre a organização criminosa e a colaboração premiada:",
+              alternativas: [
+                "organização criminosa é a associação de duas ou mais pessoas para o fim específico de cometer crimes cuja pena máxima não ultrapasse dois anos, com estrutura ordenada e divisão de tarefas",
+                "organização criminosa exige 4 ou mais pessoas, estrutura ordenada e divisão de tarefas, para obter vantagem mediante infrações com pena máxima superior a 4 anos ou de caráter transnacional; e nenhuma sentença condenatória pode se fundar apenas na palavra do colaborador",
+                "a colaboração premiada dispensa homologação judicial, bastando o acordo firmado entre o colaborador e o órgão de persecução para produzir seus efeitos legais",
+                "a condenação pode fundar-se exclusivamente nas declarações do colaborador quando estas forem detalhadas, coerentes e prestadas sob o compromisso legal de dizer a verdade",
+                "o colaborador tem direito subjetivo ao perdão judicial, que o juiz deve conceder sempre que homologado o acordo de colaboração premiada celebrado"
+              ],
+              correta: 1,
+              explicacao: "Art. 1º, §1º: 4 ou mais pessoas + estrutura ordenada + divisão de tarefas + infrações com pena máxima > 4 anos ou de caráter transnacional. Art. 4º, §16: nenhuma sentença condenatória será proferida com fundamento APENAS nas declarações do colaborador — garantia essencial da defesa. A colaboração exige homologação judicial (§7º), e os benefícios dependem da efetividade dos resultados."
+            },
+            {
+              id: "arm-7", modo: "juris", fonte: "STF, RE 635.659 (Tema 506, 2024)",
+              enunciado: "Ao julgar o RE 635.659 sobre o porte de maconha para consumo pessoal, o STF fixou que:",
+              alternativas: [
+                "a conduta permanece integralmente criminalizada, com pena privativa de liberdade, mantida a redação original do art. 28 da Lei de Drogas para todas as substâncias",
+                "o porte de maconha para consumo pessoal não configura ilícito penal (sem prejuízo da natureza ilícita da conduta), fixando-se parâmetro de quantidade como presumção relativa de uso próprio",
+                "todas as drogas ilícitas tiveram o porte para consumo pessoal descriminalizado, cabendo ao legislador definir a política de redução de danos aplicável a cada substância",
+                "a descriminalização alcança também o cultivo e a comercialização em pequena escala, desde que o agente comprove destinação exclusiva ao consumo próprio",
+                "o julgamento manteve a competência dos Juizados Especiais Criminais para processar e julgar o porte para consumo, com aplicação de transação penal"
+              ],
+              correta: 1,
+              explicacao: "Tema 506 (2024): o STF declarou a inconstitucionalidade do art. 28 da Lei 11.343/06 na parte em que criminaliza o porte de MACONHA para consumo pessoal — a conduta segue ilícita, mas sem natureza penal, sujeita a sanções administrativas. Fixou-se parâmetro de 40g ou 6 plantas fêmeas como presunção RELATIVA de uso próprio, invertendo o ônus argumentativo. Não alcança outras drogas nem o tráfico."
+            }
+          ]
         }
       ]
     },
@@ -4049,6 +4534,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Sutherland (1939) mostrou que pessoas de alto status delinquem no exercício da profissão — e quase não são alcançadas pelo sistema penal (cifra dourada). A base explicativa é a associação diferencial: o comportamento criminoso é APRENDIDO nas interações. Efeito: derruba a equação crime = pobreza e expõe a seletividade — por isso aparece nos cinco pontos do edital."
+            }
+          ]
+        },
+        {
+          id: "criminologia-3",
+          titulo: "Política criminal e teorias sociológicas",
+          questoes: [
+            {
+              id: "pol-1", modo: "caso", fonte: "Abolicionismo e minimalismo penal",
+              enunciado: "Sobre as correntes deslegitimadoras do sistema penal, é correto afirmar que:",
+              alternativas: [
+                "abolicionismo e minimalismo são sinônimos, pois ambos propõem a extinção imediata e integral do sistema de justiça criminal e a sua substituição por instâncias comunitárias de mediação de conflitos",
+                "o abolicionismo (Hulsman, Christie) propõe a superação do sistema penal, substituindo-o por formas não punitivas de solução de conflitos; o minimalismo (Baratta, Ferrajoli) admite o direito penal como mal necessário, reduzido à ultima ratio",
+                "o minimalismo penal defende a ampliação dos tipos penais para proteger bens jurídicos difusos e coletivos emergentes na sociedade de risco contemporânea",
+                "o abolicionismo foi incorporado ao ordenamento brasileiro pela Lei de Execução Penal, que substituiu a pena de prisão por medidas restaurativas",
+                "ambas as correntes sustentam o incremento das penas privativas de liberdade como instrumento de pacificação social e de prevenção geral positiva"
+              ],
+              correta: 1,
+              explicacao: "Abolicionismo: o sistema penal é o problema, não a solução — propõe-se sua superação (Hulsman: 'a linguagem do sistema penal é inadequada'; Christie: o conflito foi roubado das partes). Minimalismo/garantismo: mantém o direito penal, mas como ultima ratio, com máximas garantias (Ferrajoli) — e Zaffaroni propõe o realismo marginal e a teoria agnóstica da pena. Distinção cobrada em todos os pontos do edital."
+            },
+            {
+              id: "pol-2", modo: "caso", fonte: "Jakobs — Direito Penal do Inimigo",
+              enunciado: "A teoria do Direito Penal do Inimigo, formulada por Günther Jakobs, caracteriza-se por:",
+              alternativas: [
+                "assegurar tratamento processual idêntico a todos os acusados, diferenciando apenas a dosimetria da pena conforme a gravidade objetiva do fato praticado e a culpabilidade do agente",
+                "cindir o direito penal em dois: o do cidadão (com todas as garantias) e o do inimigo — para quem se antecipa a punição, aumentam-se as penas e relativizam-se garantias, punindo-se pela periculosidade e não pelo fato",
+                "propor a abolição das penas privativas de liberdade para crimes cometidos sem violência, restringindo o cárcere aos autores de delitos violentos contra a vida",
+                "ampliar as garantias processuais dos acusados de crimes graves, dada a maior severidade das sanções a que estão submetidos no processo penal moderno",
+                "sustentar que todo delinquente deve ser tratado como inimigo do Estado, eliminando-se a distinção entre direito penal do fato e direito penal do autor"
+              ],
+              correta: 1,
+              explicacao: "Jakobs distingue o cidadão (que delinque mas mantém vínculo com o Direito) do 'inimigo' (que se afasta permanentemente — terrorismo, criminalidade organizada): antecipação da punibilidade (atos preparatórios), penas desproporcionais e supressão de garantias. É direito penal do AUTOR, não do fato. A crítica — central para a Defensoria — aponta a incompatibilidade com o Estado Democrático e o uso seletivo do rótulo."
+            },
+            {
+              id: "pol-3", modo: "caso", fonte: "Wilson e Kelling — janelas quebradas; tolerância zero",
+              enunciado: "A teoria das janelas quebradas (broken windows) e a política de tolerância zero sustentam que:",
+              alternativas: [
+                "a repressão às pequenas desordens e incivilidades preveniria crimes graves — premissa que embasou políticas de policiamento agressivo, duramente criticadas por aprofundar a seletividade e a violência sobre populações vulneráveis",
+                "a solução da criminalidade urbana está no investimento em políticas sociais de longo prazo, com redução do policiamento ostensivo nas áreas de maior vulnerabilidade social e econômica",
+                "a criminalidade decorre exclusivamente de fatores individuais de personalidade, devendo o Estado priorizar o tratamento psiquiátrico dos infratores contumazes",
+                "as taxas de criminalidade são independentes da atuação policial, cabendo ao sistema penal apenas a função simbólica de reafirmação da norma violada",
+                "o controle social informal é ineficaz, devendo ser integralmente substituído pelo controle formal exercido pelas agências estatais de repressão"
+              ],
+              correta: 0,
+              explicacao: "Wilson e Kelling (1982): uma janela quebrada não reparada sinalizaria ausência de controle, gerando espiral de desordem. Aplicada em Nova York (Giuliani/Bratton) como 'tolerância zero'. A criminologia crítica denuncia: confunde correlação com causa, ignora outros fatores da queda dos índices e produz encarceramento em massa e violência policial sobre pobres, negros e moradores de rua."
+            },
+            {
+              id: "pol-4", modo: "caso", fonte: "Merton — teoria da anomia e das oportunidades",
+              enunciado: "Na teoria da anomia de Robert Merton, a conduta desviante é explicada por:",
+              alternativas: [
+                "uma patologia individual do agente, decorrente de disfunções neurológicas identificáveis por exame criminológico prévio à aplicação da pena privativa de liberdade",
+                "uma tensão (strain) entre as metas culturais socialmente valorizadas e os meios institucionalizados desigualmente distribuídos para alcançá-las, gerando adaptações como a inovação criminosa",
+                "pela aprendizagem do comportamento criminoso em grupos íntimos, mediante associação diferencial com portadores de definições favoráveis à violação da lei",
+                "pela ausência de vínculos sociais que contenham o impulso natural ao delito, presente em igual medida em todos os indivíduos de uma sociedade",
+                "pela reação social de etiquetamento, que constrói a identidade desviante independentemente da conduta concretamente praticada pelo indivíduo"
+              ],
+              correta: 1,
+              explicacao: "Merton adaptou a anomia de Durkheim: nas sociedades que universalizam metas (sucesso material) mas distribuem desigualmente os meios legítimos, surge a tensão. Cinco modos de adaptação: conformidade, INOVAÇÃO (aceita a meta, rejeita o meio — o crime instrumental), ritualismo, retraimento e rebelião. É teoria do consenso/estrutural-funcionalista — distinta da associação diferencial (Sutherland) e do labeling."
+            },
+            {
+              id: "pol-5", modo: "caso", fonte: "Escola de Chicago — ecologia criminal",
+              enunciado: "A Escola de Chicago contribuiu para a criminologia ao:",
+              alternativas: [
+                "identificar o criminoso nato por características anatômicas hereditárias, fundando o paradigma etiológico de matriz biológica que dominou o século XIX",
+                "estudar a distribuição espacial da criminalidade na cidade e associá-la à desorganização social de determinadas zonas urbanas, inaugurando a ecologia criminal e programas de prevenção comunitária",
+                "demonstrar que a criminalidade independe do território, distribuindo-se uniformemente pelas diferentes áreas do espaço urbano das grandes metrópoles industriais",
+                "sustentar que a pena deve ter finalidade exclusivamente retributiva, sem qualquer pretensão preventiva ou ressocializadora sobre o condenado",
+                "propor o abolicionismo penal como resposta à falência das instituições totais nas sociedades urbanas contemporâneas"
+              ],
+              correta: 1,
+              explicacao: "Escola de Chicago (Park, Burgess, Shaw e McKay, anos 1920-30): a cidade em zonas concêntricas; a 'zona de transição' concentraria desorganização social e delinquência. Método empírico e trabalho de campo. Legado: prevenção situacional e programas comunitários. Crítica: naturaliza a associação entre pobreza urbana e crime, abrindo caminho para políticas de controle territorial — leitura que a criminologia crítica retoma."
+            },
+            {
+              id: "pol-6", modo: "caso", fonte: "Criminologia midiática e populismo penal",
+              enunciado: "Sobre criminologia midiática e populismo penal:",
+              alternativas: [
+                "a mídia exerce papel neutro na construção da agenda criminal, limitando-se a informar objetivamente os dados oficiais de criminalidade divulgados pelos órgãos de segurança pública",
+                "a criminologia midiática constrói uma realidade paralela sobre o crime — com estereótipos de 'eles' contra 'nós' — que alimenta o populismo penal: respostas legislativas simbólicas e imediatistas a comoções sociais",
+                "o populismo penal caracteriza-se pela redução das penas em atenção às demandas de movimentos sociais organizados de defesa dos direitos humanos e das pessoas presas",
+                "a inflação legislativa penal decorre de estudos técnicos criminológicos que demonstram a eficácia preventiva do aumento das penas cominadas em abstrato",
+                "o direito penal simbólico produz efeitos instrumentais concretos na redução da criminalidade violenta, justificando a criação constante de novos tipos penais"
+              ],
+              correta: 1,
+              explicacao: "Zaffaroni: a criminologia midiática cria causalidade mágica e o estereótipo do inimigo, produzindo pânico moral. O populismo penal converte a comoção em leis apressadas (direito penal simbólico e de emergência), com inflação legislativa e endurecimento sem eficácia preventiva demonstrada — mas com efeito real de encarceramento seletivo. Chave para ler criticamente as leis penais recentes."
+            },
+            {
+              id: "pol-7", modo: "caso", fonte: "Política de drogas e encarceramento em massa",
+              enunciado: "Na análise criminológica da política de drogas brasileira e do encarceramento em massa:",
+              alternativas: [
+                "a ausência de critérios objetivos entre usuário e traficante na Lei 11.343/06 favorece a seletividade racial e territorial, sendo o tráfico um dos principais responsáveis pelo crescimento da população prisional, sobretudo feminina",
+                "a Lei de Drogas estabeleceu critérios objetivos e quantitativos precisos para distinguir usuário de traficante, eliminando a discricionariedade policial na tipificação da conduta flagrada",
+                "o encarceramento em massa brasileiro decorre principalmente das condenações por crimes contra a vida, que respondem pela maior parcela da população carcerária nacional",
+                "a criminalização das drogas atinge de forma equânime todos os grupos sociais, dada a universalidade do consumo nas diferentes camadas da população brasileira",
+                "a descriminalização do porte para consumo próprio no Brasil eliminou a principal porta de entrada no sistema penal para jovens de periferia"
+              ],
+              correta: 0,
+              explicacao: "O art. 28, §2º, da Lei 11.343/06 remete a critérios abertos (quantidade, local, circunstâncias, conduta e antecedentes) — o que transfere à polícia o poder de definir quem é usuário e quem é traficante, com resultado racialmente enviesado. O tráfico é a principal imputação da população prisional feminina. Em 2024 o STF (RE 635.659) fixou parâmetro de porte para maconha, mas o debate sobre seletividade permanece central."
             }
           ]
         }
