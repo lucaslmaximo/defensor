@@ -2810,6 +2810,103 @@ window.APP_DATA = {
               explicacao: "Súmula 713 do STF: o efeito devolutivo da apelação contra decisões do Júri é ADSTRITO aos fundamentos da sua interposição (art. 593, III, do CPP — hipóteses taxativas). Pela soberania dos veredictos, o tribunal não substitui o mérito decidido pelos jurados: se a decisão for manifestamente contrária à prova, determina novo júri (uma única vez)."
             }
           ]
+        },
+        {
+          id: "proc-penal-juris-4",
+          titulo: "Prisões, cautelares e reconhecimento",
+          questoes: [
+            {
+              id: "cau-1", modo: "lei", fonte: "CPP, arts. 282, §2º, 311 e 312",
+              enunciado: "Após o Pacote Anticrime, quanto à decretação da prisão preventiva:",
+              alternativas: [
+                "o juiz pode decretá-la de ofício no curso da ação penal, vedada apenas a decretação de ofício na fase de investigação policial, na qual depende de representação da autoridade ou de requerimento ministerial",
+                "ficou vedada a decretação de ofício em qualquer fase — a preventiva depende de requerimento do MP, do querelante ou assistente, ou de representação da autoridade policial",
+                "a decretação de ofício permanece possível em qualquer fase da persecução, por força do poder geral de cautela do juiz criminal",
+                "somente o juiz das garantias pode decretá-la, mediante provocação exclusiva do Ministério Público",
+                "passou a exigir a prévia oitiva da defesa em todas as hipóteses, sem exceção de urgência"
+              ],
+              correta: 1,
+              explicacao: "A Lei 13.964/2019 suprimiu a expressão 'de ofício' dos arts. 282, §2º, e 311 do CPP: a preventiva agora EXIGE provocação (MP, querelante/assistente ou representação policial), em qualquer fase. O STJ estendeu o raciocínio: também é ilegal a CONVERSÃO de ofício do flagrante em preventiva sem requerimento (HC 590.039). Marco do sistema acusatório — bandeira defensiva de primeira hora."
+            },
+            {
+              id: "cau-2", modo: "lei", fonte: "CPP, arts. 282, §6º, e 319",
+              enunciado: "Sobre a relação entre a prisão preventiva e as medidas cautelares diversas do art. 319 do CPP:",
+              alternativas: [
+                "o juiz escolhe livremente entre prisão e medidas alternativas, conforme a gravidade abstrata do delito imputado",
+                "a preventiva é a última ratio: só cabe quando não forem adequadas ou suficientes as cautelares diversas, e a decisão deve fundamentar, de modo concreto, a inadequação das alternativas",
+                "as medidas diversas só podem ser aplicadas cumulativamente com a prisão preventiva domiciliar, funcionando como reforço da custódia nos crimes cometidos com violência ou grave ameaça contra a pessoa",
+                "as cautelares do art. 319 dependem de prévia condenação em primeiro grau, dada a presunção de inocência",
+                "a fiança deixou de existir como medida autônoma após a reforma de 2019"
+              ],
+              correta: 1,
+              explicacao: "Art. 282, §6º, do CPP (redação do Pacote): a preventiva é subsidiária — a decisão deve justificar concretamente por que as medidas do art. 319 (comparecimento periódico, monitoração, proibições de contato e de ausentar-se, recolhimento noturno, fiança etc.) são inadequadas ou insuficientes. Falta dessa fundamentação = constrangimento ilegal sanável por habeas corpus."
+            },
+            {
+              id: "cau-3", modo: "juris", fonte: "CPP, art. 310; STJ, HC 590.039",
+              enunciado: "Na audiência de custódia, apresentado o preso em flagrante, o juiz deve relaxar a prisão ilegal, conceder liberdade provisória ou converter o flagrante em preventiva. Sobre essa conversão:",
+              alternativas: [
+                "pode ocorrer de ofício, pois a audiência de custódia é o momento processual próprio para o controle judicial completo da legalidade e da necessidade da prisão em flagrante apresentada",
+                "exige requerimento do Ministério Público ou representação da autoridade policial — a conversão de ofício, sem provocação, é ilegal",
+                "é obrigatória nos crimes hediondos e equiparados, por vedação legal à liberdade provisória",
+                "depende de prévia manifestação favorável da Defensoria Pública quando o preso não tiver advogado",
+                "só é admitida se a audiência ocorrer nas primeiras vinte e quatro horas, presumindo-se ilegal a prisão após esse prazo, com soltura automática do conduzido"
+              ],
+              correta: 1,
+              explicacao: "STJ (HC 590.039) e STF: mesmo na audiência de custódia (que deve ocorrer em até 24h — art. 310), o juiz NÃO pode converter o flagrante em preventiva de ofício; precisa de requerimento ou representação. O atraso da audiência gera ilegalidade a ser sanada, mas não soltura automática em todos os casos. E não há prisão automática por hediondez — o STF derrubou vedações abstratas à liberdade provisória."
+            },
+            {
+              id: "cau-4", modo: "juris", fonte: "CPP, art. 316, parágrafo único; STF, SL 1.395",
+              enunciado: "O parágrafo único do art. 316 do CPP determina a revisão da necessidade da prisão preventiva a cada noventa dias. Segundo o STF:",
+              alternativas: [
+                "o transcurso do prazo sem revisão torna a prisão automaticamente ilegal, impondo a soltura imediata do preso independentemente de provocação da defesa ou de novo exame pelo órgão judicial competente",
+                "a inobservância do prazo não gera revogação automática da prisão: o juízo deve ser instado a reavaliar a custódia, e a ilegalidade se afere caso a caso",
+                "a revisão nonagesimal aplica-se somente às prisões decretadas pelos tribunais superiores no exercício da competência originária",
+                "o dever de revisão foi declarado inconstitucional por invadir a discricionariedade judicial",
+                "a revisão compete exclusivamente ao tribunal de segundo grau, em remessa necessária"
+              ],
+              correta: 1,
+              explicacao: "STF (SL 1.395, caso André do Rap): o descumprimento do prazo de 90 dias NÃO acarreta soltura automática — a revisão deve ser provocada e a manutenção da prisão reavaliada fundamentadamente pelo órgão que a decretou. A tese defensiva permanece: cobrar a revisão periódica e atacar fundamentações genéricas de manutenção."
+            },
+            {
+              id: "cau-5", modo: "juris", fonte: "CPP, art. 226; STJ, HC 598.886",
+              enunciado: "Sobre o reconhecimento de pessoas, a jurisprudência atual do STJ firmou que o procedimento do art. 226 do CPP:",
+              alternativas: [
+                "é mera recomendação legal, podendo o reconhecimento informal ser livremente valorado pelo juiz em conjunto com as demais provas produzidas sob o crivo do contraditório judicial",
+                "constitui garantia mínima de observância obrigatória: o reconhecimento (pessoal ou fotográfico) realizado em desacordo com o modelo legal é inválido e não pode lastrear a condenação, nem mesmo confirmado em juízo",
+                "aplica-se apenas ao reconhecimento presencial, ficando o fotográfico submetido ao livre convencimento",
+                "foi tacitamente revogado pelas técnicas modernas de identificação biométrica e genética",
+                "exige a presença de advogado apenas quando o reconhecimento ocorrer em juízo"
+              ],
+              correta: 1,
+              explicacao: "Virada jurisprudencial do HC 598.886/STJ (2020), hoje consolidada nas duas turmas criminais e acolhida pelo STF: o art. 226 é procedimento OBRIGATÓRIO (não mera recomendação). Reconhecimento — inclusive fotográfico — feito sem as formalidades (descrição prévia, alinhamento com pessoas semelhantes) é inválido e não sustenta condenação, ainda que 'confirmado' depois. Resposta ao drama dos reconhecimentos falhos que encarceram inocentes, sobretudo pessoas negras."
+            },
+            {
+              id: "cau-6", modo: "lei", fonte: "Lei 7.960/89, arts. 1º e 2º",
+              enunciado: "A prisão temporária:",
+              alternativas: [
+                "cabe em qualquer crime, desde que imprescindível para as investigações do inquérito policial em curso",
+                "cabe apenas no rol taxativo de crimes da lei, quando imprescindível para a investigação ou quando o indiciado não tiver residência fixa ou não fornecer elementos para sua identificação — com prazo de 5 dias prorrogável por igual período (30+30 nos hediondos)",
+                "pode ser decretada pela própria autoridade policial em situação de urgência, com comunicação posterior ao juiz competente no prazo improrrogável de vinte e quatro horas contado da efetivação da medida",
+                "transforma-se automaticamente em preventiva ao final do prazo, se a investigação não estiver concluída",
+                "foi extinta pelo Pacote Anticrime, absorvida pela prisão preventiva com prazo determinado"
+              ],
+              correta: 1,
+              explicacao: "Lei 7.960/89: cabimento restrito ao rol do art. 1º, III (homicídio doloso, roubo, extorsão mediante sequestro etc.), sempre por decisão judicial mediante representação ou requerimento — jamais pela autoridade policial. Prazos: 5+5 dias; nos hediondos, 30+30 (Lei 8.072, art. 2º, §4º). Vencido o prazo, o preso deve ser posto imediatamente em liberdade, salvo decretação de preventiva com novos fundamentos."
+            },
+            {
+              id: "cau-7", modo: "juris", fonte: "STF, Súmula Vinculante 11",
+              enunciado: "Segundo a Súmula Vinculante 11, o uso de algemas:",
+              alternativas: [
+                "é ato discricionário da escolta policial, insuscetível de controle judicial posterior",
+                "só é lícito em caso de resistência, fundado receio de fuga ou perigo à integridade física, por escrito justificado — sob pena de responsabilidade do agente e nulidade da prisão ou do ato processual",
+                "é obrigatório em todas as audiências criminais com réu preso, como medida padronizada de segurança das partes, dos advogados e dos servidores presentes no ato judicial",
+                "é vedado em qualquer hipótese durante a sessão plenária do Tribunal do Júri",
+                "depende de autorização prévia do juiz em todas as diligências externas"
+              ],
+              correta: 1,
+              explicacao: "SV 11: uso excepcional (resistência, receio de fuga, perigo à integridade), com justificação ESCRITA, sob pena de responsabilização (disciplinar, civil e penal) do agente, nulidade da prisão ou do ato e responsabilidade civil do Estado. No júri, o uso injustificado é especialmente grave — afeta a imagem do réu perante os jurados. Não é vedação absoluta: presente o risco concreto e justificado, admite-se."
+            }
+          ]
         }
       ]
     },
@@ -3047,6 +3144,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Art. 5.6 da Convenção Americana: 'as penas privativas da liberdade devem ter por finalidade essencial a reforma e a readaptação social dos condenados'. O mesmo art. 5º garante o tratamento digno da pessoa presa e a intranscendência da pena (não pode passar da pessoa do delinquente)."
+            }
+          ]
+        },
+        {
+          id: "exec-penal-juris-4",
+          titulo: "Faltas disciplinares, RDD e clemência",
+          questoes: [
+            {
+              id: "fal-1", modo: "lei", fonte: "LEP, arts. 50 e 118; STJ, Súmula 526",
+              enunciado: "Sobre a falta grave na execução penal e seus efeitos:",
+              alternativas: [
+                "interrompe a contagem do prazo para todos os benefícios da execução, inclusive o livramento condicional, o indulto e a comutação de penas concedidos por decreto presidencial",
+                "interrompe o prazo para a progressão de regime (reiniciando a contagem pelo restante da pena) e autoriza a regressão, mas não interfere no livramento condicional, no indulto nem na comutação, salvo previsão expressa do decreto",
+                "acarreta automaticamente a perda integral dos dias remidos, sem limite percentual e sem necessidade de decisão judicial fundamentada",
+                "só pode ser reconhecida após o trânsito em julgado de sentença penal condenatória pelo fato novo praticado durante o cumprimento da pena",
+                "gera regressão de regime independentemente de prévio procedimento administrativo disciplinar e de oitiva do apenado"
+              ],
+              correta: 1,
+              explicacao: "Súmula 534/STJ: a falta grave interrompe o prazo da progressão (reinicia sobre o restante da pena). Súmula 535/STJ: NÃO interrompe livramento condicional, indulto nem comutação (salvo se o decreto exigir). A perda de dias remidos é limitada a 1/3 (LEP, art. 127). Súmula 533/STJ: exige PAD com defesa técnica por advogado ou defensor. A prática de fato definido como crime doloso configura falta grave independentemente de condenação transitada (Súmula 526/STJ)."
+            },
+            {
+              id: "fal-2", modo: "lei", fonte: "LEP, art. 52 (redação da Lei 13.964/2019)",
+              enunciado: "O Regime Disciplinar Diferenciado (RDD), após o Pacote Anticrime:",
+              alternativas: [
+                "pode ser aplicado pela direção do estabelecimento penal por até um ano, com comunicação posterior ao juízo da execução para simples homologação do ato administrativo praticado",
+                "tem duração máxima de até 2 anos, sem prejuízo de repetição por nova falta grave da mesma espécie, e depende de decisão judicial fundamentada, precedida de manifestação do MP e da defesa",
+                "foi declarado inconstitucional pelo STF por configurar tratamento cruel e degradante vedado pela Convenção Americana sobre Direitos Humanos e pelas Regras de Mandela",
+                "aplica-se automaticamente a todo preso provisório acusado de integrar organização criminosa, independentemente da prática de falta disciplinar",
+                "tem prazo máximo de trezentos e sessenta dias e não admite prorrogação em nenhuma hipótese"
+              ],
+              correta: 1,
+              explicacao: "Art. 52 da LEP com a redação do Pacote: RDD de até 2 anos, renovável por nova falta grave da mesma espécie, com isolamento em cela individual, visitas quinzenais e banho de sol de 2 horas. Exige decisão judicial fundamentada (art. 54), ouvidos MP e defesa. O isolamento preventivo por até 10 dias pode ser determinado pela autoridade administrativa. Duramente criticado à luz das Regras de Mandela (isolamento prolongado > 15 dias = tratamento cruel)."
+            },
+            {
+              id: "fal-3", modo: "lei", fonte: "LEP, art. 127; STF, Súmula Vinculante 9",
+              enunciado: "Reconhecida falta grave, quanto aos dias remidos pelo trabalho ou pelo estudo:",
+              alternativas: [
+                "o condenado perde a totalidade dos dias remidos até então, recomeçando a contagem do zero a partir da data do cometimento da falta disciplinar de natureza grave",
+                "o juiz pode revogar até 1/3 do tempo remido, recomeçando a contagem a partir da data da infração — não havendo perda automática nem integral",
+                "não há qualquer perda, pois os dias remidos incorporam-se definitivamente ao patrimônio jurídico do apenado como direito adquirido",
+                "a perda alcança metade dos dias remidos, por aplicação analógica do percentual previsto para a revogação do livramento condicional",
+                "a decisão sobre a perda compete exclusivamente ao diretor do estabelecimento, no âmbito do procedimento administrativo disciplinar"
+              ],
+              correta: 1,
+              explicacao: "Art. 127 da LEP (redação da Lei 12.433/2011): perda de ATÉ 1/3 dos dias remidos, com decisão judicial fundamentada que observe os critérios do art. 57 (natureza, motivos, circunstâncias e pessoa do faltoso). A SV 9 declarou recepcionado o art. 127, e a lei de 2011 abrandou o dispositivo: não é mais perda total. Tese defensiva: exigir proporcionalidade na fração aplicada."
+            },
+            {
+              id: "fal-4", modo: "lei", fonte: "CF, art. 84, XII; LEP, arts. 187 e 193",
+              enunciado: "Sobre os institutos de clemência (anistia, graça, indulto e comutação):",
+              alternativas: [
+                "todos são concedidos por lei do Congresso Nacional, cabendo ao Presidente apenas a iniciativa privativa do respectivo projeto de lei sobre a matéria",
+                "a anistia é concedida por lei e alcança o próprio fato (extinguindo os efeitos penais); o indulto e a comutação vêm por decreto presidencial e atingem a execução da pena; a graça é individual e depende de pedido",
+                "o indulto extingue todos os efeitos da condenação, inclusive a reincidência e a obrigação de reparar o dano causado à vítima do delito",
+                "a comutação converte a pena privativa de liberdade em restritiva de direitos, dependendo de concordância expressa do Ministério Público",
+                "todos são vedados aos condenados por crimes hediondos, inclusive a anistia, mas admitem-se nos crimes equiparados quando a pena remanescente for inferior a quatro anos"
+              ],
+              correta: 1,
+              explicacao: "Anistia = lei (art. 48, VIII, da CF), alcança o fato e apaga efeitos penais. Indulto (coletivo) e comutação (redução) = decreto do Presidente (art. 84, XII), extinguem ou reduzem a pena, mas NÃO apagam os efeitos secundários — subsistem reincidência e dever de reparar o dano. Graça = individual, provocada. Nos hediondos, a CF veda anistia, graça e indulto (art. 5º, XLIII) — a vedação alcança os três."
+            },
+            {
+              id: "fal-5", modo: "juris", fonte: "STF, ADI 5.874; LEP, art. 192",
+              enunciado: "Quanto ao decreto presidencial de indulto, o STF firmou que:",
+              alternativas: [
+                "o Judiciário pode rever o mérito dos requisitos escolhidos pelo Presidente, adequando-os à gravidade concreta dos delitos praticados pelos beneficiários alcançados pelo ato normativo",
+                "o indulto é ato discricionário de competência privativa do Presidente, sujeito apenas aos limites constitucionais — cabendo ao juízo da execução verificar o preenchimento dos requisitos do decreto e declarar extinta a pena",
+                "o decreto depende de aprovação prévia do Congresso Nacional para produzir efeitos sobre as execuções em curso",
+                "o indulto natalino não alcança condenados que respondam a outros processos criminais sem trânsito em julgado, por presunção legal de periculosidade",
+                "a concessão do indulto compete ao Conselho Penitenciário, cabendo ao juízo apenas homologar o parecer favorável emitido"
+              ],
+              correta: 1,
+              explicacao: "ADI 5.874: o STF reafirmou que o indulto é ato de governo, privativo do Presidente (delegável — art. 84, p.ú.), com discricionariedade na fixação dos requisitos, limitada apenas pelas vedações constitucionais. Ao juízo da execução cabe aplicar o decreto: verificar requisitos objetivos e subjetivos e declarar extinta a punibilidade (LEP, art. 192), após parecer do Conselho Penitenciário — que é opinativo."
+            },
+            {
+              id: "fal-6", modo: "lei", fonte: "LEP, arts. 185 e 186; ADPF 347",
+              enunciado: "O excesso ou desvio de execução ocorre quando ato judicial, administrativo ou de qualquer autoridade extrapola os limites da sentença ou das normas legais. Sobre esse incidente:",
+              alternativas: [
+                "só pode ser suscitado pelo Ministério Público, na condição de fiscal da execução da pena, ou de ofício pelo próprio juízo da vara de execuções penais competente",
+                "pode ser suscitado pelo MP, pelo Conselho Penitenciário, pelo sentenciado e por qualquer dos demais legitimados do art. 186 da LEP — sendo instrumento central para atacar condições degradantes de cumprimento da pena",
+                "depende do esgotamento prévio das instâncias administrativas do sistema penitenciário estadual, mediante requerimento formal dirigido à direção do estabelecimento prisional",
+                "restringe-se a erros aritméticos no cálculo de liquidação de penas efetuado pela contadoria judicial",
+                "foi substituído pelo habeas corpus coletivo após o julgamento da arguição de descumprimento de preceito fundamental 347 pelo Supremo Tribunal Federal"
+              ],
+              correta: 1,
+              explicacao: "Arts. 185-186 da LEP: legitimados amplos — MP, Conselho Penitenciário, o próprio sentenciado e demais interessados. É a via para impugnar cumprimento de pena em desacordo com a sentença ou com a lei, inclusive condições degradantes. Dialoga diretamente com a ADPF 347 (estado de coisas inconstitucional) e com a SV 56 (falta de vaga em regime adequado não autoriza manter o preso em regime mais gravoso)."
+            },
+            {
+              id: "fal-7", modo: "lei", fonte: "LEP, art. 41; Regras de Bangkok",
+              enunciado: "Entre os direitos da pessoa presa assegurados pela LEP e pelos instrumentos internacionais, é correto afirmar que:",
+              alternativas: [
+                "a visita do cônjuge e de familiares pode ser suspensa por ato discricionário e definitivo da direção do estabelecimento, independentemente de motivação escrita e de controle jurisdicional posterior",
+                "são direitos do preso, entre outros, a assistência material, à saúde, jurídica, educacional e religiosa, a visita de cônjuge e familiares e a entrevista pessoal e reservada com o advogado ou defensor",
+                "o direito ao trabalho remunerado é facultativo para a administração, que pode negá-lo sem justificativa, e sua remuneração não pode ser inferior a um salário mínimo mensal",
+                "as mulheres presas não têm direito a acompanhamento por profissional especializado durante o pré-natal e o pós-parto, matéria estranha à Lei de Execução Penal",
+                "a assistência jurídica na execução é prestada apenas a quem não tenha sido condenado por crime hediondo ou equiparado"
+              ],
+              correta: 1,
+              explicacao: "Art. 41 da LEP: rol de direitos (assistências material, à saúde, jurídica, educacional, social e religiosa; trabalho remunerado — não inferior a 3/4 do salário mínimo, art. 29; visita; entrevista reservada com advogado/defensor). A suspensão de direitos como a visita exige ato MOTIVADO do diretor (parágrafo único) e é sindicável judicialmente. As Regras de Bangkok e a LEP (art. 14, §3º) garantem acompanhamento pré-natal e pós-parto às mulheres presas."
             }
           ]
         }
@@ -3564,6 +3758,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "A Lei 14.994/2024 transformou o feminicídio em TIPO AUTÔNOMO: art. 121-A do CP — matar mulher por razões da condição do sexo feminino (violência doméstica/familiar ou menosprezo/discriminação) — com pena de 20 a 40 anos, a mais alta da parte especial. Continua hediondo, e a lei elevou também outras penas ligadas à violência contra a mulher. Por ser mais gravosa, NÃO retroage: fatos anteriores seguem sob a antiga qualificadora."
+            }
+          ]
+        },
+        {
+          id: "penal-juris-7",
+          titulo: "Maria da Penha, hediondos e leis novas",
+          questoes: [
+            {
+              id: "lex-1", modo: "lei", fonte: "Lei 11.340/06, arts. 5º e 7º",
+              enunciado: "Para a incidência da Lei Maria da Penha, a violência doméstica e familiar contra a mulher exige:",
+              alternativas: [
+                "coabitação entre autor e vítima e vínculo conjugal atual ou pretérito entre eles, comprovado documentalmente nos autos do inquérito ou do processo criminal instaurado",
+                "ação ou omissão baseada no gênero, praticada no âmbito da unidade doméstica, da família ou em qualquer relação íntima de afeto — dispensada a coabitação —, abrangendo violência física, psicológica, sexual, patrimonial e moral",
+                "exclusivamente a prática de violência física ou sexual que deixe vestígios materiais aptos a exame de corpo de delito direto",
+                "que autor e vítima sejam cônjuges ou companheiros, excluídas as relações entre pais e filhas ou entre irmãos que residam sob o mesmo teto",
+                "a demonstração de hipossuficiência econômica da vítima em relação ao agressor"
+              ],
+              correta: 1,
+              explicacao: "Art. 5º da Lei 11.340/06: unidade doméstica (com ou sem vínculo familiar, inclusive esporadicamente agregadas), família ou relação íntima de afeto — e o parágrafo único dispensa a coabitação (Súmula 600/STJ). O art. 7º lista as cinco formas de violência, incluindo a patrimonial e a moral. A vulnerabilidade é presumida: não se exige prova de hipossuficiência econômica."
+            },
+            {
+              id: "lex-2", modo: "juris", fonte: "Lei 11.340/06, art. 41; STF, ADC 19 e ADI 4.424",
+              enunciado: "Nos crimes praticados com violência doméstica e familiar contra a mulher:",
+              alternativas: [
+                "aplica-se a Lei 9.099/95 quando a pena máxima não ultrapassar dois anos, admitindo-se transação penal e suspensão condicional do processo",
+                "é vedada a aplicação da Lei 9.099/95 qualquer que seja a pena, e a ação penal na lesão corporal leve é pública incondicionada, conforme o STF",
+                "a ação penal na lesão corporal leve é condicionada à representação da ofendida, que pode retratar-se até a sentença de primeiro grau",
+                "cabe a suspensão condicional do processo desde que a vítima concorde expressamente em audiência",
+                "admite-se a substituição da pena por prestação pecuniária ou pagamento isolado de multa, conforme as circunstâncias do caso"
+              ],
+              correta: 1,
+              explicacao: "Art. 41: afastamento integral da Lei 9.099/95 (ADC 19). Na ADI 4.424 o STF conferiu interpretação conforme: a ação penal na lesão corporal leve em contexto doméstico é PÚBLICA INCONDICIONADA (Súmula 542/STJ). O art. 17 veda penas de cesta básica, prestação pecuniária e multa isolada. Só nas ameaças e crimes contra a honra subsiste a representação."
+            },
+            {
+              id: "lex-3", modo: "lei", fonte: "Lei 11.340/06, arts. 12-C e 24-A",
+              enunciado: "Sobre as medidas protetivas de urgência da Lei Maria da Penha:",
+              alternativas: [
+                "só podem ser concedidas por decisão judicial, após oitiva do Ministério Público e do agressor em audiência designada para essa finalidade específica",
+                "podem ser concedidas de imediato pelo juiz, independentemente de audiência e de manifestação do MP; havendo risco atual e não sendo o município sede de comarca, o afastamento do lar pode ser determinado por delegado ou policial — e o descumprimento configura crime autônomo",
+                "dependem do prévio registro de ocorrência policial e da instauração formal de inquérito, sem os quais o juízo não pode antecipar qualquer providência de natureza protetiva à ofendida, ainda que haja risco atual à sua integridade física",
+                "têm prazo máximo de validade de trinta dias, prorrogável uma única vez por igual período mediante novo requerimento",
+                "só subsistem enquanto tramitar ação penal contra o agressor, extinguindo-se com o arquivamento do inquérito"
+              ],
+              correta: 1,
+              explicacao: "Art. 19, §1º: concessão imediata, sem audiência das partes nem manifestação prévia do MP. Art. 12-C (Lei 13.827/2019): afastamento do lar por delegado ou policial quando não houver comarca — com comunicação ao juiz em 24h. Art. 24-A: descumprir medida protetiva é CRIME autônomo (detenção de 3 meses a 2 anos). As medidas independem de inquérito ou de ação penal (art. 19, §5º) e vigoram enquanto persistir o risco."
+            },
+            {
+              id: "lex-4", modo: "lei", fonte: "Lei 8.072/90, art. 2º; CP, art. 112 da LEP",
+              enunciado: "Quanto ao regime jurídico dos crimes hediondos e equiparados após o Pacote Anticrime:",
+              alternativas: [
+                "permanecem vedadas a liberdade provisória e a progressão de regime, cumprindo-se a pena integralmente em regime fechado nos termos originais da Lei 8.072/90",
+                "são insuscetíveis de anistia, graça e indulto, e de fiança — mas admitem progressão de regime, com percentuais mais altos conforme a hediondez, o resultado morte e a reincidência",
+                "passaram a admitir anistia e indulto, mantida apenas a vedação à fiança e ao livramento condicional para os reincidentes específicos em crimes da mesma natureza",
+                "têm regime inicial necessariamente fechado, por expressa previsão legal declarada constitucional pelo STF",
+                "seguem os mesmos percentuais de progressão dos crimes comuns, diferenciando-se apenas quanto ao livramento condicional"
+              ],
+              correta: 1,
+              explicacao: "Art. 2º da Lei 8.072/90: vedadas anistia, graça, indulto e fiança. O STF declarou inconstitucionais o regime integralmente fechado (HC 82.959) e o regime inicial obrigatoriamente fechado (HC 111.840). O Pacote Anticrime levou os percentuais de progressão para o art. 112 da LEP: 40% (hediondo primário), 50% (com resultado morte, primário), 60% (hediondo reincidente) e 70% (com resultado morte, reincidente — sem livramento)."
+            },
+            {
+              id: "lex-5", modo: "lei", fonte: "Lei 15.358/2026 (Lei Antifacção)",
+              enunciado: "A Lei Antifacção (Lei 15.358/2026), no sistema de enfrentamento ao crime organizado:",
+              alternativas: [
+                "revogou integralmente a Lei 12.850/2013, unificando o tratamento das organizações criminosas em diploma único e substituindo a colaboração premiada por acordo de leniência penal",
+                "criou tratamento penal mais severo para facções e domínio territorial armado, convivendo com a Lei 12.850/2013 — cabendo à defesa vigiar a tipificação por mera suspeita de vínculo e a expansão do encarceramento",
+                "descriminalizou a participação em organização criminosa para menores de vinte e um anos, direcionando-os a medidas socioeducativas",
+                "transferiu à Justiça Federal a competência para julgar todos os crimes praticados por facções, independentemente de lesão a bens da União",
+                "aboliu o regime disciplinar diferenciado para presos vinculados a organizações criminosas"
+              ],
+              correta: 1,
+              explicacao: "A Lei 15.358/2026 endureceu o enfrentamento a facções e ao domínio territorial armado, somando-se (sem revogar) à Lei 12.850/2013, que segue definindo organização criminosa e regendo a colaboração premiada. Ponto de atenção defensivo, que o edital cobra em Penal, Processo Penal e Execução: risco de imputação por vínculo presumido, ampliação de cautelares e reflexos no regime prisional. Confira o texto atualizado antes da prova."
+            },
+            {
+              id: "lex-6", modo: "lei", fonte: "Lei 9.455/97, arts. 1º e 2º; CF, art. 5º, XLIII",
+              enunciado: "Sobre o crime de tortura (Lei 9.455/97):",
+              alternativas: [
+                "é crime próprio de funcionário público, exigindo-se a qualidade especial do agente para a configuração de qualquer das suas modalidades típicas previstas na legislação de regência",
+                "é, em regra, crime comum — podendo ser praticado por particular —, e a condenação acarreta a perda do cargo, função ou emprego público e a interdição para seu exercício pelo dobro do prazo da pena",
+                "admite fiança e graça, vedadas apenas a anistia e a progressão de regime aos condenados reincidentes específicos",
+                "só se configura quando resulta lesão corporal grave ou morte da vítima submetida ao constrangimento",
+                "aplica-se exclusivamente a fatos ocorridos em território nacional, ainda que a vítima seja brasileira"
+              ],
+              correta: 1,
+              explicacao: "A tortura é crime COMUM (salvo a modalidade omissiva do art. 1º, §2º, própria de quem tem o dever de evitá-la). Efeito automático da condenação: perda do cargo + interdição pelo dobro do prazo da pena (§5º). É equiparada a hediondo (CF, art. 5º, XLIII): insuscetível de anistia, graça, indulto e fiança. O art. 2º consagra a extraterritorialidade quando a vítima for brasileira ou o agente estiver em local sob jurisdição brasileira."
+            },
+            {
+              id: "lex-7", modo: "lei", fonte: "Lei 7.716/89; STF, ADO 26; Lei 14.532/2023",
+              enunciado: "No sistema de repressão penal ao racismo, é correto afirmar que:",
+              alternativas: [
+                "a injúria racial permanece como crime contra a honra sujeito à ação penal privada e à prescrição ordinária, distinguindo-se do racismo pela ofensa dirigida a pessoa determinada",
+                "a Lei 14.532/2023 tipificou a injúria racial dentro da Lei 7.716/89, tornando-a imprescritível e inafiançável — e o STF já havia enquadrado a LGBTIfobia nos crimes dessa mesma lei",
+                "os crimes resultantes de preconceito admitem fiança e transação penal quando a pena máxima não ultrapassar dois anos de reclusão",
+                "a imprescritibilidade constitucional alcança apenas o crime de racismo praticado por meio de publicação em veículo de comunicação social",
+                "o enquadramento penal da homofobia e da transfobia dependeu de lei específica aprovada pelo Congresso Nacional no ano de 2023"
+              ],
+              correta: 1,
+              explicacao: "A Lei 14.532/2023 deslocou a injúria racial para o art. 2º-A da Lei 7.716/89, atraindo o regime constitucional do racismo: imprescritível e inafiançável (CF, art. 5º, XLII), com pena de reclusão de 2 a 5 anos. Antes disso, na ADO 26/MI 4733 (2019), o STF já havia enquadrado a LGBTIfobia nos tipos da Lei 7.716/89 por interpretação conforme, até que sobrevenha lei específica."
             }
           ]
         }
