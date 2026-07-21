@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "3.11"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "3.15"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -352,11 +352,11 @@
   }
 
   /* ---------- grupo em tempo real (Firebase Realtime DB via REST) ---------- */
-  // URL do Realtime Database (ex.: https://seu-projeto-default-rtdb.firebaseio.com)
-  var DB_URL = window.DPE_DB_URL || "https://defensor-app-default-rtdb.firebaseio.com";
-  // Web API Key do Firebase (Configurações do projeto → Geral). Habilita a
-  // conta por e-mail + backup do progresso na nuvem. Vazia = recurso oculto.
-  var AUTH_KEY = window.DPE_AUTH_KEY || "AIzaSyA-UB5QDQe28lL4mPrKzIm2QnzkSi92gXw";
+  // Config do Firebase (URL do banco + Web API Key) vem de config.js, que é
+  // carregado antes de app.js no index.html. Se config.js não definir esses
+  // valores, DB_URL/AUTH_KEY ficam vazios e os recursos de nuvem se ocultam.
+  var DB_URL = window.DPE_DB_URL || "";     // definido em config.js
+  var AUTH_KEY = window.DPE_AUTH_KEY || ""; // definido em config.js
   function grupoAtivo() { return !!(S.social.grupo && S.social.grupo.url && S.social.grupo.gid); }
   function dbFetch(path, opts) {
     var g = S.social.grupo;

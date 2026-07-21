@@ -2,11 +2,12 @@
    Estratégia: network-first (busca a versão nova quando online;
    usa o cache apenas como fallback offline). Assim, novas questões
    aparecem sem precisar limpar cache. */
-var CACHE = "dperj-v5";
+var CACHE = "dperj-v6";
 var ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
+  "./config.js",
   "./data.js",
   "./app.js",
   "./manifest.webmanifest",
