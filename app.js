@@ -685,22 +685,22 @@
   }
   function blitzPool(rnd) {
     var rand = rnd || Math.random;
-    // sorteio embaralhado dentro de cada banca, na ordem Banca I → II → III
-    var by = { I: [], II: [], III: [] }, resto = [];
+    // Banco inteiro num sorteio único: qualquer questão de qualquer banca
+    // pode cair logo na primeira, mesmo que a lição esteja bloqueada na
+    // trilha. (Antes o sorteio era por banca e concatenado I → II → III;
+    // como a Banca I sozinha tem 163 questões e uma partida acaba em
+    // poucas, as bancas II e III nunca eram alcançadas.)
+    var todas = [];
     DATA.units.forEach(function (u) {
-      var arr = by[u.banca] || resto;
       u.licoes.forEach(function (l) {
-        l.questoes.forEach(function (q) { arr.push(q); });
+        l.questoes.forEach(function (q) { todas.push(q); });
       });
     });
-    function shuf(a) {
-      for (var i = a.length - 1; i > 0; i--) {
-        var j = Math.floor(rand() * (i + 1));
-        var t = a[i]; a[i] = a[j]; a[j] = t;
-      }
-      return a;
+    for (var i = todas.length - 1; i > 0; i--) {
+      var j = Math.floor(rand() * (i + 1));
+      var t = todas[i]; todas[i] = todas[j]; todas[j] = t;
     }
-    return shuf(by.I).concat(shuf(by.II), shuf(by.III), shuf(resto));
+    return todas;
   }
 
   /* ---------- Treino do dia ---------- */
@@ -743,11 +743,20 @@
       return ((S.srs[b.id].lapses) || 0) - ((S.srs[a.id].lapses) || 0);
     });
 
-    // novas: nunca respondidas, na ordem da trilha
+    // novas: nunca respondidas, sorteadas em TODO o banco — inclusive em
+    // lições ainda bloqueadas na trilha. A semente é o dia + a prova, então
+    // a dose de hoje é sempre a mesma (reabrir o app não troca as questões),
+    // mas amanhã cai em outro ponto do banco em vez de andar sempre do
+    // começo da trilha para a frente.
     var novas = [];
     LESSONS.forEach(function (l) {
       l.questoes.forEach(function (q) { if (!S.srs[q.id]) novas.push(q); });
     });
+    var randDia = seededRand(hoje + "|" + (PROVA ? PROVA.id : ""));
+    for (var n = novas.length - 1; n > 0; n--) {
+      var nj = Math.floor(randDia() * (n + 1));
+      var nt = novas[n]; novas[n] = novas[nj]; novas[nj] = nt;
+    }
 
     due.slice(0, 6).forEach(add);
     var nRev = out.length;
@@ -758,9 +767,10 @@
     // faltou? completa com o excedente de revisões e reforços
     for (var j = 6; j < due.length && out.length < TREINO_ALVO; j++) { if (add(due[j])) nRev++; }
     for (var k = 3; k < reforco.length && out.length < TREINO_ALVO; k++) { if (add(reforco[k])) nRef++; }
-    // embaralha para intercalar os tipos
+    // embaralha para intercalar os tipos (mesma semente do dia, para o
+    // card da trilha e a sessão mostrarem exatamente a mesma dose)
     for (var x = out.length - 1; x > 0; x--) {
-      var y = Math.floor(Math.random() * (x + 1));
+      var y = Math.floor(randDia() * (x + 1));
       var t = out[x]; out[x] = out[y]; out[y] = t;
     }
     return { qs: out, rev: nRev, ref: nRef, novas: nNov };
