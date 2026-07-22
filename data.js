@@ -4930,6 +4930,103 @@ window.APP_DATA = {
               explicacao: "Interpretação conforme: entre sentidos possíveis, prefere-se o compatível com a Constituição — preservando a norma (princípio da conservação). Limites: o sentido literal do texto e a vontade do legislador; o intérprete não pode virar legislador positivo. Distingue-se da declaração parcial de nulidade sem redução de texto, embora ambas apareçam no art. 28, parágrafo único, da Lei 9.868/99."
             }
           ]
+        },
+        {
+          id: "constitucional-4",
+          titulo: "Segurança pública e ordem social",
+          questoes: [
+            {
+              id: "seg-1", modo: "lei", fonte: "CF, art. 144 (com a EC 104/2019)",
+              enunciado: "Sobre a segurança pública na Constituição Federal:",
+              alternativas: [
+                "é dever exclusivo dos órgãos policiais estaduais e federais expressamente listados no art. 144, não cabendo participação da sociedade civil nem responsabilidade dos municípios na matéria",
+                "é dever do Estado, direito e responsabilidade de todos, exercida para a preservação da ordem pública e da incolumidade das pessoas e do patrimônio, por meio de rol de órgãos que a EC 104/2019 ampliou com as polícias penais",
+                "compete privativamente à União legislar e executar as políticas de segurança pública em todo o território nacional, cabendo aos Estados apenas a execução material das diretrizes federais",
+                "autoriza os Municípios a criarem polícias militares próprias para o policiamento ostensivo, desde que autorizados por lei complementar estadual específica sobre a matéria",
+                "atribui às Forças Armadas a competência ordinária para o policiamento urbano nas regiões metropolitanas com índices elevados de criminalidade violenta"
+              ],
+              correta: 1,
+              explicacao: "Art. 144, caput: 'dever do Estado, direito e responsabilidade de todos'. O rol de órgãos é taxativo — e a EC 104/2019 incluiu as POLÍCIAS PENAIS (federal, estaduais e distrital), vinculadas aos órgãos administradores do sistema penal. Municípios podem ter guardas municipais para proteção de bens, serviços e instalações (§8º), e o STF (Tema 656) admitiu que exerçam também trânsito e certas funções de segurança."
+            },
+            {
+              id: "seg-2", modo: "juris", fonte: "STF, ADPF 635 (ADPF das Favelas)",
+              enunciado: "Na ADPF 635, conhecida como ADPF das Favelas, o STF:",
+              alternativas: [
+                "declarou constitucional a política de confronto armado adotada nas operações policiais realizadas em comunidades do Rio de Janeiro, reconhecendo a discricionariedade do gestor estadual",
+                "impôs ao Estado do Rio de Janeiro uma série de medidas para reduzir a letalidade policial — como restrição a operações em escolas e hospitais, uso de câmeras corporais e planos de redução — reconhecendo violação sistêmica de direitos",
+                "determinou o encerramento definitivo de todas as operações policiais em áreas de comunidades no Estado do Rio de Janeiro até que sobrevenha nova legislação federal",
+                "julgou o pedido improcedente por entender que o controle das políticas de segurança pública é matéria reservada à discricionariedade administrativa do Poder Executivo estadual",
+                "reconheceu a competência exclusiva da Justiça Militar estadual para processar e julgar as mortes decorrentes de intervenção policial ocorridas em operações"
+              ],
+              correta: 1,
+              explicacao: "ADPF 635 (2020 em diante): o STF reconheceu violação massiva de direitos fundamentais na política de segurança do RJ e impôs medidas estruturais — restrições a operações perto de escolas e hospitais, uso de câmeras, preservação de local de crime, plano de redução da letalidade, atenção especial a operações com helicópteros. É processo estrutural emblemático, com atuação central da Defensoria e de entidades da sociedade civil."
+            },
+            {
+              id: "seg-3", modo: "juris", fonte: "STF, ADPF 347 e Súmula Vinculante 56",
+              enunciado: "Sobre política penitenciária e o estado de coisas inconstitucional reconhecido na ADPF 347:",
+              alternativas: [
+                "o STF reconheceu violação massiva e sistêmica de direitos no sistema prisional, decorrente de falhas estruturais e omissões dos três Poderes, impondo medidas como o descontingenciamento do Funpen e a realização de audiências de custódia",
+                "o Supremo entendeu que as condições dos presídios brasileiros, embora precárias, não configuram violação de direitos fundamentais capaz de justificar intervenção judicial estruturante",
+                "a decisão determinou a construção imediata de novos estabelecimentos penais pela União em todos os Estados da federação, com prazo fixo e sanção pecuniária diária",
+                "o reconhecimento do estado de coisas inconstitucional acarretou a soltura automática de todos os presos que cumpriam pena em estabelecimentos superlotados no país",
+                "a ADPF 347 tratou exclusivamente da situação das mulheres presas, sem alcançar o sistema prisional masculino nem os adolescentes em cumprimento de medida"
+              ],
+              correta: 0,
+              explicacao: "ADPF 347: transposição do 'estado de coisas inconstitucional' da Corte colombiana — violação massiva, omissão persistente dos Poderes e necessidade de remédios estruturais. Medidas deferidas: audiências de custódia e descontingenciamento do Funpen. Em 2023 o STF retomou o julgamento, determinando plano nacional. Dialoga com a SV 56 (falta de vaga não autoriza regime mais gravoso) e com o RE 580.252 (dano moral ao preso em condições degradantes)."
+            },
+            {
+              id: "seg-4", modo: "juris", fonte: "CF, art. 6º; STF, RE 592.581",
+              enunciado: "Sobre o controle judicial de políticas públicas relacionadas ao sistema prisional, o STF fixou no RE 592.581 que:",
+              alternativas: [
+                "o Judiciário não pode determinar obras em estabelecimentos penais, sob pena de violação da separação dos Poderes e da reserva de administração do Executivo",
+                "é lícito ao Judiciário determinar à Administração que realize obras ou reformas emergenciais em presídios para garantir a integridade e a dignidade dos detentos — sem que se possa opor a reserva do possível ou a separação dos Poderes",
+                "a determinação judicial de obras depende de prévia dotação orçamentária específica aprovada pelo Poder Legislativo do ente federado responsável pelo estabelecimento",
+                "cabe apenas ao Conselho Nacional de Justiça, no exercício de sua função correicional, determinar intervenções materiais em estabelecimentos prisionais deficientes",
+                "a matéria é de competência exclusiva do juízo da execução penal, vedada a atuação em sede de ação civil pública proposta pela Defensoria ou pelo Ministério Público"
+              ],
+              correta: 1,
+              explicacao: "RE 592.581 (Tema 220, repercussão geral): é lícito ao Judiciário impor à Administração Pública obrigação de fazer — realização de obras ou reformas emergenciais em presídios — para garantir direitos fundamentais dos presos, não sendo oponíveis a discricionariedade administrativa nem a reserva do possível. Fundamento decisivo para ações estruturais da Defensoria em matéria prisional."
+            },
+            {
+              id: "seg-5", modo: "lei", fonte: "CF, arts. 193 e 194",
+              enunciado: "Sobre a ordem social na Constituição Federal:",
+              alternativas: [
+                "tem como base o primado do trabalho e como objetivo o bem-estar e a justiça sociais, compreendendo a seguridade social como conjunto integrado de ações de saúde, previdência e assistência social",
+                "funda-se na livre iniciativa e na valorização do capital produtivo, tendo por finalidade precípua assegurar o desenvolvimento econômico nacional e o equilíbrio das contas públicas",
+                "restringe-se ao capítulo da seguridade social, não abrangendo educação, cultura, desporto, ciência, meio ambiente, família, criança, adolescente, idoso e indígenas",
+                "estabelece que a saúde e a assistência social são devidas mediante contribuição direta do beneficiário, à semelhança do regime contributivo da previdência social",
+                "atribui exclusivamente ao poder público a execução das ações de seguridade social, vedada a participação de entidades privadas ou da sociedade civil organizada"
+              ],
+              correta: 0,
+              explicacao: "Art. 193: a ordem social tem base no primado do trabalho e objetivo no bem-estar e na justiça sociais. Art. 194: a seguridade social integra saúde (universal e gratuita, art. 196), previdência (contributiva, art. 201) e assistência social (a quem dela necessitar, INDEPENDENTEMENTE de contribuição, art. 203). O Título VIII abrange ainda educação, cultura, desporto, meio ambiente, família, criança, idoso e indígenas."
+            },
+            {
+              id: "seg-6", modo: "juris", fonte: "CF, art. 203, V; Lei 8.742/93; STF, RE 567.985",
+              enunciado: "Sobre o Benefício de Prestação Continuada (BPC) da assistência social:",
+              alternativas: [
+                "exige contribuição prévia do beneficiário ao regime geral de previdência social por período mínimo de doze meses anteriores ao requerimento administrativo do benefício",
+                "é garantido à pessoa com deficiência e à pessoa idosa que comprovem não possuir meios de prover a própria manutenção — e o critério objetivo de renda não é o único parâmetro admissível para aferir a miserabilidade",
+                "tem natureza previdenciária, sendo devido em valor proporcional ao tempo de contribuição do requerente ao sistema de seguridade social brasileiro",
+                "é acumulável com aposentadoria, pensão por morte e outros benefícios de natureza previdenciária percebidos pelo mesmo beneficiário simultaneamente",
+                "só pode ser concedido a brasileiros natos, sendo vedada sua extensão a estrangeiros residentes no país, ainda que em situação regular de permanência"
+              ],
+              correta: 1,
+              explicacao: "Art. 203, V, da CF: um salário mínimo à pessoa com deficiência e à pessoa idosa (65+) sem meios de manutenção, INDEPENDENTEMENTE de contribuição. No RE 567.985 e na Rcl 4.374 o STF declarou a inconstitucionalidade parcial do critério de 1/4 do salário mínimo per capita, admitindo outros meios de prova da miserabilidade. O STF também estendeu o benefício a estrangeiros residentes (RE 587.970)."
+            },
+            {
+              id: "seg-7", modo: "juris", fonte: "CF, arts. 220 e 5º, IX; STF, ADPF 130",
+              enunciado: "Sobre a comunicação social e a regulação constitucional da mídia:",
+              alternativas: [
+                "a Constituição admite a censura prévia de conteúdo jornalístico quando houver risco concreto de violação a direitos da personalidade de terceiros identificados",
+                "vedam-se toda censura de natureza política, ideológica e artística e a licença prévia para publicação — tendo o STF, na ADPF 130, declarado a Lei de Imprensa integralmente não recepcionada",
+                "a Lei de Imprensa de 1967 foi integralmente recepcionada pela Constituição de 1988, permanecendo em vigor no que não contrariar os direitos fundamentais assegurados",
+                "a liberdade de expressão é absoluta no ordenamento brasileiro, não comportando responsabilização civil ou penal posterior por eventuais abusos cometidos no seu exercício",
+                "compete ao Poder Executivo federal outorgar e renovar concessões de radiodifusão sem qualquer participação do Congresso Nacional no processo decisório"
+              ],
+              correta: 1,
+              explicacao: "Art. 220, §2º: vedada toda e qualquer censura de natureza política, ideológica e artística; §1º veda licença prévia. Na ADPF 130 (2009) o STF declarou a Lei de Imprensa (5.250/67) integralmente não recepcionada. A liberdade não é absoluta: admite responsabilização POSTERIOR (art. 5º, V e X). As concessões de radiodifusão dependem de apreciação do Congresso Nacional (art. 223)."
+            }
+          ]
         }
       ]
     },
@@ -5193,6 +5290,103 @@ window.APP_DATA = {
               ],
               correta: 1,
               explicacao: "Poder de polícia (art. 78 do CTN): condiciona e limita o exercício de direitos, bens e atividades dos particulares em prol da coletividade. Difere do poder disciplinar (servidores), do regulamentar (decretos) e do hierárquico (subordinação). A repressão a infrações penais é polícia JUDICIÁRIA. O STF (Tema 532) admite delegar atos de consentimento e fiscalização a estatais de direito privado prestadoras de serviço público."
+            }
+          ]
+        },
+        {
+          id: "administrativo-4",
+          titulo: "Princípios e controle da Administração",
+          questoes: [
+            {
+              id: "prin-1", modo: "lei", fonte: "CF, art. 37, caput (EC 19/98)",
+              enunciado: "Os princípios expressos da Administração Pública no caput do art. 37 da Constituição são:",
+              alternativas: [
+                "legalidade, impessoalidade, moralidade, publicidade e eficiência — este último acrescido pela Emenda Constitucional 19/1998, no contexto da reforma administrativa gerencial",
+                "legalidade, impessoalidade, moralidade, publicidade e razoabilidade, sendo a eficiência princípio implícito extraído do regime jurídico administrativo brasileiro",
+                "legalidade, supremacia do interesse público, indisponibilidade, autotutela e continuidade do serviço público, todos expressamente previstos no texto constitucional",
+                "legalidade, moralidade, proporcionalidade, motivação e segurança jurídica, conforme o rol taxativo estabelecido pela reforma administrativa de 1998",
+                "apenas legalidade e publicidade, funcionando os demais como diretrizes programáticas dirigidas ao legislador infraconstitucional"
+              ],
+              correta: 0,
+              explicacao: "LIMPE: Legalidade, Impessoalidade, Moralidade, Publicidade e Eficiência (esta incluída pela EC 19/98). São EXPRESSOS. Os demais — supremacia e indisponibilidade do interesse público, autotutela, continuidade, razoabilidade, proporcionalidade, motivação, segurança jurídica — são implícitos (vários deles expressos na Lei 9.784/99, art. 2º)."
+            },
+            {
+              id: "prin-2", modo: "juris", fonte: "STF, Súmulas Vinculantes 13 e 3",
+              enunciado: "Sobre a aplicação do princípio da moralidade e da impessoalidade na Administração:",
+              alternativas: [
+                "a nomeação de parentes para cargos em comissão é livre, por se tratar de cargo de confiança de livre nomeação e exoneração pela autoridade competente",
+                "a Súmula Vinculante 13 veda o nepotismo — inclusive o cruzado — na Administração direta e indireta dos três Poderes, mas o STF excepciona os cargos de natureza política, como o de Secretário de Estado",
+                "o nepotismo só é vedado quando houver lei específica do ente federado que o proíba expressamente, dada a autonomia administrativa dos entes da federação",
+                "a vedação alcança apenas a nomeação de cônjuge e companheiro, não se estendendo a parentes por consanguinidade ou afinidade em qualquer grau",
+                "a Súmula Vinculante 13 aplica-se exclusivamente ao Poder Executivo federal, não vinculando Estados, Municípios e os demais Poderes da República"
+              ],
+              correta: 1,
+              explicacao: "SV 13: veda nomeação de cônjuge, companheiro ou parente até 3º grau da autoridade nomeante ou de servidor da mesma pessoa jurídica investido em cargo de direção/chefia/assessoramento — inclusive o nepotismo CRUZADO (ajuste recíproco). O STF excepciona os cargos de natureza POLÍTICA (agentes políticos, como Secretários e Ministros), salvo fraude ou inaptidão comprovada."
+            },
+            {
+              id: "prin-3", modo: "juris", fonte: "STF, Súmulas 346 e 473",
+              enunciado: "Segundo o princípio da autotutela administrativa, a Administração:",
+              alternativas: [
+                "só pode anular seus próprios atos mediante prévia autorização judicial, em respeito ao princípio da inafastabilidade da jurisdição consagrado constitucionalmente",
+                "pode anular seus atos ilegais e revogar os inconvenientes ou inoportunos, respeitados os direitos adquiridos e, na anulação de atos favoráveis, o contraditório e o prazo decadencial de 5 anos",
+                "pode rever livremente todos os seus atos a qualquer tempo, independentemente de prazo, contraditório ou consideração a direitos já incorporados ao patrimônio dos administrados",
+                "revoga atos ilegais e anula atos inconvenientes, sendo ambas as hipóteses de competência exclusiva da autoridade máxima do órgão que praticou o ato",
+                "não pode rever seus próprios atos, competindo o controle de legalidade exclusivamente aos órgãos de controle externo e ao Poder Judiciário"
+              ],
+              correta: 1,
+              explicacao: "Súmula 473/STF: a Administração ANULA seus atos ilegais e pode REVOGAR os inoportunos/inconvenientes, respeitados os direitos adquiridos. Súmula 346: pode declarar a nulidade de seus próprios atos. Limites do art. 54 da Lei 9.784/99: prazo DECADENCIAL de 5 anos para anular atos favoráveis (salvo má-fé) e, conforme a SV 3 e o art. 2º, contraditório prévio quando o ato repercutir na esfera de interesses do administrado."
+            },
+            {
+              id: "prin-4", modo: "juris", fonte: "CF, art. 5º, XXXV; jurisprudência do STF e do STJ",
+              enunciado: "Quanto ao controle judicial dos atos administrativos discricionários:",
+              alternativas: [
+                "é vedado ao Judiciário examinar atos discricionários sob qualquer aspecto, por implicar substituição do administrador e ofensa à separação dos Poderes",
+                "o Judiciário pode controlar a legalidade em sentido amplo — inclusive motivos, finalidade, razoabilidade e proporcionalidade —, sem substituir o mérito administrativo pela sua própria conveniência",
+                "o Judiciário pode substituir integralmente a escolha do administrador sempre que entender existir solução tecnicamente mais adequada ao interesse público em jogo",
+                "o controle limita-se aos aspectos formais do ato, como competência e forma, sendo vedado o exame de sua motivação e de sua finalidade em qualquer caso",
+                "os atos discricionários dispensam motivação, razão pela qual não se sujeitam a nenhuma espécie de controle jurisdicional quanto aos seus fundamentos"
+              ],
+              correta: 1,
+              explicacao: "O Judiciário controla a legalidade em sentido amplo (juridicidade): competência, forma, finalidade, motivo e objeto, incluindo razoabilidade, proporcionalidade e moralidade. Não substitui o MÉRITO (conveniência e oportunidade) por sua própria valoração. A teoria dos motivos determinantes vincula a Administração aos motivos declarados — se falsos ou inexistentes, o ato é inválido."
+            },
+            {
+              id: "prin-5", modo: "lei", fonte: "CF, arts. 70 e 71; STF, Súmula Vinculante 3",
+              enunciado: "Sobre o controle externo exercido pelos Tribunais de Contas:",
+              alternativas: [
+                "o Tribunal de Contas julga as contas do Chefe do Poder Executivo, cabendo ao Legislativo apenas homologar formalmente a decisão técnica proferida pela corte de contas",
+                "o TCU aprecia as contas do Presidente mediante parecer prévio (quem julga é o Congresso), julga as contas dos demais administradores e, ao apreciar a legalidade de concessão inicial de aposentadoria, não precisa assegurar contraditório ao interessado",
+                "as decisões dos Tribunais de Contas têm natureza jurisdicional e fazem coisa julgada material, sendo insuscetíveis de revisão pelo Poder Judiciário competente",
+                "o Tribunal de Contas não pode sustar a execução de contratos administrativos nem aplicar sanções aos responsáveis por irregularidades apuradas em suas auditorias",
+                "o controle externo é exercido privativamente pelo Ministério Público de Contas, cabendo ao Tribunal apenas função opinativa sobre as prestações de contas"
+              ],
+              correta: 1,
+              explicacao: "Art. 71, I e II: parecer prévio sobre as contas do Chefe do Executivo (o JULGAMENTO é do Legislativo — art. 49, IX) e julgamento das contas dos demais administradores. SV 3: assegura-se contraditório nos processos do TCU, EXCETO na apreciação da legalidade do ato de concessão inicial de aposentadoria, reforma e pensão — exceção clássica de prova. As decisões são administrativas, sujeitas a controle judicial de legalidade."
+            },
+            {
+              id: "prin-6", modo: "lei", fonte: "Lei 9.784/99, arts. 2º, 50 e 54",
+              enunciado: "No processo administrativo federal regido pela Lei 9.784/99:",
+              alternativas: [
+                "a motivação é exigida apenas nos atos que imponham sanções disciplinares, sendo dispensável nos demais atos administrativos de caráter decisório praticados no processo",
+                "exige-se motivação explícita, clara e congruente nos atos que neguem, limitem ou afetem direitos, e o direito da Administração de anular atos de que decorram efeitos favoráveis decai em 5 anos, salvo má-fé",
+                "o prazo decadencial para anulação de atos favoráveis é de 10 anos, contado do trânsito em julgado de eventual decisão judicial sobre a matéria discutida",
+                "o administrado não tem direito à ampla defesa na esfera administrativa, garantia reservada aos processos de natureza judicial por expressa previsão constitucional",
+                "a Administração pode aplicar retroativamente nova interpretação de norma administrativa, desde que fundamentada em orientação superveniente de órgão consultivo"
+              ],
+              correta: 1,
+              explicacao: "Art. 50: motivação explícita, clara e congruente (admitida a per relationem). Art. 54: decadência quinquenal para anular atos favoráveis, salvo comprovada má-fé. Art. 2º, parágrafo único, XIII: veda aplicação RETROATIVA de nova interpretação — proteção da confiança legítima. A ampla defesa e o contraditório no processo administrativo têm base constitucional (art. 5º, LV)."
+            },
+            {
+              id: "prin-7", modo: "lei", fonte: "Lei 8.429/92 (com a Lei 14.230/2021)",
+              enunciado: "Após as alterações da Lei 14.230/2021 na Lei de Improbidade Administrativa:",
+              alternativas: [
+                "manteve-se a punição do ato de improbidade a título de culpa, exigindo-se apenas a demonstração de negligência grave do agente público no exercício da função",
+                "passou a exigir-se DOLO específico para a configuração de qualquer ato de improbidade, extinguiu-se a modalidade culposa e a legitimidade ativa concentrou-se no Ministério Público",
+                "o rol dos atos que atentam contra os princípios da Administração permaneceu exemplificativo, admitindo-se a tipificação por analogia a condutas semelhantes",
+                "as sanções passaram a ser aplicadas cumulativamente e de forma obrigatória em todos os casos, vedada a dosimetria conforme a gravidade da conduta praticada",
+                "a ação de improbidade tornou-se de natureza penal, aplicando-se-lhe integralmente as regras do processo penal e a competência do juízo criminal"
+              ],
+              correta: 1,
+              explicacao: "A Lei 14.230/2021 exige dolo (art. 1º, §§1º a 3º) — o STF (Tema 1199) definiu que a revogação da modalidade culposa é irretroativa para casos com trânsito em julgado, mas alcança ações em curso sem condenação definitiva. O rol do art. 11 tornou-se TAXATIVO. A legitimidade ficou com o MP (o STF, na ADI 7042, restabeleceu também a legitimidade concorrente das pessoas jurídicas interessadas)."
             }
           ]
         }

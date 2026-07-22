@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "3.20"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "4.0"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -42,7 +42,8 @@
     trophy: '<path d="M8 4h8v5a4 4 0 01-8 0zM8 5H4.5c0 3 1.5 4.5 3.5 5M16 5h3.5c0 3-1.5 4.5-3.5 5M12 13v4M8.5 20.5h7M10 17h4v3.5h-4z"/>',
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
     grad: '<path d="M12 4.5L2.5 9 12 13.5 21.5 9zM6 11v4.5c0 1.5 2.7 2.8 6 2.8s6-1.3 6-2.8V11M21.5 9v5"/>',
-    target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>'
+    target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
+    calendar: '<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>'
   };
   function icon(name, extra) {
     return '<svg class="ic' + (extra ? ' ' + extra : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
@@ -118,19 +119,24 @@
   }
   function materiaXp(m) { return S.xpByMateria[m] || 0; }
 
-  /* ---------- cores das unidades ---------- */
+  /* ---------- cores das unidades ----------
+     O design "Sem IA" usa um acento único (dourado). As chaves
+     continuam aqui para não quebrar o "cor" das unidades em
+     data.js, mas todas resolvem para o acento do tema — assim a
+     cor acompanha claro/escuro sozinha.
+     Para voltar ao arco-íris, basta repor os hexadecimais. */
   var COR = {
-    roxo:    ["#7C5CFC", "#5f3fe0"],
-    verde:   ["#18BC64", "#12994F"],
-    rosa:    ["#FF5FA2", "#e03e85"],
-    azul:    ["#2B8FF5", "#1b6fc9"],
-    laranja: ["#FF8A3D", "#e06b1e"],
-    ciano:   ["#12BFC7", "#0e9aa1"],
-    indigo:  ["#4F5BD5", "#3a45b0"],
-    petroleo:["#0E8E99", "#0a6b73"],
-    vermelho:["#E7443B", "#c22f27"],
-    grafite: ["#5B6B7B", "#44515e"],
-    dourado: ["#E0A82E", "#b8871f"]
+    roxo:    ["var(--acc)", "var(--acc-dark)"],
+    verde:   ["var(--acc)", "var(--acc-dark)"],
+    rosa:    ["var(--acc)", "var(--acc-dark)"],
+    azul:    ["var(--acc)", "var(--acc-dark)"],
+    laranja: ["var(--acc)", "var(--acc-dark)"],
+    ciano:   ["var(--acc)", "var(--acc-dark)"],
+    indigo:  ["var(--acc)", "var(--acc-dark)"],
+    petroleo:["var(--acc)", "var(--acc-dark)"],
+    vermelho:["var(--acc)", "var(--acc-dark)"],
+    grafite: ["var(--acc)", "var(--acc-dark)"],
+    dourado: ["var(--acc)", "var(--acc-dark)"]
   };
   var BANCA_INFO = {
     "I":  { nome: "Banca I", tema: "Cível" },
@@ -853,12 +859,12 @@
       var alvo = new Date(+p[0], +p[1] - 1, +p[2]);
       var hoje0 = new Date(); hoje0.setHours(0, 0, 0, 0);
       var dias = Math.round((alvo - hoje0) / DAY);
-      esq = dias > 1 ? '📅 Faltam <b>' + dias + '</b> dias'
-        : dias === 1 ? '📅 A prova é <b>amanhã</b>!'
-        : dias === 0 ? '🚀 <b>É hoje!</b> Boa prova!'
-        : '<button class="ms-set" data-action="go-perfil">📅 A prova passou — defina a próxima</button>';
+      esq = dias > 1 ? icon("calendar") + ' Faltam <b>' + dias + '</b> dias'
+        : dias === 1 ? icon("calendar") + ' A prova é <b>amanhã</b>!'
+        : dias === 0 ? icon("flame") + ' <b>É hoje!</b> Boa prova!'
+        : '<button class="ms-set" data-action="go-perfil">' + icon("calendar") + ' A prova passou — defina a próxima</button>';
     } else {
-      esq = '<button class="ms-set" data-action="go-perfil">📅 Definir data da prova</button>';
+      esq = '<button class="ms-set" data-action="go-perfil">' + icon("calendar") + ' Definir data da prova</button>';
     }
     return '<div class="meta-strip"><span class="ms-esq">' + esq + '</span>' +
       '<span class="ms-dir">hoje <b>' + hj + '/' + metaD + '</b>' +
@@ -1064,7 +1070,7 @@
       var progM = mio.t === "zerar-rev" ? Math.max(0, mio.alvo - dueQuestions().length) : Math.min(mio.prog, mio.alvo);
       var pctM = Math.round(progM / mio.alvo * 100);
       h += '<div class="missao' + (mio.done ? ' done' : '') + '">' +
-        '<span class="mi-ico">' + (mio.done ? '✅' : '🎯') + '</span>' +
+        '<span class="mi-ico">' + icon(mio.done ? "check" : "target") + '</span>' +
         '<div class="mi-info"><div class="mi-t">Missão do dia <span class="mi-xp">+' + MISSAO_XP + ' XP</span></div>' +
         '<div class="mi-desc">' + esc(missaoTexto(mio)) + '</div>' +
         (mio.done ? '' : '<div class="mi-track"><i style="width:' + pctM + '%"></i></div>') +
@@ -1085,7 +1091,7 @@
       '<span class="bz-s">' + (feitoHoje
         ? 'Concluído hoje! Amanhã tem uma dose nova — ou repita agora.'
         : (tdo.qs.length ? 'Sua dose de hoje: ' + partes.join(' · ') + '. Uns 15 minutinhos.' : 'Nada para treinar por aqui ainda.')) + '</span>' +
-      (S.hearts < HEART_MAX && !feitoHoje && tdo.qs.length ? '<span class="bz-rec">💡 Concluir recupera 1 ❤️</span>' : '') +
+      (S.hearts < HEART_MAX && !feitoHoje && tdo.qs.length ? '<span class="bz-rec">Concluir recupera 1 ' + icon("heart") + '</span>' : '') +
       '</span>' +
       '<span class="tc-go">' + (feitoHoje ? 'De novo' : 'Treinar') + '</span>' +
       '</button>';
@@ -1142,14 +1148,14 @@
     var due = dueQuestions();
     var h = '<div class="page-title">Revisão espaçada</div>' +
       '<p class="page-sub">O algoritmo traz de volta o que você errou ou está prestes a esquecer.' +
-      (S.hearts < HEART_MAX ? ' 💡 Concluir uma revisão recupera 1 ❤️.' : '') + '</p>';
+      (S.hearts < HEART_MAX ? ' Concluir uma revisão recupera 1 ' + icon("heart") + '.' : '') + '</p>';
     if (due.length === 0) {
       h += '<div class="empty"><div class="e-ico">' + icon("check") + '</div><b>Nada para revisar agora.</b><br>' +
         'Continue a trilha — as questões voltam no tempo certo.</div>';
     } else {
       h += '<div class="big-cta"><div class="n">' + due.length + '</div>' +
         '<div class="lbl">' + (due.length === 1 ? "questão pronta" : "questões prontas") + ' para revisar</div>' +
-        '<button class="btn" style="background:#fff;color:#5a3fd6;box-shadow:0 5px 0 rgba(0,0,0,.15)" data-review="due">Revisar agora</button></div>';
+        '<button class="btn" data-review="due">Revisar agora</button></div>';
     }
     return h;
   };
@@ -1162,7 +1168,7 @@
     if (errs.length === 0) {
       return h + '<div class="empty"><div class="e-ico">' + icon("bookmark") + '</div><b>Sem erros registrados.</b><br>Bom sinal! Continue estudando.</div>';
     }
-    h += '<button class="btn danger" data-review="errors" style="margin-bottom:12px">Revisar os ' + errs.length + ' erros</button>' +
+    h += '<button class="btn" data-review="errors" style="margin-bottom:12px">Revisar os ' + errs.length + ' erros</button>' +
       '<div class="exp-row">' +
       '<button class="btn ghost" data-action="export-errors-print">' + icon("printer") + ' Exportar PDF</button>' +
       '<button class="btn ghost" data-action="export-errors-copy">' + icon("share") + ' Copiar texto</button>' +
@@ -1231,7 +1237,7 @@
         '<input type="text" id="social-name" class="f-input" maxlength="18" placeholder="Seu nome ou apelido">' +
         '<button class="btn" data-action="create-profile" style="margin-top:12px">Criar meu perfil</button>' +
         '</div>' +
-        '<p class="page-sub" style="margin-top:10px">🔒 Sem cadastro e sem servidor: o placar funciona trocando códigos (ex.: no grupo do WhatsApp). Seu progresso continua salvo só no seu aparelho.</p>';
+        '<p class="page-sub" style="margin-top:10px">' + icon("lock") + ' Sem cadastro e sem servidor: o placar funciona trocando códigos (ex.: no grupo do WhatsApp). Seu progresso continua salvo só no seu aparelho.</p>';
       return h;
     }
 
@@ -1299,7 +1305,7 @@
           '<div class="f-label" style="margin:14px 0 8px">Ou entre com um convite:</div>'
         : '<div class="f-label" style="margin-bottom:8px">Recebeu um convite de grupo? Cole aqui:</div>') +
       '<textarea id="group-code" class="f-input" rows="2" placeholder="Cole o convite do grupo (DPEG.…)"></textarea>' +
-      '<button class="btn ok" data-action="join-group" style="margin-top:10px">Entrar no grupo</button>' +
+      '<button class="btn" data-action="join-group" style="margin-top:10px">Entrar no grupo</button>' +
       '</div>';
 
     h += '<div class="page-title" style="font-size:1.05rem">Modo manual (troca de códigos)</div>' +
@@ -1312,7 +1318,7 @@
     h += '<div class="page-title" style="font-size:1.05rem">Adicionar amigo(a)</div>' +
       '<div class="card">' +
       '<textarea id="friend-code" class="f-input" rows="2" placeholder="Cole aqui a mensagem ou o código recebido (DPE1.…)"></textarea>' +
-      '<button class="btn ok" data-action="add-friend" style="margin-top:10px">Adicionar ao grupo</button>' +
+      '<button class="btn" data-action="add-friend" style="margin-top:10px">Adicionar ao grupo</button>' +
       '</div>';
 
     var rows = [{ me: true, n: S.social.nome, a: S.social.avatar, w: S.week.id, x: S.week.xp, q: S.week.answered, s: S.streak }];
@@ -1537,7 +1543,9 @@
         '<div class="fb-head"><span class="fb-badge">' + (ok ? "✓" : "✕") + '</span>' +
         (ok ? "Mandou bem!" : "Resposta certa: " + "ABCDE".charAt(q.correta)) + '</div>' +
         '<div class="fb-expl"><span class="fb-fonte">' + esc(q.fonte) + '.</span> ' + esc(q.explicacao) + '</div>' +
-        '<button class="btn ' + (ok ? "ok" : "danger") + '" data-action="next">Continuar</button>' +
+        /* No design "Sem IA" a ação é sempre dourada: o acerto/erro
+           é comunicado pela borda e pelo selo da folha, não pelo botão. */
+        '<button class="btn" data-action="next">Continuar</button>' +
         '</div>';
     } else {
       h += '<div class="check-bar"><button class="btn" data-action="check"' +
@@ -1709,7 +1717,7 @@
       bannersExtras() +
       '<div style="max-width:340px;margin:0 auto">' +
       (quiz.wrong.length
-        ? '<button class="btn danger" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
+        ? '<button class="btn" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
         : '') +
       '<button class="btn" data-action="' + (quiz.duelo ? 'start-duelo' : 'start-blitz') + '" style="margin-bottom:12px">' + icon("bolt") + ' Jogar de novo</button>' +
       (quiz.duelo ? '<button class="btn ghost" data-action="go-amigos" style="margin-bottom:12px">⚔️ Ver placar do duelo</button>' : '') +
@@ -1743,7 +1751,7 @@
       bannersExtras() +
       '<div style="max-width:340px;margin:0 auto">' +
       (hasWrong
-        ? '<button class="btn danger" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
+        ? '<button class="btn" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
         : '') +
       '<button class="btn" data-action="home">Voltar à trilha</button>' +
       '</div></div></div>';
@@ -1775,7 +1783,7 @@
     app.querySelectorAll("[data-lesson]").forEach(function (b) {
       b.onclick = function () {
         if (S.hearts <= 0) {
-          toast("Sem vidas ❤️ Próxima em " + heartTimerText() + " — ou revise erros para ganhar 1.");
+          toast("Sem vidas — próxima em " + heartTimerText() + ", ou revise erros para ganhar 1.");
           return;
         }
         var l = LESSON_BY_ID[b.getAttribute("data-lesson")];
