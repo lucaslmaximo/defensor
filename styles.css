@@ -39,15 +39,23 @@
   src:url("fonts/plexmono-700.woff2") format("woff2");
   font-weight:700;font-style:normal;font-display:swap;
 }
+@font-face{
+  font-family:"Source Serif 4";
+  src:url("fonts/sourceserif-var.woff2") format("woff2");
+  font-weight:500 700;
+  font-style:normal;
+  font-display:swap;
+}
 
 /* ---------- Tokens invariantes ---------- */
 :root{
   --radius:18px;
   --radius-sm:13px;
-  --nav-h:66px;
+  --nav-h:76px;          /* 60px de pílula + 16px de recuo do rodapé */
   --font:"Hanken Grotesk",system-ui,"Segoe UI",sans-serif;
   --font-display:"Archivo","Hanken Grotesk",system-ui,sans-serif;
   --font-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Consolas,monospace;
+  --font-serif:"Source Serif 4",Georgia,"Times New Roman",serif;
   --spring:cubic-bezier(.34,1.56,.64,1);
   --easeout:cubic-bezier(.22,1,.36,1);
 }
