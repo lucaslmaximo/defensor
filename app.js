@@ -41,6 +41,7 @@
     share: '<path d="M12 3.5V15M8 7l4-4 4 4M5.5 12.5V20h13v-7.5"/>',
     trophy: '<path d="M8 4h8v5a4 4 0 01-8 0zM8 5H4.5c0 3 1.5 4.5 3.5 5M16 5h3.5c0 3-1.5 4.5-3.5 5M12 13v4M8.5 20.5h7M10 17h4v3.5h-4z"/>',
     menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+    plus: '<path d="M12 5v14M5 12h14"/>',
     grad: '<path d="M12 4.5L2.5 9 12 13.5 21.5 9zM6 11v4.5c0 1.5 2.7 2.8 6 2.8s6-1.3 6-2.8V11M21.5 9v5"/>',
     target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
     calendar: '<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>'
@@ -119,25 +120,9 @@
   }
   function materiaXp(m) { return S.xpByMateria[m] || 0; }
 
-  /* ---------- cores das unidades ----------
-     O design "Sem IA" usa um acento único (dourado). As chaves
-     continuam aqui para não quebrar o "cor" das unidades em
-     data.js, mas todas resolvem para o acento do tema — assim a
-     cor acompanha claro/escuro sozinha.
-     Para voltar ao arco-íris, basta repor os hexadecimais. */
-  var COR = {
-    roxo:    ["var(--acc)", "var(--acc-dark)"],
-    verde:   ["var(--acc)", "var(--acc-dark)"],
-    rosa:    ["var(--acc)", "var(--acc-dark)"],
-    azul:    ["var(--acc)", "var(--acc-dark)"],
-    laranja: ["var(--acc)", "var(--acc-dark)"],
-    ciano:   ["var(--acc)", "var(--acc-dark)"],
-    indigo:  ["var(--acc)", "var(--acc-dark)"],
-    petroleo:["var(--acc)", "var(--acc-dark)"],
-    vermelho:["var(--acc)", "var(--acc-dark)"],
-    grafite: ["var(--acc)", "var(--acc-dark)"],
-    dourado: ["var(--acc)", "var(--acc-dark)"]
-  };
+  /* O campo "cor" das unidades em data.js é ignorado: o design
+     "Sem IA" tem um acento único (dourado), que já acompanha
+     claro/escuro pelo token --acc. */
   var BANCA_INFO = {
     "I":  { nome: "Banca I", tema: "Cível" },
     "II": { nome: "Banca II", tema: "Criminal" },
@@ -934,7 +919,7 @@
     return '' +
       '<div class="hud">' +
       '  <button class="menu-btn" data-action="open-menu" aria-label="Abrir menu">' + icon("menu") + '</button>' +
-      '  <div class="brand"><span class="logo">§</span> Defensor</div>' +
+      '  <div class="brand"><span class="logo">§</span>Defensor</div>' +
       '  <span class="stat flame">' + icon("flame") + '<b>' + S.streak + '</b></span>' +
       '  <span class="stat xp">' + icon("bolt") + '<b>' + S.xp + '</b></span>' +
       '  ' + heartHud() +
@@ -1003,33 +988,38 @@
 
   /* ---------- Menu inicial: escolha da prova ---------- */
   function renderInicio() {
-    var h = '<div class="inicio"><div class="inicio-hero">' +
-      '<span class="logo xl">§</span>' +
-      '<h1>Defensor</h1>' +
-      '<p>Para qual prova você quer estudar? Dá para trocar depois pelo menu ☰.</p>' +
+    var h = '<div class="inicio">' +
+      '<div class="inicio-lockup"><span class="logo">§</span><span class="wordmark">Defensor</span></div>' +
+      '<div class="inicio-hero">' +
+      '<h1>Continue de<br>onde parou.</h1>' +
+      '<p>Selecione um concurso para abrir sua trilha.</p>' +
       '</div><div class="prova-list">';
     PROVAS.forEach(function (p) {
       var st = provaStats(p);
       var pct = st.licoes ? Math.round(st.feitas / st.licoes * 100) : 0;
       h += '<button class="prova-card" data-prova="' + p.id + '">' +
-        '<span class="pc-ico">' + icon(p.icone || "book") + '</span>' +
-        '<span class="pc-info">' +
+        '<span class="pc-eyebrow">' + esc(p.detalhe) + '</span>' +
+        '<span class="pc-line">' +
         '<span class="pc-nome">' + esc(p.nome) + '</span>' +
-        '<span class="pc-meta">' + esc(p.detalhe) + ' · ' + st.questoes + ' questões</span>' +
-        (st.feitas
-          ? '<span class="pc-track"><i style="width:' + pct + '%"></i></span>' +
-            '<span class="pc-prog">' + st.feitas + '/' + st.licoes + ' lições concluídas</span>'
-          : '') +
+        '<span class="pc-go">' + (st.feitas ? 'Continuar' : 'Abrir') + '</span>' +
         '</span>' +
-        '<span class="pc-go">' + (st.feitas ? 'Continuar' : 'Começar') + '</span>' +
+        '<span class="pc-meta">' + st.questoes + ' questões</span>' +
+        '<span class="pc-prog-row">' +
+        '<span class="pc-track"><i style="width:' + pct + '%"></i></span>' +
+        '<span class="pc-prog">' + st.feitas + ' / ' + st.licoes + '</span>' +
+        '</span>' +
         '</button>';
     });
     h += '<div class="prova-card breve">' +
-      '<span class="pc-ico">' + icon("trophy") + '</span>' +
-      '<span class="pc-info"><span class="pc-nome">Mais provas em breve</span>' +
-      '<span class="pc-meta">Novos concursos serão adicionados aqui.</span></span>' +
+      '<span class="pc-ico">' + icon("plus") + '</span>' +
+      '<span class="pc-info"><span class="pc-nome-alt">Novos concursos</span>' +
+      '<span class="pc-meta">Em breve</span></span>' +
       '</div>';
-    h += '</div></div>';
+    h += '</div>';
+    var t = heartTimerText();
+    h += '<div class="inicio-foot">Vidas ' + S.hearts +
+      (t ? ' · +1 em ' + t : ' · regenera 1 a cada 2h') + '</div>';
+    h += '</div>';
     return h;
   }
 
@@ -1070,8 +1060,10 @@
   /* ---------- Screen: Trilha ---------- */
   var screens = {};
   screens.trilha = function () {
+    // A etiqueta é uma linha só: as bancas já aparecem nos divisores
+    // logo abaixo, então "fase" aqui seria redundante.
     var h = '<div class="trail-head"><h1>Sua trilha</h1><p>' +
-      esc(DATA.meta.concurso) + ' · ' + esc(DATA.meta.fase) + '</p>' +
+      esc(DATA.meta.concurso) + '</p>' +
       metaStripHtml() + '</div>';
     // missão do dia (faixa compacta)
     ensureMissao();
@@ -1080,12 +1072,12 @@
       var progM = mio.t === "zerar-rev" ? Math.max(0, mio.alvo - dueQuestions().length) : Math.min(mio.prog, mio.alvo);
       var pctM = Math.round(progM / mio.alvo * 100);
       h += '<div class="missao' + (mio.done ? ' done' : '') + '">' +
-        '<span class="mi-ico">' + icon(mio.done ? "check" : "target") + '</span>' +
-        '<div class="mi-info"><div class="mi-t">Missão do dia <span class="mi-xp">+' + MISSAO_XP + ' XP</span></div>' +
+        '<div class="mi-t">Missão do dia · +' + MISSAO_XP + ' XP</div>' +
+        '<div class="mi-row">' +
         '<div class="mi-desc">' + esc(missaoTexto(mio)) + '</div>' +
-        (mio.done ? '' : '<div class="mi-track"><i style="width:' + pctM + '%"></i></div>') +
-        '</div>' +
         '<span class="mi-prog">' + (mio.done ? 'Feita!' : (mio.t === "treino" || mio.t === "blitz" ? '' : progM + '/' + mio.alvo)) + '</span>' +
+        '</div>' +
+        (mio.done ? '' : '<div class="mi-track"><i style="width:' + pctM + '%"></i></div>') +
         '</div>';
     }
     var tdo = treinoDoDia();
@@ -1099,8 +1091,8 @@
       '<span class="bz-info">' +
       '<span class="bz-t">Treino do dia</span>' +
       '<span class="bz-s">' + (feitoHoje
-        ? 'Concluído hoje! Amanhã tem uma dose nova — ou repita agora.'
-        : (tdo.qs.length ? 'Sua dose de hoje: ' + partes.join(' · ') + '. Uns 15 minutinhos.' : 'Nada para treinar por aqui ainda.')) + '</span>' +
+        ? 'Concluído hoje · repita se quiser'
+        : (tdo.qs.length ? partes.join(' · ') + ' · ~15 min' : 'Nada para treinar por aqui ainda')) + '</span>' +
       (S.hearts < HEART_MAX && !feitoHoje && tdo.qs.length ? '<span class="bz-rec">Concluir recupera 1 ' + icon("heart") + '</span>' : '') +
       '</span>' +
       '<span class="tc-go">' + (feitoHoje ? 'De novo' : 'Treinar') + '</span>' +
@@ -1110,8 +1102,7 @@
       '<span class="bz-ico">' + icon("bolt") + '</span>' +
       '<span class="bz-info">' +
       '<span class="bz-t">Modo Blitz</span>' +
-      '<span class="bz-s">Questões aleatórias das três bancas, em sequência. 3 vidas, sem pausa: quantas você acerta?</span>' +
-      (rec ? '<span class="bz-rec">' + icon("trophy") + ' Recorde: ' + rec + (rec === 1 ? ' acerto' : ' acertos') + '</span>' : '') +
+      '<span class="bz-s">3 vidas próprias, sem pausa' + (rec ? ' · recorde: ' + rec + (rec === 1 ? ' acerto' : ' acertos') : '') + '</span>' +
       '</span>' +
       '<span class="bz-go">Jogar</span>' +
       '</button>';
@@ -1124,31 +1115,25 @@
         h += '<div class="banca-divider"><span class="bd-tag">' + esc(bi.nome) + '</span>' +
           '<span class="bd-tema">' + esc(bi.tema) + '</span></div>';
       }
-      var c = COR[u.cor] || COR.verde;
-      var rxp = materiaXp(u.materia), rk = rankFor(rxp);
+      // A patente da matéria saiu daqui: ela vive no Perfil, e o card
+      // da unidade ficou com uma voz só — etiqueta, título, descrição.
       h += '<div class="unit">' +
-        '<div class="unit-banner" style="--uc:' + c[0] + '">' +
-        '<span class="ubadge">' + matIcon(u) + '</span>' +
+        '<div class="unit-banner">' +
         '<div class="materia">' + esc(u.materia) + '</div>' +
         '<h2>' + esc(u.titulo) + '</h2>' +
         '<p>' + esc(u.descricao) + '</p>' +
-        '<div class="rank-strip"><span class="r-ico">' + insignia(rk.idx) + '</span>' +
-        '<span class="r-name">' + rk.cur.nome + '</span>' +
-        '<span class="r-track"><i style="width:' + rk.pct + '%"></i></span>' +
-        '<span class="r-xp">' + (rk.next ? rxp + '/' + rk.next.xp + ' XP' : 'MÁX') + '</span></div>' +
-        '</div><div class="path">';
+        '<div class="path">';
       u.licoes.forEach(function (l) {
         var stt = lessonState(l);
         var nodeIco = stt === "done" ? icon("check") : (stt === "locked" ? icon("lock") : matIcon(u));
         var cls = "node " + (stt === "done" ? "done" : stt === "locked" ? "locked" : "current");
         var attr = stt === "locked" ? "" : ' data-lesson="' + l.id + '"';
-        h += '<div class="node-wrap" style="--node-c:' + c[0] + '">' +
-          (stt === "open" ? '<span class="start-bubble">Começar</span>' : '') +
+        h += '<div class="node-wrap is-' + stt + '">' +
           '<button class="' + cls + '"' + attr + '>' + nodeIco + '</button>' +
           '<span class="node-label">' + esc(l.titulo) + '</span>' +
           '</div>';
       });
-      h += '</div></div>';
+      h += '</div></div></div>';
     });
     return h;
   };

@@ -2,7 +2,7 @@
    Estratégia: network-first (busca a versão nova quando online;
    usa o cache apenas como fallback offline). Assim, novas questões
    aparecem sem precisar limpar cache. */
-var CACHE = "dperj-v7";
+var CACHE = "dperj-v8";
 var ASSETS = [
   "./",
   "./index.html",
@@ -17,6 +17,7 @@ var ASSETS = [
   "./fonts/plexmono-500.woff2",
   "./fonts/plexmono-600.woff2",
   "./fonts/plexmono-700.woff2",
+  "./fonts/sourceserif-var.woff2",
   "./icon.svg",
   "./icon-192.png",
   "./icon-512.png"
