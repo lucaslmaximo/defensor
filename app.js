@@ -62,6 +62,7 @@
     "Direito Constitucional": "book",
     "Direito Administrativo": "building",
     "Direitos Humanos": "globe",
+    "Formação Humanística": "grad",
     "Princípios Institucionais da Defensoria": "shield"
   };
   function matIcon(u) { return icon(MAT_ICON[u.materia] || "book"); }
@@ -118,16 +119,28 @@
     var pct = next ? Math.min(100, Math.round((xp - cur.xp) / (next.xp - cur.xp) * 100)) : 100;
     return { idx: i, cur: cur, next: next, pct: pct };
   }
-  function materiaXp(m) { return S.xpByMateria[m] || 0; }
+  /* As estatísticas por matéria são guardadas por PROVA: sem isso,
+     "Direito Civil" da DPE-RJ e da ENAM somariam na mesma patente.
+     A chave é "<prova>|<matéria>"; na tela mostra-se só a matéria. */
+  function matKey(m) { return (PROVA ? PROVA.id : "?") + "|" + m; }
+  function matNome(k) { var i = k.indexOf("|"); return i === -1 ? k : k.slice(i + 1); }
+  function daProva(k) { return k.indexOf((PROVA ? PROVA.id : "?") + "|") === 0; }
+  function materiaXp(m) { return S.xpByMateria[matKey(m)] || 0; }
 
   /* O campo "cor" das unidades em data.js é ignorado: o design
      "Sem IA" tem um acento único (dourado), que já acompanha
      claro/escuro pelo token --acc. */
-  var BANCA_INFO = {
+  /* Grupos que separam as unidades na trilha. Cada prova define os
+     seus em meta.grupos; a DPE-RJ, anterior a isso, usa este mapa. */
+  var BANCA_PADRAO = {
     "I":  { nome: "Banca I", tema: "Cível" },
     "II": { nome: "Banca II", tema: "Criminal" },
     "III":{ nome: "Banca III", tema: "Público" }
   };
+  function grupoInfo(g) {
+    var mapa = (DATA && DATA.meta && DATA.meta.grupos) || BANCA_PADRAO;
+    return mapa[g] || { nome: g, tema: "" };
+  }
 
   /* ---------- provas disponíveis ---------- */
   // Para adicionar uma prova nova: crie um data-<prova>.js no mesmo formato
@@ -141,12 +154,55 @@
       detalhe: "XXIX Concurso · FGV",
       icone: "shield",
       data: window.APP_DATA
+    },
+    {
+      id: "enam",
+      nome: "Magistratura · ENAM",
+      detalhe: "Exame Nacional · FGV",
+      icone: "scales",
+      data: window.APP_DATA_ENAM
     }
   ];
   function provaById(id) {
     for (var i = 0; i < PROVAS.length; i++) if (PROVAS[i].id === id) return PROVAS[i];
     return null;
   }
+
+  /* Uma prova pode reaproveitar as questões de outra: em vez de
+     `questoes`, a lição traz `refs` com os ids de origem. Aqui cada
+     ref vira um clone com id prefixado — mesmo texto, id próprio,
+     para que progresso, SRS e caderno de erros não se misturem. */
+  function resolverRefs(prova) {
+    var d = prova.data;
+    if (!d || !d.herdaDe) return;
+    var origem = window[d.herdaDe];
+    if (!origem) { console.error("Prova " + prova.id + ": banco de origem " + d.herdaDe + " não encontrado."); return; }
+    var porId = {};
+    origem.units.forEach(function (u) {
+      u.licoes.forEach(function (l) { (l.questoes || []).forEach(function (q) { porId[q.id] = q; }); });
+    });
+    var pref = d.prefixo || (prova.id + "-"), vistos = {}, faltando = [], repetidos = [];
+    d.units.forEach(function (u) {
+      u.licoes.forEach(function (l) {
+        if (!l.refs) return;
+        l.questoes = [];
+        l.refs.forEach(function (ref) {
+          var src = porId[ref];
+          if (!src) { faltando.push(ref); return; }
+          if (vistos[ref]) repetidos.push(ref);
+          vistos[ref] = 1;
+          var c = {};
+          for (var k in src) c[k] = src[k];
+          c.id = pref + ref;
+          l.questoes.push(c);
+        });
+      });
+    });
+    // Falhar barulhento: um ref errado sumiria da trilha sem aviso.
+    if (faltando.length) console.error("Prova " + prova.id + ": refs inexistentes em " + d.herdaDe + " → " + faltando.join(", "));
+    if (repetidos.length) console.warn("Prova " + prova.id + ": questões repetidas em mais de uma lição → " + repetidos.join(", "));
+  }
+  PROVAS.forEach(resolverRefs);
   function provaStats(p) {
     var lic = 0, feitas = 0, qs = 0;
     p.data.units.forEach(function (u) {
@@ -215,6 +271,15 @@
       if (Object.keys(s.xpByMateria).length === 0) {
         for (var m in (s.byMateria || {})) s.xpByMateria[m] = (s.byMateria[m].correct || 0) * 10;
       }
+      // migração: as estatísticas por matéria passaram a ser por prova
+      // ("dpe-rj|Direito Civil"). Chaves sem "|" são anteriores à ENAM,
+      // quando a DPE-RJ era a única prova. Idempotente.
+      ["byMateria", "xpByMateria"].forEach(function (tab) {
+        var t = s[tab] || {};
+        for (var k in t) {
+          if (k.indexOf("|") === -1) { t["dpe-rj|" + k] = t[k]; delete t[k]; }
+        }
+      });
       return s;
     } catch (e) { return defaultState(); }
   }
@@ -693,9 +758,10 @@
   // as 2 matérias com pior acerto (mínimo de 4 respostas e menos de 85%)
   function materiasFracas() {
     var arr = [];
-    for (var m in S.byMateria) {
-      var b = S.byMateria[m];
-      if ((b.total || 0) >= 4 && b.correct / b.total < 0.85) arr.push({ m: m, acc: b.correct / b.total });
+    for (var k in S.byMateria) {
+      if (!daProva(k)) continue;   // só as matérias da prova aberta
+      var b = S.byMateria[k];
+      if ((b.total || 0) >= 4 && b.correct / b.total < 0.85) arr.push({ m: matNome(k), acc: b.correct / b.total });
     }
     arr.sort(function (a, b) { return a.acc - b.acc; });
     return arr.slice(0, 2).map(function (x) { return x.m; });
@@ -1111,7 +1177,7 @@
       var banca = u.banca || "I";
       if (banca !== currentBanca) {
         currentBanca = banca;
-        var bi = BANCA_INFO[banca] || { nome: "Banca " + banca, tema: "" };
+        var bi = grupoInfo(banca);
         h += '<div class="banca-divider"><span class="bd-tag">' + esc(bi.nome) + '</span>' +
           '<span class="bd-tema">' + esc(bi.tema) + '</span></div>';
       }
@@ -1382,15 +1448,15 @@
     h += '<div class="page-title" style="font-size:1.1rem">Constância</div>' +
       '<div class="card">' + calendarioHtml() + '</div>';
 
-    // patentes por matéria
+    // patentes por matéria (só as da prova aberta)
     var rksHtml = '';
-    var matNames = Object.keys(S.xpByMateria);
+    var matNames = Object.keys(S.xpByMateria).filter(daProva);
     matNames.sort(function (a, b) { return (S.xpByMateria[b] || 0) - (S.xpByMateria[a] || 0); });
-    matNames.forEach(function (m) {
-      var xp = S.xpByMateria[m]; if (!xp) return;
+    matNames.forEach(function (k) {
+      var xp = S.xpByMateria[k]; if (!xp) return;
       var rk = rankFor(xp);
       rksHtml += '<div class="rank-row">' + insignia(rk.idx) + '<div class="info">' +
-        '<div class="top"><span>' + esc(m) + '</span><span class="rn">' + rk.cur.nome + '</span></div>' +
+        '<div class="top"><span>' + esc(matNome(k)) + '</span><span class="rn">' + rk.cur.nome + '</span></div>' +
         '<div class="track"><i style="width:' + rk.pct + '%"></i></div></div>' +
         '<span class="rxp">' + (rk.next ? xp + '/' + rk.next.xp : 'MÁX') + '</span></div>';
     });
@@ -1412,11 +1478,12 @@
     });
     h += '</div>';
 
-    // desempenho por matéria
+    // desempenho por matéria (só as da prova aberta)
     var mats = {};
-    for (var m in S.byMateria) {
-      var b = S.byMateria[m];
-      mats[m] = b.total ? Math.round(b.correct / b.total * 100) : 0;
+    for (var k2 in S.byMateria) {
+      if (!daProva(k2)) continue;
+      var b = S.byMateria[k2];
+      mats[matNome(k2)] = b.total ? Math.round(b.correct / b.total * 100) : 0;
     }
     var keys = Object.keys(mats);
     if (keys.length) {
@@ -1570,16 +1637,16 @@
       sfx("premio");
       toast("Meta diária batida! +10 XP 📅");
     }
-    var mat = q._materia;
+    var mat = q._materia, mk = matKey(mat);
     if (!(mat in quiz.rankBefore)) quiz.rankBefore[mat] = rankFor(materiaXp(mat)).idx;
     if (ok) {
       S.correctTotal += 1; quiz.correct += 1; quiz.xpGained += 10; S.xp += 10;
       S.week.xp += 10; S.week.correct += 1;
-      S.xpByMateria[mat] = (S.xpByMateria[mat] || 0) + 10;
+      S.xpByMateria[mk] = (S.xpByMateria[mk] || 0) + 10;
     }
-    S.byMateria[mat] = S.byMateria[mat] || { total: 0, correct: 0 };
-    S.byMateria[mat].total += 1;
-    if (ok) S.byMateria[mat].correct += 1;
+    S.byMateria[mk] = S.byMateria[mk] || { total: 0, correct: 0 };
+    S.byMateria[mk].total += 1;
+    if (ok) S.byMateria[mk].correct += 1;
 
     // missão do dia: progresso por acerto
     if (ok && missaoAtiva()) {
@@ -1629,7 +1696,7 @@
       S.xp += 5; quiz.xpGained += 5; ensureWeek(); S.week.xp += 5; // bônus de conclusão
       var bm = LESSON_BY_ID[quiz.lessonId]._unit.materia;
       if (!(bm in quiz.rankBefore)) quiz.rankBefore[bm] = rankFor(materiaXp(bm)).idx;
-      S.xpByMateria[bm] = (S.xpByMateria[bm] || 0) + 5;
+      S.xpByMateria[matKey(bm)] = (S.xpByMateria[matKey(bm)] || 0) + 5;
     }
     // Treino do dia: bônus de conclusão e registro do dia
     if (quiz.kind === "treino") {
