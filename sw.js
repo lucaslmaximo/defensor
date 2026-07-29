@@ -2,7 +2,7 @@
    Estratégia: network-first (busca a versão nova quando online;
    usa o cache apenas como fallback offline). Assim, novas questões
    aparecem sem precisar limpar cache. */
-var CACHE = "dperj-v11";
+var CACHE = "dperj-v12";
 /* O leitor de PDF (vendor/pdf*.js, ~1,4 MB) fica FORA desta lista de
    propósito: só quem usa Minhas Fontes paga o download, e o fetch
    abaixo o guarda no cache na primeira vez. */

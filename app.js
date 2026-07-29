@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "4.1"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "4.2"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -655,17 +655,50 @@
     });
     return t;
   }
+  /* Busca o trecho de cada erro nas fontes, um por vez: dezenas de
+     transações simultâneas no IndexedDB travariam o celular. */
+  var printBusy = false;
+  function coletarFontes(errs, cb) {
+    var mapa = {};
+    if (!ftOk) { cb(mapa); return; }
+    FT.listar().then(function (ds) {
+      if (!ds.length) { cb(mapa); return; }
+      if (errs.length > 8) toast("Montando o caderno com suas fontes…");
+      var i = 0;
+      (function passo() {
+        if (i >= errs.length) { cb(mapa); return; }
+        var q = errs[i++];
+        FT.buscar(q).then(function (r) {
+          if (r && r.trechos && r.trechos.length) mapa[q.id] = r.trechos[0];
+          passo();
+        }).catch(function () { passo(); });
+      })();
+    }).catch(function () { cb(mapa); });
+  }
+
   function printCaderno() {
     var errs = errosParaExportar();
     if (!errs.length) { toast("Caderno vazio — nada para exportar."); return; }
+    if (printBusy) return;
+    printBusy = true;
+    coletarFontes(errs, function (fontesPorQ) {
+      printBusy = false;
+      montarImpressao(errs, fontesPorQ);
+    });
+  }
+
+  function montarImpressao(errs, fontesPorQ) {
     var old = document.getElementById("print-doc");
     if (old) old.remove();
     var div = document.createElement("div");
     div.id = "print-doc";
     div.className = "print-doc";
     var hoje = new Date();
+    var comFonte = 0;
+    for (var k in fontesPorQ) if (fontesPorQ[k]) comFonte++;
     var h = '<h1>Caderno de Erros — Defensor (DPE-RJ)</h1>' +
-      '<p class="pd-meta">Exportado em ' + hoje.toLocaleDateString("pt-BR") + ' · ' + errs.length + ' questões para revisar</p>';
+      '<p class="pd-meta">Exportado em ' + hoje.toLocaleDateString("pt-BR") + ' · ' + errs.length + ' questões para revisar' +
+      (comFonte ? ' · ' + comFonte + ' com trecho das suas fontes' : '') + '</p>';
     var mat = null;
     errs.forEach(function (x, i) {
       if (x._materia !== mat) { mat = x._materia; h += '<h2>' + esc(mat) + '</h2>'; }
@@ -676,8 +709,15 @@
         x.alternativas.map(function (a, idx) {
           return '<li class="' + (idx === x.correta ? 'pd-ok' : '') + '">' + esc(a) + (idx === x.correta ? ' ✔' : '') + '</li>';
         }).join('') + '</ol>' +
-        '<p class="pd-expl">' + esc(x.explicacao) + '</p>' +
-        '</div>';
+        '<p class="pd-expl">' + esc(x.explicacao) + '</p>';
+      var src = fontesPorQ[x.id];
+      if (src) {
+        h += '<div class="pd-src">' +
+          '<div class="pd-src-h">Na sua fonte — ' + esc(src.docNome) + ', p. ' + src.pag + '</div>' +
+          destacar(src.texto, FT.termosDestaque(x)) +
+          '</div>';
+      }
+      h += '</div>';
     });
     div.innerHTML = h;
     document.body.appendChild(div);

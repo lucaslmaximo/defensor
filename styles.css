@@ -547,6 +547,11 @@ textarea.f-input{resize:none;line-height:1.4}
   .print-doc li{margin:1pt 0}
   .print-doc li.pd-ok{font-weight:bold}
   .print-doc .pd-expl{margin:4pt 0 0;font-size:10.5pt;background:#f2f2f2;padding:6pt;border-radius:4pt}
+  /* trecho da fonte do usuário: barra à esquerda em vez de fundo,
+     porque o navegador não imprime cor de fundo por padrão */
+  .print-doc .pd-src{margin:6pt 0 0 2pt;padding:1pt 0 1pt 8pt;border-left:2pt solid #999;font-size:10.5pt}
+  .print-doc .pd-src-h{font-size:8.5pt;color:#555;font-style:italic;margin-bottom:2pt}
+  .print-doc .pd-src mark{background:none;color:#000;font-weight:bold}
 }
 
 /* banner de atualização */
