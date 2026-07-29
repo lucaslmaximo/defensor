@@ -44,7 +44,9 @@
     plus: '<path d="M12 5v14M5 12h14"/>',
     grad: '<path d="M12 4.5L2.5 9 12 13.5 21.5 9zM6 11v4.5c0 1.5 2.7 2.8 6 2.8s6-1.3 6-2.8V11M21.5 9v5"/>',
     target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
-    calendar: '<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>'
+    calendar: '<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
+    ballot: '<rect x="3.5" y="12" width="17" height="8.5" rx="2"/><path d="M7.5 12V3.5h9V12M10 7.2l1.5 1.5 3-3"/>',
+    coins: '<ellipse cx="12" cy="6.2" rx="7.5" ry="2.9"/><path d="M4.5 6.2v5.3c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9V6.2M4.5 11.5v5.3c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9v-5.3"/>'
   };
   function icon(name, extra) {
     return '<svg class="ic' + (extra ? ' ' + extra : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
@@ -63,7 +65,14 @@
     "Direito Administrativo": "building",
     "Direitos Humanos": "globe",
     "Formação Humanística": "grad",
-    "Princípios Institucionais da Defensoria": "shield"
+    "Princípios Institucionais da Defensoria": "shield",
+    // matérias que entraram com o MPRJ
+    "Legislação Penal Extravagante": "bookmark",
+    "Direito Eleitoral": "ballot",
+    "Direito Financeiro e Tributário": "coins",
+    "Direito da Infância e Juventude": "sprout",
+    "Tutela Coletiva": "users",
+    "Princípios Institucionais do Ministério Público": "shield"
   };
   function matIcon(u) { return icon(MAT_ICON[u.materia] || "book"); }
   var ROMANOS = ["I", "II", "III", "IV", "V", "VI", "VII"];
@@ -161,6 +170,13 @@
       detalhe: "Exame Nacional · FGV",
       icone: "scales",
       data: window.APP_DATA_ENAM
+    },
+    {
+      id: "mprj",
+      nome: "Ministério Público · RJ",
+      detalhe: "XXXIX Concurso · FGV",
+      icone: "building",
+      data: window.APP_DATA_MPRJ
     }
   ];
   function provaById(id) {
