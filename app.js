@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "4.0"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "4.1"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -671,6 +671,207 @@
     }, 50);
   }
 
+  /* ============================================================
+     Minhas Fontes — PDFs do usuário (motor em fontes.js)
+     A biblioteca vive no aparelho (IndexedDB); aqui fica só a
+     interface: importar, listar, remover e mostrar o trecho da
+     fonte dentro do caderno de erros.
+     ============================================================ */
+  var FT = window.DPEFontes || null;
+  var ftOk = !!(FT && FT.suportado);
+  var fontes = null;      // lista de docs (null = ainda não carregada)
+  var fontesLoading = false;
+  var fontesBusy = null;  // progresso da importação em andamento
+  var fileInput = null;
+
+  function fontesRecarrega(cb) {
+    if (!ftOk) { if (cb) cb([]); return; }
+    FT.listar().then(function (ds) { fontes = ds; if (cb) cb(ds); });
+  }
+
+  function fonteInput() {
+    if (fileInput || !ftOk) return fileInput;
+    fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.accept = "application/pdf,.pdf";
+    fileInput.multiple = true;
+    fileInput.style.display = "none";
+    // fora de #app de propósito: sobrevive aos re-renders da tela
+    document.body.appendChild(fileInput);
+    fileInput.onchange = function () {
+      var fs = [].slice.call(fileInput.files || []);
+      fileInput.value = "";
+      if (fs.length) importarFontes(fs);
+    };
+    return fileInput;
+  }
+
+  function fonteProgHtml(p) {
+    if (!p) return "";
+    var txt, pct = null;
+    if (p.fase === "lendo") {
+      txt = "Indexando " + p.nome + " — página " + p.pagina + " de " + p.total + "…";
+      pct = Math.round(p.pagina / Math.max(1, p.total) * 100);
+    } else if (p.fase === "indexando") txt = "Organizando os trechos de " + p.nome + "…";
+    else if (p.fase === "salvando") txt = "Salvando " + p.nome + " no aparelho…";
+    else txt = "Abrindo " + p.nome + "…";
+    return '<div class="ft-prog"><div class="ft-ptxt">' + esc(txt) + '</div>' +
+      '<div class="ft-track' + (pct === null ? ' indet' : '') + '"><i style="width:' + (pct === null ? 100 : pct) + '%"></i></div></div>';
+  }
+
+  function progressoFonte(p) {
+    fontesBusy = p;
+    var el = document.querySelector("[data-fonte-prog]");
+    if (el) el.innerHTML = fonteProgHtml(p); // atualiza sem redesenhar a tela
+  }
+
+  function importarFontes(files) {
+    var i = 0, ok = 0, erros = [];
+    fontesRecarrega(function () {
+      (function passo() {
+        if (i >= files.length) {
+          fontesBusy = null;
+          fontesRecarrega(function () {
+            render();
+            if (ok) {
+              FT.fixar();
+              toast(ok === 1 ? "Fonte adicionada 📚" : ok + " fontes adicionadas 📚");
+            }
+            if (erros.length) alert(erros.join("\n\n"));
+          });
+          return;
+        }
+        var f = files[i++];
+        progressoFonte({ fase: "abrindo", nome: (f.name || "PDF").replace(/\.pdf$/i, "") });
+        render();
+        FT.adicionar(f, progressoFonte, fontes || [])
+          .then(function (doc) { ok++; fontes = null; fontesRecarrega(); return doc; })
+          .catch(function (e) { erros.push((e && e.message) || "Não consegui ler esse PDF."); })
+          .then(passo);
+      })();
+    });
+  }
+
+  function fontesHtml() {
+    if (!ftOk) {
+      return '<div class="card"><p class="page-sub" style="margin:0">Este navegador não deixa guardar arquivos no aparelho, então a biblioteca de fontes não funciona aqui. Tente fora do modo anônimo.</p></div>';
+    }
+    var h = '<div class="card">' +
+      '<p class="page-sub" style="margin:0 0 12px">Suba suas apostilas e leis em PDF. O arquivo é lido <b>aqui no aparelho</b> e não sai daqui — depois, cada erro do caderno mostra o trecho da sua própria fonte.</p>' +
+      '<button class="btn" data-action="fonte-add">' + icon("plus") + ' Adicionar PDF</button>' +
+      '<div data-fonte-prog>' + fonteProgHtml(fontesBusy) + '</div>';
+
+    if (fontes === null) {
+      if (!fontesLoading) {
+        fontesLoading = true;
+        FT.listar().then(function (ds) {
+          fontes = ds; fontesLoading = false;
+          if (view.name === "perfil") render();
+        });
+      }
+      return h + '<p class="page-sub" style="margin:14px 0 0">Carregando…</p></div>';
+    }
+    if (!fontes.length) {
+      return h + '<p class="page-sub" style="margin:14px 0 0">Nenhuma fonte ainda. PDF escaneado (foto de página) não serve — precisa ser PDF com texto.</p></div>';
+    }
+    h += '<div class="ft-list">';
+    fontes.forEach(function (d) {
+      h += '<div class="ft-row"><div class="ft-main">' +
+        '<div class="ft-nome">' + esc(d.nome) + '</div>' +
+        '<div class="ft-meta">' + d.paginas + ' páginas · ' + d.trechos.toLocaleString("pt-BR") + ' trechos · ' +
+        new Date(d.at).toLocaleDateString("pt-BR") + '</div></div>' +
+        '<button class="ft-del" data-fonte-del="' + esc(d.id) + '" aria-label="Remover ' + esc(d.nome) + '">×</button></div>';
+    });
+    return h + '</div></div>';
+  }
+
+  /* ---------- trecho da fonte dentro do caderno de erros ---------- */
+
+  var ACC = "áàâãäéèêëíìîïóòôõöúùûüçñ", SEM = "aaaaaeeeeiiiiooooouuuucn";
+  /* tira acento preservando o comprimento, para os índices do regex
+     baterem com o texto original (NFD mudaria o tamanho) */
+  function planificar(s) {
+    var out = "";
+    for (var i = 0; i < s.length; i++) {
+      var c = s.charAt(i).toLowerCase(), j = ACC.indexOf(c);
+      out += j >= 0 ? SEM.charAt(j) : c;
+    }
+    return out;
+  }
+  function destacar(txt, termos) {
+    if (!termos || !termos.length) return esc(txt);
+    var pats = termos.map(function (t) {
+      if (/^\d+$/.test(t) && t.length > 3) return t.replace(/(\d)(?=(\d{3})+$)/g, "$1[.\\s]?"); // 1829 casa "1.829"
+      return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    });
+    var re;
+    try { re = new RegExp("\\b(" + pats.join("|") + ")", "g"); } catch (e) { return esc(txt); }
+    var plano = planificar(txt), out = "", last = 0, m;
+    while ((m = re.exec(plano)) !== null) {
+      if (re.lastIndex === m.index) { re.lastIndex++; continue; }
+      if (m.index < last) continue;
+      out += esc(txt.slice(last, m.index)) + "<mark>" + esc(txt.slice(m.index, m.index + m[0].length)) + "</mark>";
+      last = m.index + m[0].length;
+    }
+    return out + esc(txt.slice(last));
+  }
+
+  function srcHtml(q, r) {
+    if (!r) return "";                       // usuário não tem fontes
+    if (r.modo === "nada") {
+      return '<div class="src none">Não localizei este ponto nas suas fontes.</div>';
+    }
+    var termos = FT.termosDestaque(q);
+    var t0 = r.trechos[0];
+    var h = '<div class="src"><div class="src-head">📖 Na sua fonte' +
+      '<span class="src-doc">' + esc(t0.docNome) + ' · p. ' + t0.pag + '</span></div>' +
+      '<div class="src-body clamp">';
+    /* de propósito sem rótulo de dispositivo: quando o trecho é a
+       continuação de um artigo, o título do bloco é o do dispositivo
+       anterior e contradiz o texto exibido. O texto fala por si. */
+    r.trechos.forEach(function (t, i) {
+      if (i) h += '<div class="src-sep">' + esc(t.docNome) + ' · p. ' + t.pag + '</div>';
+      h += '<p>' + destacar(t.texto, termos) + '</p>';
+    });
+    return h + '</div><button class="src-more" data-srcmore>ver mais</button></div>';
+  }
+
+  /* preenche os blocos de fonte um a um, sem travar a tela */
+  var srcToken = 0;
+  function preencherFontes() {
+    srcToken++;
+    if (!ftOk) return;
+    var boxes = [].slice.call(document.querySelectorAll("[data-src]"));
+    if (!boxes.length) return;
+    var meu = srcToken, i = 0;
+    (function passo() {
+      if (meu !== srcToken || i >= boxes.length) return;
+      var el = boxes[i++], q = Q_BY_ID[el.getAttribute("data-src")];
+      if (!q) { passo(); return; }
+      FT.buscar(q).then(function (r) {
+        if (meu !== srcToken) return;
+        el.innerHTML = srcHtml(q, r);
+        bindSrcMore(el);
+        passo();
+      }).catch(function () { passo(); });
+    })();
+  }
+  function bindSrcMore(root) {
+    root.querySelectorAll("[data-srcmore]").forEach(function (b) {
+      var body = b.parentNode.querySelector(".src-body");
+      // trecho curto não precisa de "ver mais": tira o corte e o botão
+      if (body && body.scrollHeight <= body.clientHeight + 4) {
+        body.classList.remove("clamp");
+        b.remove();
+        return;
+      }
+      b.onclick = function () {
+        var aberto = body.classList.toggle("clamp");
+        b.textContent = aberto ? "ver mais" : "ver menos";
+      };
+    });
+  }
+
   /* ---------- SM-2 ---------- */
   function srsUpdate(qid, correct) {
     var c = S.srs[qid] || { ef: 2.5, reps: 0, interval: 0, lapses: 0 };
@@ -1020,6 +1221,8 @@
     app.innerHTML = body;
     wire();
     if (view.name === "result") setTimeout(animateResult, 40);
+    // caderno de erros: busca o trecho de cada erro nas fontes do aparelho
+    if (view.name === "erros") preencherFontes(); else srcToken++;
   }
   function render() {
     var mudouTela = view.name !== lastView;
@@ -1234,14 +1437,20 @@
       '<button class="btn ghost" data-action="export-errors-print">' + icon("printer") + ' Exportar PDF</button>' +
       '<button class="btn ghost" data-action="export-errors-copy">' + icon("share") + ' Copiar texto</button>' +
       '</div>';
+    // convite discreto: sem fontes, não há trecho para mostrar aqui
+    if (ftOk && fontes && !fontes.length) {
+      h += '<div class="card ft-hint" data-action="go-perfil">📚 Suba suas apostilas em PDF no Perfil e cada erro passa a mostrar o trecho da sua própria fonte.</div>';
+    }
     errs.forEach(function (q) {
       var e = S.errors[q.id];
       h += '<div class="card err-item">' +
         '<span class="tag">' + esc(q.modo === "lei" ? "Lei" : q.modo === "juris" ? "Juris" : "Caso") + '</span>' +
         '<div><div class="err-q">' + esc(q.enunciado) + '</div>' +
         '<div class="err-meta">' + esc(q._topico) + ' · ' + esc(q.fonte) + ' · errada ' + e.count + 'x</div></div>' +
+        '<div data-src="' + esc(q.id) + '"></div>' +
         '</div>';
     });
+    if (ftOk && fontes === null) fontesRecarrega(); // só para saber se mostra a dica
     return h;
   };
 
@@ -1495,6 +1704,9 @@
       });
       h += '</div>';
     }
+
+    // biblioteca de PDFs do usuário
+    h += '<div class="page-title" style="font-size:1.1rem">📚 Minhas Fontes</div>' + fontesHtml();
 
     // conta e backup na nuvem
     h += '<div class="page-title" style="font-size:1.1rem">Conta e backup</div>';
@@ -1885,6 +2097,19 @@
         if (f && confirm("Remover " + f.n + " do grupo?")) { delete S.social.friends[id]; save(); render(); }
       };
     });
+    // fontes: remover um PDF da biblioteca
+    app.querySelectorAll("[data-fonte-del]").forEach(function (b) {
+      b.onclick = function () {
+        var id = b.getAttribute("data-fonte-del");
+        var d = (fontes || []).filter(function (x) { return x.id === id; })[0];
+        if (!d) return;
+        if (!confirm('Remover "' + d.nome + '" das suas fontes?\n\nOs trechos indexados serão apagados do aparelho. O PDF original no seu celular não é tocado.')) return;
+        FT.remover(id).then(function () {
+          fontes = null;
+          fontesRecarrega(function () { render(); toast("Fonte removida."); });
+        });
+      };
+    });
   }
 
   function action(a) {
@@ -1927,6 +2152,7 @@
       if (novo && novo.trim()) { S.social.nome = novo.trim().slice(0, 18); touch(); save(); render(); }
     }
     else if (a === "check-update") checkUpdate(true);
+    else if (a === "fonte-add") { var fi = fonteInput(); if (fi) fi.click(); }
     else if (a === "export-errors-print") printCaderno();
     else if (a === "export-errors-copy") {
       if (!errorQuestions().length) { toast("Caderno vazio — nada para copiar."); return; }
