@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "4.2"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "4.3"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -46,7 +46,19 @@
     target: '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/>',
     calendar: '<rect x="4" y="5.5" width="16" height="15" rx="2"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4"/>',
     ballot: '<rect x="3.5" y="12" width="17" height="8.5" rx="2"/><path d="M7.5 12V3.5h9V12M10 7.2l1.5 1.5 3-3"/>',
-    coins: '<ellipse cx="12" cy="6.2" rx="7.5" ry="2.9"/><path d="M4.5 6.2v5.3c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9V6.2M4.5 11.5v5.3c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9v-5.3"/>'
+    coins: '<ellipse cx="12" cy="6.2" rx="7.5" ry="2.9"/><path d="M4.5 6.2v5.3c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9V6.2M4.5 11.5v5.3c0 1.6 3.4 2.9 7.5 2.9s7.5-1.3 7.5-2.9v-5.3"/>',
+    x: '<path d="M6 6l12 12M18 6L6 18"/>',
+    pencil: '<path d="M4 20l1-4.4L15.6 5a2.1 2.1 0 013 3L8 18.6zM13.6 7l3.4 3.4"/>',
+    flag: '<path d="M6 21V4M6 5h11.5l-2.2 3.6L17.5 12H6"/>',
+    star: '<path d="M12 3.6l2.6 5.3 5.8.9-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.9z"/>',
+    mountain: '<path d="M2.5 19.5h19L14.4 6l-3.6 6.6-2.3-2.9z"/>',
+    bolts: '<path d="M9.8 2.5L4.5 11h3.4l-.8 6.4L12.4 9H9z"/><path d="M17.8 8.5l-3.3 5.2h2.1l-.5 3.8 3.4-5.3h-2z"/>',
+    medal: '<circle cx="12" cy="14.8" r="4.8"/><path d="M9.2 10.4L6.5 3.5h11l-2.7 6.9"/>',
+    broom: '<path d="M14.2 3.8l6 6M16.8 6.4l-6.2 6.2M10.6 12.6L4.5 19.5h8.2l3.1-6z"/>',
+    swords: '<path d="M5 3.5l11 11M8.6 17.6L3.5 20.5l2.9-5.1M19 3.5l-11 11M15.4 17.6l5.1 2.9-2.9-5.1"/>',
+    cloud: '<path d="M7.6 19a4 4 0 01-.4-8A5.5 5.5 0 0118 11.7 3.7 3.7 0 0117.2 19z"/>',
+    sound: '<path d="M4 9.5h3.6L12 5.5v13L7.6 14.5H4zM15.6 9.3a4 4 0 010 5.4M18.3 6.7a7.6 7.6 0 010 10.6"/>',
+    soundOff: '<path d="M4 9.5h3.6L12 5.5v13L7.6 14.5H4zM16 10l4.5 4.5M20.5 10L16 14.5"/>'
   };
   function icon(name, extra) {
     return '<svg class="ic' + (extra ? ' ' + extra : '') + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[name] || '') + '</svg>';
@@ -113,13 +125,13 @@
 
   /* Patentes: carreira por matéria, movida a XP */
   var RANKS = [
-    { nome: "Estudante",         ico: "🔰", xp: 0 },
-    { nome: "Bacharel",          ico: "📜", xp: 60 },
-    { nome: "Analista",          ico: "📘", xp: 150 },
-    { nome: "Substituto(a)",     ico: "⚖️", xp: 300 },
-    { nome: "Titular",           ico: "🎖️", xp: 500 },
-    { nome: "Classe Especial",   ico: "🏅", xp: 750 },
-    { nome: "Defensor(a) Geral", ico: "👑", xp: 1000 }
+    { nome: "Estudante",         xp: 0 },
+    { nome: "Bacharel",          xp: 60 },
+    { nome: "Analista",          xp: 150 },
+    { nome: "Substituto(a)",     xp: 300 },
+    { nome: "Titular",           xp: 500 },
+    { nome: "Classe Especial",   xp: 750 },
+    { nome: "Defensor(a) Geral", xp: 1000 }
   ];
   function rankFor(xp) {
     var i = 0;
@@ -261,7 +273,7 @@
       xp: 0, hearts: 5, heartT: null, streak: 0, lastStudyDay: null,
       lessons: {}, srs: {}, errors: {}, blitz: {}, answered: 0, correctTotal: 0,
       byMateria: {}, xpByMateria: {}, theme: null,
-      social: { uid: null, nome: "", avatar: "🦉", friends: {}, grupo: null, grupoCache: null },
+      social: { uid: null, nome: "", avatar: "c0", friends: {}, grupo: null, grupoCache: null },
       week: { id: null, xp: 0, answered: 0, correct: 0 },
       treino: {},    // por prova: último dia em que o Treino do dia foi concluído
       treinos: 0,    // total de Treinos do dia concluídos
@@ -405,22 +417,22 @@
     ta.remove();
   }
   function shareCode() {
-    var texto = "🎓 Defensor — estudo DPE-RJ\n" + S.social.avatar + " " + S.social.nome +
-      " esta semana: ⭐ " + S.week.xp + " XP · " + S.week.answered + " questões\n\n" +
+    var texto = "Defensor — estudo para a DPE-RJ\n" + S.social.nome +
+      " esta semana: " + S.week.xp + " XP · " + S.week.answered + " questões\n\n" +
       "Meu código de amigo (cole na aba Amigos):\n" + myCode() +
-      "\n\nJogue também: " + location.origin + location.pathname;
+      "\n\nO app: " + location.origin + location.pathname;
     if (navigator.share) { navigator.share({ text: texto }).catch(function () {}); }
-    else { copyText(texto); toast("Convite copiado! Cole no grupo do WhatsApp 📋"); }
+    else { copyText(texto); toast("Convite copiado. Cole no grupo do WhatsApp."); }
   }
   function addFriend() {
     var inp = document.getElementById("friend-code");
     var p = parseCode(((inp && inp.value) || "").trim());
     if (!p) { toast("Código inválido — confira se copiou a parte que começa com DPE1."); return; }
-    if (p.id === S.social.uid) { toast("Esse código é o seu 😄"); return; }
+    if (p.id === S.social.uid) { toast("Esse código é o seu."); return; }
     var novo = !S.social.friends[p.id];
-    S.social.friends[p.id] = { n: String(p.n).slice(0, 18), a: p.a || "🙂", w: p.w, x: p.x | 0, q: p.q | 0, c: p.c | 0, s: p.s | 0, t: p.t | 0, dw: p.dw || null, ds: p.ds | 0, at: Date.now() };
+    S.social.friends[p.id] = { n: String(p.n).slice(0, 18), a: p.a || "", w: p.w, x: p.x | 0, q: p.q | 0, c: p.c | 0, s: p.s | 0, t: p.t | 0, dw: p.dw || null, ds: p.ds | 0, at: Date.now() };
     save(); render();
-    toast(novo ? String(p.n) + " entrou no grupo! 🎉" : String(p.n) + " atualizado(a) no placar ✅");
+    toast(novo ? String(p.n) + " entrou no placar." : String(p.n) + " atualizado(a) no placar.");
   }
 
   /* ---------- grupo em tempo real (Firebase Realtime DB via REST) ---------- */
@@ -467,11 +479,11 @@
   }
   function shareGroupInvite() {
     var g = S.social.grupo;
-    var texto = "⚡ Bora estudar junto! Entre no meu grupo \"" + (g.nome || "Defensor") + "\" no app Defensor (DPE-RJ).\n\n" +
+    var texto = "Entra no meu grupo \"" + (g.nome || "Defensor") + "\" no app Defensor (DPE-RJ).\n\n" +
       "Código de convite (aba Amigos → Entrar no grupo):\n" + grupoInvite() +
       "\n\nO app: " + location.origin + location.pathname;
     if (navigator.share) { navigator.share({ text: texto }).catch(function () {}); }
-    else { copyText(texto); toast("Convite do grupo copiado! 📋"); }
+    else { copyText(texto); toast("Convite do grupo copiado."); }
   }
   function syncAmigos() {
     if (!grupoAtivo()) return;
@@ -591,7 +603,7 @@
       }
       cloudPush();
       render();
-      toast(criouAgora ? "Conta criada! Backup na nuvem ativado ☁️" : "Bem-vindo(a) de volta! ☁️");
+      toast(criouAgora ? "Conta criada. Backup na nuvem ativado." : "Bem-vindo(a) de volta.");
     });
   }
 
@@ -611,7 +623,7 @@
     var b = document.createElement("button");
     b.id = "upd-banner";
     b.className = "upd-banner";
-    b.textContent = "⬆️ Nova versão disponível — toque para atualizar";
+    b.textContent = "Nova versão disponível — toque para atualizar";
     b.onclick = applyUpdate;
     document.body.appendChild(b);
   }
@@ -623,7 +635,7 @@
           if (manual) { toast("Atualizando para a versão " + m[1] + "…"); setTimeout(applyUpdate, 700); }
           else showUpdateBanner();
         } else if (manual) {
-          toast("Você já está na versão mais recente ✅ (v" + APP_VERSION + ")");
+          toast("Você já está na versão mais recente (v" + APP_VERSION + ").");
         }
       }).catch(function () { if (manual) toast("Sem conexão — tente de novo mais tarde."); });
     } catch (e) {}
@@ -791,7 +803,7 @@
             render();
             if (ok) {
               FT.fixar();
-              toast(ok === 1 ? "Fonte adicionada 📚" : ok + " fontes adicionadas 📚");
+              toast(ok === 1 ? "Fonte adicionada." : ok + " fontes adicionadas.");
             }
             if (erros.length) alert(erros.join("\n\n"));
           });
@@ -879,7 +891,7 @@
     }
     var termos = FT.termosDestaque(q);
     var t0 = r.trechos[0];
-    var h = '<div class="src"><div class="src-head">📖 Na sua fonte' +
+    var h = '<div class="src"><div class="src-head">Na sua fonte' +
       '<span class="src-doc">' + esc(t0.docNome) + ' · p. ' + t0.pag + '</span></div>' +
       '<div class="src-body clamp">';
     /* de propósito sem rótulo de dispositivo: quando o trecho é a
@@ -1099,21 +1111,21 @@
     return false;
   }
   var CONQUISTAS = [
-    { id: "licao1",   ico: "👣", nome: "Primeiro passo",  desc: "Conclua sua primeira lição",            cond: function () { return lessonsDoneCount() >= 1; } },
-    { id: "gabarito", ico: "💯", nome: "Gabaritou!",      desc: "Termine uma lição com 100% de acerto",  cond: function () { for (var k in S.lessons) if (S.lessons[k].best === 100) return true; return false; } },
-    { id: "unidade",  ico: "🏛️", nome: "Dominou o tópico", desc: "Complete todas as lições de uma unidade", cond: unidadeCompleta },
-    { id: "q50",      ico: "✏️", nome: "Aquecendo",       desc: "Responda 50 questões",                  cond: function () { return S.answered >= 50; } },
-    { id: "q100",     ico: "📚", nome: "Centurião",       desc: "Responda 100 questões",                 cond: function () { return S.answered >= 100; } },
-    { id: "q500",     ico: "🧠", nome: "Maratonista",     desc: "Responda 500 questões",                 cond: function () { return S.answered >= 500; } },
-    { id: "streak3",  ico: "🔥", nome: "Pegando fogo",    desc: "Estude 3 dias seguidos",                cond: function () { return S.streak >= 3; } },
-    { id: "streak7",  ico: "🚀", nome: "Semana perfeita", desc: "Estude 7 dias seguidos",                cond: function () { return S.streak >= 7; } },
-    { id: "streak30", ico: "🌋", nome: "Imparável",       desc: "Estude 30 dias seguidos",               cond: function () { return S.streak >= 30; } },
-    { id: "blitz10",  ico: "⚡", nome: "Relâmpago",       desc: "Faça 10+ acertos numa rodada Blitz",    cond: function () { return blitzMax() >= 10; } },
-    { id: "blitz20",  ico: "🌩️", nome: "Tempestade",      desc: "Faça 20+ acertos numa rodada Blitz",    cond: function () { return blitzMax() >= 20; } },
-    { id: "treino1",  ico: "🎯", nome: "Na rotina",       desc: "Conclua seu primeiro Treino do dia",    cond: function () { return (S.treinos || 0) >= 1; } },
-    { id: "treino7",  ico: "🥋", nome: "Disciplina",      desc: "Conclua 7 Treinos do dia",              cond: function () { return (S.treinos || 0) >= 7; } },
-    { id: "limpou10", ico: "🧹", nome: "Caderno em dia",  desc: "Resolva 10 erros do caderno",           cond: function () { var n = 0; for (var k in S.errors) if (S.errors[k].resolved) n++; return n >= 10; } },
-    { id: "social",   ico: "🤝", nome: "Time formado",    desc: "Crie seu perfil na aba Amigos",         cond: function () { return !!S.social.uid; } }
+    { id: "licao1",   ico: "flag", nome: "Primeiro passo",  desc: "Conclua sua primeira lição",            cond: function () { return lessonsDoneCount() >= 1; } },
+    { id: "gabarito", ico: "star", nome: "Gabaritou",      desc: "Termine uma lição com 100% de acerto",  cond: function () { for (var k in S.lessons) if (S.lessons[k].best === 100) return true; return false; } },
+    { id: "unidade",  ico: "building", nome: "Dominou o tópico", desc: "Complete todas as lições de uma unidade", cond: unidadeCompleta },
+    { id: "q50",      ico: "pencil", nome: "Aquecendo",       desc: "Responda 50 questões",                  cond: function () { return S.answered >= 50; } },
+    { id: "q100",     ico: "book", nome: "Centurião",       desc: "Responda 100 questões",                 cond: function () { return S.answered >= 100; } },
+    { id: "q500",     ico: "trail", nome: "Maratonista",     desc: "Responda 500 questões",                 cond: function () { return S.answered >= 500; } },
+    { id: "streak3",  ico: "flame", nome: "Pegando fogo",    desc: "Estude 3 dias seguidos",                cond: function () { return S.streak >= 3; } },
+    { id: "streak7",  ico: "calendar", nome: "Semana perfeita", desc: "Estude 7 dias seguidos",                cond: function () { return S.streak >= 7; } },
+    { id: "streak30", ico: "mountain", nome: "Imparável",       desc: "Estude 30 dias seguidos",               cond: function () { return S.streak >= 30; } },
+    { id: "blitz10",  ico: "bolt", nome: "Relâmpago",       desc: "Faça 10+ acertos numa rodada Blitz",    cond: function () { return blitzMax() >= 10; } },
+    { id: "blitz20",  ico: "bolts", nome: "Tempestade",      desc: "Faça 20+ acertos numa rodada Blitz",    cond: function () { return blitzMax() >= 20; } },
+    { id: "treino1",  ico: "target", nome: "Na rotina",       desc: "Conclua seu primeiro Treino do dia",    cond: function () { return (S.treinos || 0) >= 1; } },
+    { id: "treino7",  ico: "medal", nome: "Disciplina",      desc: "Conclua 7 Treinos do dia",              cond: function () { return (S.treinos || 0) >= 7; } },
+    { id: "limpou10", ico: "broom", nome: "Caderno em dia",  desc: "Resolva 10 erros do caderno",           cond: function () { var n = 0; for (var k in S.errors) if (S.errors[k].resolved) n++; return n >= 10; } },
+    { id: "social",   ico: "users", nome: "Time formado",    desc: "Crie seu perfil na aba Amigos",         cond: function () { return !!S.social.uid; } }
   ];
   function checkConquistas() {
     var novas = [];
@@ -1163,7 +1175,7 @@
     if (quiz) { quiz.xpGained += MISSAO_XP; quiz.missaoDone = true; }
     touch(); save();
     sfx("premio"); vib([15, 30, 15, 30, 40]);
-    toast("Missão do dia cumprida! +" + MISSAO_XP + " XP 🎯");
+    toast("Missão do dia cumprida · +" + MISSAO_XP + " XP");
   }
   /* ---------- meta diária + data da prova ---------- */
   function metaStripHtml() {
@@ -1216,15 +1228,15 @@
   function bannersExtras() {
     var h = '';
     if (quiz.metaHit) {
-      h += '<div class="rankup" style="border-color:var(--acc)"><span class="ru-ico emj">📅</span><div>' +
+      h += '<div class="rankup" style="border-color:var(--acc)"><span class="ru-ico" style="color:var(--acc)">' + icon("calendar") + '</span><div>' +
         '<div class="ru-t">Meta diária batida</div><div class="ru-n">+10 XP</div></div></div>';
     }
     if (quiz.missaoDone) {
-      h += '<div class="rankup" style="border-color:var(--acc)"><span class="ru-ico emj">🎯</span><div>' +
+      h += '<div class="rankup" style="border-color:var(--acc)"><span class="ru-ico" style="color:var(--acc)">' + icon("target") + '</span><div>' +
         '<div class="ru-t">Missão do dia cumprida</div><div class="ru-n">+' + MISSAO_XP + ' XP</div></div></div>';
     }
     (quiz.novasConquistas || []).forEach(function (c) {
-      h += '<div class="rankup" style="border-color:var(--gold)"><span class="ru-ico emj">' + c.ico + '</span><div>' +
+      h += '<div class="rankup" style="border-color:var(--gold)"><span class="ru-ico" style="color:var(--gold)">' + icon(c.ico) + '</span><div>' +
         '<div class="ru-t">Conquista desbloqueada</div><div class="ru-n">' + esc(c.nome) + '</div></div></div>';
     });
     return h;
@@ -1354,7 +1366,7 @@
       '<aside class="drawer">' +
       '<div class="dr-head"><span class="logo">§</span>' +
       '<div class="dr-t"><b>Defensor</b><span>' + esc(PROVA.nome) + '</span></div>' +
-      '<button class="dr-x" data-action="close-menu" aria-label="Fechar menu">✕</button></div>' +
+      '<button class="dr-x" data-action="close-menu" aria-label="Fechar menu">' + icon("x") + '</button></div>' +
       '<div class="dr-label">Estudando para</div>';
     PROVAS.forEach(function (p) {
       var on = PROVA && p.id === PROVA.id;
@@ -1495,7 +1507,7 @@
       '</div>';
     // convite discreto: sem fontes, não há trecho para mostrar aqui
     if (ftOk && fontes && !fontes.length) {
-      h += '<div class="card ft-hint" data-action="go-perfil">📚 Suba suas apostilas em PDF no Perfil e cada erro passa a mostrar o trecho da sua própria fonte.</div>';
+      h += '<div class="card ft-hint" data-action="go-perfil">Suba suas apostilas em PDF no Perfil e cada erro passa a mostrar o trecho da sua própria fonte.</div>';
     }
     errs.forEach(function (q) {
       var e = S.errors[q.id];
@@ -1511,7 +1523,23 @@
   };
 
   /* ---------- Screen: Amigos ---------- */
-  var AVATARES = ["🦉", "🦁", "🐯", "🦊", "🐼", "🦅", "🐺", "🦈", "🐢", "🐝"];
+  /* Avatar = monograma (inicial do nome) numa das 8 cores da paleta.
+     O valor guardado ("c0".."c7") viaja nos códigos e no Firebase; perfis
+     antigos guardavam um emoji, que cai no fallback por hash do nome. */
+  var AVATARES = ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"];
+  function avKey(a, nome) {
+    if (typeof a === "string" && /^c[0-7]$/.test(a)) return a;
+    var s = String(nome || ""), n = 0;
+    for (var i = 0; i < s.length; i++) n = (n * 31 + s.charCodeAt(i)) % 997;
+    return "c" + (n % 8);
+  }
+  function inicialDe(nome) {
+    var s = String(nome || "").trim();
+    return s ? s.charAt(0).toUpperCase() : "?";
+  }
+  function avatarHtml(nome, a, cls) {
+    return '<span class="mono ' + avKey(a, nome) + (cls ? ' ' + cls : '') + '">' + esc(inicialDe(nome)) + '</span>';
+  }
   // Duelo Blitz da semana: todo mundo joga as mesmas questões, na mesma ordem
   function duelHtml() {
     ensureWeek();
@@ -1523,7 +1551,7 @@
       for (var id in mb) {
         if (id === S.social.uid) continue;
         var mm = mb[id];
-        if (mm && mm.n && mm.dw === S.week.id) rows.push({ n: mm.n, a: mm.a || "🙂", ds: mm.ds | 0 });
+        if (mm && mm.n && mm.dw === S.week.id) rows.push({ n: mm.n, a: mm.a || "", ds: mm.ds | 0 });
       }
     } else {
       for (var fid in S.social.friends) {
@@ -1532,7 +1560,7 @@
       }
     }
     rows.sort(function (a, b) { return b.ds - a.ds; });
-    var h = '<div class="page-title" style="font-size:1.05rem">⚔️ Duelo Blitz da semana</div>' +
+    var h = '<div class="page-title" style="font-size:1.05rem">Duelo Blitz da semana</div>' +
       '<div class="card">' +
       '<p class="page-sub" style="margin:0 0 10px">As mesmas questões, na mesma ordem, para todo mundo — vale o melhor resultado até domingo.</p>' +
       '<button class="btn" data-action="start-duelo">' + icon("bolt") + (meu === null ? ' Jogar o duelo' : ' Tentar melhorar (meu melhor: ' + meu + ')') + '</button>';
@@ -1541,14 +1569,14 @@
       rows.forEach(function (r, i) {
         h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
           '<span class="pos p' + i + '">' + (i + 1) + '</span>' +
-          '<span class="fr-av">' + r.a + '</span>' +
+          avatarHtml(r.n, r.a, 'fr-av') +
           '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div></div>' +
           '<div class="fr-x"><div class="fr-xp">' + r.ds + '</div><div class="fr-sub">acertos</div></div>' +
           '</div>';
       });
       h += '</div>';
     } else {
-      h += '<div class="fr-sub" style="padding:8px 0 0">Ninguém jogou nesta semana ainda. Seja o(a) primeiro(a)! ⚡</div>';
+      h += '<div class="fr-sub" style="padding:8px 0 0">Ninguém jogou nesta semana ainda.</div>';
     }
     return h + '</div>';
   }
@@ -1568,13 +1596,16 @@
     }
 
     h += '<div class="card">' +
-      '<div class="friend-me"><span class="f-av">' + S.social.avatar + '</span>' +
+      '<div class="friend-me">' + avatarHtml(S.social.nome, S.social.avatar, 'f-av') +
       '<div style="flex:1;min-width:0">' +
-      '<div class="f-name">' + esc(S.social.nome) + ' <button class="mini" data-action="edit-name" title="Editar nome">✏️</button></div>' +
+      '<div class="f-name">' + esc(S.social.nome) + ' <button class="mini" data-action="edit-name" title="Editar nome">' + icon("pencil") + '</button></div>' +
       '<div class="f-meta">Esta semana: ' + S.week.xp + ' XP · ' + S.week.answered + ' questões · série ' + S.streak + '</div>' +
       '</div></div>' +
-      '<div class="av-row">' + AVATARES.map(function (a) {
-        return '<button class="av' + (a === S.social.avatar ? ' sel' : '') + '" data-avatar="' + a + '">' + a + '</button>';
+      '<div class="f-label">Cor do seu monograma</div>' +
+      '<div class="av-row">' + AVATARES.map(function (a, i) {
+        return '<button class="av mono ' + a + (a === avKey(S.social.avatar, S.social.nome) ? ' sel' : '') +
+          '" data-avatar="' + a + '" aria-label="Cor ' + (i + 1) + ' de ' + AVATARES.length + '">' +
+          esc(inicialDe(S.social.nome)) + '</button>';
       }).join('') + '</div>' +
       '</div>';
 
@@ -1587,19 +1618,19 @@
       for (var mid in gc.membros) {
         if (mid === S.social.uid) continue;
         var mm = gc.membros[mid];
-        if (mm && mm.n) mrows.push({ n: mm.n, a: mm.a || "🙂", w: mm.w, x: mm.x | 0, q: mm.q | 0, s: mm.s | 0 });
+        if (mm && mm.n) mrows.push({ n: mm.n, a: mm.a || "", w: mm.w, x: mm.x | 0, q: mm.q | 0, s: mm.s | 0 });
       }
       var mAtuais = mrows.filter(function (r) { return r.w === S.week.id; }).sort(function (a, b) { return b.x - a.x; });
       var mVelhos = mrows.filter(function (r) { return r.w !== S.week.id; });
       var mins = gc.at ? Math.round((Date.now() - gc.at) / 60000) : null;
-      h += '<div class="page-title" style="font-size:1.05rem">⚡ ' + esc(S.social.grupo.nome || "Grupo") + '</div>' +
+      h += '<div class="page-title" style="font-size:1.05rem">' + esc(S.social.grupo.nome || "Grupo") + '</div>' +
         '<p class="page-sub">Placar em tempo real · ' +
         (mins === null ? 'ainda não sincronizado' : (mins < 1 ? 'atualizado agora' : 'atualizado há ' + mins + ' min')) + '</p>' +
         '<div class="card">';
       mAtuais.forEach(function (r, i) {
         h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
           '<span class="pos p' + i + '">' + (i + 1) + '</span>' +
-          '<span class="fr-av">' + r.a + '</span>' +
+          avatarHtml(r.n, r.a, 'fr-av') +
           '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div>' +
           '<div class="fr-sub">' + r.q + ' questões · série ' + (r.s || 0) + '</div></div>' +
           '<div class="fr-x"><div class="fr-xp">' + r.x + '</div><div class="fr-sub">XP</div></div>' +
@@ -1607,14 +1638,14 @@
       });
       mVelhos.forEach(function (r) {
         h += '<div class="friend-row stale">' +
-          '<span class="pos">—</span><span class="fr-av">' + r.a + '</span>' +
+          '<span class="pos">—</span>' + avatarHtml(r.n, r.a, 'fr-av') +
           '<div class="fr-info"><div class="fr-n">' + esc(r.n) + '</div>' +
           '<div class="fr-sub">ainda sem pontos nesta semana</div></div>' +
           '<div class="fr-x"><div class="fr-xp">' + (r.x | 0) + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
           '</div>';
       });
       if (mrows.length === 1) {
-        h += '<div class="fr-sub" style="padding:6px 0">Só você por aqui. Convide os amigos! 📣</div>';
+        h += '<div class="fr-sub" style="padding:6px 0">Só você por aqui. Convide os amigos.</div>';
       }
       h += '</div>' +
         '<button class="btn" data-action="share-group">' + icon("share") + ' Convidar para o grupo</button>' +
@@ -1624,7 +1655,7 @@
     }
 
     /* --- sem grupo: entrar/criar + modo manual --- */
-    h += '<div class="page-title" style="font-size:1.05rem">⚡ Grupo em tempo real</div>' +
+    h += '<div class="page-title" style="font-size:1.05rem">Grupo em tempo real</div>' +
       '<div class="card">' +
       (DB_URL
         ? '<button class="btn" data-action="create-group">Criar um grupo</button>' +
@@ -1659,24 +1690,24 @@
     atuais.forEach(function (r, i) {
       h += '<div class="friend-row' + (r.me ? ' me' : '') + '">' +
         '<span class="pos p' + i + '">' + (i + 1) + '</span>' +
-        '<span class="fr-av">' + r.a + '</span>' +
+        avatarHtml(r.n, r.a, 'fr-av') +
         '<div class="fr-info"><div class="fr-n">' + esc(r.n) + (r.me ? ' (você)' : '') + '</div>' +
         '<div class="fr-sub">' + r.q + ' questões · série ' + (r.s || 0) + '</div></div>' +
         '<div class="fr-x"><div class="fr-xp">' + r.x + '</div><div class="fr-sub">XP</div></div>' +
-        (r.me ? '' : '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">✕</button>') +
+        (r.me ? '' : '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">' + icon("x") + '</button>') +
         '</div>';
     });
     velhos.forEach(function (r) {
       h += '<div class="friend-row stale">' +
-        '<span class="pos">—</span><span class="fr-av">' + r.a + '</span>' +
+        '<span class="pos">—</span>' + avatarHtml(r.n, r.a, 'fr-av') +
         '<div class="fr-info"><div class="fr-n">' + esc(r.n) + '</div>' +
         '<div class="fr-sub">sem código desta semana — peça um novo</div></div>' +
         '<div class="fr-x"><div class="fr-xp">' + r.x + '</div><div class="fr-sub">' + esc(r.w || '') + '</div></div>' +
-        '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">✕</button>' +
+        '<button class="unfr" data-unfriend="' + r.id + '" title="Remover do grupo">' + icon("x") + '</button>' +
         '</div>';
     });
     if (rows.length === 1) {
-      h += '<div class="fr-sub" style="padding:6px 0">Seu grupo ainda está vazio. Mande seu código no WhatsApp e cole aqui os que receber. 🎯</div>';
+      h += '<div class="fr-sub" style="padding:6px 0">Seu grupo ainda está vazio. Mande seu código no WhatsApp e cole aqui os que receber.</div>';
     }
     h += '</div>' +
       '<p class="page-sub" style="margin-top:10px">O placar zera toda segunda-feira. Troquem códigos novos ao longo da semana para manter os números em dia.</p>';
@@ -1736,7 +1767,7 @@
     CONQUISTAS.forEach(function (c) {
       var un = (S.conquistas || {})[c.id];
       h += '<div class="conq' + (un ? '' : ' lk') + '">' +
-        '<span class="cq-ico">' + c.ico + '</span>' +
+        '<span class="cq-ico">' + icon(c.ico) + '</span>' +
         '<span class="cq-n">' + c.nome + '</span>' +
         '<span class="cq-d">' + c.desc + (un ? ' · ' + new Date(un).toLocaleDateString("pt-BR") : '') + '</span>' +
         '</div>';
@@ -1762,17 +1793,17 @@
     }
 
     // biblioteca de PDFs do usuário
-    h += '<div class="page-title" style="font-size:1.1rem">📚 Minhas Fontes</div>' + fontesHtml();
+    h += '<div class="page-title" style="font-size:1.1rem">Minhas Fontes</div>' + fontesHtml();
 
     // conta e backup na nuvem
     h += '<div class="page-title" style="font-size:1.1rem">Conta e backup</div>';
     if (!AUTH_KEY) {
-      h += '<div class="card"><p class="page-sub" style="margin:0">☁️ Backup na nuvem ainda não configurado nesta instalação — veja "Ativar backup por e-mail" no LEIA-ME.</p></div>';
+      h += '<div class="card"><p class="page-sub" style="margin:0">' + icon("cloud") + ' Backup na nuvem ainda não configurado nesta instalação — veja "Ativar backup por e-mail" no LEIA-ME.</p></div>';
     } else if (contaAtiva()) {
       h += '<div class="card">' +
         '<div class="f-label">Conectado como</div>' +
         '<div class="acct-mail">' + esc(S.conta.email) + '</div>' +
-        '<div class="acct-sync">' + (S.conta.syncAt ? '☁️ Último backup: ' + new Date(S.conta.syncAt).toLocaleString("pt-BR") : 'Ainda não sincronizado') + '</div>' +
+        '<div class="acct-sync">' + (S.conta.syncAt ? icon("cloud") + ' Último backup: ' + new Date(S.conta.syncAt).toLocaleString("pt-BR") : 'Ainda não sincronizado') + '</div>' +
         '<button class="btn" data-action="sync-now" style="margin-top:12px">Sincronizar agora</button>' +
         '<button class="btn ghost" data-action="logout" style="margin-top:10px">Sair da conta</button>' +
         '</div>';
@@ -1790,7 +1821,7 @@
     }
 
     h += '<button class="btn ghost" data-action="check-update" style="margin-top:8px">' + icon("refresh") + ' Buscar atualização</button>' +
-      '<button class="btn ghost" data-action="toggle-sons" style="margin-top:10px">' + (S.sons === false ? '🔇 Sons e vibração: desligados' : '🔊 Sons e vibração: ligados') + '</button>' +
+      '<button class="btn ghost" data-action="toggle-sons" style="margin-top:10px">' + (S.sons === false ? icon("soundOff") + ' Sons e vibração: desligados' : icon("sound") + ' Sons e vibração: ligados') + '</button>' +
       '<button class="btn ghost" data-action="toggle-theme" style="margin-top:10px">' + icon("moon") + ' Alternar tema</button>' +
       '<button class="btn ghost" data-action="reset" style="margin-top:10px;color:var(--no)">Zerar progresso</button>' +
       '<p class="page-sub" style="margin-top:18px;text-align:center">Versão ' + APP_VERSION + ' · ' +
@@ -1845,7 +1876,7 @@
     }
     var h = '<div class="screen" style="padding-bottom:120px">' +
       '<div class="quiz-top">' +
-      '<button class="x" data-action="quit-quiz">✕</button>' +
+      '<button class="x" data-action="quit-quiz">' + icon("x") + '</button>' +
       top +
       '</div>' +
       '<div class="q-head">' +
@@ -1903,7 +1934,7 @@
       S.xp += 10; S.week.xp += 10;
       if (quiz) { quiz.xpGained += 10; quiz.metaHit = true; }
       sfx("premio");
-      toast("Meta diária batida! +10 XP 📅");
+      toast("Meta diária batida · +10 XP");
     }
     var mat = q._materia, mk = matKey(mat);
     if (!(mat in quiz.rankBefore)) quiz.rankBefore[mat] = rankFor(materiaXp(mat)).idx;
@@ -2036,7 +2067,7 @@
           '<div class="ru-t">Modo Blitz</div><div class="ru-n">Novo recorde: ' + quiz.correct + (quiz.correct === 1 ? ' acerto' : ' acertos') + '</div></div></div>'
         : '') +
       (quiz.duelBest && quiz.correct > 0
-        ? '<div class="rankup" style="border-color:var(--blue)"><span class="ru-ico emj">⚔️</span><div>' +
+        ? '<div class="rankup" style="border-color:var(--blue)"><span class="ru-ico" style="color:var(--blue)">' + icon("swords") + '</span><div>' +
           '<div class="ru-t">Duelo da semana</div><div class="ru-n">Seu melhor: ' + quiz.correct + (quiz.correct === 1 ? ' acerto' : ' acertos') + '</div></div></div>'
         : '') +
       (quiz.rankUps && quiz.rankUps.length ? quiz.rankUps.map(function (r) {
@@ -2050,7 +2081,7 @@
         ? '<button class="btn" data-review="just-wrong" style="margin-bottom:12px">Revisar os ' + quiz.wrong.length + ' erros agora</button>'
         : '') +
       '<button class="btn" data-action="' + (quiz.duelo ? 'start-duelo' : 'start-blitz') + '" style="margin-bottom:12px">' + icon("bolt") + ' Jogar de novo</button>' +
-      (quiz.duelo ? '<button class="btn ghost" data-action="go-amigos" style="margin-bottom:12px">⚔️ Ver placar do duelo</button>' : '') +
+      (quiz.duelo ? '<button class="btn ghost" data-action="go-amigos" style="margin-bottom:12px">' + icon("swords") + ' Ver placar do duelo</button>' : '') +
       '<button class="btn ghost" data-action="home">Voltar à trilha</button>' +
       '</div></div></div>';
     return h;
@@ -2190,7 +2221,7 @@
       var mdi = parseInt((document.getElementById("meta-diaria") || {}).value, 10) || 20;
       S.meta = { data: mdt || null, diaria: mdi };
       touch(); save(); render();
-      toast(mdt ? "Meta salva! Contagem regressiva ligada 📅" : "Meta diária salva ✅");
+      toast(mdt ? "Meta salva. Contagem regressiva ligada." : "Meta diária salva.");
     }
     else if (a === "create-profile") {
       var inp = document.getElementById("social-name");
@@ -2201,7 +2232,7 @@
       touch(); save();
       var cq = checkConquistas();
       render();
-      toast(cq.length ? "Conquista desbloqueada: " + cq[0].nome + " " + cq[0].ico : "Perfil criado! Agora compartilhe seu código 📣");
+      toast(cq.length ? "Conquista desbloqueada: " + cq[0].nome : "Perfil criado. Compartilhe seu código com o grupo.");
     }
     else if (a === "edit-name") {
       var novo = prompt("Seu nome no placar:", S.social.nome);
@@ -2214,14 +2245,14 @@
       if (!errorQuestions().length) { toast("Caderno vazio — nada para copiar."); return; }
       var txtCad = textoCaderno();
       if (navigator.share) { navigator.share({ text: txtCad }).catch(function () {}); }
-      else { copyText(txtCad); toast("Caderno copiado! Cole onde quiser estudar 📚"); }
+      else { copyText(txtCad); toast("Caderno copiado."); }
     }
     else if (a === "share-code") shareCode();
-    else if (a === "copy-code") { copyText(myCode()); toast("Código copiado! Cole no grupo 📋"); }
+    else if (a === "copy-code") { copyText(myCode()); toast("Código copiado. Cole no grupo."); }
     else if (a === "add-friend") addFriend();
     else if (a === "create-group") {
       if (!DB_URL) { toast("O banco em tempo real ainda não foi configurado."); return; }
-      var gn = prompt("Nome do grupo:", "Rumo à DPE-RJ 🎯");
+      var gn = prompt("Nome do grupo:", "Rumo à DPE-RJ");
       if (gn === null) return;
       gn = (gn || "").trim().slice(0, 24) || "Meu grupo";
       var gid = Math.random().toString(36).slice(2, 10) + Math.random().toString(36).slice(2, 10);
@@ -2230,7 +2261,7 @@
       save();
       try { dbFetch("/info", { method: "PUT", body: JSON.stringify({ nome: gn, criadoEm: Date.now() }) }).catch(function () {}); } catch (e) {}
       syncAmigos();
-      render(); toast("Grupo criado! Convide os amigos 📣");
+      render(); toast("Grupo criado. Convide os amigos.");
     }
     else if (a === "join-group") {
       var gi = document.getElementById("group-code");
@@ -2239,14 +2270,14 @@
       S.social.grupo = { url: pv.u, gid: pv.g, nome: (pv.n || "Grupo") };
       S.social.grupoCache = null;
       save(); syncAmigos();
-      render(); toast("Você entrou no grupo! ⚡");
+      render(); toast("Você entrou no grupo.");
     }
     else if (a === "share-group") shareGroupInvite();
     else if (a === "refresh-group") {
       pushMyStats();
       pullGroup(function (ok) {
         if (view.name === "amigos") render();
-        toast(ok ? "Placar atualizado ⚡" : "Sem conexão — tente de novo.");
+        toast(ok ? "Placar atualizado." : "Sem conexão — tente de novo.");
       });
     }
     else if (a === "leave-group") {
@@ -2271,14 +2302,14 @@
       var fem = ((document.getElementById("acct-email") || {}).value || "").trim();
       if (!fem) { toast("Digite seu e-mail no campo acima primeiro."); return; }
       authApi("sendOobCode", { requestType: "PASSWORD_RESET", email: fem }, function (d) {
-        toast(d && d.email ? "E-mail de redefinição enviado 📬 Confira a caixa de entrada." : authErro(d));
+        toast(d && d.email ? "E-mail de redefinição enviado. Confira a caixa de entrada." : authErro(d));
       });
     }
     else if (a === "sync-now") {
       toast("Sincronizando…");
       cloudPush(function (ok, motivo) {
         render();
-        if (ok) toast("Backup atualizado ☁️");
+        if (ok) toast("Backup atualizado.");
         else if (/permission/i.test(motivo || "")) toast("O banco recusou o acesso — falta publicar as Regras novas (passo 4 do LEIA-ME).");
         else if (motivo === "login") toast("Sessão expirada — saia da conta e entre de novo.");
         else if (motivo === "rede") toast("Sem conexão — tente de novo mais tarde.");
@@ -2293,7 +2324,7 @@
       S.sons = S.sons === false; // alterna
       save(); render();
       if (S.sons) { sfx("ok"); vib(15); }
-      toast(S.sons ? "Sons e vibração ligados 🔊" : "Sons e vibração desligados 🔇");
+      toast(S.sons ? "Sons e vibração ligados." : "Sons e vibração desligados.");
     }
     else if (a === "toggle-theme") toggleTheme();
     else if (a === "reset") {
@@ -2339,8 +2370,8 @@
   render();
   if (retro.length) {
     toast(retro.length === 1
-      ? "Conquista desbloqueada: " + retro[0].nome + " " + retro[0].ico
-      : retro.length + " conquistas desbloqueadas — veja no Perfil 🏅");
+      ? "Conquista desbloqueada: " + retro[0].nome
+      : retro.length + " conquistas desbloqueadas — veja no Perfil.");
   }
 
   // conta na nuvem: adota o backup se ele for mais novo que este aparelho
@@ -2349,7 +2380,7 @@
       if (nuvem && (nuvem.at || 0) > (S.mudadoEm || 0)) {
         adotarNuvem(nuvem);
         render();
-        toast("Progresso sincronizado da nuvem ☁️");
+        toast("Progresso sincronizado da nuvem.");
       }
     });
   }

@@ -500,14 +500,27 @@ svg.ic{width:1.15em;height:1.15em;flex:none;vertical-align:-.18em}
 .f-input:focus{border-color:var(--acc)}
 textarea.f-input{resize:none;line-height:1.4}
 .friend-me{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.f-av{font-size:2rem;line-height:1}
+/* Avatar = monograma. Um matiz por índice; a saturação é a mesma da
+   paleta (baixa), então as oito cores convivem sem virar carnaval. */
+.mono{display:inline-grid;place-items:center;flex:none;border-radius:50%;
+  font-family:var(--font-display);font-weight:700;line-height:1;
+  background:hsl(var(--h) 32% 91%);color:hsl(var(--h) 44% 28%)}
+.mono.c0{--h:38}.mono.c1{--h:158}.mono.c2{--h:220}.mono.c3{--h:6}
+.mono.c4{--h:285}.mono.c5{--h:186}.mono.c6{--h:26}.mono.c7{--h:96}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .mono{background:hsl(var(--h) 22% 13%);color:hsl(var(--h) 40% 63%)}
+}
+:root[data-theme="dark"] .mono{background:hsl(var(--h) 22% 13%);color:hsl(var(--h) 40% 63%)}
+:root[data-theme="light"] .mono{background:hsl(var(--h) 32% 91%);color:hsl(var(--h) 44% 28%)}
+.f-av{width:46px;height:46px;font-size:1.2rem}
 .f-name{font-weight:800;font-size:1.1rem;display:flex;align-items:center;gap:6px;letter-spacing:-.01em}
 .f-meta{font-size:.76rem;color:var(--ink-soft);font-weight:700}
 .mini{background:none;border:none;font-size:.85rem;padding:2px;cursor:pointer}
 .av-row{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 14px}
-.av-row .av{font-size:1.25rem;line-height:1;background:var(--bg-2);border:1.5px solid var(--line-strong);border-radius:12px;padding:7px 9px;transition:transform .25s var(--spring),border-color .18s}
+.av-row .av{width:34px;height:34px;font-size:.9rem;border:1.5px solid transparent;padding:0;cursor:pointer;
+  transition:transform .25s var(--spring),border-color .18s}
 .av-row .av:active{transform:scale(.88)}
-.av-row .av.sel{border-color:var(--acc);background:var(--acc-soft)}
+.av-row .av.sel{border-color:var(--ink);transform:scale(1.06)}
 .code-box{display:flex;gap:8px;margin-top:10px}
 .code-box input{flex:1;min-width:0;border:1.5px dashed var(--line-strong);border-radius:var(--radius-sm);background:var(--bg-2);color:var(--ink-soft);font-family:ui-monospace,"SF Mono",Consolas,monospace;font-size:.68rem;padding:9px 10px;outline:none;text-overflow:ellipsis}
 .code-box .btn{width:auto;padding:9px 14px;font-size:.72rem;box-shadow:var(--sh-card)}
@@ -521,7 +534,7 @@ textarea.f-input{resize:none;line-height:1.4}
 .friend-row .pos{flex:none;width:26px;text-align:center;font-size:.69rem;font-weight:700;font-variant-numeric:tabular-nums;background:transparent;color:var(--ink-soft)}
 .friend-row .pos.p0{color:var(--acc)}
 .friend-row .pos.p1,.friend-row .pos.p2{color:var(--ink-soft)}
-.friend-row .fr-av{font-size:1.25rem;line-height:1;width:34px;height:34px;flex:none;border-radius:50%;background:var(--card);border:1px solid var(--line-strong);display:grid;place-items:center}
+.friend-row .fr-av{width:34px;height:34px;font-size:.86rem}
 .friend-row .fr-info{flex:1;min-width:0}
 .friend-row .fr-n{font-weight:600;font-size:.81rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .friend-row .fr-sub{font-size:.66rem;color:var(--ink-faint);font-weight:600}
@@ -721,11 +734,13 @@ svg.ic.off{opacity:.22}
 .conq-count{font-size:.8rem;font-weight:800;color:var(--ink-faint);margin-left:6px}
 .conq-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .conq{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;padding:12px 6px;border-radius:var(--radius-sm);background:var(--bg)}
-.conq .cq-ico{font-size:1.7rem;line-height:1.2}
+.conq .cq-ico{display:grid;place-items:center;color:var(--acc);margin-bottom:2px}
+.conq .cq-ico svg.ic{width:26px;height:26px}
+.conq.lk .cq-ico{color:var(--ink-locked)}
 .conq .cq-n{font-weight:800;font-size:.72rem;letter-spacing:-.01em}
 .conq .cq-d{font-size:.62rem;color:var(--ink-faint);line-height:1.35}
 .conq.lk{opacity:.5;filter:grayscale(1)}
-.rankup .ru-ico.emj{font-size:1.5rem}
+.rankup .ru-ico svg.ic{width:22px;height:22px}
 
 /* ---------- Meta diária + data da prova ---------- */
 .meta-strip{display:flex;align-items:center;gap:12px;margin-top:12px;font-size:.8rem;color:var(--ink-soft);font-weight:700}
