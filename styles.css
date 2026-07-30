@@ -808,3 +808,119 @@ svg.ic.off{opacity:.22}
 .src-more{margin-top:8px;padding:0;border:0;background:transparent;color:var(--acc);
   font-family:var(--font);font-size:.72rem;font-weight:700;cursor:pointer}
 .src-more:active{opacity:.6}
+
+/* ============================================================
+   Cronograma — a mentoria
+   ============================================================ */
+
+/* abertura: a frase do dia. Sem cartão e sem ícone grande — o que
+   pesa aqui é a sentença, então ela ganha o corpo serifado. */
+.mentor{margin-top:16px;padding-top:16px;border-top:1px solid var(--line-strong)}
+.mt-fase{display:flex;align-items:center;gap:6px;font-size:.594rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.mt-fase svg.ic{width:13px;height:13px}
+.mt-fase .ms-set{font-size:.594rem;letter-spacing:.12em;text-transform:uppercase}
+.mt-frase{margin:9px 0 14px;font-family:var(--font-serif);font-size:1.02rem;line-height:1.45;color:var(--ink)}
+.mt-frase b{font-weight:700}
+.mentor .btn{padding:14px;font-size:.84rem;border-radius:13px}
+
+/* checklist do dia — mesma anatomia do treino-card, mais compacta */
+.plan-item{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin-top:9px;
+  background:var(--card);border:1px solid var(--line-strong);border-radius:14px;
+  padding:13px;color:var(--ink);box-shadow:none;transition:transform .25s var(--spring);
+}
+.plan-item:active{transform:scale(.98)}
+.plan-item .pi-ico{width:36px;height:36px;flex:none;border-radius:11px;background:var(--acc-soft);
+  color:var(--acc);display:grid;place-items:center}
+.plan-item .pi-ico svg.ic{width:18px;height:18px}
+.plan-item .pi-info{min-width:0;flex:1;display:flex;flex-direction:column;gap:3px}
+.plan-item .pi-t{font-weight:700;font-size:.8rem;line-height:1.25;letter-spacing:-.01em}
+.plan-item .pi-s{font-size:.66rem;color:var(--ink-soft);font-weight:600;line-height:1.3}
+.plan-item .pi-s b{color:var(--acc)}
+.plan-item .pi-track{height:3px;border-radius:2px;background:var(--line-strong);overflow:hidden;margin-top:4px}
+.plan-item .pi-track > i{display:block;height:100%;background:var(--acc);transition:width .5s var(--easeout)}
+.plan-item .pi-n{flex:none;font-weight:700;font-size:.72rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.plan-item.done{border-color:var(--line)}
+.plan-item.done .pi-ico{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
+.plan-item.done .pi-track > i{background:var(--ok)}
+.plan-item.done .pi-n{color:var(--ok)}
+
+/* cartões do diagnóstico: o número da posição é o assunto */
+.ponto-card{
+  display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;margin-bottom:9px;
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;
+  color:var(--ink);box-shadow:none;transition:transform .25s var(--spring);
+}
+.ponto-card:active{transform:scale(.98)}
+.ponto-card .pc-rank{flex:none;width:24px;height:24px;border-radius:8px;background:var(--acc);
+  color:var(--on-acc);display:grid;place-items:center;font-family:var(--font-display);
+  font-weight:800;font-size:.74rem;font-variant-numeric:tabular-nums}
+.ponto-card .pc-body{min-width:0;flex:1;display:flex;flex-direction:column;gap:4px}
+.ponto-card .pc-tema{font-weight:700;font-size:.83rem;line-height:1.3;letter-spacing:-.01em}
+.ponto-card .pc-mat{font-size:.594rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+.ponto-card .pc-nums{font-size:.68rem;color:var(--ink-soft);font-weight:600;line-height:1.45;font-variant-numeric:tabular-nums}
+.ponto-card .pc-nums b{color:var(--ink);font-weight:700}
+.ponto-card .pc-motivo{font-family:var(--font-serif);font-size:.78rem;line-height:1.4;color:var(--acc);margin-top:2px}
+
+/* aviso de replanejamento — a hora em que o app assume o dia furado */
+.replan{display:flex;gap:9px;align-items:flex-start;background:var(--acc-soft);
+  border:1px solid var(--acc);border-radius:13px;padding:12px 13px;margin-bottom:10px;
+  font-size:.73rem;line-height:1.5;color:var(--ink)}
+.replan svg.ic{width:16px;height:16px;flex:none;color:var(--acc);margin-top:1px}
+.replan b{font-weight:700}
+
+/* a semana em 7 colunas */
+.semana{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;align-items:end}
+.sd{display:flex;flex-direction:column;align-items:center;gap:5px}
+.sd-bar{height:34px;width:100%;border-radius:6px;background:var(--bg);display:flex;align-items:flex-end;overflow:hidden}
+.sd-bar > i{display:block;width:100%;background:var(--line-strong);border-radius:6px}
+.sd b{font-size:.72rem;font-weight:700;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.sd-wd{font-size:.58rem;font-weight:700;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.04em}
+.sd.ok .sd-bar > i{background:var(--ok)}
+.sd.ok b{color:var(--ok)}
+.sd.furou .sd-bar{border:1px solid var(--no)}
+.sd.furou .sd-bar > i{background:var(--no-soft)}
+.sd.furou b{color:var(--no)}
+.sd.hoje .sd-bar{outline:2px solid var(--acc);outline-offset:1px}
+.sd.hoje .sd-bar > i{background:var(--acc)}
+.sd.hoje b,.sd.hoje .sd-wd{color:var(--acc)}
+.sd.fut{opacity:.7}
+.sd.folga{opacity:.42}
+.sd.folga .sd-bar{background:transparent;border:1px dashed var(--line-strong)}
+/* dia anterior ao nascimento do plano: não é folga nem dia furado */
+.sd.antes{opacity:.3}
+.sd.antes .sd-bar{background:transparent;border:1px solid var(--line)}
+
+/* seletor de dias de estudo */
+.dow{display:flex;gap:6px}
+.dow-b{flex:1;padding:9px 0;border-radius:10px;border:1px solid var(--line-strong);
+  background:transparent;color:var(--ink-faint);font-weight:700;font-size:.74rem;
+  font-family:var(--font);transition:transform .2s var(--spring)}
+.dow-b:active{transform:scale(.92)}
+.dow-b.on{background:var(--acc);border-color:transparent;color:var(--on-acc)}
+
+/* ciclo regressivo: as 4 fases e a mistura de cada uma */
+.ritmo{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.rt-row{display:flex;align-items:center;gap:9px;padding:7px 0;opacity:.55}
+.rt-row.on{opacity:1}
+.rt-row.on .rt-n{color:var(--acc)}
+.rt-n{width:26%;flex:none;font-size:.72rem;font-weight:700}
+.rt-f{width:26%;flex:none;font-family:var(--font-mono);font-size:.58rem;color:var(--ink-faint)}
+.rt-mix{flex:1;display:flex;height:7px;border-radius:4px;overflow:hidden;background:var(--bg)}
+.rt-mix > i{display:block;height:100%}
+.rt-novo{background:var(--acc)}
+.rt-ref{background:color-mix(in srgb,var(--acc) 45%,transparent)}
+.rt-rev{background:var(--blue)}
+.rt-leg{display:flex;gap:12px;margin-top:10px;font-size:.62rem;font-weight:700;color:var(--ink-faint)}
+.rt-leg span{display:inline-flex;align-items:center;gap:5px}
+.rt-leg i{width:9px;height:9px;border-radius:3px;display:inline-block}
+
+/* nav com 6 abas: aperta a tipografia, mantém o alvo de toque */
+.nav.n6 button{font-size:.5rem;gap:2px;letter-spacing:-.01em}
+.nav.n6 button svg.ic{width:17px;height:17px}
+.nav.n6 .badge{right:14%}
+@media (max-width:359px){
+  .nav.n6 button{font-size:.46rem}
+  .nav.n6 button svg.ic{width:16px;height:16px}
+}

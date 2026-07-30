@@ -7,7 +7,7 @@
   var DATA = null; // dados da prova ativa (definidos em loadProva)
   var DAY = 86400000;
   var KEY = "dperj_state_v1";
-  var APP_VERSION = "4.3"; // exibida no Perfil; usada pela checagem de atualização
+  var APP_VERSION = "4.4"; // exibida no Perfil; usada pela checagem de atualização
   var REDUCED = false;
   try { REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
 
@@ -231,6 +231,56 @@
     if (repetidos.length) console.warn("Prova " + prova.id + ": questões repetidas em mais de uma lição → " + repetidos.join(", "));
   }
   PROVAS.forEach(resolverRefs);
+
+  /* Pontos do edital (edital.js) → conjuntos de questões. Cada ponto
+     declara onde treinar por `unidades`, `licoes` e/ou `questoes`; aqui
+     as três granularidades se somam num único `_qids`. Rodar depois de
+     `resolverRefs`, porque a ENAM só tem questões após a resolução. */
+  function resolverEdital(prova) {
+    var mapa = window.APP_EDITAL && window.APP_EDITAL[prova.id];
+    if (!mapa) { console.warn("Prova " + prova.id + ": sem pontos em edital.js — o Cronograma cai no modo de reserva (uma unidade = um ponto)."); return; }
+    var d = prova.data, licoesDaUnidade = {}, qidsDaLicao = {}, todas = {}, faltando = [];
+    d.units.forEach(function (u) {
+      licoesDaUnidade[u.id] = u.licoes.map(function (l) { return l.id; });
+      u.licoes.forEach(function (l) {
+        qidsDaLicao[l.id] = (l.questoes || []).map(function (q) { return q.id; });
+        qidsDaLicao[l.id].forEach(function (id) { todas[id] = l.id; });
+      });
+    });
+    var cobertas = {};
+    mapa.pontos.forEach(function (p) {
+      var set = {}, ordem = [];
+      function addQ(id) {
+        if (!(id in todas)) { faltando.push(p.id + " → questão " + id); return; }
+        if (!set[id]) { set[id] = 1; ordem.push(id); cobertas[id] = 1; }
+      }
+      function addL(lid) {
+        if (!(lid in qidsDaLicao)) { faltando.push(p.id + " → lição " + lid); return; }
+        qidsDaLicao[lid].forEach(addQ);
+      }
+      (p.unidades || []).forEach(function (uid) {
+        if (!(uid in licoesDaUnidade)) { faltando.push(p.id + " → unidade " + uid); return; }
+        licoesDaUnidade[uid].forEach(addL);
+      });
+      (p.licoes || []).forEach(addL);
+      (p.questoes || []).forEach(addQ);
+      p._qids = ordem;
+      p._prova = prova.id;
+    });
+    // Falhar barulhento, como em resolverRefs: id errado no edital.js
+    // sumiria do diagnóstico sem deixar rastro.
+    if (faltando.length) console.error("edital.js (" + prova.id + "): referências inexistentes → " + faltando.join(", "));
+    // E o aviso que mantém o mapa vivo: lote novo que ninguém mapeou.
+    var orfas = {};
+    for (var id in todas) if (!cobertas[id]) { var l = todas[id]; (orfas[l] = orfas[l] || []).push(id); }
+    var lics = Object.keys(orfas);
+    if (lics.length) {
+      console.warn("edital.js (" + prova.id + "): questões fora de qualquer ponto do edital — acrescente estas lições ao ponto certo:\n" +
+        lics.map(function (l) { return "  " + l + ": " + orfas[l].join(", "); }).join("\n"));
+    }
+  }
+  PROVAS.forEach(resolverEdital);
+
   function provaStats(p) {
     var lic = 0, feitas = 0, qs = 0;
     p.data.units.forEach(function (u) {
@@ -248,6 +298,9 @@
   var LESSON_BY_ID = {};
   var UNIT_BY_LESSON = {};
   var Q_BY_ID = {};
+  var PONTOS = [];             // pontos do edital da prova ativa
+  var PONTO_BY_ID = {};
+  var PONTOS_BY_QID = {};      // id de questão -> pontos que a contêm
   function loadProva(p) {
     PROVA = p; DATA = p.data;
     LESSONS = []; LESSON_BY_ID = {}; UNIT_BY_LESSON = {}; Q_BY_ID = {};
@@ -258,10 +311,29 @@
         LESSON_BY_ID[l.id] = l;
         UNIT_BY_LESSON[l.id] = u;
         l.questoes.forEach(function (q) {
-          q._materia = u.materia; q._topico = u.titulo;
+          q._materia = u.materia; q._topico = u.titulo; q._licao = l.id;
           Q_BY_ID[q.id] = q;
         });
       });
+    });
+    var mapa = window.APP_EDITAL && window.APP_EDITAL[p.id];
+    PONTOS = (mapa && mapa.pontos) || pontosDeReserva();
+    PONTO_BY_ID = {}; PONTOS_BY_QID = {};
+    PONTOS.forEach(function (pt) {
+      PONTO_BY_ID[pt.id] = pt;
+      (pt._qids || []).forEach(function (id) { (PONTOS_BY_QID[id] = PONTOS_BY_QID[id] || []).push(pt); });
+    });
+  }
+  /* Prova sem entrada no edital.js: cada unidade vira um ponto, sem
+     peso. O Cronograma continua funcionando (ranqueia pelo desempenho)
+     e a tela diz que o peso do edital ainda não foi mapeado. */
+  function pontosDeReserva() {
+    return DATA.units.map(function (u) {
+      return {
+        id: "u-" + u.id, banca: u.banca || "I", materia: u.materia, tema: u.titulo,
+        peso: null, _prova: PROVA.id, _reserva: true,
+        _qids: u.licoes.reduce(function (a, l) { return a.concat((l.questoes || []).map(function (q) { return q.id; })); }, [])
+      };
     });
   }
 
@@ -284,6 +356,10 @@
       meta: { data: null, diaria: 20 }, // data da prova (YYYY-MM-DD) e meta de questões/dia
       hoje: { day: null, answered: 0, correct: 0, metaOk: false }, // contadores do dia
       dias: {},      // histórico: "YYYY-MM-DD" -> questões respondidas (calendário)
+      byQ: {},       // acerto por questão: id -> { t: tentativas, c: acertos }
+      migByQ: 0,     // 1 = o byQ já foi semeado com o histórico antigo (ver load)
+      diasEstudo: [1, 2, 3, 4, 5, 6], // dias da semana que você estuda (0=dom … 6=sáb)
+      plano: null,   // cronograma da semana: ver gerarPlano()
       conta: null,   // { uid, email, refresh, syncAt } quando logado (não vai para a nuvem)
       mudadoEm: 0    // última mudança relevante de progresso (decide quem é mais novo no sync)
     };
@@ -308,6 +384,23 @@
           if (k.indexOf("|") === -1) { t["dpe-rj|" + k] = t[k]; delete t[k]; }
         }
       });
+      // migração: o acerto por questão (byQ) nasceu com o Cronograma. Sem
+      // semear, o diagnóstico do edital abriria "sem dados" para quem já
+      // estudou meses. O app nunca guardou tentativa por questão, então
+      // reconstrói o PISO do histórico a partir do que existe: quem tem
+      // ficha de revisão foi respondida ao menos uma vez, e o caderno de
+      // erros diz quantas vezes errou. Roda uma vez só.
+      if (!s.migByQ) {
+        s.byQ = s.byQ || {};
+        for (var qid in (s.srs || {})) {
+          if (s.byQ[qid]) continue;
+          var er = (s.errors || {})[qid];
+          var errado = (er && er.count) || 0;
+          var acertou = er ? (er.resolved ? 1 : 0) : 1;
+          s.byQ[qid] = { t: errado + acertou, c: acertou };
+        }
+        s.migByQ = 1;
+      }
       return s;
     } catch (e) { return defaultState(); }
   }
@@ -1096,6 +1189,363 @@
     return { qs: out, rev: nRev, ref: nRef, novas: nNov };
   }
 
+  /* ============================================================
+     DIAGNÓSTICO DO EDITAL
+     Cruza ponto do edital × seu acerto × peso (incidência) para
+     responder "o que vale mais estudar hoje". Todo número que
+     entra na conta também aparece na tela: mentoria que não
+     mostra a razão é adivinhação.
+     ============================================================ */
+  var DIAG_CONF = 8;     // respostas para o acerto de um ponto valer inteiro
+  var PESO_PADRAO = 3;   // peso de ponto sem peso mapeado no edital.js
+
+  function statsDoPonto(p) {
+    var qids = p._qids || [], agora = Date.now();
+    var total = 0, correct = 0, vistos = 0, due = 0, errados = 0;
+    qids.forEach(function (id) {
+      var b = S.byQ[id];
+      if (b) { total += b.t || 0; correct += b.c || 0; }
+      var c = S.srs[id];
+      if (c) { vistos += 1; if (c.due <= agora) due += 1; }
+      if (S.errors[id] && !S.errors[id].resolved) errados += 1;
+    });
+    var n = qids.length;
+    return {
+      qs: n, total: total, correct: correct, vistos: vistos, due: due, errados: errados,
+      acerto: total ? correct / total : null,
+      cobertura: n ? vistos / n : 0
+    };
+  }
+
+  function diagnostico() {
+    var lista = [];
+    PONTOS.forEach(function (p) {
+      var st = statsDoPonto(p);
+      var peso = (p.peso === null || p.peso === undefined) ? PESO_PADRAO : p.peso;
+      /* Três lacunas distintas, sem contar a mesma ignorância duas vezes:
+         - lacuna : o que você ERRA de fato, pesada pela confiança (2 questões
+                    respondidas não definem um ponto de 14; 8 já definem);
+         - desconh: o que você nem abriu ainda;
+         - atraso : o que você sabia e o SM-2 diz que está vencendo.
+         Um ponto nunca aberto pontua só em `desconh` — se também entrasse em
+         `lacuna` por um acerto presumido, "nunca vi" abafaria "erro muito",
+         que é justamente o eixo que o diagnóstico existe para mostrar. */
+      var conf = Math.min(1, st.total / DIAG_CONF);
+      var lacuna = st.total ? (1 - st.correct / st.total) * conf : 0;
+      var desconh = 1 - st.cobertura;
+      var atraso = st.qs ? st.due / st.qs : 0;
+      var termos = { lacuna: 0.50 * lacuna, desconh: 0.30 * desconh, atraso: 0.20 * atraso };
+      var dom = "lacuna";
+      for (var k in termos) if (termos[k] > termos[dom]) dom = k;
+      lista.push({
+        p: p, st: st, peso: peso, semPeso: p.peso === null || p.peso === undefined,
+        lacuna: lacuna, desconh: desconh, atraso: atraso, dom: dom, conf: conf,
+        valor: st.qs ? peso * (termos.lacuna + termos.desconh + termos.atraso) : -1
+      });
+    });
+    var comQ = lista.filter(function (x) { return x.st.qs > 0; });
+    var semQ = lista.filter(function (x) { return x.st.qs === 0; });
+    // Empate é a regra em quem está começando (sem histórico, todo ponto
+    // de mesmo peso vale igual). Então desempata por peso, depois por
+    // tamanho do banco — mais questões, mais chão para ganhar — e por
+    // fim pelo id, para a ordem não dançar entre recargas.
+    function desempate(a, b) {
+      return (b.valor - a.valor) || (b.peso - a.peso) || (b.st.qs - a.st.qs) ||
+        (a.p.id < b.p.id ? -1 : a.p.id > b.p.id ? 1 : 0);
+    }
+    comQ.sort(desempate);
+    semQ.sort(function (a, b) { return (b.peso - a.peso) || (a.p.id < b.p.id ? -1 : 1); });
+    return { ranking: comQ, semQuestoes: semQ };
+  }
+
+  // a frase que justifica a posição do ponto no ranking
+  function motivoDiag(d) {
+    var fim = d.dom === "desconh" ? "você quase não treinou aqui."
+      : d.dom === "atraso" ? "você está esquecendo o que já sabia."
+      : "você acerta pouco.";
+    if (d.semPeso) return fim.charAt(0).toUpperCase() + fim.slice(1);
+    var forte = d.peso >= 4 ? "Vale muito" : d.peso >= 3 ? "Vale" : "Vale pouco, mas";
+    return forte + " e " + fim;
+  }
+
+  // questões de um ponto na ordem que mais rende: vencidas → erros
+  // pendentes → nunca vistas → o resto (mesma prioridade do Treino do dia)
+  function questoesDoPonto(p, limite) {
+    var agora = Date.now(), grupos = [[], [], [], []];
+    (p._qids || []).forEach(function (id) {
+      var q = Q_BY_ID[id]; if (!q) return;
+      var c = S.srs[id], erro = S.errors[id] && !S.errors[id].resolved;
+      if (c && c.due <= agora) grupos[0].push(q);
+      else if (erro) grupos[1].push(q);
+      else if (!c) grupos[2].push(q);
+      else grupos[3].push(q);
+    });
+    var out = grupos[0].concat(grupos[1], grupos[2], grupos[3]);
+    return limite ? out.slice(0, limite) : out;
+  }
+
+  /* ============================================================
+     CICLO DE ESTUDOS REGRESSIVO
+     O plano da semana distribui a meta diária pelos pontos que o
+     diagnóstico apontou, e o mix novo/reforço/revisão vai virando
+     revisão conforme a prova chega. Quando um dia é furado, a
+     dívida é redistribuída com teto — é o que impede a bola de
+     neve que mata todo cronograma.
+     ============================================================ */
+  var TETO_DIA = 1.5;   // nenhum dia passa de 1,5× a meta diária
+
+  function diasParaProva() {
+    if (!(S.meta && S.meta.data)) return null;
+    var p = S.meta.data.split("-");
+    var alvo = new Date(+p[0], +p[1] - 1, +p[2]);
+    var hoje0 = new Date(); hoje0.setHours(0, 0, 0, 0);
+    return Math.round((alvo - hoje0) / DAY);
+  }
+  var FASES = [
+    { max: 6,        id: "vespera", nome: "Véspera",     novo: 0.00, ref: 0.30, rev: 0.70 },
+    { max: 29,       id: "reta",    nome: "Reta final",  novo: 0.25, ref: 0.30, rev: 0.45 },
+    { max: 89,       id: "meio",    nome: "Consolidação",novo: 0.45, ref: 0.30, rev: 0.25 },
+    { max: Infinity, id: "base",    nome: "Construção",  novo: 0.60, ref: 0.25, rev: 0.15 }
+  ];
+  function faseAtual() {
+    var d = diasParaProva();
+    if (d === null) return FASES[2];              // sem data: assume consolidação
+    if (d < 0) return FASES[3];                   // prova passou: volta a construir
+    for (var i = 0; i < FASES.length; i++) if (d <= FASES[i].max) return FASES[i];
+    return FASES[3];
+  }
+
+  // segunda-feira da semana ISO corrente, em "YYYY-MM-DD"
+  function segundaDaSemana(t) {
+    var d = new Date(t || Date.now());
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+    return dayStr(d.getTime());
+  }
+  function diaDaSemana(ds) {
+    var p = ds.split("-");
+    return new Date(+p[0], +p[1] - 1, +p[2]).getDay();
+  }
+  function ehDiaDeEstudo(ds) {
+    var lst = S.diasEstudo && S.diasEstudo.length ? S.diasEstudo : [0, 1, 2, 3, 4, 5, 6];
+    return lst.indexOf(diaDaSemana(ds)) !== -1;
+  }
+  function diasDaSemana() {
+    var ini = segundaDaSemana(), p = ini.split("-");
+    var base = new Date(+p[0], +p[1] - 1, +p[2]).getTime(), out = [];
+    for (var i = 0; i < 7; i++) out.push(dayStr(base + i * DAY));
+    return out;
+  }
+  function metaDiaria() { return (S.meta && S.meta.diaria) || 20; }
+
+  function gerarPlano() {
+    var diag = diagnostico(), fase = faseAtual(), meta = metaDiaria();
+    var hoje = dayStr();
+    var dias = diasDaSemana(), plano = { prova: PROVA.id, semana: weekId(), ini: dias[0], criado: hoje, dias: {}, cortados: [], geradoEm: Date.now(), refeitoEm: 0, fase: fase.id };
+
+    // fila de pontos por valor, com as travas do ciclo: no máximo 2 do
+    // mesmo tema por dia e toda matéria com ponto ativo aparece na semana
+    var fila = diag.ranking.slice(0, 40);
+    // Na véspera não há tempo de ser completo, só de ser certeiro: fica
+    // o que a banca mais cobra. (Se sobrar pouco, volta a fila inteira.)
+    if (fase.id === "vespera") {
+      var pesados = fila.filter(function (d) { return d.peso >= 4; });
+      if (pesados.length >= 6) fila = pesados;
+    }
+    if (!fila.length) { plano.vazio = true; return plano; }
+    var usadoNaSemana = {}, cursor = 0;
+    function proximo(materiasDoDia, jaNoDia) {
+      for (var volta = 0; volta < fila.length * 2; volta++) {
+        var d = fila[cursor % fila.length];
+        cursor += 1;
+        if (jaNoDia[d.p.id]) continue;
+        if ((materiasDoDia[d.p.materia] || 0) >= 2) continue;
+        return d;
+      }
+      return null;
+    }
+    // Só distribui de hoje para a frente: dia que já passou quando o
+    // plano nasceu não é dia furado — não existia plano para furar.
+    var estudo = dias.filter(function (ds) { return ehDiaDeEstudo(ds) && ds >= hoje; });
+    // matéria que ainda não apareceu entra na frente uma vez por semana —
+    // menos na véspera, quando espalhar por todas as matérias é o erro
+    var porMateria = {};
+    fila.forEach(function (d) { if (!porMateria[d.p.materia]) porMateria[d.p.materia] = d; });
+    var pendentes = fase.id === "vespera" ? [] : Object.keys(porMateria);
+
+    /* Cota de revisão do dia. Duas correções sobre a porcentagem crua
+       da fase: (1) nunca pedir mais revisão do que há questão vencida —
+       item impossível de fechar desmoraliza o plano; (2) quando a pilha
+       de vencidas já passa de um dia inteiro de meta, ela toma metade do
+       dia até drenar: esquecer o que já se sabia custa mais caro que
+       não ter visto ainda. */
+    var vencidas = dueQuestions().length;
+    var cotaRev = Math.round(meta * fase.rev);
+    if (vencidas >= meta) cotaRev = Math.max(cotaRev, Math.round(meta * 0.5));
+    cotaRev = Math.min(cotaRev, vencidas);
+
+    estudo.forEach(function (ds, i) {
+      var itens = [], materiasDoDia = {}, jaNoDia = {};
+      var volumeRev = cotaRev;
+      if (volumeRev > 0) itens.push({ ponto: null, rev: true, alvo: volumeRev, feito: 0 });
+      var resto = meta - volumeRev;
+      // 2 ou 3 pontos por dia, conforme sobra de volume
+      var nPontos = resto >= 14 ? 3 : 2;
+      var fatias = [];
+      for (var k = 0; k < nPontos; k++) fatias.push(0);
+      for (var q = 0; q < resto; q++) fatias[q % nPontos] += 1;
+      for (var j = 0; j < nPontos; j++) {
+        var d = null;
+        // garante presença semanal de cada matéria antes de repetir as fortes
+        while (pendentes.length && !d) {
+          var cand = porMateria[pendentes[0]];
+          if (usadoNaSemana[cand.p.id]) { pendentes.shift(); continue; }
+          if (!jaNoDia[cand.p.id] && (materiasDoDia[cand.p.materia] || 0) < 2) { d = cand; pendentes.shift(); }
+          else break;
+        }
+        if (!d) d = proximo(materiasDoDia, jaNoDia);
+        if (!d || !fatias[j]) continue;
+        jaNoDia[d.p.id] = 1;
+        materiasDoDia[d.p.materia] = (materiasDoDia[d.p.materia] || 0) + 1;
+        usadoNaSemana[d.p.id] = 1;
+        itens.push({ ponto: d.p.id, alvo: fatias[j], feito: 0, peso: d.peso });
+      }
+      plano.dias[ds] = itens;
+    });
+    // dias de folga entram no plano como folga explícita (não geram dívida)
+    dias.forEach(function (ds) { if (!plano.dias[ds]) plano.dias[ds] = []; });
+    return plano;
+  }
+
+  /* Redistribuição: chamada no boot e ao abrir o Cronograma.
+     1. semana ou prova mudou  → plano novo, diagnóstico fresco
+     2. dia de estudo passado com alvo não cumprido → dívida, por ponto
+     3. dívida volta nos dias restantes (no ponto de origem), teto 1,5× a meta
+     4. o que não couber sai da semana, começando pelo ponto de MENOR peso */
+  function ensurePlano(forcar) {
+    if (!PROVA) return;
+    if (forcar || !S.plano || S.plano.prova !== PROVA.id || S.plano.semana !== weekId()) {
+      S.plano = gerarPlano();
+      save();
+      return;
+    }
+    var pl = S.plano, hoje = dayStr(), dias = diasDaSemana();
+
+    /* 1. Levanta a dívida POR PONTO. Guardar só o total faria a dívida de
+       Execução Penal reaparecer como questão de Constitucional — você deve
+       o assunto que deixou de estudar, não um número solto. */
+    var devePorPonto = {}, divida = 0, furados = [];
+    dias.forEach(function (ds) {
+      if (ds >= hoje) return;
+      if (ds < (pl.criado || pl.ini)) return;         // anterior ao plano: não há dívida
+      var itens = pl.dias[ds] || [];
+      if (!itens.length) return;                      // folga: nada a devolver
+      var falta = 0;
+      itens.forEach(function (it) {
+        if (it.cortado || it.migrado) return;
+        // revisão não vira dívida: o SM-2 já reagenda o que você não
+        // revisou. Cobrar duas vezes pelo mesmo esquecimento é o que
+        // transforma um dia perdido em muro na quinta-feira.
+        if (it.rev) { it.migrado = 1; return; }
+        var f = (it.alvo || 0) - (it.feito || 0);
+        if (f > 0) {
+          devePorPonto[it.ponto] = (devePorPonto[it.ponto] || 0) + f;
+          falta += f; it.migrado = 1;
+        }
+      });
+      if (falta > 0) { divida += falta; furados.push(ds); }
+    });
+    if (!divida) return;
+
+    /* 2. Devolve o que couber, do ponto de MAIOR peso para o de menor: se
+       nem tudo cabe, o que sobrevive à semana é o que mais rende na prova. */
+    var ledger = Object.keys(devePorPonto).map(function (id) {
+      var p = PONTO_BY_ID[id];
+      return { id: id, qtd: devePorPonto[id], peso: p ? (p.peso || PESO_PADRAO) : 0 };
+    }).sort(function (a, b) { return b.peso - a.peso; });
+
+    var futuros = dias.filter(function (ds) { return ds >= hoje && ehDiaDeEstudo(ds) && (pl.dias[ds] || []).length; });
+    var teto = Math.round(metaDiaria() * TETO_DIA), colocado = 0, li = 0;
+    futuros.forEach(function (ds) {
+      var itens = pl.dias[ds];
+      var carga = itens.reduce(function (a, it) { return a + (it.alvo || 0); }, 0);
+      var espaco = Math.max(0, teto - carga);
+      while (espaco > 0 && li < ledger.length) {
+        var lg = ledger[li];
+        if (lg.qtd <= 0) { li += 1; continue; }
+        var por = Math.min(espaco, lg.qtd);
+        // a dívida volta para o SEU ponto: soma no item do dia se ele já
+        // estiver lá, senão entra como item próprio
+        var alvoIt = null;
+        for (var i = 0; i < itens.length; i++) if (itens[i].ponto === lg.id) { alvoIt = itens[i]; break; }
+        if (!alvoIt) {
+          alvoIt = { ponto: lg.id, alvo: 0, feito: 0, peso: lg.peso };
+          itens.push(alvoIt);
+        }
+        alvoIt.alvo += por;
+        alvoIt.devido = (alvoIt.devido || 0) + por;
+        lg.qtd -= por; espaco -= por; colocado += por;
+      }
+    });
+
+    /* 3. O que não couber sai da semana — e o app diz qual e por quê. Sem
+       este corte, furar segunda vira uma quinta-feira impossível, e é aí
+       que o concurseiro abandona o cronograma. */
+    pl.cortados = [];
+    ledger.forEach(function (lg) {
+      if (lg.qtd > 0) pl.cortados.push({ ponto: lg.id, peso: lg.peso, qtd: lg.qtd });
+    });
+    pl.cortados.sort(function (a, b) { return a.peso - b.peso; });
+    pl.refeitoEm = Date.now();
+    pl.furados = furados;
+    pl.dividaUltima = divida;
+    pl.dividaColocada = colocado;
+    save();
+  }
+
+  // itens de hoje que ainda valem (sem os cortados)
+  function itensDeHoje() {
+    if (!S.plano || !S.plano.dias) return [];
+    return (S.plano.dias[dayStr()] || []).filter(function (it) { return !it.cortado; });
+  }
+  // uma resposta em qualquer lugar do app conta no cronograma
+  function creditarNoPlano(q, foiRevisaoVencida) {
+    var itens = itensDeHoje();
+    if (!itens.length) return;
+    var pontos = PONTOS_BY_QID[q.id] || [];
+    for (var i = 0; i < itens.length; i++) {
+      var it = itens[i];
+      if (it.rev) continue;
+      for (var j = 0; j < pontos.length; j++) {
+        if (pontos[j].id === it.ponto && (it.feito || 0) < (it.alvo || 0)) { it.feito = (it.feito || 0) + 1; return; }
+      }
+    }
+    // não era de nenhum ponto do dia: se veio vencida, abate a cota de revisão
+    if (foiRevisaoVencida) {
+      for (var k = 0; k < itens.length; k++) {
+        if (itens[k].rev && (itens[k].feito || 0) < (itens[k].alvo || 0)) { itens[k].feito = (itens[k].feito || 0) + 1; return; }
+      }
+    }
+  }
+  // sessão "Começar o dia": junta o que o plano de hoje pede
+  function questoesDoDia() {
+    var out = [], usados = {};
+    function add(q) { if (q && !usados[q.id]) { usados[q.id] = 1; out.push(q); } }
+    itensDeHoje().forEach(function (it) {
+      var falta = Math.max(0, (it.alvo || 0) - (it.feito || 0));
+      if (!falta) return;
+      if (it.rev) {
+        dueQuestions().sort(function (a, b) { return S.srs[a.id].due - S.srs[b.id].due; }).slice(0, falta).forEach(add);
+        return;
+      }
+      var p = PONTO_BY_ID[it.ponto];
+      if (p) questoesDoPonto(p, falta).forEach(add);
+    });
+    // plano cumprido (ou sem nada a fazer): cai no Treino do dia
+    if (!out.length) return treinoDoDia().qs;
+    return out;
+  }
+
   /* ---------- conquistas (medalhas) ---------- */
   function lessonsDoneCount() { var n = 0; for (var k in S.lessons) if (S.lessons[k].completed) n++; return n; }
   function blitzMax() { var m = 0; for (var k in (S.blitz || {})) m = Math.max(m, S.blitz[k].best || 0); return m; }
@@ -1269,7 +1719,8 @@
         (badge ? '<span class="badge">' + badge + '</span>' : '') +
         icon(ico) + label + '</button>';
     }
-    return '<div class="nav">' +
+    return '<div class="nav n6">' +
+      b("cronograma", "calendar", "Plano", 0) +
       b("trilha", "trail", "Trilha", 0) +
       b("revisar", "refresh", "Revisar", due) +
       b("erros", "bookmark", "Erros", errs) +
@@ -1394,8 +1845,253 @@
     } else render();
   }
 
-  /* ---------- Screen: Trilha ---------- */
   var screens = {};
+
+  /* ---------- Screen: Cronograma (a mentoria) ----------
+     A ordem da tela é a ordem da conversa: primeiro o que fazer
+     hoje, depois por que esses pontos, depois como a semana está,
+     e por fim o que o app ainda não consegue treinar. */
+  var DIAS_CURTO = ["dom", "seg", "ter", "qua", "qui", "sex", "sáb"];
+  var DIAS_LONGO = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+  var PONTO_ALVO = 10;   // tamanho da sessão "treinar este ponto"
+  var verTodosPontos = false;
+
+  screens.cronograma = function () {
+    ensureHoje();
+    ensurePlano();
+    var diag = diagnostico();
+    var fase = faseAtual(), dias = diasParaProva();
+    var itens = itensDeHoje();
+    var pl = S.plano || {};
+    var alvoHoje = itens.reduce(function (a, it) { return a + (it.alvo || 0); }, 0);
+    var feitoHoje = itens.reduce(function (a, it) { return a + Math.min(it.feito || 0, it.alvo || 0); }, 0);
+
+    var h = '<div class="trail-head"><h1>Seu plano de hoje</h1><p>' +
+      esc(DATA.meta.concurso) + '</p>' + metaStripHtml() + '</div>';
+
+    /* ---- 1. a abertura: o veredito do dia em uma frase ---- */
+    var frase, cta = true;
+    if (!alvoHoje) {
+      frase = ehDiaDeEstudo(dayStr())
+        ? 'Nada no plano de hoje — o diagnóstico não achou ponto para treinar ainda. Responda algumas questões na trilha e volte.'
+        : 'Hoje é seu dia de folga. Nada aqui gera dívida — descansar faz parte do ciclo.';
+      cta = false;
+    } else {
+      var partes = [];
+      if (dias !== null && dias > 1) partes.push('Faltam <b>' + dias + ' dias</b>');
+      else if (dias === 1) partes.push('A prova é <b>amanhã</b>');
+      else if (dias === 0) partes.push('<b>É hoje</b>');
+      // a frase precisa caber numa respiração: nomeia o maior ponto do
+      // dia (com o motivo) e resume o resto
+      var rev = 0, temas = [];
+      itens.forEach(function (it) {
+        if (it.rev) { rev += it.alvo || 0; return; }
+        var p = PONTO_BY_ID[it.ponto];
+        if (p) temas.push({ n: it.alvo || 0, p: p });
+      });
+      temas.sort(function (a, b) { return b.n - a.n; });
+      var desc = [];
+      if (rev) desc.push('<b>' + rev + '</b> de revisão vencida');
+      if (temas.length) {
+        var t0 = temas[0];
+        var d0 = diag.ranking.filter(function (x) { return x.p.id === t0.p.id; })[0];
+        var razao = d0 ? (d0.semPeso ? '' : 'peso ' + d0.peso +
+          (d0.st.total ? ', você acerta ' + Math.round(d0.st.acerto * 100) + '%' : ', ainda sem histórico')) : '';
+        desc.push('<b>' + t0.n + '</b> em ' + esc(curto(t0.p.tema)) + (razao ? ' (' + razao + ')' : ''));
+        var resto = temas.slice(1).reduce(function (a, x) { return a + x.n; }, 0);
+        if (resto) desc.push('<b>' + resto + '</b> em ' + (temas.length === 2 ? esc(curto(temas[1].p.tema)) : 'outros ' + (temas.length - 1) + ' pontos'));
+      }
+      partes.push('Hoje são <b>' + alvoHoje + ' questões</b>: ' + desc.join(', '));
+      frase = partes.join('. ') + '.';
+    }
+    // a etiqueta mostra a fatia REAL de revisão do dia, não a nominal da
+    // fase: quando a pilha de vencidas estoura, ela toma metade do dia, e
+    // anunciar "15% revisão" enquanto o plano pede 50% seria mentira
+    var revHoje = itens.reduce(function (a, it) { return a + (it.rev ? (it.alvo || 0) : 0); }, 0);
+    var pctRev = alvoHoje ? Math.round(revHoje / alvoHoje * 100) : Math.round(fase.rev * 100);
+    h += '<div class="mentor">' +
+      '<div class="mt-fase">' + icon("target") + ' ' + fase.nome + ' · ' + pctRev + '% revisão' +
+      (dias === null ? ' · <button class="ms-set" data-action="go-perfil">sem data da prova</button>' : '') + '</div>' +
+      '<p class="mt-frase">' + frase + '</p>' +
+      (cta ? '<button class="btn" data-action="start-dia">' +
+        (feitoHoje >= alvoHoje ? 'Dia cumprido — treinar mais' : (feitoHoje ? 'Continuar o dia' : 'Começar o dia')) +
+        '</button>' : '') +
+      '</div>';
+
+    /* ---- 2. checklist de hoje ---- */
+    if (alvoHoje) {
+      h += '<div class="page-title" style="font-size:1.1rem">Hoje <span class="conq-count">' + feitoHoje + '/' + alvoHoje + '</span></div>';
+      itens.forEach(function (it) {
+        var feito = Math.min(it.feito || 0, it.alvo || 0);
+        var pct = it.alvo ? Math.round(feito / it.alvo * 100) : 0;
+        var pronto = feito >= (it.alvo || 0);
+        var nome, sub, attr = '';
+        if (it.rev) {
+          nome = 'Revisões vencidas';
+          var nDue = dueQuestions().length;
+          sub = nDue ? nDue + (nDue === 1 ? ' questão vencida no banco' : ' questões vencidas no banco') : 'nada vencido agora';
+          attr = ' data-review="plano"';
+        } else {
+          var p = PONTO_BY_ID[it.ponto];
+          if (!p) return;
+          nome = p.tema;
+          sub = (p.peso ? 'peso ' + p.peso + '/5 · ' : '') + esc(p.materia) +
+            (it.devido ? ' · <b>+' + it.devido + ' de dia furado</b>' : '');
+          attr = ' data-ponto="' + esc(p.id) + '"';
+        }
+        h += '<button class="plan-item' + (pronto ? ' done' : '') + '"' + attr + '>' +
+          '<span class="pi-ico">' + icon(pronto ? "check" : (it.rev ? "refresh" : "target")) + '</span>' +
+          '<span class="pi-info"><span class="pi-t">' + esc(nome) + '</span>' +
+          '<span class="pi-s">' + sub + '</span>' +
+          '<span class="pi-track"><i style="width:' + pct + '%"></i></span></span>' +
+          '<span class="pi-n">' + feito + '/' + it.alvo + '</span>' +
+          '</button>';
+      });
+    }
+
+    /* ---- 3. o diagnóstico ---- */
+    var semPesoAqui = diag.ranking.length && diag.ranking[0].semPeso;
+    h += '<div class="page-title" style="font-size:1.1rem">Seus 5 pontos que mais valem hoje</div>';
+    if (!diag.ranking.length) {
+      h += '<div class="empty"><div class="e-ico">' + icon("target") + '</div><b>Sem pontos para diagnosticar.</b><br>' +
+        'Esta prova ainda não tem pontos do edital mapeados.</div>';
+    } else {
+      h += '<p class="page-sub">' + (semPesoAqui
+        ? 'Esta prova ainda não tem o peso do edital mapeado — a ordem abaixo usa só o seu desempenho.'
+        : 'Peso do edital × seu acerto × o que você está esquecendo. Toque para treinar o ponto.') + '</p>';
+      /* Os 5 da abertura levam no máximo 2 pontos da mesma matéria: um
+         top-5 com quatro temas de Civil está certo na conta e é péssimo
+         como conselho — a lista existe para dizer onde ATACAR, e atacar
+         uma matéria só desequilibra a prova. A lista completa, no botão
+         abaixo, segue na ordem crua do ranking. */
+      var mostra;
+      if (verTodosPontos) mostra = diag.ranking;
+      else {
+        mostra = [];
+        var porMat = {};
+        for (var mi = 0; mi < diag.ranking.length && mostra.length < 5; mi++) {
+          var cand = diag.ranking[mi];
+          if ((porMat[cand.p.materia] || 0) >= 2) continue;
+          porMat[cand.p.materia] = (porMat[cand.p.materia] || 0) + 1;
+          mostra.push(cand);
+        }
+      }
+      mostra.forEach(function (d, i) {
+        var st = d.st;
+        var accTxt = st.total ? Math.round(st.acerto * 100) + '%' : '—';
+        h += '<button class="ponto-card" data-ponto="' + esc(d.p.id) + '">' +
+          '<span class="pc-rank">' + (i + 1) + '</span>' +
+          '<span class="pc-body">' +
+          '<span class="pc-tema">' + esc(d.p.tema) + '</span>' +
+          '<span class="pc-mat">' + esc(d.p.materia) + '</span>' +
+          '<span class="pc-nums">' +
+          (d.semPeso ? '' : '<b>Peso ' + d.peso + '/5</b> · ') +
+          'acerta <b>' + accTxt + '</b>' +
+          ' · <b>' + st.vistos + '/' + st.qs + '</b> ' + (st.qs === 1 ? 'questão vista' : 'questões vistas') +
+          (st.due ? ' · <b>' + st.due + '</b> ' + (st.due === 1 ? 'vencida' : 'vencidas') : '') +
+          (st.errados ? ' · <b>' + st.errados + '</b> no caderno de erros' : '') +
+          '</span>' +
+          '<span class="pc-motivo">' + esc(motivoDiag(d)) + '</span>' +
+          '</span></button>';
+      });
+      if (diag.ranking.length > 5) {
+        h += '<button class="btn ghost" data-action="ver-pontos">' +
+          (verTodosPontos ? 'Ver só os 5 principais' : 'Ver todos os ' + diag.ranking.length + ' pontos') + '</button>';
+      }
+    }
+
+    /* ---- 4. a semana ---- */
+    h += '<div class="page-title" style="font-size:1.1rem">A semana</div>';
+    if (pl.refeitoEm && pl.furados && pl.furados.length) {
+      var nomesFurados = pl.furados.map(function (ds) { return DIAS_CURTO[diaDaSemana(ds)]; });
+      var cortNomes = (pl.cortados || []).map(function (c) {
+        var p = PONTO_BY_ID[c.ponto];
+        return (p ? curto(p.tema) : c.ponto) + ' (' + c.qtd + 'q, peso ' + c.peso + ')';
+      });
+      var voltou = pl.dividaColocada || 0, foi = pl.dividaUltima - voltou;
+      h += '<div class="replan">' + icon("refresh") +
+        '<span>Você furou <b>' + nomesFurados.join(', ') + '</b> — ' + pl.dividaUltima +
+        (pl.dividaUltima === 1 ? ' questão' : ' questões') + ' em aberto. ' +
+        (voltou ? '<b>' + voltou + '</b> ' + (voltou === 1 ? 'voltou' : 'voltaram') +
+          ' para os dias seguintes, sem nenhum dia passar de ' + Math.round(metaDiaria() * TETO_DIA) + '. ' : '') +
+        (foi > 0 ? '<b>' + foi + '</b> ' + (foi === 1 ? 'saiu' : 'saíram') +
+          ' da semana, começando pelo que vale menos: ' + esc(cortNomes.join('; ')) + '. ' : '') +
+        'O plano se refez — sem bola de neve.</span></div>';
+    }
+    h += '<div class="card"><div class="semana">';
+    diasDaSemana().forEach(function (ds) {
+      var lst = (pl.dias && pl.dias[ds]) || [];
+      var alvo = 0, feito = 0;
+      lst.forEach(function (it) { if (it.cortado) return; alvo += it.alvo || 0; feito += Math.min(it.feito || 0, it.alvo || 0); });
+      var hoje = ds === dayStr();
+      var antes = ds < (pl.criado || pl.ini || ds);
+      var cls = "sd";
+      if (hoje && alvo) cls += " hoje";
+      else if (antes) cls += " antes";
+      else if (!alvo) cls += " folga";
+      else if (ds < dayStr()) cls += (feito >= alvo ? " ok" : " furou");
+      else cls += " fut";
+      var alt = alvo ? Math.max(8, Math.round(Math.min(1, feito / alvo) * 34)) : 0;
+      h += '<span class="' + cls + '" title="' + ds + '">' +
+        '<span class="sd-bar"><i style="height:' + alt + 'px"></i></span>' +
+        '<b>' + (alvo || '·') + '</b>' +
+        '<span class="sd-wd">' + DIAS_CURTO[diaDaSemana(ds)] + '</span></span>';
+    });
+    h += '</div>';
+    h += '<div class="f-label" style="margin:14px 0 8px">Dias em que você estuda</div><div class="dow">';
+    for (var wd = 1; wd <= 7; wd++) {
+      var n = wd % 7; // começa na segunda
+      var on = (S.diasEstudo || []).indexOf(n) !== -1;
+      h += '<button class="dow-b' + (on ? ' on' : '') + '" data-dia="' + n + '">' + DIAS_CURTO[n].charAt(0).toUpperCase() + '</button>';
+    }
+    h += '</div><button class="btn ghost" data-action="refazer-plano" style="margin-top:12px">' +
+      icon("refresh") + ' Refazer o plano da semana</button></div>';
+
+    /* ---- 4b. o ritmo regressivo, explicado ---- */
+    h += '<div class="ritmo">';
+    FASES.slice().reverse().forEach(function (f) {
+      var atual = f.id === fase.id;
+      var faixa = f.id === "base" ? 'mais de 90 dias' : f.id === "meio" ? '90 a 30 dias'
+        : f.id === "reta" ? '30 a 7 dias' : 'última semana';
+      h += '<div class="rt-row' + (atual ? ' on' : '') + '">' +
+        '<span class="rt-n">' + f.nome + '</span>' +
+        '<span class="rt-f">' + faixa + '</span>' +
+        '<span class="rt-mix">' +
+        '<i class="rt-novo" style="flex:' + (f.novo * 100 + 0.01) + '"></i>' +
+        '<i class="rt-ref" style="flex:' + (f.ref * 100) + '"></i>' +
+        '<i class="rt-rev" style="flex:' + (f.rev * 100) + '"></i>' +
+        '</span></div>';
+    });
+    h += '<div class="rt-leg"><span><i class="rt-novo"></i>novo</span>' +
+      '<span><i class="rt-ref"></i>reforço</span><span><i class="rt-rev"></i>revisão</span></div>' +
+      '<p class="page-sub" style="margin:10px 2px 0">Conforme a prova chega, o plano troca questão nova por revisão. ' +
+      (dias === null ? 'Defina a data da prova no Perfil para o ciclo andar sozinho.'
+        : 'Você está em <b>' + fase.nome.toLowerCase() + '</b>.') + '</p>' +
+      '</div>';
+
+    /* ---- 5. sem questões no app ---- */
+    if (diag.semQuestoes.length) {
+      var altos = diag.semQuestoes.filter(function (d) { return d.peso >= 3; });
+      if (altos.length) {
+        h += '<div class="page-title" style="font-size:1.1rem">Pontos que o app ainda não treina</div>' +
+          '<p class="page-sub">Estão no edital e não têm nenhuma questão no banco. Não entram no plano porque não há o que responder — estude pela apostila e cobre um lote novo.</p>' +
+          '<div class="card">';
+        altos.slice(0, 8).forEach(function (d) {
+          h += '<div class="bar-row"><span class="name" style="width:auto;flex:1">' + esc(d.p.tema) + '</span>' +
+            '<span class="pct" style="width:auto">peso ' + d.peso + '/5</span></div>';
+        });
+        h += '</div>';
+      }
+    }
+    return h;
+  };
+  // encurta o tema do edital para caber numa frase
+  function curto(t) {
+    var s = String(t).split(/[:(]/)[0].trim();
+    return s.length > 42 ? s.slice(0, 40).trim() + '…' : s;
+  }
+
+  /* ---------- Screen: Trilha ---------- */
   screens.trilha = function () {
     // A etiqueta é uma linha só: as bancas já aparecem nos divisores
     // logo abaixo, então "fase" aqui seria redundante.
@@ -1851,9 +2547,12 @@
     quiz = {
       qs: questions.map(shuffleQuestion),
       i: 0, correct: 0, xpGained: 0, wrong: [], rankBefore: {},
-      kind: opts.kind, lessonId: opts.lessonId,
+      kind: opts.kind, lessonId: opts.lessonId, ponto: opts.ponto,
       lives: opts.kind === "blitz" ? BLITZ_LIVES : null,
       duelo: !!opts.duelo,
+      // volta para a tela que abriu a sessão: quem saiu do Cronograma
+      // precisa ver o checklist do dia andar ao terminar
+      origem: /^(quiz|result|inicio)$/.test(view.name) ? "trilha" : view.name,
       selected: null, checked: false
     };
     view.name = "quiz";
@@ -1946,6 +2645,16 @@
     S.byMateria[mk] = S.byMateria[mk] || { total: 0, correct: 0 };
     S.byMateria[mk].total += 1;
     if (ok) S.byMateria[mk].correct += 1;
+
+    // acerto por questão: é o grão que o Diagnóstico do edital agrega
+    // por ponto (uma matéria inteira é grossa demais para orientar)
+    S.byQ[q.id] = S.byQ[q.id] || { t: 0, c: 0 };
+    S.byQ[q.id].t += 1;
+    if (ok) S.byQ[q.id].c += 1;
+    // e o cronograma anda com resposta dada em qualquer tela. Aqui o
+    // srsUpdate ainda não rodou, então o `due` antigo diz a verdade:
+    // esta questão chegou vencida?
+    creditarNoPlano(q, !!(S.srs[q.id] && S.srs[q.id].due <= Date.now()));
 
     // missão do dia: progresso por acerto
     if (ok && missaoAtiva()) {
@@ -2136,7 +2845,9 @@
         if (!p) return;
         if (!PROVA || PROVA.id !== p.id) { loadProva(p); S.prova = p.id; save(); }
         drawerOpen = false;
-        view.name = "trilha";
+        // abre no Cronograma: escolher a prova é pedir orientação, não
+        // uma lista de lições. A Trilha fica a um toque na nav.
+        view.name = "cronograma";
         render();
       };
     });
@@ -2158,7 +2869,44 @@
         var qs = kind === "errors" ? errorQuestions()
           : kind === "just-wrong" ? quiz.wrong.map(function (id) { return Q_BY_ID[id]; })
           : dueQuestions();
+        // "plano": só a cota de revisão que falta hoje, as mais atrasadas
+        // primeiro — a aba Revisar continua servindo a fila inteira
+        if (kind === "plano") {
+          var cota = 0;
+          itensDeHoje().forEach(function (it) { if (it.rev) cota += Math.max(0, (it.alvo || 0) - (it.feito || 0)); });
+          qs = qs.sort(function (x, y) { return S.srs[x.id].due - S.srs[y.id].due; }).slice(0, cota || qs.length);
+        }
         startSession(qs, { kind: "review" });
+      };
+    });
+    // treinar um ponto do edital (Cronograma: checklist e diagnóstico)
+    app.querySelectorAll("[data-ponto]").forEach(function (b) {
+      b.onclick = function () {
+        if (S.hearts <= 0) {
+          toast("Sem vidas — próxima em " + heartTimerText() + ", ou revise erros para ganhar 1.");
+          return;
+        }
+        var p = PONTO_BY_ID[b.getAttribute("data-ponto")];
+        if (!p) return;
+        var qs = questoesDoPonto(p, PONTO_ALVO);
+        if (!qs.length) { toast("Este ponto ainda não tem questões no app."); return; }
+        startSession(qs, { kind: "review", ponto: p.id });
+      };
+    });
+    // dias da semana em que você estuda
+    app.querySelectorAll("[data-dia]").forEach(function (b) {
+      b.onclick = function () {
+        var n = parseInt(b.getAttribute("data-dia"), 10);
+        var lst = (S.diasEstudo || []).slice();
+        var i = lst.indexOf(n);
+        if (i === -1) lst.push(n);
+        else if (lst.length > 1) lst.splice(i, 1);
+        else { toast("Deixe ao menos um dia de estudo na semana."); return; }
+        lst.sort();
+        S.diasEstudo = lst;
+        ensurePlano(true);   // dia novo (ou folga nova) muda a distribuição
+        touch(); save(); render();
+        toast(i === -1 ? DIAS_LONGO[n] + " entrou no plano." : DIAS_LONGO[n] + " agora é folga.");
       };
     });
     // alternativas
@@ -2208,14 +2956,27 @@
     else if (a === "quit-quiz") {
       if (quiz && quiz.kind === "blitz") {
         if (confirm("Encerrar a rodada Blitz? Seu placar será registrado.")) finishSession();
-      } else if (confirm("Sair da lição? O progresso desta rodada será perdido.")) { view.name = "trilha"; render(); }
+      } else if (confirm("Sair da lição? O progresso desta rodada será perdido.")) { view.name = (quiz && quiz.origem) || "trilha"; render(); }
     }
-    else if (a === "home") { view.name = "trilha"; render(); }
+    else if (a === "home") { view.name = (quiz && quiz.origem) || "trilha"; render(); }
     else if (a === "start-blitz") startSession(blitzPool(), { kind: "blitz" });
     else if (a === "start-duelo") startSession(blitzPool(seededRand(weekId() + "|" + PROVA.id)), { kind: "blitz", duelo: true });
     else if (a === "go-amigos") { view.name = "amigos"; syncAmigos(); render(); }
     else if (a === "start-treino") startSession(treinoDoDia().qs, { kind: "treino" });
     else if (a === "go-perfil") { view.name = "perfil"; render(); }
+    else if (a === "start-dia") {
+      if (S.hearts <= 0) { toast("Sem vidas — próxima em " + heartTimerText() + ", ou revise erros para ganhar 1."); return; }
+      var qsd = questoesDoDia();
+      if (!qsd.length) { toast("Nada para treinar agora."); return; }
+      startSession(qsd, { kind: "treino" });
+    }
+    else if (a === "ver-pontos") { verTodosPontos = !verTodosPontos; render(); }
+    else if (a === "refazer-plano") {
+      if (!confirm("Refazer o plano desta semana com o diagnóstico atual?\n\nO que você já respondeu continua contado; a distribuição dos dias que faltam muda.")) return;
+      ensurePlano(true);
+      render();
+      toast("Plano refeito com o diagnóstico de hoje.");
+    }
     else if (a === "save-meta") {
       var mdt = ((document.getElementById("meta-data") || {}).value || "").trim();
       var mdi = parseInt((document.getElementById("meta-diaria") || {}).value, 10) || 20;
@@ -2333,7 +3094,7 @@
         var soc = S.social, pv = S.prova, ct = S.conta;
         S = defaultState(); S.social = soc; S.prova = pv; S.conta = ct;
         touch(); applyTheme(); save(); cloudPush();
-        view.name = "trilha"; render(); toast("Progresso zerado.");
+        view.name = "cronograma"; render(); toast("Progresso zerado.");
       }
     }
   }
@@ -2361,9 +3122,14 @@
   applyTheme();
   applyHeartRegen();
   ensureWeek();
-  // prova já escolhida: abre direto na trilha; senão, mostra o menu inicial
+  // prova já escolhida: abre no Cronograma (a mentoria diz o que fazer
+  // hoje antes de qualquer lista); senão, mostra o menu inicial
   var provaSalva = provaById(S.prova);
-  if (provaSalva) { loadProva(provaSalva); view.name = "trilha"; }
+  if (provaSalva) {
+    loadProva(provaSalva);
+    view.name = "cronograma";
+    ensurePlano();   // já no boot: o dia furado é redistribuído antes da 1ª tela
+  }
   if (grupoAtivo()) syncAmigos();
   // conquistas retroativas (ex.: quem já tinha 100 respostas antes desta versão)
   var retro = checkConquistas();
