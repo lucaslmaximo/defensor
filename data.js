@@ -350,11 +350,11 @@ window.APP_DATA = {
               fonte: "CC, art. 927, parágrafo único",
               enunciado: "A regra geral da responsabilidade civil é a subjetiva (baseada na culpa). Constitui EXCEÇÃO prevista no próprio Código Civil, com responsabilidade objetiva:",
               alternativas: [
-                "todo e qualquer dano causado em acidente de trânsito",
+                "todo e qualquer dano causado em acidente de trânsito, hipótese que o Código Civil equipara à atividade de risco",
                 "a atividade que, por sua natureza, implicar risco para os direitos de outrem",
-                "os danos decorrentes de inadimplemento contratual simples",
+                "os danos decorrentes de inadimplemento contratual simples, quando a mora ultrapassar trinta dias",
                 "os prejuízos causados por caso fortuito externo",
-                "qualquer dano moral, por presunção legal"
+                "qualquer dano moral, por presunção legal de culpa do ofensor"
               ],
               correta: 1,
               explicacao: "Art. 927, parágrafo único: haverá obrigação de reparar o dano, independentemente de culpa, quando a atividade normalmente desenvolvida implicar, por sua natureza, risco para os direitos de outrem. É a cláusula geral de responsabilidade objetiva pelo risco."
@@ -632,8 +632,8 @@ window.APP_DATA = {
               id: "gaf-2", modo: "lei", fonte: "Lei 12.318/2010, arts. 2º e 6º",
               enunciado: "Caracterizada a alienação parental, o juiz poderá, conforme a gravidade:",
               alternativas: [
-                "apenas advertir formalmente o alienador na primeira ocorrência, pois a aplicação das demais medidas legais depende do ajuizamento de ação autônoma específica, com instrução probatória própria",
-                "decretar automaticamente a perda do poder familiar do genitor alienador, sanção máxima que a lei reserva para os casos em que a conduta se mostrar reiterada ou grave",
+                "apenas advertir formalmente o alienador na primeira ocorrência, pois a aplicação das demais medidas legais depende do ajuizamento de ação autônoma específica, com instrução probatória própria e prévio parecer conclusivo de equipe multidisciplinar credenciada pelo tribunal de justiça",
+                "decretar automaticamente a perda do poder familiar do genitor alienador, sanção máxima que a lei reserva para os casos em que a conduta se mostrar reiterada ou grave, dispensado o prévio contraditório em razão da urgência da medida protetiva",
                 "aplicar medidas cumulativas ou não — da advertência à ampliação da convivência em favor do genitor alienado, multa, acompanhamento psicológico, alteração da guarda para compartilhada ou sua inversão —, sem prejuízo da responsabilidade civil ou criminal",
                 "somente encaminhar as partes à mediação familiar obrigatória, etapa prévia que a lei exige antes de qualquer providência judicial",
                 "suspender de imediato e por prazo indeterminado todo e qualquer contato entre a criança e o genitor apontado como alienador"
@@ -671,11 +671,11 @@ window.APP_DATA = {
               id: "gaf-5", modo: "juris", fonte: "STF, Tema 622 (RE 898.060)",
               enunciado: "Quanto à filiação socioafetiva e à biológica, o STF fixou que:",
               alternativas: [
-                "a paternidade socioafetiva, quando consolidada na posse do estado de filho, prevalece sempre sobre a biológica, extinguindo qualquer pretensão fundada na origem genética",
-                "a paternidade biológica, por decorrer do vínculo genético, prevalece sempre sobre a socioafetiva, que fica desconstituída com o resultado do exame de DNA",
+                "a paternidade socioafetiva, quando consolidada na posse do estado de filho por mais de cinco anos ininterruptos, prevalece sobre a biológica e extingue qualquer pretensão fundada na origem genética, inclusive a de natureza sucessória",
+                "a paternidade biológica, por decorrer do vínculo genético, prevalece sobre a socioafetiva, que fica desconstituída com o resultado do exame de DNA colhido em contraditório judicial",
                 "a paternidade socioafetiva, declarada ou não em registro público, não impede o reconhecimento do vínculo de filiação concomitante baseado na origem biológica, com todos os efeitos jurídicos próprios — admitida a multiparentalidade",
                 "o reconhecimento judicial do vínculo biológico concomitante gera apenas efeitos patrimoniais e alimentares, jamais efeitos registrais ou de nome",
-                "a multiparentalidade é vedada no direito brasileiro"
+                "a multiparentalidade é vedada no direito brasileiro, salvo autorização judicial em jurisdição voluntária"
               ],
               correta: 2,
               explicacao: "Tese do Tema 622/STF: as duas filiações podem COEXISTIR (multiparentalidade), com efeitos plenos — nome, alimentos e herança em relação a todos os pais. Não há hierarquia abstrata entre socioafetividade e biologia. Consequência prática: o filho pode ter dois pais no registro e cobrar alimentos de ambos."
@@ -826,8 +826,8 @@ window.APP_DATA = {
               id: "dr-1", modo: "lei", fonte: "CC, art. 1.240-A",
               enunciado: "Sobre a usucapião familiar (por abandono de lar), é correto afirmar:",
               alternativas: [
-                "exige posse ininterrupta de cinco anos sobre imóvel urbano, qualquer que seja a sua metragem, usado para moradia do usucapiente",
-                "aplica-se tanto a imóveis urbanos de até 250m² quanto a imóveis rurais de até cinquenta hectares abandonados pelo ex-cônjuge",
+                "exige posse ininterrupta de cinco anos sobre imóvel urbano, qualquer que seja a sua metragem, usado para moradia do usucapiente e de sua família",
+                "aplica-se tanto a imóveis urbanos de até 250m² quanto a imóveis rurais de até cinquenta hectares abandonados pelo ex-cônjuge, exigido em ambos os casos o prazo de três anos de posse exclusiva",
                 "exige posse exclusiva por dois anos de imóvel urbano de até 250m² antes dividido com ex-cônjuge que abandonou o lar, usado para moradia, sem outro imóvel do usucapiente",
                 "pode ser invocada repetidas vezes pelo mesmo possuidor, a cada nova separação de que resulte abandono do lar conjugal",
                 "dispensa o efetivo abandono do lar, bastando a mera separação de fato do casal para que o prazo comece a correr"
@@ -852,11 +852,11 @@ window.APP_DATA = {
               id: "dr-3", modo: "lei", fonte: "CC, art. 1.238, parágrafo único",
               enunciado: "Na usucapião extraordinária, o prazo de quinze anos cai para dez quando:",
               alternativas: [
-                "o possuidor apresentar justo título devidamente registrado no cartório de imóveis competente",
-                "o imóvel objeto da posse pertencer ao poder público e encontrar-se em estado de abandono",
-                "houver autorização expressa e por escrito do antigo proprietário para a permanência do possuidor",
-                "o possuidor houver estabelecido no imóvel sua moradia habitual ou nele realizado obras e serviços produtivos, sempre sem exigir justo título e boa-fé",
-                "o possuidor for pessoa idosa, com deficiência ou pertencente a grupo de especial vulnerabilidade social"
+                "o possuidor apresentar justo título registrado no cartório de imóveis competente e comprovar boa-fé durante todo o período da posse, ainda que esta tenha sido descontínua",
+                "o imóvel objeto da posse pertencer ao poder público e encontrar-se em estado de abandono há mais de uma década",
+                "houver autorização expressa e por escrito do antigo proprietário para a permanência do possuidor no imóvel",
+                "o possuidor houver estabelecido no imóvel sua moradia habitual ou nele realizado obras e serviços produtivos, sem exigência de justo título e boa-fé",
+                "o possuidor for pessoa idosa, com deficiência ou pertencente a grupo de especial vulnerabilidade social reconhecido em laudo do serviço social do juízo"
               ],
               correta: 3,
               explicacao: "Art. 1.238, parágrafo único, do CC. A usucapião extraordinária dispensa justo título e boa-fé nas duas faixas (15 ou 10 anos com posse-trabalho). Não confunda: a ORDINÁRIA (art. 1.242) exige justo título e boa-fé (10 anos, reduzíveis a 5), e a especial urbana (art. 1.240) exige 5 anos + 250m² + moradia + não ter outro imóvel."
@@ -865,8 +865,8 @@ window.APP_DATA = {
               id: "dr-4", modo: "juris", fonte: "Lei 8.009/90, art. 3º, VII; STF, Tema 1127",
               enunciado: "Quanto à penhora do bem de família do FIADOR de contrato de locação:",
               alternativas: [
-                "é vedada em qualquer hipótese, por atingir o direito fundamental à moradia do fiador e de sua família",
-                "só é válida na locação residencial, não se admitindo a constrição quando a fiança garante locação comercial",
+                "é vedada em qualquer hipótese, por atingir o direito fundamental à moradia do fiador e de sua família, salvo renúncia expressa lançada no contrato de locação",
+                "só é válida na locação residencial, não se admitindo a constrição quando a fiança garante locação comercial ou quando o fiador for titular de um único imóvel",
                 "só é válida na locação comercial, dado o caráter empresarial do contrato afiançado pelo garantidor",
                 "é válida na locação residencial e na comercial, por exceção legal à impenhorabilidade (STF), sem alcançar o bem de família do próprio locatário devedor",
                 "alcança inclusive o imóvel residencial do locatário inadimplente, e não apenas o do fiador garantidor"
@@ -891,10 +891,10 @@ window.APP_DATA = {
               id: "dr-6", modo: "lei", fonte: "CC, art. 1.210, §§1º e 2º",
               enunciado: "Sobre a autotutela e a defesa da posse:",
               alternativas: [
-                "o desforço imediato pode ser exercido a qualquer tempo depois do esbulho, ainda que muito após a perda da posse",
-                "somente o proprietário do bem, e não o mero possuidor, pode valer-se do desforço possessório imediato",
-                "a alegação de propriedade pelo réu impede a reintegração do possuidor que não seja proprietário da coisa",
-                "a autotutela da posse por força própria é integralmente vedada no direito brasileiro, cabendo apenas a via judicial",
+                "o desforço imediato pode ser exercido a qualquer tempo depois do esbulho, ainda que muito após a perda da posse, desde que dentro de ano e dia",
+                "somente o proprietário do bem, e não o mero possuidor, pode valer-se do desforço possessório imediato contra o invasor",
+                "a alegação de propriedade pelo réu impede a reintegração do possuidor que não seja proprietário da coisa disputada",
+                "a autotutela da posse por força própria é integralmente vedada no direito brasileiro, cabendo apenas a via judicial, ainda que a agressão à posse esteja em curso no exato momento da reação",
                 "o possuidor turbado ou esbulhado pode manter-se ou restituir-se por força própria, contanto que o faça logo e sem excesso, e a alegação de propriedade não o obsta"
               ],
               correta: 4,
@@ -904,11 +904,11 @@ window.APP_DATA = {
               id: "dr-7", modo: "lei", fonte: "CPC, arts. 554, §1º, e 565",
               enunciado: "Em ação possessória proposta contra grande número de pessoas (litígio coletivo pela posse):",
               alternativas: [
-                "todos os ocupantes da área devem ser citados pessoalmente, um a um, sob pena de nulidade absoluta do processo",
-                "a citação de todos os ocupantes é dispensada em razão da urgência que caracteriza a tutela possessória coletiva",
+                "todos os ocupantes da área devem ser citados pessoalmente, um a um, sob pena de nulidade absoluta do processo, dispensada nesse caso a intimação do Ministério Público e da Defensoria Pública",
+                "a citação de todos os ocupantes é dispensada em razão da urgência que caracteriza a tutela possessória coletiva de força nova",
                 "citam-se pessoalmente os ocupantes achados no local e por edital os demais, com intimação do Ministério Público e, havendo hipossuficientes, da Defensoria Pública",
                 "o processo tramita validamente sem qualquer participação do Ministério Público ou da Defensoria Pública",
-                "o juiz nomeia um administrador provisório com poderes para representar em juízo o conjunto dos ocupantes"
+                "o juiz nomeia um administrador provisório com poderes para representar em juízo o conjunto dos ocupantes, dispensada a citação individual de qualquer deles"
               ],
               correta: 2,
               explicacao: "Art. 554, §1º, do CPC. E quando o esbulho ou turbação coletivos tiverem mais de ano e dia (força velha), o art. 565 impõe audiência de mediação prévia à concessão da liminar, também com intimação da Defensoria Pública se houver hipossuficientes (§2º) — dispositivos centrais para a defesa possessória de comunidades vulneráveis."
@@ -936,9 +936,9 @@ window.APP_DATA = {
               id: "dr2-2", modo: "lei", fonte: "Lei 13.465/2017, art. 23",
               enunciado: "A legitimação fundiária, instrumento criado pela Lei 13.465/2017, consiste em:",
               alternativas: [
-                "contrato de promessa de compra e venda firmado entre o Município e cada um dos ocupantes do núcleo urbano informal",
+                "contrato de promessa de compra e venda firmado entre o Município e cada um dos ocupantes do núcleo urbano informal, com pagamento parcelado em até dez anos",
                 "forma originária de aquisição da propriedade a quem detiver área pública ou privada como sua, em núcleo urbano informal consolidado até dezembro de 2016",
-                "espécie de usucapião administrativa que depende do transcurso de cinco anos de posse mansa e pacífica do ocupante",
+                "espécie de usucapião administrativa que depende do transcurso de cinco anos de posse mansa e pacífica do ocupante, contados da inscrição do núcleo em cadastro municipal",
                 "direito real de uso concedido a título precário, revogável a qualquer tempo pela administração pública concedente",
                 "mera autorização de uso do solo urbano, sem transferência de propriedade, renovável a cada período de dez anos"
               ],
@@ -1047,10 +1047,10 @@ window.APP_DATA = {
               enunciado: "No regime atual das incapacidades do Código Civil:",
               alternativas: [
                 "a pessoa com deficiência mental é, em razão dessa condição, absolutamente incapaz para os atos da vida civil",
-                "são absolutamente incapazes tanto os menores de dezesseis anos quanto os enfermos mentais sem discernimento",
+                "são absolutamente incapazes tanto os menores de dezesseis anos quanto os enfermos mentais sem discernimento, estes últimos após sentença de interdição total transitada em julgado",
                 "só é absolutamente incapaz o menor de dezesseis anos; quem não puder exprimir a vontade é relativamente incapaz, e a deficiência, por si, não gera incapacidade",
                 "o pródigo é considerado absolutamente incapaz para a prática de todos os atos de natureza patrimonial",
-                "a incapacidade absoluta pode ser declarada por sentença também para pessoas maiores, nos casos mais graves"
+                "a incapacidade absoluta pode ser declarada por sentença também para pessoas maiores, nos casos mais graves, mediante laudo pericial renovado a cada dois anos"
               ],
               correta: 2,
               explicacao: "Redação dada pelo EPD: o art. 3º hoje contém uma única hipótese de incapacidade absoluta (menor de 16). O art. 4º lista os relativamente incapazes: maiores de 16 e menores de 18, ébrios habituais e viciados em tóxico, os que não puderem exprimir a vontade (causa transitória ou permanente) e os pródigos. Não existe mais maior absolutamente incapaz no Brasil — pegadinha recorrente."
@@ -1182,11 +1182,11 @@ window.APP_DATA = {
               id: "gj-4", modo: "lei", fonte: "CPC, arts. 344 a 346",
               enunciado: "Sobre os efeitos da revelia:",
               alternativas: [
-                "gera presunção absoluta de veracidade de todos os fatos alegados pelo autor na petição inicial",
-                "implica a automática e imediata procedência do pedido formulado pelo autor na petição inicial",
-                "impede que o réu revel intervenha no processo em qualquer fase posterior à sua caracterização",
+                "gera presunção absoluta de veracidade de todos os fatos alegados pelo autor na petição inicial, inclusive quanto a direitos indisponíveis",
+                "implica a automática e imediata procedência do pedido formulado pelo autor na petição inicial, dispensada a fase instrutória",
+                "impede que o réu revel intervenha no processo em qualquer fase posterior à sua caracterização, ainda que constitua advogado nos autos",
                 "a presunção de veracidade é relativa e nem sempre opera: não incide, p. ex., sobre direitos indisponíveis ou se, havendo vários réus, algum contestar",
-                "atinge inclusive o réu revel que, defendido por curador especial, teve contestação apresentada em seu favor"
+                "atinge inclusive o réu revel que, defendido por curador especial, teve contestação apresentada em seu favor, por força da preclusão consumada com o decurso do prazo de defesa"
               ],
               correta: 3,
               explicacao: "Art. 344 (presunção de veracidade) temperado pelo art. 345: a presunção não opera havendo contestação de litisconsorte (I), direitos indisponíveis (II), exigência de prova por instrumento público (III) ou alegações inverossímeis/contrariadas pela prova (IV). O revel pode intervir a qualquer tempo (art. 346, p.ú.), e a contestação do curador especial afasta os efeitos materiais da revelia."
@@ -1195,9 +1195,9 @@ window.APP_DATA = {
               id: "gj-5", modo: "lei", fonte: "CPC, art. 373, §§1º e 2º",
               enunciado: "A distribuição dinâmica do ônus da prova:",
               alternativas: [
-                "pode ser determinada livremente pelo juiz, a qualquer momento do processo e independentemente de fundamentação específica",
+                "pode ser determinada livremente pelo juiz, a qualquer momento do processo e independentemente de fundamentação específica, bastando o registro em ata da hipossuficiência da parte beneficiada pela redistribuição",
                 "cabe nos casos legais ou diante da impossibilidade/excessiva dificuldade de provar, por decisão fundamentada e prévia, com chance de desincumbência, sem tornar a prova impossível",
-                "aplica-se de forma exclusiva às relações de consumo regidas pelo Código de Defesa do Consumidor",
+                "aplica-se de forma exclusiva às relações de consumo regidas pelo Código de Defesa do Consumidor, mediante requerimento expresso na petição inicial",
                 "pode ser feita pela primeira vez na própria sentença de mérito, ainda que isso surpreenda a parte assim onerada",
                 "é figura vedada no processo civil brasileiro, por comprometer a segurança jurídica e a paridade entre as partes"
               ],
@@ -1386,11 +1386,11 @@ window.APP_DATA = {
               id: "tc-1", modo: "juris", fonte: "LACP, art. 5º, II; STF, ADI 3943",
               enunciado: "Uma associação questiona a legitimidade da Defensoria Pública para propor ação civil pública. Conforme o STF (ADI 3943):",
               alternativas: [
-                "a Defensoria não tem legitimidade, pois o rol constitucional dos legitimados à ACP é taxativo",
+                "a Defensoria não tem legitimidade, pois o rol constitucional dos legitimados à ACP é taxativo e nele não figura órgão desprovido de personalidade jurídica própria",
                 "a Defensoria tem legitimidade para a ACP, desde que a tutela possa beneficiar grupo que contenha pessoas necessitadas/vulneráveis",
-                "a Defensoria só tem legitimidade se todos os beneficiados comprovarem individualmente a pobreza",
-                "a legitimidade depende de pertinência temática aferida mediante autorização judicial prévia",
-                "a Defensoria só pode atuar em ACP na condição de fiscal da ordem jurídica"
+                "a Defensoria só tem legitimidade se todos os beneficiados comprovarem individualmente a pobreza, mediante declaração de hipossuficiência juntada aos autos",
+                "a legitimidade depende de pertinência temática aferida mediante autorização judicial prévia, requerida em procedimento incidental de habilitação",
+                "a Defensoria só pode atuar em ACP na condição de fiscal da ordem jurídica, quando intimada pelo juízo"
               ],
               correta: 1,
               explicacao: "A Lei 11.448/07 incluiu a Defensoria no rol do art. 5º da LACP, e o STF (ADI 3943) declarou a constitucionalidade dessa legitimidade. O condicionante: a atuação deve guardar pertinência com sua missão — beneficiar, ao menos em parte, grupo de pessoas necessitadas/vulneráveis. NÃO se exige que todos os beneficiados sejam hipossuficientes."
@@ -1399,11 +1399,11 @@ window.APP_DATA = {
               id: "tc-2", modo: "lei", fonte: "CDC, art. 103, I",
               enunciado: "Em ação coletiva sobre direitos DIFUSOS, a sentença de improcedência por INSUFICIÊNCIA DE PROVAS:",
               alternativas: [
-                "faz coisa julgada erga omnes, impedindo qualquer nova ação coletiva sobre o mesmo fato",
+                "faz coisa julgada erga omnes, impedindo qualquer nova ação coletiva sobre o mesmo fato, ainda que fundada em prova nova e superveniente",
                 "não impede que qualquer legitimado proponha nova ação, com nova prova (coisa julgada secundum eventum probationis)",
-                "só pode ser desconstituída mediante ação rescisória proposta por legitimado coletivo",
-                "permite a repropositura apenas pelo mesmo legitimado que ajuizou a primeira demanda",
-                "converte-se automaticamente em procedência após cinco anos"
+                "só pode ser desconstituída mediante ação rescisória proposta por legitimado coletivo no prazo de dois anos",
+                "permite a repropositura apenas pelo mesmo legitimado que ajuizou a primeira demanda, e uma única vez",
+                "converte-se automaticamente em procedência após cinco anos, se nenhum legitimado renovar o pedido nesse prazo"
               ],
               correta: 1,
               explicacao: "Art. 103, I, do CDC: nos direitos difusos a sentença faz coisa julgada erga omnes, EXCETO se a improcedência for por insuficiência de provas — hipótese em que qualquer legitimado pode intentar outra ação com nova prova. É a coisa julgada secundum eventum probationis, marca do processo coletivo."
@@ -1619,11 +1619,11 @@ window.APP_DATA = {
               id: "rec-4", modo: "lei", fonte: "CPC, art. 186; LC 80/94, art. 128, I",
               enunciado: "Sobre as prerrogativas processuais da Defensoria Pública quanto a prazos:",
               alternativas: [
-                "goza de prazo em dobro apenas para contestar e recorrer, correndo os demais prazos processuais de forma simples, como para as partes em geral",
+                "goza de prazo em dobro apenas para contestar e recorrer, correndo os demais prazos processuais de forma simples, como para as partes em geral, salvo nos feitos que tramitam em segredo de justiça, nos quais o dobro se estende a todos os atos",
                 "tem prazo em dobro para todas as manifestações processuais, contado da intimação pessoal (carga, remessa ou meio eletrônico) — salvo quando a lei estabelecer, de forma expressa, prazo próprio para a Defensoria",
                 "tem prazo em quádruplo para contestar e em dobro para recorrer, benefício idêntico ao que o regime anterior reservava à Fazenda Pública",
                 "os prazos correm da publicação da decisão no diário oficial eletrônico, exatamente como ocorre para os advogados privados constituídos",
-                "as prerrogativas se estendem automaticamente a todo advogado dativo"
+                "as prerrogativas se estendem automaticamente a todo advogado dativo nomeado pelo juízo em comarca desassistida pela Defensoria Pública"
               ],
               correta: 1,
               explicacao: "Art. 186 do CPC: prazo em dobro para TODAS as manifestações, com termo inicial na intimação pessoal (§1º c/c art. 183, §1º). A exceção do §4º é a pegadinha: não há dobro quando a lei fixa prazo próprio e expresso para a DP. O benefício também alcança escritórios de prática jurídica de faculdades e entidades conveniadas (§3º) — mas não o advogado dativo em geral."
@@ -1634,9 +1634,9 @@ window.APP_DATA = {
               alternativas: [
                 "rever qualquer decisão judicial que se repute injusta ou contrária à prova dos autos, funcionando como sucedâneo recursal de ampla devolutividade",
                 "preservar a competência do tribunal, garantir a autoridade de suas decisões e a observância de súmula vinculante e de acórdão de IRDR ou IAC — vedado o uso após o trânsito em julgado da decisão reclamada",
-                "impugnar decisões já transitadas em julgado que contrariem súmula vinculante do STF, hipótese em que substitui a própria ação rescisória",
-                "garantir a observância de qualquer precedente, inclusive súmulas persuasivas, independentemente de esgotamento das instâncias",
-                "substituir a ação rescisória quando esgotado o seu prazo"
+                "impugnar decisões já transitadas em julgado que contrariem súmula vinculante do STF, hipótese em que substitui a própria ação rescisória, desde que ajuizada no prazo de dois anos contados do trânsito",
+                "garantir a observância de qualquer precedente, inclusive súmulas persuasivas de tribunal local, independentemente de esgotamento das instâncias ordinárias",
+                "substituir a ação rescisória quando esgotado o seu prazo, se a decisão contrariar precedente qualificado"
               ],
               correta: 1,
               explicacao: "Art. 988 do CPC. Limites que a prova adora: proposta APÓS o trânsito em julgado, não cabe (§5º, I, e Súmula 734/STF — reclamação não é sucedâneo de rescisória); e para garantir observância de acórdão de RE com repercussão geral ou de recursos repetitivos, exige-se o ESGOTAMENTO das instâncias ordinárias (§5º, II)."
@@ -1768,11 +1768,11 @@ window.APP_DATA = {
               id: "rel-7", modo: "lei", fonte: "CDC, arts. 30 e 35",
               enunciado: "Publicada oferta suficientemente precisa e recusando-se o fornecedor a cumpri-la, o consumidor pode, À SUA ESCOLHA:",
               alternativas: [
-                "apenas rescindir o contrato de consumo, com a devolução monetariamente atualizada de tudo o que houver pago",
+                "apenas rescindir o contrato de consumo, com a devolução monetariamente atualizada de tudo o que houver pago, acrescida de multa de vinte por cento sobre o valor anunciado na oferta descumprida",
                 "exigir o cumprimento forçado da obrigação nos termos da oferta, aceitar outro produto ou serviço equivalente, ou rescindir o contrato com restituição atualizada e perdas e danos",
                 "somente aceitar, em substituição, outro produto ou serviço equivalente que venha a ser indicado pelo próprio fornecedor",
-                "exigir o pagamento do dobro do valor anunciado na oferta descumprida, a título de sanção pela recusa",
-                "registrar previamente reclamação no Procon, como condição de procedibilidade para depois acionar a Justiça"
+                "exigir o pagamento do dobro do valor anunciado na oferta descumprida, a título de sanção legal pela recusa injustificada",
+                "registrar previamente reclamação no Procon, como condição de procedibilidade para depois acionar a Justiça comum"
               ],
               correta: 1,
               explicacao: "Art. 30: a oferta suficientemente precisa VINCULA o fornecedor e integra o contrato. Art. 35: a escolha entre as três alternativas é do CONSUMIDOR — não do fornecedor. Ressalva jurisprudencial: erro grosseiro e evidente de sistema (ex.: TV por R$ 1) não vincula, por não gerar confiança legítima."
@@ -1788,10 +1788,10 @@ window.APP_DATA = {
               enunciado: "Sobre a inscrição do consumidor em cadastros de inadimplentes:",
               alternativas: [
                 "a comunicação prévia ao consumidor cabe ao credor que solicitou a inscrição, mediante notificação com aviso de recebimento entregue no endereço do contrato",
-                "a comunicação prévia ao consumidor é dispensada quando a dívida estiver documentada por título executivo ou por contrato assinado com duas testemunhas",
+                "a comunicação prévia ao consumidor é dispensada quando a dívida estiver documentada por título executivo ou por contrato assinado com duas testemunhas, hipótese em que a anotação também independe de prazo máximo de permanência",
                 "cabe ao órgão mantenedor do cadastro a comunicação prévia por escrito, dispensado o aviso de recebimento — e a anotação não pode permanecer por mais de cinco anos, nem além do prazo de prescrição da dívida",
                 "a anotação pode permanecer por até dez anos se a dívida não for paga, prazo que se interrompe a cada nova tentativa comprovada de cobrança extrajudicial",
-                "a inscrição exige autorização judicial quando o débito for contestado"
+                "a inscrição exige autorização judicial quando o débito já for objeto de ação revisional distribuída"
               ],
               correta: 2,
               explicacao: "Súmula 359/STJ: o dever de comunicar é do órgão mantenedor (Serasa/SPC), não do credor. Súmula 404/STJ: dispensa-se o AR — basta o envio ao endereço. Limites temporais do art. 43: máximo de 5 anos (§1º) e, consumada a prescrição da cobrança, a anotação deve cair (§5º) — o que vier primeiro."
@@ -1826,10 +1826,10 @@ window.APP_DATA = {
               id: "dig-4", modo: "lei", fonte: "LGPD, art. 7º",
               enunciado: "No regime da Lei Geral de Proteção de Dados, o tratamento de dados pessoais:",
               alternativas: [
-                "só é lícito mediante consentimento livre, informado e inequívoco do titular, que pode revogá-lo a qualquer tempo, invalidando o tratamento desde a origem",
+                "só é lícito mediante consentimento livre, informado e inequívoco do titular, que pode revogá-lo a qualquer tempo, invalidando o tratamento desde a origem e obrigando o controlador a eliminar todos os dados coletados em até vinte e quatro horas",
                 "pode ocorrer com base em dez hipóteses legais — o consentimento é apenas uma delas, ao lado, por exemplo, da execução de contrato, do cumprimento de obrigação legal, da proteção da vida e do legítimo interesse do controlador",
                 "é livre e ilimitado quando se tratar de dados tornados públicos pelo próprio titular em redes sociais ou em cadastros de acesso geral",
-                "depende sempre de autorização prévia e específica da Autoridade Nacional de Proteção de Dados, renovável a cada dois anos",
+                "depende sempre de autorização prévia e específica da Autoridade Nacional de Proteção de Dados, renovável a cada dois anos e condicionada ao recolhimento de taxa de fiscalização",
                 "é vedado para fins comerciais de qualquer natureza, admitindo-se somente as finalidades acadêmicas, jornalísticas e de segurança pública"
               ],
               correta: 1,
@@ -1839,10 +1839,10 @@ window.APP_DATA = {
               id: "dig-5", modo: "juris", fonte: "LGPD, arts. 42 a 44; STJ, AREsp 2.130.619",
               enunciado: "Quanto à responsabilidade civil por vazamento de dados pessoais, o STJ entende que:",
               alternativas: [
-                "todo e qualquer vazamento de dados gera dano moral presumido (in re ipsa) ao titular, dada a gravidade intrínseca da exposição não autorizada",
+                "todo e qualquer vazamento de dados gera dano moral presumido (in re ipsa) ao titular, dada a gravidade intrínseca da exposição não autorizada, com piso indenizatório de vinte salários mínimos previsto no art. 42 da LGPD",
                 "o vazamento de dados pessoais comuns (nome, CPF, endereço) não gera dano moral presumido — o titular deve comprovar o efetivo prejuízo; tratando-se de dados sensíveis, a exposição indevida tem maior aptidão lesiva",
                 "não há responsabilidade civil do controlador sem a prova de que agiu com dolo ou culpa grave na guarda das informações vazadas",
-                "a responsabilidade civil é exclusiva do agente criminoso que invadiu o sistema, ficando o controlador exonerado por se tratar de fato de terceiro",
+                "a responsabilidade civil é exclusiva do agente criminoso que invadiu o sistema, ficando o controlador exonerado por se tratar de fato de terceiro equiparado a caso fortuito externo",
                 "somente a Autoridade Nacional de Proteção de Dados pode reconhecer o dever de indenizar, em processo administrativo prévio à via judicial"
               ],
               correta: 1,
@@ -1884,7 +1884,7 @@ window.APP_DATA = {
               id: "pub-1", modo: "lei", fonte: "CDC, art. 37, §§1º e 2º",
               enunciado: "Sobre a distinção entre publicidade enganosa e abusiva no CDC:",
               alternativas: [
-                "ambas exigem, para a sua configuração, a prova da intenção deliberada de enganar ou de ofender o consumidor por parte do fornecedor anunciante, dada a natureza sancionatória da vedação legal",
+                "ambas exigem, para a sua configuração, a prova da intenção deliberada de enganar ou de ofender o consumidor por parte do fornecedor anunciante, dada a natureza sancionatória da vedação legal, cabendo ao consumidor demonstrar em juízo a falsidade da informação veiculada e o prejuízo econômico daí decorrente",
                 "enganosa é a informação falsa ou capaz de induzir o consumidor em erro; abusiva é, entre outras, a discriminatória, a que incita à violência ou se aproveita da deficiência de julgamento da criança — e a enganosa por omissão ocorre quando se deixa de informar dado essencial",
                 "somente a publicidade enganosa é juridicamente vedada pelo CDC; a abusiva configura mera infração ética, sujeita apenas à autorregulamentação publicitária do CONAR",
                 "a publicidade abusiva depende da comprovação de dano efetivo e individualizado ao consumidor para se tornar ilícita, pois a vedação legal não alcança o perigo abstrato",
@@ -1897,11 +1897,11 @@ window.APP_DATA = {
               id: "pub-2", modo: "lei", fonte: "CDC, art. 39, I",
               enunciado: "A chamada 'venda casada' — condicionar o fornecimento de produto ou serviço ao de outro — é prática:",
               alternativas: [
-                "lícita, se houver desconto na aquisição conjunta",
+                "lícita, se houver desconto efetivo na aquisição conjunta dos produtos ofertados",
                 "abusiva e vedada, salvo quando houver limites justificáveis ou o fornecimento estiver condicionado por lei",
-                "permitida entre instituições financeiras e seus clientes",
-                "válida desde que informada previamente ao consumidor",
-                "vedada apenas quando envolver produtos de valor superior a um salário mínimo"
+                "permitida entre instituições financeiras e seus clientes, por força da regulamentação do Conselho Monetário Nacional",
+                "válida desde que informada previamente ao consumidor em documento escrito e assinado",
+                "vedada apenas quando envolver produtos de valor superior a um salário mínimo, ressalvada a contratação de serviços bancários"
               ],
               correta: 1,
               explicacao: "Art. 39, I: é vedado condicionar o fornecimento de produto/serviço ao de outro, ou a limites quantitativos, sem justa causa. A ressalva do próprio inciso ('sem justa causa') permite limites razoáveis (ex.: quantidade máxima em promoção). Exemplo clássico no STJ: exigir a contratação de seguro para conceder empréstimo com a seguradora do próprio banco caracteriza venda casada."
@@ -2030,11 +2030,11 @@ window.APP_DATA = {
               fonte: "CDC, art. 6º, VIII",
               enunciado: "A inversão do ônus da prova em favor do consumidor (art. 6º, VIII, do CDC):",
               alternativas: [
-                "é automática em toda ação consumerista",
+                "é automática em toda ação consumerista, por força de lei",
                 "depende de decisão do juiz, presente a verossimilhança ou a hipossuficiência",
-                "só ocorre se houver expressa previsão contratual",
-                "exige, cumulativamente, verossimilhança e hipossuficiência",
-                "é vedada quando o fornecedor for microempresa"
+                "só ocorre se houver expressa previsão contratual ou convenção das partes",
+                "exige, cumulativamente, verossimilhança da alegação e hipossuficiência do consumidor",
+                "é vedada quando o fornecedor for microempresa ou empresa de pequeno porte"
               ],
               correta: 1,
               explicacao: "Art. 6º, VIII: a inversão é 'ope judicis' (a critério do juiz), quando for verossímil a alegação OU quando o consumidor for hipossuficiente — requisitos alternativos, segundo a doutrina e o STJ, não cumulativos."
@@ -2163,11 +2163,11 @@ window.APP_DATA = {
               fonte: "Súmula 302 do STJ",
               enunciado: "É considerada ABUSIVA, segundo a Súmula 302 do STJ, a cláusula de plano de saúde que:",
               alternativas: [
-                "prevê reajuste por faixa etária",
+                "prevê reajuste por mudança de faixa etária a partir dos 59 anos",
                 "limita no tempo a internação hospitalar do segurado",
-                "estabelece carência para partos",
-                "exclui doenças preexistentes declaradas",
-                "prevê coparticipação do beneficiário"
+                "estabelece prazo de carência para a cobertura de partos a termo",
+                "exclui a cobertura de doenças preexistentes declaradas na admissão",
+                "prevê coparticipação do beneficiário nas despesas médicas"
               ],
               correta: 1,
               explicacao: "Súmula 302 do STJ: é abusiva a cláusula contratual de plano de saúde que limita no TEMPO a internação hospitalar do segurado. A necessidade da internação é definição médica, não do plano."
@@ -2324,11 +2324,11 @@ window.APP_DATA = {
               id: "soc-1", modo: "lei", fonte: "CC, art. 1.052",
               enunciado: "Na sociedade limitada, a responsabilidade de cada sócio:",
               alternativas: [
-                "é ilimitada e solidária pelas obrigações sociais",
+                "é ilimitada e solidária pelas obrigações sociais, tal como ocorre na sociedade em nome coletivo",
                 "é restrita ao valor de suas quotas, mas todos respondem solidariamente pela integralização do capital social",
-                "limita-se ao valor de suas quotas, sem nenhuma solidariedade entre os sócios",
-                "alcança o patrimônio pessoal sempre que a sociedade for condenada judicialmente",
-                "é subsidiária à do administrador não sócio"
+                "limita-se ao valor de suas quotas, sem nenhuma solidariedade entre os sócios, ainda que o capital não esteja integralizado",
+                "alcança o patrimônio pessoal sempre que a sociedade for condenada judicialmente e não tiver bens penhoráveis",
+                "é subsidiária à do administrador não sócio designado em ato separado"
               ],
               correta: 1,
               explicacao: "Art. 1.052 do CC: a regra da limitação vem acompanhada do condicionante que derruba candidatos — enquanto o capital não estiver INTEGRALIZADO, todos os sócios respondem solidariamente pela parte que faltar, ainda que já tenham pago as próprias quotas. Integralizado o capital, o patrimônio pessoal só é alcançado por desconsideração."
@@ -2376,9 +2376,9 @@ window.APP_DATA = {
               id: "soc-5", modo: "lei", fonte: "Lei 11.101/05, art. 49, caput e §3º",
               enunciado: "Estão sujeitos à recuperação judicial:",
               alternativas: [
-                "apenas os créditos vencidos e exigíveis na data do pedido, ficando os vincendos sujeitos às condições originalmente contratadas com cada credor",
+                "apenas os créditos vencidos e exigíveis na data do pedido, ficando os vincendos sujeitos às condições originalmente contratadas com cada credor até o encerramento da recuperação judicial, quando então se habilitam no quadro geral de credores",
                 "todos os créditos existentes na data do pedido, ainda que não vencidos — com exceções relevantes, como o credor proprietário fiduciário, cujo crédito não se submete aos efeitos da recuperação (a chamada trava bancária)",
-                "todos os créditos contra a empresa devedora, inclusive os constituídos após o pedido, até a data da concessão da recuperação pelo juízo competente",
+                "todos os créditos contra a empresa devedora, inclusive os constituídos após o pedido, até a data da concessão da recuperação pelo juízo competente, ressalvados apenas os de natureza fiscal",
                 "somente os créditos quirografários, permanecendo íntegros os créditos com garantia real e os privilegiados de qualquer natureza",
                 "apenas os créditos trabalhistas e os tributários, dada a natureza social e pública que justifica o tratamento diferenciado desses credores"
               ],
@@ -2434,11 +2434,11 @@ window.APP_DATA = {
               id: "inf-1", modo: "lei", fonte: "ECA, art. 4º; CF, art. 227",
               enunciado: "O princípio da prioridade absoluta (art. 4º do ECA e art. 227 da CF) assegura à criança e ao adolescente:",
               alternativas: [
-                "atendimento preferencial condicionado à disponibilidade orçamentária e à reserva do possível",
+                "atendimento preferencial condicionado à disponibilidade orçamentária e à reserva do possível invocada pelo ente federativo responsável pela política pública",
                 "primazia em receber proteção e socorro, precedência no atendimento e preferência na formulação de políticas e na destinação de recursos",
-                "prioridade restrita às áreas de saúde e educação, núcleo essencial dos direitos sociais",
-                "atendimento em igualdade de condições com os demais grupos vulneráveis, sem precedência",
-                "prioridade apenas quando já configurada situação de risco reconhecida pelo Conselho Tutelar"
+                "prioridade restrita às áreas de saúde e educação, núcleo essencial dos direitos sociais de titularidade infantojuvenil",
+                "atendimento em igualdade de condições com os demais grupos vulneráveis, sem qualquer precedência de natureza orçamentária",
+                "prioridade apenas quando já configurada situação de risco reconhecida pelo Conselho Tutelar em procedimento próprio"
               ],
               correta: 1,
               explicacao: "Art. 4º, parágrafo único, do ECA: a prioridade absoluta compreende a primazia em receber proteção e socorro, a precedência no atendimento nos serviços públicos, a preferência na formulação de políticas sociais e a destinação privilegiada de recursos. Decorre da doutrina da proteção integral (art. 227 da CF)."
@@ -2460,9 +2460,9 @@ window.APP_DATA = {
               id: "inf-3", modo: "caso", fonte: "ECA, arts. 39, 41 e 45",
               enunciado: "Quanto à adoção no ECA, é correto afirmar que ela:",
               alternativas: [
-                "é revogável enquanto o adotado for menor de idade, desde que atendido o seu melhor interesse",
+                "é revogável enquanto o adotado for menor de idade, desde que atendido o seu melhor interesse aferido em estudo psicossocial",
                 "é medida excepcional e irrevogável, atribui a condição de filho e desliga o adotado dos vínculos com pais e parentes, salvo os impedimentos matrimoniais",
-                "mantém os vínculos com a família biológica para fins sucessórios e alimentares, extinguindo apenas o poder familiar",
+                "mantém os vínculos com a família biológica para fins sucessórios e alimentares, extinguindo apenas o poder familiar dos genitores registrais e o dever de convivência",
                 "pode ser realizada por procuração com poderes especiais, se os adotantes residirem no exterior",
                 "dispensa o consentimento do adotando maior de 12 anos, suprido pela vontade dos adotantes"
               ],
@@ -2518,9 +2518,9 @@ window.APP_DATA = {
               id: "vid-1", modo: "lei", fonte: "Lei 13.431/2017, arts. 7º, 8º e 11",
               enunciado: "Na proteção de crianças e adolescentes vítimas ou testemunhas de violência, distinguem-se:",
               alternativas: [
-                "a escuta especializada e o depoimento especial, procedimentos que devem ser colhidos exclusivamente pelo juiz da infância, em audiência una e reservada",
+                "a escuta especializada e o depoimento especial, procedimentos que devem ser colhidos exclusivamente pelo juiz da infância, em audiência una e reservada, com presença obrigatória do responsável legal e do defensor do investigado",
                 "a escuta especializada, realizada por órgão da rede de proteção e limitada ao estritamente necessário, e o depoimento especial, colhido perante autoridade policial ou judiciária como meio de prova, em rito próprio e acolhedor",
-                "a escuta especializada, que constitui o meio de prova judicial por excelência, e o depoimento especial, de finalidade meramente protetiva e assistencial",
+                "a escuta especializada, que constitui o meio de prova judicial por excelência, e o depoimento especial, de finalidade meramente protetiva e assistencial, sem valor probatório no processo penal",
                 "a inquirição comum em audiência e a acareação da vítima com o suposto agressor, quando houver divergência relevante entre as versões apresentadas",
                 "dois procedimentos materialmente idênticos, com nomes distintos conforme a fase — investigativa ou judicial — em que a oitiva é realizada"
               ],
@@ -2557,8 +2557,8 @@ window.APP_DATA = {
               id: "vid-4", modo: "juris", fonte: "Estatuto da Pessoa Idosa, art. 15, §3º; STJ, Tema 952",
               enunciado: "Nos planos de saúde, em relação à pessoa idosa:",
               alternativas: [
-                "a operadora pode recusar a admissão de novo beneficiário em razão da idade avançada, desde que a política de aceitação conste do contrato e do material publicitário",
-                "o reajuste de mensalidade por mudança de faixa etária é sempre inválido, em qualquer idade do beneficiário, por configurar discriminação vedada pelo sistema protetivo",
+                "a operadora pode recusar a admissão de novo beneficiário em razão da idade avançada, desde que a política de aceitação conste expressamente do contrato, do material publicitário e do registro do produto na Agência Nacional de Saúde Suplementar",
+                "o reajuste de mensalidade por mudança de faixa etária é sempre inválido, em qualquer idade do beneficiário, por configurar discriminação vedada pelo sistema protetivo da pessoa idosa",
                 "é vedada a discriminação com cobrança de valores diferenciados em razão da idade; o STJ, porém, admite o reajuste na última faixa etária (59 anos) se houver previsão contratual clara, conformidade com as normas da ANS e percentuais razoáveis",
                 "a vedação legal de discriminação etária alcança somente os planos coletivos empresariais, não se aplicando aos contratos individuais e familiares",
                 "a mensalidade do plano fica congelada quando o beneficiário completa 60 anos, vedado a partir daí inclusive o reajuste anual autorizado pela ANS"
@@ -2602,10 +2602,10 @@ window.APP_DATA = {
               id: "ado-1", modo: "lei", fonte: "ECA, arts. 39, §1º, e 50",
               enunciado: "Sobre a adoção no ECA, é correto afirmar que:",
               alternativas: [
-                "é medida prioritária do sistema protetivo, que deve ser buscada antes mesmo da tentativa de manutenção da criança na família natural ou extensa",
+                "é medida prioritária do sistema protetivo, que deve ser buscada antes mesmo da tentativa de manutenção da criança na família natural ou extensa, dispensada a prévia destituição do poder familiar dos genitores",
                 "é medida excepcional e irrevogável, à qual se recorre quando esgotados os recursos de manutenção na família natural ou extensa — em regra precedida de habilitação e cadastro dos pretendentes",
                 "pode ser revogada a qualquer tempo pelos pais adotivos, mediante requerimento fundamentado ao juízo da infância, ouvido o Ministério Público",
-                "dispensa a habilitação e o cadastro sempre que os pretendentes à adoção comprovarem boa condição financeira e idoneidade moral",
+                "dispensa a habilitação e o cadastro sempre que os pretendentes à adoção comprovarem boa condição financeira e idoneidade moral atestada em estudo social",
                 "só é admitida a casais heterossexuais unidos pelo casamento civil há pelo menos dois anos, comprovada a estabilidade da relação familiar"
               ],
               correta: 1,
@@ -2616,9 +2616,9 @@ window.APP_DATA = {
               enunciado: "Sobre a chamada adoção 'intuitu personae' (dirigida a pessoa determinada, fora da ordem do cadastro):",
               alternativas: [
                 "é sempre vedada pelo ordenamento, prevalecendo em qualquer caso a ordem cronológica do cadastro de pretendentes, garantia de impessoalidade do sistema",
-                "é livre no direito brasileiro, podendo os pais biológicos escolher diretamente os adotantes do filho, sem qualquer forma de controle ou de chancela judicial",
+                "é livre no direito brasileiro, podendo os pais biológicos escolher diretamente os adotantes do filho, sem qualquer forma de controle ou de chancela judicial, bastando o registro do acordo em cartório de notas da comarca de nascimento",
                 "não é prevista expressamente, mas o STJ a admite excepcionalmente quando demonstrado o vínculo de afinidade e afetividade já constituído, à luz do melhor interesse da criança, ainda que os pretendentes não estejam no topo do cadastro",
-                "só é admitida quando os pretendentes forem parentes da criança até o segundo grau, hipótese legal expressa de dispensa do cadastro",
+                "só é admitida quando os pretendentes forem parentes da criança até o segundo grau, hipótese legal expressa de dispensa do cadastro de adotantes",
                 "depende exclusivamente da concordância prévia e expressa do Ministério Público, a quem a lei atribui a fiscalização da ordem do cadastro"
               ],
               correta: 2,
@@ -2667,11 +2667,11 @@ window.APP_DATA = {
               id: "ado-6", modo: "lei", fonte: "Lei 12.764/2012, art. 3º, IV, 'a'; ECA, art. 54, III",
               enunciado: "Uma escola recusa matrícula de criança com Transtorno do Espectro Autista alegando falta de estrutura. Essa recusa:",
               alternativas: [
-                "é lícita, pois nenhuma escola privada é obrigada a adaptar sua estrutura física e pedagógica para receber alunos com necessidades específicas",
+                "é lícita, pois nenhuma escola privada é obrigada a adaptar sua estrutura física e pedagógica para receber alunos com necessidades específicas, cabendo ao poder público oferecer vaga em rede especializada",
                 "é vedada: constitui direito da pessoa com TEA o acesso à educação e ao ensino, e a recusa de matrícula por escola regular em razão da deficiência é expressamente proibida, sujeitando o gestor a sanção",
                 "só é ilícita quando praticada por escolas da rede pública de ensino, permanecendo as instituições privadas livres para definir seus critérios",
                 "é válida desde que a escola ofereça o reembolso integral da mensalidade e indique outra instituição especializada apta a receber a criança",
-                "depende, para ser lícita, de laudo da equipe pedagógica que ateste tecnicamente a impossibilidade de inclusão do aluno naquela comunidade escolar"
+                "depende, para ser lícita, de laudo da equipe pedagógica que ateste tecnicamente a impossibilidade de inclusão do aluno naquela comunidade escolar, homologado pelo conselho municipal de educação"
               ],
               correta: 1,
               explicacao: "Lei Berenice Piana (12.764/2012), art. 3º, parágrafo único: é vedado recusar matrícula a aluno em razão da deficiência — e o gestor ou autoridade competente responde por sanção (multa). No mesmo sentido, o Estatuto da Pessoa com Deficiência (art. 28, §1º) e o dever de atendimento educacional especializado (CF, art. 208, III). A escola, pública ou privada, deve adaptar-se (não repassar custos das adaptações ao aluno)."
@@ -2717,11 +2717,11 @@ window.APP_DATA = {
               id: "pp-2", modo: "juris", fonte: "STJ, Tema 1303 (ANPP)",
               enunciado: "O Ministério Público recusa-se a propor ANPP alegando que o investigado não confessou durante o inquérito. Conforme o STJ (Tema 1303):",
               alternativas: [
-                "a confissão no inquérito é requisito prévio indispensável ao ANPP",
+                "a confissão no inquérito é requisito prévio indispensável ao ANPP, sob pena de nulidade do acordo",
                 "a confissão não é exigência prévia; pode ser formalizada no momento da assinatura do acordo",
-                "o ANPP só é cabível após o recebimento da denúncia",
-                "a ausência de confissão torna o ANPP definitivamente incabível",
-                "somente o juiz pode suprir a falta de confissão"
+                "o ANPP só é cabível após o recebimento da denúncia pelo juízo",
+                "a ausência de confissão torna o ANPP definitivamente incabível na espécie",
+                "somente o juiz pode suprir a falta de confissão, na audiência de homologação"
               ],
               correta: 1,
               explicacao: "Tema 1303 do STJ: a confissão na fase de inquérito não é exigência do art. 28-A do CPP para o cabimento do ANPP, sendo inválida a recusa baseada em sua ausência. A confissão pode ser formalizada na assinatura do acordo, perante o próprio MP, dado o caráter negocial do instituto."
@@ -2730,11 +2730,11 @@ window.APP_DATA = {
               id: "pp-3", modo: "juris", fonte: "STJ, Súmula 676",
               enunciado: "Recebido o auto de prisão em flagrante, o juiz, sem qualquer provocação, converte a prisão em preventiva. Segundo a Súmula 676 do STJ:",
               alternativas: [
-                "é possível, pois o juiz atua como garante da ordem pública",
+                "é possível, pois o juiz atua como garante da ordem pública na audiência de custódia",
                 "não é possível: após a Lei 13.964/19, é vedado ao juiz converter de ofício o flagrante em preventiva",
-                "é possível apenas em crimes hediondos",
-                "é possível desde que ouça o Ministério Público depois",
-                "a conversão de ofício substitui a representação da autoridade policial"
+                "é possível apenas em crimes hediondos e equiparados",
+                "é possível desde que o juiz ouça o Ministério Público em seguida à decisão",
+                "a conversão de ofício substitui a representação da autoridade policial e o requerimento do Ministério Público"
               ],
               correta: 1,
               explicacao: "Súmula 676 do STJ: em razão da Lei 13.964/19 (Pacote Anticrime), não é mais possível ao juiz, de ofício, decretar ou converter a prisão em flagrante em preventiva. Exige-se requerimento do MP, do assistente/querelante ou representação da autoridade policial."
@@ -2743,11 +2743,11 @@ window.APP_DATA = {
               id: "pp-4", modo: "juris", fonte: "STF, Tema 977",
               enunciado: "Preso em flagrante, o suspeito tem o celular apreendido. A autoridade policial acessa as conversas do aparelho sem autorização judicial nem consentimento. Conforme o STF (Tema 977):",
               alternativas: [
-                "o acesso é livre, pois o aparelho foi legalmente apreendido",
+                "o acesso é livre, pois o aparelho foi legalmente apreendido na prisão em flagrante",
                 "o acesso aos dados exige consentimento livre do titular ou prévia decisão judicial",
-                "o acesso independe de autorização em qualquer flagrante",
-                "somente os metadados podem ser acessados sem ordem judicial",
-                "o consentimento posterior da defesa convalida o acesso"
+                "o acesso independe de autorização em qualquer flagrante de crime permanente",
+                "somente os metadados e a agenda de contatos podem ser acessados sem prévia ordem judicial",
+                "o consentimento posterior da defesa técnica convalida o acesso já realizado"
               ],
               correta: 1,
               explicacao: "Tema 977 do STF: a mera apreensão do celular não autoriza o acesso ao seu conteúdo. Tratando-se de aparelho apreendido (art. 6º do CPP) ou por ocasião do flagrante, o acesso aos dados condiciona-se ao consentimento expresso do titular ou à prévia decisão judicial fundamentada (arts. 7º, III, e 10, §2º, do Marco Civil da Internet)."
@@ -2814,11 +2814,11 @@ window.APP_DATA = {
               id: "ppp-3", modo: "juris", fonte: "STF, Súmula 145",
               enunciado: "Um agente policial induz o suspeito à prática do crime e, ao mesmo tempo, adota providências que tornam impossível sua consumação. Conforme a Súmula 145 do STF:",
               alternativas: [
-                "há crime consumado, respondendo o agente normalmente",
+                "há crime consumado, respondendo o agente provocado normalmente pela conduta",
                 "não há crime, por se tratar de flagrante preparado (crime impossível)",
-                "há tentativa punível",
-                "o crime é putativo por erro de tipo",
-                "o policial responde como coautor"
+                "há tentativa punível, com a pena reduzida de um a dois terços",
+                "o crime é putativo por erro de tipo essencial",
+                "o policial responde como coautor do delito provocado"
               ],
               correta: 1,
               explicacao: "Súmula 145 do STF: não há crime quando a preparação do flagrante pela polícia torna impossível a sua consumação (flagrante preparado/provocado — crime impossível). Difere do flagrante esperado, em que a polícia apenas aguarda a prática do crime, hipótese válida."
@@ -3053,9 +3053,9 @@ window.APP_DATA = {
               id: "comp-3", modo: "lei", fonte: "CPP, arts. 24, 29 e 30; CP, art. 100",
               enunciado: "Sobre as espécies de ação penal e a legitimidade para propô-las:",
               alternativas: [
-                "a ação penal privada subsidiária da pública cabe quando o Ministério Público requer o arquivamento do inquérito policial, permitindo à vítima insistir na persecução mediante queixa-crime substitutiva",
+                "a ação penal privada subsidiária da pública cabe quando o Ministério Público requer o arquivamento do inquérito policial, permitindo à vítima insistir na persecução mediante queixa-crime substitutiva oferecida no prazo de seis meses do arquivamento homologado",
                 "a ação penal privada subsidiária da pública é garantia constitucional cabível apenas na inércia do Ministério Público (não oferecimento no prazo legal), podendo o Parquet aditar a queixa e retomar a ação como parte principal se houver negligência do querelante",
-                "na ação penal pública condicionada, a representação da vítima é irretratável desde o momento em que oferecida perante a autoridade policial competente",
+                "na ação penal pública condicionada, a representação da vítima é irretratável desde o momento em que oferecida perante a autoridade policial competente, ainda que a denúncia não tenha sido oferecida",
                 "a ação penal privada personalíssima admite sucessão processual pelo cônjuge, ascendente, descendente ou irmão em caso de morte do ofendido",
                 "o Ministério Público pode oferecer denúncia nos crimes de ação penal privada quando entender presente relevante interesse público na persecução"
               ],
@@ -3067,8 +3067,8 @@ window.APP_DATA = {
               enunciado: "No âmbito dos Juizados Especiais Criminais, é correto afirmar que:",
               alternativas: [
                 "infrações de menor potencial ofensivo são as contravenções e os crimes com pena máxima não superior a 2 anos; a transação penal cabe nessas infrações e a suspensão condicional do processo alcança crimes com pena mínima igual ou inferior a 1 ano, mesmo fora do Juizado",
-                "a transação penal e a suspensão condicional do processo são institutos idênticos, aplicáveis indistintamente às infrações cuja pena máxima não ultrapasse dois anos de detenção ou reclusão",
-                "a aceitação da transação penal implica reconhecimento de culpa, gera reincidência e é lançada na certidão de antecedentes criminais do autor do fato para todos os efeitos legais",
+                "a transação penal e a suspensão condicional do processo são institutos idênticos, aplicáveis indistintamente às infrações cuja pena máxima não ultrapasse dois anos de detenção ou reclusão, sempre mediante proposta do Ministério Público",
+                "a aceitação da transação penal implica reconhecimento de culpa, gera reincidência e é lançada na certidão de antecedentes criminais do autor do fato para todos os efeitos legais, civis e administrativos, produzindo os mesmos efeitos de sentença penal condenatória transitada em julgado",
                 "a suspensão condicional do processo pode ser proposta pelo juiz de ofício quando o Ministério Público se recusar injustificadamente a formulá-la ao acusado",
                 "descumprida a transação penal, converte-se automaticamente a pena restritiva acordada em privativa de liberdade, independentemente de oferecimento de denúncia"
               ],
@@ -3318,11 +3318,11 @@ window.APP_DATA = {
               id: "epp-1", modo: "juris", fonte: "STJ; Lei 14.843/24",
               enunciado: "A Lei 14.843/24 passou a exigir o exame criminológico obrigatório para a progressão de regime. Segundo o STJ, essa alteração:",
               alternativas: [
-                "aplica-se retroativamente a todos os apenados",
+                "aplica-se retroativamente a todos os apenados em cumprimento de pena",
                 "é novatio legis in pejus e não retroage para atingir fatos praticados sob a lei anterior",
-                "tem natureza meramente procedimental, de aplicação imediata a todos",
-                "revogou a Súmula Vinculante 26 do STF",
-                "dispensa qualquer motivação judicial"
+                "tem natureza meramente procedimental, de aplicação imediata a todos os processos de execução em curso",
+                "revogou tacitamente a Súmula Vinculante 26 do STF",
+                "dispensa qualquer motivação judicial na decisão que nega a progressão"
               ],
               correta: 1,
               explicacao: "STJ (Inf. Ed. Extraordinária 24/25): a exigência de exame criminológico obrigatório (Lei 14.843/24, art. 112, §1º, da LEP) tem natureza penal e configura novatio legis in pejus; não retroage para atingir fatos anteriores (art. 5º, XL, da CF; art. 2º do CP). A ANADEP questiona a lei na ADI 7663."
@@ -3460,9 +3460,9 @@ window.APP_DATA = {
               id: "fal-1", modo: "lei", fonte: "LEP, arts. 50 e 118; STJ, Súmula 526",
               enunciado: "Sobre a falta grave na execução penal e seus efeitos:",
               alternativas: [
-                "interrompe a contagem do prazo para todos os benefícios da execução, inclusive o livramento condicional, o indulto e a comutação de penas concedidos por decreto presidencial",
+                "interrompe a contagem do prazo para todos os benefícios da execução, inclusive o livramento condicional, o indulto e a comutação de penas concedidos por decreto presidencial, reiniciando-se o cômputo a partir do trânsito em julgado da decisão disciplinar",
                 "interrompe o prazo para a progressão de regime (reiniciando a contagem pelo restante da pena) e autoriza a regressão, mas não interfere no livramento condicional, no indulto nem na comutação, salvo previsão expressa do decreto",
-                "acarreta automaticamente a perda integral dos dias remidos, sem limite percentual e sem necessidade de decisão judicial fundamentada",
+                "acarreta automaticamente a perda integral dos dias remidos, sem limite percentual e sem necessidade de decisão judicial fundamentada nem de prévio contraditório",
                 "só pode ser reconhecida após o trânsito em julgado de sentença penal condenatória pelo fato novo praticado durante o cumprimento da pena",
                 "gera regressão de regime independentemente de prévio procedimento administrativo disciplinar e de oitiva do apenado"
               ],
@@ -3706,11 +3706,11 @@ window.APP_DATA = {
               id: "pe-4", modo: "juris", fonte: "STJ, Tema 1249",
               enunciado: "Sobre as medidas protetivas de urgência (MPUs) da Lei Maria da Penha, o STJ (Tema 1249) fixou que elas:",
               alternativas: [
-                "só valem enquanto tramitar inquérito ou ação penal, extinguindo-se automaticamente com o arquivamento",
+                "só valem enquanto tramitar inquérito ou ação penal, extinguindo-se automaticamente com o arquivamento ou com a sentença absolutória transitada em julgado",
                 "têm natureza de tutela inibitória, não se subordinam a inquérito/processo e vigoram por prazo indeterminado enquanto persistir o risco",
                 "caducam automaticamente em seis meses, salvo prorrogação expressa pelo juízo competente",
                 "extinguem-se necessariamente com a absolvição do acusado ou o arquivamento do inquérito",
-                "dependem sempre de boletim de ocorrência prévio e de revisão judicial obrigatória a cada seis meses"
+                "dependem sempre de boletim de ocorrência prévio e de revisão judicial obrigatória a cada seis meses, sob pena de caducidade"
               ],
               correta: 1,
               explicacao: "Tema 1249 do STJ: as MPUs têm natureza de tutela inibitória; sua vigência não se subordina à existência (atual ou futura) de BO, inquérito ou processo, e devem ser fixadas por prazo indeterminado, vinculadas à persistência da situação de risco. A absolvição ou o arquivamento não acarreta, por si, sua extinção."
@@ -4171,11 +4171,11 @@ window.APP_DATA = {
               id: "lex-1", modo: "lei", fonte: "Lei 11.340/06, arts. 5º e 7º",
               enunciado: "Para a incidência da Lei Maria da Penha, a violência doméstica e familiar contra a mulher exige:",
               alternativas: [
-                "coabitação entre autor e vítima e vínculo conjugal atual ou pretérito entre eles, comprovado documentalmente nos autos do inquérito ou do processo criminal instaurado",
+                "coabitação entre autor e vítima e vínculo conjugal atual ou pretérito entre eles, comprovado documentalmente nos autos do inquérito ou do processo criminal instaurado, além de registro de ocorrência em delegacia especializada",
                 "ação ou omissão baseada no gênero, praticada no âmbito da unidade doméstica, da família ou em qualquer relação íntima de afeto — dispensada a coabitação —, abrangendo violência física, psicológica, sexual, patrimonial e moral",
-                "exclusivamente a prática de violência física ou sexual que deixe vestígios materiais aptos a exame de corpo de delito direto",
+                "exclusivamente a prática de violência física ou sexual que deixe vestígios materiais aptos a exame de corpo de delito direto, excluídas as violências psicológica e patrimonial",
                 "que autor e vítima sejam cônjuges ou companheiros, excluídas as relações entre pais e filhas ou entre irmãos que residam sob o mesmo teto",
-                "a demonstração de hipossuficiência econômica da vítima em relação ao agressor"
+                "a demonstração de hipossuficiência econômica da vítima em relação ao agressor, aferida em estudo social do juízo"
               ],
               correta: 1,
               explicacao: "Art. 5º da Lei 11.340/06: unidade doméstica (com ou sem vínculo familiar, inclusive esporadicamente agregadas), família ou relação íntima de afeto — e o parágrafo único dispensa a coabitação (Súmula 600/STJ). O art. 7º lista as cinco formas de violência, incluindo a patrimonial e a moral. A vulnerabilidade é presumida: não se exige prova de hipossuficiência econômica."
@@ -4268,9 +4268,9 @@ window.APP_DATA = {
               id: "dig2-1", modo: "lei", fonte: "CP, arts. 213 e 217-A",
               enunciado: "Após a Lei 12.015/2009, quanto aos crimes de estupro e estupro de vulnerável:",
               alternativas: [
-                "o estupro continua sendo crime próprio, admitindo apenas a mulher como sujeito passivo e o homem como sujeito ativo da conduta típica descrita no tipo penal",
+                "o estupro continua sendo crime próprio, admitindo apenas a mulher como sujeito passivo e o homem como sujeito ativo da conduta típica descrita no tipo penal do art. 213, sem alteração pela reforma promovida pela Lei 12.015/2009",
                 "o estupro passou a ser crime comum quanto ao sujeito passivo (qualquer pessoa) e reuniu num só tipo a conjunção carnal e outros atos libidinosos; no estupro de vulnerável (menor de 14 anos), o consentimento é irrelevante",
-                "no estupro de vulnerável admite-se prova do consentimento da vítima menor de quatorze anos quando demonstrada sua maturidade sexual e sua experiência anterior",
+                "no estupro de vulnerável admite-se prova do consentimento da vítima menor de quatorze anos quando demonstrada sua maturidade sexual e sua experiência anterior, afastando-se a presunção legal",
                 "a ação penal nos crimes contra a dignidade sexual permanece privada, dependendo de queixa-crime da vítima ou de seu representante legal",
                 "o atentado violento ao pudor subsiste como tipo autônomo, em concurso material com o estupro sempre que praticadas as duas condutas no mesmo contexto"
               ],
@@ -4321,8 +4321,8 @@ window.APP_DATA = {
               enunciado: "Quanto à distinção entre concussão, corrupção passiva e corrupção ativa:",
               alternativas: [
                 "concussão é exigir vantagem indevida em razão da função; corrupção passiva é solicitar, receber ou aceitar promessa de vantagem; a corrupção ativa é o crime do particular que oferece ou promete — e não há bilateralidade necessária entre passiva e ativa",
-                "concussão e corrupção passiva são o mesmo delito, distinguindo-se apenas pela qualidade do sujeito passivo da conduta praticada pelo funcionário público no exercício da função",
-                "a corrupção passiva exige, para sua configuração típica, a correspondente corrupção ativa de um particular identificado, dada a natureza bilateral necessária dessa espécie de delito",
+                "concussão e corrupção passiva são o mesmo delito, distinguindo-se apenas pela qualidade do sujeito passivo da conduta praticada pelo funcionário público no exercício da função ou fora dela",
+                "a corrupção passiva exige, para sua configuração típica, a correspondente corrupção ativa de um particular identificado, dada a natureza bilateral necessária dessa espécie de delito de encontro previsto no Título XI do Código Penal, sob pena de atipicidade",
                 "na concussão o funcionário solicita a vantagem sem qualquer constrangimento à vítima, ao passo que na corrupção passiva ele a exige mediante ameaça velada de prejuízo",
                 "a corrupção ativa só se configura quando a vantagem oferecida é efetivamente aceita e recebida pelo funcionário público destinatário do oferecimento"
               ],
@@ -4430,10 +4430,10 @@ window.APP_DATA = {
               id: "arm-6", modo: "lei", fonte: "Lei 12.850/2013, arts. 1º, §1º, e 4º",
               enunciado: "Sobre a organização criminosa e a colaboração premiada:",
               alternativas: [
-                "organização criminosa é a associação de duas ou mais pessoas para o fim específico de cometer crimes cuja pena máxima não ultrapasse dois anos, com estrutura ordenada e divisão de tarefas",
+                "organização criminosa é a associação de duas ou mais pessoas para o fim específico de cometer crimes cuja pena máxima não ultrapasse dois anos, com estrutura ordenada e divisão de tarefas, exigida ainda a permanência do vínculo associativo por prazo superior a trinta dias",
                 "organização criminosa exige 4 ou mais pessoas, estrutura ordenada e divisão de tarefas, para obter vantagem mediante infrações com pena máxima superior a 4 anos ou de caráter transnacional; e nenhuma sentença condenatória pode se fundar apenas na palavra do colaborador",
                 "a colaboração premiada dispensa homologação judicial, bastando o acordo firmado entre o colaborador e o órgão de persecução para produzir seus efeitos legais",
-                "a condenação pode fundar-se exclusivamente nas declarações do colaborador quando estas forem detalhadas, coerentes e prestadas sob o compromisso legal de dizer a verdade",
+                "a condenação pode fundar-se exclusivamente nas declarações do colaborador quando estas forem detalhadas, coerentes e prestadas sob o compromisso legal de dizer a verdade, dispensada a corroboração por outras provas",
                 "o colaborador tem direito subjetivo ao perdão judicial, que o juiz deve conceder sempre que homologado o acordo de colaboração premiada celebrado"
               ],
               correta: 1,
@@ -4572,11 +4572,11 @@ window.APP_DATA = {
               id: "cri2-2", modo: "caso", fonte: "Zaffaroni — criminalização primária e secundária",
               enunciado: "Na lição de Zaffaroni, distinguem-se criminalização primária e secundária. É correto afirmar que:",
               alternativas: [
-                "a criminalização primária é a atuação policial de rua e a secundária é o julgamento pelos tribunais superiores nas instâncias recursais",
+                "a criminalização primária é a atuação policial de rua e a secundária é o julgamento pelos tribunais superiores nas instâncias recursais, quando confirmada a condenação imposta em primeiro grau de jurisdição pelo juiz natural",
                 "a primária é o poder de definir crimes em abstrato (atividade legislativa); a secundária é o exercício concreto do poder punitivo sobre pessoas selecionadas — seleção estruturalmente orientada por estereótipos",
                 "ambas se referem a momentos da execução penal: a primária na sentença condenatória e a secundária nos incidentes da execução da pena imposta",
                 "a criminalização secundária alcança de forma uniforme todas as camadas sociais, dada a impessoalidade das agências de controle formal do Estado",
-                "a distinção perdeu relevância com a constitucionalização do processo penal brasileiro"
+                "a distinção perdeu relevância com a constitucionalização do processo penal brasileiro e a adoção expressa do sistema acusatório"
               ],
               correta: 1,
               explicacao: "Criminalização primária = programa legislativo (definição abstrata de crimes); secundária = ação das agências (polícia, MP, Judiciário) sobre pessoas concretas. Como o programa primário é irrealizável por completo, a secundária é inevitavelmente SELETIVA — e seleciona pelos estereótipos (pobreza, raça, território). Conceito central para a Defensoria."
@@ -4882,9 +4882,9 @@ window.APP_DATA = {
               id: "trat-3", modo: "lei", fonte: "CF, art. 109, §5º (EC 45/2004)",
               enunciado: "O incidente de deslocamento de competência (IDC), previsto no art. 109, §5º, da Constituição:",
               alternativas: [
-                "pode ser suscitado por qualquer interessado perante o Supremo Tribunal Federal, em casos de grave violação de direitos humanos ocorridos no âmbito estadual",
+                "pode ser suscitado por qualquer interessado perante o Supremo Tribunal Federal, em casos de grave violação de direitos humanos ocorridos no âmbito da Justiça estadual, após o trânsito em julgado",
                 "é suscitado pelo Procurador-Geral da República perante o STJ, em qualquer fase do inquérito ou processo, nas hipóteses de grave violação de direitos humanos e com a finalidade de assegurar o cumprimento de tratados internacionais",
-                "desloca automaticamente para a Justiça Federal todos os processos que envolvam violação de direitos humanos, independentemente de decisão judicial prévia sobre o caso concreto",
+                "desloca automaticamente para a Justiça Federal todos os processos que envolvam violação de direitos humanos, independentemente de decisão judicial prévia sobre o caso concreto, bastando a comunicação do fato à Procuradoria-Geral da República",
                 "foi declarado inconstitucional pelo Supremo Tribunal Federal por violar o princípio do juiz natural e o pacto federativo consagrado na Constituição de 1988",
                 "cabe exclusivamente ao Conselho Nacional de Justiça, no exercício de sua competência de controle da atuação administrativa do Poder Judiciário nacional"
               ],
@@ -4895,9 +4895,9 @@ window.APP_DATA = {
               id: "trat-4", modo: "juris", fonte: "Corte IDH; CF, art. 7º do ADCT",
               enunciado: "Quanto aos efeitos das sentenças da Corte Interamericana de Direitos Humanos condenatórias do Brasil:",
               alternativas: [
-                "dependem de homologação pelo Superior Tribunal de Justiça, tal como as sentenças estrangeiras em geral, para produzir efeitos no território nacional brasileiro",
+                "dependem de homologação pelo Superior Tribunal de Justiça, tal como as sentenças estrangeiras em geral, para produzir efeitos no território nacional brasileiro, e de posterior expedição de carta de sentença pelo juízo federal",
                 "são obrigatórias e de cumprimento imediato pelo Estado, que responde internacionalmente pelo descumprimento — abrangendo reparações, garantias de não repetição e, por vezes, dever de adequar a legislação interna",
-                "têm caráter meramente recomendatório, cabendo ao Estado brasileiro avaliar discricionariamente a conveniência política de seu cumprimento em cada caso concreto",
+                "têm caráter meramente recomendatório, cabendo ao Estado brasileiro avaliar discricionariamente a conveniência política de seu cumprimento em cada caso concreto, na forma do Decreto 4.463/2002",
                 "só vinculam o Poder Executivo federal, não alcançando decisões já transitadas em julgado no âmbito do Poder Judiciário brasileiro em nenhuma hipótese",
                 "podem ser revistas pelo Supremo Tribunal Federal em sede de recurso extraordinário, quando contrariarem a interpretação constitucional firmada internamente"
               ],
@@ -4992,11 +4992,11 @@ window.APP_DATA = {
               id: "pcs-4", modo: "lei", fonte: "Lei 9.868/99, arts. 27 e 28",
               enunciado: "A modulação temporal dos efeitos da declaração de inconstitucionalidade:",
               alternativas: [
-                "é vedada no sistema brasileiro, que adota a teoria da nulidade absoluta com efeitos sempre retroativos à data de edição da norma inconstitucional",
+                "é vedada no sistema brasileiro, que adota a teoria da nulidade absoluta com efeitos sempre retroativos à data de edição da norma inconstitucional, sem qualquer temperamento legal ou jurisprudencial admitido",
                 "pode ser determinada por maioria de dois terços dos membros do STF, por razões de segurança jurídica ou excepcional interesse social, restringindo os efeitos ou fixando outro momento para sua eficácia",
                 "depende de aprovação prévia do Congresso Nacional, a quem cabe deliberar sobre os efeitos financeiros da decisão proferida em controle concentrado",
                 "é automática em todas as ações diretas julgadas procedentes, produzindo a decisão efeitos apenas a partir do trânsito em julgado do acórdão publicado",
-                "aplica-se somente ao controle difuso, sendo incompatível com a natureza objetiva do processo de controle concentrado de constitucionalidade"
+                "aplica-se somente ao controle difuso, sendo incompatível com a natureza objetiva do processo de controle concentrado de constitucionalidade das leis"
               ],
               correta: 1,
               explicacao: "Art. 27 da Lei 9.868/99: quórum de 2/3 (oito ministros) e fundamento em segurança jurídica ou excepcional interesse social. A regra continua sendo a nulidade com efeitos ex tunc; a modulação é EXCEÇÃO, permitindo efeitos ex nunc ou pro futuro. O mesmo mecanismo existe na ADPF (Lei 9.882/99, art. 11)."
@@ -5089,9 +5089,9 @@ window.APP_DATA = {
               id: "seg-4", modo: "juris", fonte: "CF, art. 6º; STF, RE 592.581",
               enunciado: "Sobre o controle judicial de políticas públicas relacionadas ao sistema prisional, o STF fixou no RE 592.581 que:",
               alternativas: [
-                "o Judiciário não pode determinar obras em estabelecimentos penais, sob pena de violação da separação dos Poderes e da reserva de administração do Executivo",
+                "o Judiciário não pode determinar obras em estabelecimentos penais, sob pena de violação da separação dos Poderes e da reserva de administração conferida ao Poder Executivo",
                 "é lícito ao Judiciário determinar à Administração que realize obras ou reformas emergenciais em presídios para garantir a integridade e a dignidade dos detentos — sem que se possa opor a reserva do possível ou a separação dos Poderes",
-                "a determinação judicial de obras depende de prévia dotação orçamentária específica aprovada pelo Poder Legislativo do ente federado responsável pelo estabelecimento",
+                "a determinação judicial de obras depende de prévia dotação orçamentária específica aprovada pelo Poder Legislativo do ente federado responsável pelo estabelecimento prisional, sob pena de nulidade da ordem por invasão da competência orçamentária",
                 "cabe apenas ao Conselho Nacional de Justiça, no exercício de sua função correicional, determinar intervenções materiais em estabelecimentos prisionais deficientes",
                 "a matéria é de competência exclusiva do juízo da execução penal, vedada a atuação em sede de ação civil pública proposta pela Defensoria ou pelo Ministério Público"
               ],
@@ -5425,11 +5425,11 @@ window.APP_DATA = {
               id: "prin-2", modo: "juris", fonte: "STF, Súmulas Vinculantes 13 e 3",
               enunciado: "Sobre a aplicação do princípio da moralidade e da impessoalidade na Administração:",
               alternativas: [
-                "a nomeação de parentes para cargos em comissão é livre, por se tratar de cargo de confiança de livre nomeação e exoneração pela autoridade competente",
+                "a nomeação de parentes para cargos em comissão é livre, por se tratar de cargo de confiança de livre nomeação e exoneração pela autoridade competente, ainda que o parentesco seja de primeiro grau em linha reta",
                 "a Súmula Vinculante 13 veda o nepotismo — inclusive o cruzado — na Administração direta e indireta dos três Poderes, mas o STF excepciona os cargos de natureza política, como o de Secretário de Estado",
                 "o nepotismo só é vedado quando houver lei específica do ente federado que o proíba expressamente, dada a autonomia administrativa dos entes da federação",
                 "a vedação alcança apenas a nomeação de cônjuge e companheiro, não se estendendo a parentes por consanguinidade ou afinidade em qualquer grau",
-                "a Súmula Vinculante 13 aplica-se exclusivamente ao Poder Executivo federal, não vinculando Estados, Municípios e os demais Poderes da República"
+                "a Súmula Vinculante 13 aplica-se exclusivamente ao Poder Executivo federal, não vinculando Estados, Municípios e os demais Poderes da República, que editam normas próprias"
               ],
               correta: 1,
               explicacao: "SV 13: veda nomeação de cônjuge, companheiro ou parente até 3º grau da autoridade nomeante ou de servidor da mesma pessoa jurídica investido em cargo de direção/chefia/assessoramento — inclusive o nepotismo CRUZADO (ajuste recíproco). O STF excepciona os cargos de natureza POLÍTICA (agentes políticos, como Secretários e Ministros), salvo fraude ou inaptidão comprovada."
@@ -5810,17 +5810,17 @@ window.APP_DATA = {
               explicacao: "ADI 3.943 (2015): o STF julgou improcedente a ação da CONAMP e confirmou a legitimidade ampla da Defensoria para a ACP, bastando que o resultado possa beneficiar grupo que contenha pessoas necessitadas — sem exigir que TODOS o sejam, nem identificação individual. O conceito de 'necessitado' é ampliado (vulnerabilidade organizacional, e não só econômica)."
             },
             {
-              id: "desc-4", modo: "caso", fonte: "Custos vulnerabilis; STJ, EDcl no REsp 1.712.163",
-              enunciado: "A atuação da Defensoria Pública como custos vulnerabilis significa:",
+              id: "desc-4", modo: "caso", fonte: "Protocolo de San Salvador, art. 19.6 (Decreto 3.321/1999)",
+              enunciado: "O Protocolo de San Salvador (Protocolo Adicional à Convenção Americana em matéria de DESCs) prevê que o sistema de petições individuais perante a Comissão e a Corte Interamericanas:",
               alternativas: [
-                "a representação processual individual do assistido hipossuficiente que a procura espontaneamente para a defesa de seus interesses em juízo",
-                "a intervenção institucional em processos nos quais se discutam interesses de pessoas ou grupos vulneráveis, como guardiã dos vulneráveis, ainda que a parte tenha advogado constituído",
-                "o exercício da curadoria especial do réu revel citado por edital ou com hora certa, nos termos do art. 72 do Código de Processo Civil vigente",
-                "a fiscalização do cumprimento das decisões judiciais proferidas contra a Fazenda Pública em ações coletivas de natureza prestacional em curso",
-                "a assunção da titularidade da ação penal pública quando o Ministério Público permanecer inerte além do prazo legal para o oferecimento da denúncia"
+                "alcança todos os direitos econômicos, sociais e culturais nele enumerados, desde que esgotados os recursos internos e observado o prazo de seis meses da decisão final",
+                "só é acionável, na literalidade do art. 19.6, quanto ao direito de organizar sindicatos e de filiar-se ao de sua escolha (art. 8.a) e ao direito à educação (art. 13)",
+                "não alcança nenhum direito do Protocolo, cujo único mecanismo de supervisão é o exame de relatórios periódicos enviados pelos Estados-partes ao Conselho Interamericano de Desenvolvimento Integral",
+                "alcança apenas o direito à saúde (art. 10) e o direito ao meio ambiente sadio (art. 11), por serem os únicos de conteúdo imediatamente exigível dos Estados-partes",
+                "depende de declaração facultativa específica de cada Estado-parte reconhecendo a competência da Comissão para receber comunicações em matéria de direitos sociais"
               ],
               correta: 1,
-              explicacao: "Custos vulnerabilis ('guardiã dos vulneráveis'): intervenção da Defensoria em razão da vulnerabilidade envolvida no caso, ainda que a parte tenha advogado — reconhecida pelo STJ (EDcl no REsp 1.712.163, sobre medicamentos, e no HC 568.693). Distingue-se da curadoria especial (art. 72 do CPC) e do custos legis do MP. É tese institucional de expansão da atuação defensorial."
+              explicacao: "Art. 19.6 do Protocolo de San Salvador (Decreto 3.321/1999): a violação do direito de organização sindical (art. 8.a) e do direito à educação (art. 13), por ação imputável diretamente a um Estado-parte, abre a via das petições individuais dos arts. 44 a 51 e 61 a 69 da Convenção Americana — podendo chegar à Corte IDH. Os demais DESCs do Protocolo sujeitam-se ao mecanismo de relatórios (art. 19.1). Pegadinha: supor que todo DESC do Protocolo é diretamente justiciável. A Corte IDH vem ampliando essa justiciabilidade pela via do art. 26 da Convenção Americana (Lagos del Campo vs. Peru, 2017), mas a porta expressa do Protocolo continua sendo apenas essa."
             },
             {
               id: "desc-5", modo: "caso", fonte: "Processo estrutural; STF, ADPF 347",
@@ -5853,9 +5853,9 @@ window.APP_DATA = {
               enunciado: "Sobre a relação entre direitos humanos e questões socioambientais:",
               alternativas: [
                 "o racismo ambiental designa a distribuição desproporcional dos danos ambientais sobre populações racializadas e vulnerabilizadas — e a Convenção 169 da OIT assegura consulta prévia, livre e informada aos povos indígenas e tribais afetados",
-                "os danos ambientais atingem de forma equitativa todos os grupos sociais, razão pela qual as políticas ambientais devem ser desenhadas com critérios estritamente técnicos e universais",
+                "os danos ambientais atingem de forma equitativa todos os grupos sociais, razão pela qual as políticas ambientais devem ser desenhadas com critérios estritamente técnicos e universais, vedada qualquer diferenciação por território ou perfil da população atingida",
                 "a consulta prévia prevista na Convenção 169 da OIT tem natureza meramente consultiva e informativa, não gerando qualquer dever jurídico para o Estado ou para o empreendedor",
-                "as comunidades quilombolas e tradicionais não integram o âmbito de aplicação da Convenção 169, restrita aos povos indígenas reconhecidos oficialmente pelo Estado",
+                "as comunidades quilombolas e tradicionais não integram o âmbito de aplicação da Convenção 169, restrita aos povos indígenas reconhecidos oficialmente pelo Estado em processo demarcatório concluído",
                 "a proteção socioambiental compete exclusivamente ao Ministério Público, carecendo a Defensoria Pública de legitimidade para atuar em conflitos dessa natureza"
               ],
               correta: 0,
@@ -5936,11 +5936,11 @@ window.APP_DATA = {
               id: "dp-5", modo: "lei", fonte: "LC 80/94, art. 4º (LC 132/2009)",
               enunciado: "Entre as funções institucionais da Defensoria Pública (art. 4º da LC 80/94) inclui-se:",
               alternativas: [
-                "promover, privativamente, a ação penal pública nos crimes praticados contra pessoas vulneráveis",
+                "promover, privativamente, a ação penal pública nos crimes praticados contra pessoas vulneráveis assistidas pela instituição, mediante denúncia",
                 "promover ação civil pública e outras ações coletivas para tutelar interesses difusos, coletivos e individuais homogêneos dos necessitados",
-                "julgar, mediante delegação, os conflitos de menor complexidade entre particulares hipossuficientes",
-                "exercer o controle externo da atividade policial e a correição dos órgãos do Poder Judiciário",
-                "editar atos normativos com força de lei para disciplinar a gratuidade de justiça"
+                "julgar, mediante delegação legal, os conflitos de menor complexidade entre particulares hipossuficientes",
+                "exercer o controle externo da atividade policial e a correição dos órgãos do Poder Judiciário estadual",
+                "editar atos normativos com força de lei para disciplinar a gratuidade de justiça no Estado"
               ],
               correta: 1,
               explicacao: "Art. 4º da LC 80/94 (com a LC 132/2009): é função institucional promover a ação civil pública e todas as espécies de ações capazes de propiciar a adequada tutela dos direitos difusos, coletivos e individuais homogêneos dos necessitados. A atuação como 'custos vulnerabilis' é reconhecida pela jurisprudência do STJ."

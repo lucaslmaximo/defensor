@@ -1700,6 +1700,101 @@ window.APP_DATA_MPRJ = {
       ]
     },
 
+    /* ----------------------------- BANCA IV · DIREITOS DIFUSOS */
+    {
+      id: "mprj-difusos",
+      titulo: "Direitos difusos — direito material",
+      materia: "Tutela Coletiva",
+      banca: "IV",
+      descricao: "O que a ACP discute no mérito: responsabilidade civil ambiental, LC 140, Código Florestal, Mata Atlântica, SNUC e resíduos sólidos.",
+      licoes: [
+        {
+          id: "mprj-difusos-1",
+          titulo: "Direito ambiental material: responsabilidade, licenciamento e áreas protegidas",
+          questoes: [
+            {
+              id: "mp-dif-1", modo: "juris", fonte: "Súmula 623 do STJ; Tema 999 do STF (RE 654.833); Lei 6.938/81, art. 14, §1º",
+              enunciado: "Adquirente de imóvel rural é demandado em ação civil pública para recompor área de preservação permanente desmatada pelo proprietário anterior há mais de vinte anos. Em defesa, alega que não deu causa ao dano e que a pretensão já estaria prescrita. À luz da jurisprudência dos tribunais superiores, é correto afirmar que:",
+              alternativas: [
+                "as obrigações ambientais têm natureza propter rem e podem ser exigidas do proprietário ou possuidor atual e/ou dos anteriores, à escolha do credor, sendo imprescritível a pretensão de reparação civil do dano ambiental",
+                "o adquirente somente responde pela recomposição se tiver ciência inequívoca da degradação ao tempo da aquisição, incumbindo ao autor da ação demonstrar essa ciência por cláusula expressa constante do título aquisitivo",
+                "a pretensão de reparação do dano ambiental submete-se a prazo prescricional de dez anos contado da alienação do imóvel, transferindo-se ao adquirente apenas o dever de não degradar a área daquele momento em diante",
+                "a responsabilidade recai sobre o causador direto do dano, de modo que o adquirente só pode ser acionado em execução subsidiária, depois de excutido integralmente o patrimônio do alienante degradador",
+                "a consolidação da ocupação por longo período autoriza a aplicação da teoria do fato consumado, convertendo-se a obrigação de recompor em mera indenização pecuniária a ser revertida ao fundo de direitos difusos"
+              ],
+              correta: 0,
+              explicacao: "A Súmula 623 do STJ fixa que as obrigações ambientais têm natureza propter rem: acompanham a coisa e podem ser cobradas do proprietário ou possuidor atual e/ou dos anteriores, À ESCOLHA DO CREDOR — o adquirente responde ainda que não tenha causado a degradação. Some-se o Tema 999 do STF (RE 654.833): é imprescritível a pretensão de reparação civil de dano ambiental. A responsabilidade é objetiva e independe de culpa (Lei 6.938/81, art. 14, §1º), regida pela teoria do risco integral. Os distratores caem por dispositivos próprios: a Súmula 613 do STJ veda a teoria do fato consumado em direito ambiental, e a execução subsidiária da Súmula 652 do STJ é regra restrita à Administração Pública omissa no dever de fiscalizar, não ao particular adquirente."
+            },
+            {
+              id: "mp-dif-2", modo: "lei", fonte: "LC 140/2011, arts. 2º, II e III, 13, caput e §1º, 15, 16, parágrafo único, e 17, §3º",
+              enunciado: "A Lei Complementar 140/2011 fixa normas de cooperação entre União, Estados, Distrito Federal e Municípios nas ações administrativas decorrentes da competência comum em matéria ambiental. Sobre esse regime, é correto afirmar que:",
+              alternativas: [
+                "a atuação supletiva se configura sempre que o órgão originariamente competente ultrapassar o prazo regulamentar de análise do pedido, hipótese em que o ente federativo de maior abrangência assume de ofício o licenciamento",
+                "o empreendimento de impacto regional deve ser licenciado cumulativamente pelo Estado e por cada Município atingido, exigindo-se licença autônoma de todo ente cujo território sofra os efeitos diretos da atividade",
+                "a atuação subsidiária consiste no apoio técnico, científico, administrativo ou financeiro prestado por outro ente federativo e depende de solicitação do ente originariamente detentor da atribuição",
+                "a manifestação dos demais entes federativos interessados no processo de licenciamento assume caráter vinculante para o órgão licenciador quando o impacto do empreendimento ultrapassar seus limites territoriais",
+                "o auto de infração lavrado por ente diverso do responsável pelo licenciamento é nulo de pleno direito, pois a atribuição de fiscalizar segue estritamente a atribuição para licenciar o empreendimento"
+              ],
+              correta: 2,
+              explicacao: "O art. 2º, III, define atuação subsidiária como a ação do ente que auxilia no desempenho das atribuições da competência comum — e o art. 16, parágrafo único, exige que ela seja SOLICITADA pelo ente originariamente detentor da atribuição, prestando-se por apoio técnico, científico, administrativo ou financeiro. Não se confunde com a atuação supletiva (art. 2º, II), em que o ente se SUBSTITUI ao detentor originário, e apenas nas hipóteses taxativas do art. 15 (inexistência de órgão ambiental capacitado ou de conselho de meio ambiente). Os demais itens contrariam: o art. 13, caput (um único ente licencia), o §1º do art. 13 (a manifestação dos demais entes é não vinculante) e o art. 17, §3º (a fiscalização é comum a todos os entes; o auto lavrado por ente não licenciador não é nulo — apenas prevalece o do órgão licenciador)."
+            },
+            {
+              id: "mp-dif-3", modo: "lei", fonte: "Lei 12.651/2012 (Código Florestal), art. 15, I a III, e §1º; arts. 12 e 8º",
+              enunciado: "Proprietário de imóvel rural situado no Estado do Rio de Janeiro, cuja faixa ciliar protegida como área de preservação permanente está em processo de recuperação, pretende computá-la no cálculo do percentual de Reserva Legal. Nos termos do Código Florestal, esse cômputo:",
+              alternativas: [
+                "é vedado em qualquer hipótese, pois a área de preservação permanente e a Reserva Legal são institutos autônomos, com finalidades diversas e regimes de proteção inconfundíveis, que a lei não autoriza sobrepor no mesmo imóvel",
+                "é admitido apenas nos imóveis situados na Amazônia Legal e desde que o percentual mínimo de Reserva Legal exigido supere cinquenta por cento da área total do imóvel, conforme o zoneamento ecológico-econômico estadual",
+                "é admitido desde que o proprietário compense área equivalente em outro imóvel situado no mesmo bioma e na mesma bacia hidrográfica, mediante servidão ambiental averbada em cartório ou aquisição de Cota de Reserva Ambiental registrada",
+                "é admitido desde que não implique conversão de novas áreas para uso alternativo do solo, a área esteja conservada ou em recuperação e o imóvel tenha sido inscrito no Cadastro Ambiental Rural, mantido o regime da área de preservação permanente",
+                "é admitido e converte a área computada em Reserva Legal para todos os efeitos, passando ela a admitir exploração econômica por manejo florestal sustentável mediante autorização prévia do órgão estadual competente"
+              ],
+              correta: 3,
+              explicacao: "O art. 15 admite o cômputo das APPs no cálculo do percentual de Reserva Legal, mas sob TRÊS REQUISITOS CUMULATIVOS: que o benefício não implique conversão de novas áreas para uso alternativo do solo (I), que a área esteja conservada ou em processo de recuperação (II) e que o proprietário ou possuidor tenha requerido a inclusão do imóvel no CAR (III). O §1º é decisivo contra a última alternativa: o regime de proteção da APP NÃO SE ALTERA com o cômputo — ela não passa a admitir o manejo que a Reserva Legal comporta (art. 20), tampouco a intervenção fora das hipóteses de utilidade pública, interesse social ou baixo impacto (art. 8º). No Rio de Janeiro a Reserva Legal é de 20% (art. 12, II), percentual das regiões fora da Amazônia Legal, e a compensação em outro imóvel é instituto diverso, próprio da regularização do passivo."
+            },
+            {
+              id: "mp-dif-4", modo: "caso", fonte: "Lei 11.428/2006 (Mata Atlântica), art. 14, caput e §1º; art. 11",
+              enunciado: "Sociedade empresária requer ao órgão ambiental estadual autorização para suprimir vegetação secundária em estágio avançado de regeneração do Bioma Mata Atlântica, em área rural, para implantar empreendimento. Segundo a Lei 11.428/2006, essa supressão:",
+              alternativas: [
+                "pode ser autorizada em caso de utilidade pública ou de interesse social, bastando que o empreendedor apresente projeto de recomposição de área equivalente no mesmo Município e no mesmo estágio de regeneração",
+                "independe de autorização específica, submetendo-se ao regime da vegetação em estágio inicial de regeneração, cujo corte é liberado mediante simples comunicação prévia ao órgão ambiental municipal competente",
+                "é livre quando o imóvel estiver inscrito no Cadastro Ambiental Rural e a área a ser suprimida não ultrapassar vinte por cento do remanescente florestal existente na propriedade do interessado",
+                "é vedada de forma absoluta, ainda que caracterizada a utilidade pública, pois a vegetação em estágio avançado integra o patrimônio nacional e se torna insuscetível de qualquer intervenção autorizada",
+                "somente pode ser autorizada em caso de utilidade pública, caracterizada e motivada em procedimento administrativo próprio, e quando inexistir alternativa técnica e locacional ao empreendimento proposto"
+              ],
+              correta: 4,
+              explicacao: "O art. 14 gradua o regime pelo estágio de regeneração: a vegetação primária e a secundária em estágio AVANÇADO só podem ser suprimidas por UTILIDADE PÚBLICA; a secundária em estágio MÉDIO admite ainda o interesse social. Em ambos os casos exige-se caracterização e motivação em procedimento administrativo próprio e — condicionante que os distratores omitem — a INEXISTÊNCIA DE ALTERNATIVA TÉCNICA E LOCACIONAL ao empreendimento. A autorização é do órgão estadual, com anuência prévia do órgão federal ou municipal quando couber (§1º). O art. 11 acrescenta vedações absolutas ao corte nos estágios médio e avançado, como abrigar espécies ameaçadas de extinção, proteger mananciais, formar corredores ecológicos ou proteger o entorno de unidades de conservação."
+            },
+            {
+              id: "mp-dif-5", modo: "caso", fonte: "Lei 9.985/2000 (SNUC), art. 36, caput e §§ 1º a 4º; ADI 3.378 do STF",
+              enunciado: "Empreendimento de significativo impacto ambiental, assim reconhecido pelo órgão licenciador com base em EIA/RIMA, atinge a zona de amortecimento de uma Floresta Estadual, unidade de conservação do Grupo de Uso Sustentável. Sobre a compensação ambiental prevista no art. 36 do SNUC, é correto afirmar que:",
+              alternativas: [
+                "o montante da compensação não pode ser inferior a meio por cento dos custos totais previstos para a implantação do empreendimento, piso que vincula o órgão licenciador independentemente do grau de impacto apurado",
+                "o licenciamento só pode ser concedido mediante autorização do órgão responsável pela administração da unidade afetada, que deverá ser uma das beneficiárias da compensação ainda que não integre o Grupo de Proteção Integral",
+                "cabe ao empreendedor indicar no EIA/RIMA as unidades de conservação beneficiárias, ficando o órgão ambiental licenciador vinculado a essa escolha, que não pode contemplar a criação de novas unidades de conservação",
+                "a autorização do órgão gestor da unidade só é exigível quando o empreendimento se situar dentro dos limites da unidade de conservação, não bastando que os seus efeitos alcancem a respectiva zona de amortecimento",
+                "a compensação destina-se exclusivamente a unidades do Grupo de Proteção Integral, sendo vedado o aporte de recursos em unidades de uso sustentável, ainda que de posse e domínio públicos e situadas na Amazônia Legal"
+              ],
+              correta: 1,
+              explicacao: "O §3º do art. 36 traz a regra cobrada: quando o empreendimento afeta unidade de conservação específica OU A SUA ZONA DE AMORTECIMENTO, o licenciamento só pode ser concedido mediante autorização do órgão responsável pela administração da unidade, e a unidade afetada, MESMO QUE NÃO PERTENÇA AO GRUPO DE PROTEÇÃO INTEGRAL, deve ser uma das beneficiárias da compensação. Os distratores invertem outros parágrafos: quem define as unidades beneficiadas é o órgão licenciador, ouvido o empreendedor, podendo inclusive criar novas unidades (§2º); a obrigação pode ser cumprida em unidades de uso sustentável de posse e domínio públicos (§4º); e o percentual é fixado conforme o grau de impacto — o STF, na ADI 3.378, declarou inconstitucional a expressão que impunha piso de meio por cento dos custos totais."
+            },
+            {
+              id: "mp-dif-6", modo: "caso", fonte: "Lei 12.305/2010 (PNRS), art. 27, §1º; Lei 6.938/81, art. 3º, IV, e art. 14, §1º",
+              enunciado: "Indústria geradora de resíduos perigosos contrata empresa regularmente licenciada para o transporte e a destinação final dos rejeitos. A contratada, porém, despeja o material em área não licenciada, contaminando o solo e o lençol freático. Instaurado inquérito civil, é correto afirmar que:",
+              alternativas: [
+                "a responsabilidade do gerador cessa com a entrega dos resíduos à empresa licenciada, transferindo-se integralmente à contratada a partir da emissão do manifesto de transporte de resíduos perigosos pelo órgão ambiental",
+                "o gerador responde apenas se demonstrada culpa in eligendo na contratação, ônus que incumbe ao Ministério Público, pois a responsabilidade por ato de terceiro não dispensa a prova da negligência na escolha da empresa",
+                "a contratação de terceiro licenciado não isenta o gerador da responsabilidade pelos danos decorrentes do gerenciamento inadequado dos resíduos, respondendo ele solidariamente na condição de poluidor indireto",
+                "a responsabilidade do gerador é meramente subsidiária, de modo que só pode ser executado depois de esgotado o patrimônio da empresa contratada e o dos sócios que integram o respectivo quadro societário",
+                "cabe ao Município, titular do serviço público de manejo de resíduos sólidos, reparar integralmente o dano ambiental, assegurado o direito de regresso contra a empresa contratada e contra a indústria geradora"
+              ],
+              correta: 2,
+              explicacao: "O art. 27, §1º, da Lei 12.305/2010 é expresso: a contratação de serviços de coleta, transporte, tratamento ou destinação final NÃO ISENTA o gerador da responsabilidade por danos provocados pelo gerenciamento inadequado dos resíduos ou rejeitos — expressão da responsabilidade compartilhada pelo ciclo de vida dos produtos. Como o art. 3º, IV, da Lei 6.938/81 considera poluidor quem responde DIRETA OU INDIRETAMENTE pela atividade degradadora, o gerador figura como poluidor indireto e responde solidariamente, de forma objetiva e independentemente de culpa (art. 14, §1º), sem que o Ministério Público precise provar culpa in eligendo. A execução subsidiária invocada em um dos distratores é a da Súmula 652 do STJ, restrita à Administração omissa no dever de fiscalizar."
+            }
+          ]
+        }
+      ]
+    },
+
     /* ------------------------ BANCA IV · PRINCÍPIOS INSTITUCIONAIS */
     {
       id: "mprj-inst",

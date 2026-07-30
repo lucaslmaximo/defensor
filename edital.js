@@ -458,6 +458,12 @@ window.APP_EDITAL = {
         tema: "Processo coletivo: LACP, CDC e coisa julgada", licoes: ["mprj-tc-1"] },
       { id: "mp-tc-2", banca: "IV", materia: "Tutela Coletiva", peso: 5,
         tema: "Inquérito civil, recomendação, TAC e improbidade", licoes: ["mprj-tc-2"] },
+      { id: "mp-dif-amb", banca: "IV", materia: "Tutela Coletiva", peso: 5,
+        tema: "Direito ambiental material: responsabilidade, licenciamento (LC 140), Código Florestal, Mata Atlântica, SNUC e resíduos",
+        licoes: ["mprj-difusos-1"] },
+      { id: "mp-dif-social", banca: "IV", materia: "Tutela Coletiva", peso: 5,
+        tema: "Direitos sociais difusos: saúde e saúde mental (RAPS), políticas públicas e processo estrutural, educação, moradia",
+        licoes: [] },
       { id: "mp-inst", banca: "IV", materia: "Princípios Institucionais do Ministério Público", peso: 3,
         tema: "O MP na CF/88, na Lei 8.625/93 e na LC-RJ 106/03", licoes: ["mprj-inst-1"] }
     ]
