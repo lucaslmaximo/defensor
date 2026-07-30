@@ -405,6 +405,117 @@ window.APP_DATA = {
               explicacao: "Indeniza-se a chance perdida em si (desde que séria e real), e não o resultado final — que é incerto. O valor da indenização é proporcional à probabilidade da chance, não ao dano final."
             }
           ]
+        },
+        {
+          id: "resp-civil-2",
+          titulo: "Danos em espécie e relações familiares",
+          questoes: [
+            {
+              id: "rc-6",
+              modo: "caso",
+              fonte: "CC, arts. 186 e 1.634; STJ, REsp 1.159.242",
+              enunciado: "Aos 20 anos, Bruna ajuíza ação indenizatória contra o pai, que se separou de sua mãe quando ela tinha três anos: ele a registrou e pagou pensão regularmente, mas jamais a visitou ou acompanhou qualquer etapa de sua criação. Laudo psicológico aponta prejuízo à formação da autora. Conforme a orientação firmada pelo STJ no REsp 1.159.242/SP:",
+              alternativas: [
+                "o pedido é juridicamente impossível, pois o afeto é sentimento espontâneo e ao Judiciário não cabe impor convivência familiar nem atribuir valor econômico à relação entre pai e filha",
+                "a reparação é devida pela simples ausência do genitor no cotidiano da filha, presumindo-se o dano quando não houver convivência, dispensada qualquer prova pericial do prejuízo alegado",
+                "a reparação é possível, porque o cuidado é dever jurídico decorrente do poder familiar — desde que comprovados o descumprimento desse dever e o dano à formação da filha, não bastando o mero desamor",
+                "o dever de indenizar fica afastado porque o pagamento regular da pensão alimentícia absorve os deveres de assistência material e imaterial impostos ao genitor pela Constituição da República",
+                "a pretensão somente é cabível se antes houver ação de destituição do poder familiar julgada procedente contra o genitor, decisão que funciona como pressuposto específico da ação indenizatória por abandono afetivo"
+              ],
+              correta: 2,
+              explicacao: "REsp 1.159.242/SP (Min. Nancy Andrighi): amar é faculdade, cuidar é dever. O cuidado é dever jurídico extraído do art. 227 da CF e do art. 1.634 do CC; descumpri-lo é ato ilícito (art. 186) e gera reparação — mas só quando comprovados o abandono e o dano efetivo à formação do filho, apurado em regra por perícia. Pagar pensão não exaure a assistência imaterial. Some-se a prescrição: o prazo trienal do art. 206, §3º, V, só corre da maioridade, porque entre ascendentes e descendentes não corre prescrição na constância do poder familiar (art. 197, II) — no caso, a ação proposta aos 20 anos está dentro do triênio."
+            },
+            {
+              id: "rc-7",
+              modo: "caso",
+              fonte: "Lei 8.080/90, art. 19-J (Lei 11.108/2005); CF, art. 37, §6º",
+              enunciado: "Em maternidade da rede conveniada ao SUS, a equipe barra a entrada do acompanhante indicado por Camila e, durante o trabalho de parto, dirige-lhe comentários humilhantes, além de realizar manobra não consentida. Sobre a responsabilidade civil pelos fatos:",
+              alternativas: [
+                "o hospital responde objetivamente pelo defeito do serviço, e a recusa é ilícita porque a lei assegura à parturiente um acompanhante de sua livre indicação durante todo o trabalho de parto, parto e pós-parto imediato",
+                "o hospital não responde, pois a presença de acompanhante é liberalidade da direção clínica, que pode restringi-la sempre que a unidade não dispuser de estrutura física adequada à permanência de terceiros no centro obstétrico",
+                "a responsabilidade é exclusiva e pessoal dos profissionais que atenderam a parturiente, apurada mediante culpa, ficando o estabelecimento fora da relação por não ter concorrido diretamente para os fatos",
+                "o direito ao acompanhante existe apenas nos partos realizados na rede privada e nos planos regulados pela ANS, não alcançando as unidades públicas nem as conveniadas ao Sistema Único de Saúde",
+                "o dano moral depende da comprovação de sequela física permanente decorrente da manobra não consentida, sendo o constrangimento verbal, por si só, aborrecimento inerente ao ambiente hospitalar"
+              ],
+              correta: 0,
+              explicacao: "A Lei 11.108/2005 inseriu o art. 19-J na Lei 8.080/90: os serviços do SUS, da rede própria ou conveniada, ficam obrigados a permitir a presença de um acompanhante durante todo o período de trabalho de parto, parto e pós-parto imediato — indicado pela própria parturiente (§1º). Negar esse direito e submeter a gestante a tratamento vexatório ou a procedimento sem consentimento configura violência obstétrica e dano moral. Quanto à responsabilidade: o hospital privado conveniado presta serviço público e responde objetivamente (CF, art. 37, §6º, que alcança as pessoas jurídicas de direito privado prestadoras de serviços públicos); na rede estritamente particular, a mesma responsabilidade objetiva vem do fato do serviço (CDC, art. 14, caput). Em qualquer dos regimes, a responsabilidade pessoal do médico depende de culpa (CDC, art. 14, §4º)."
+            },
+            {
+              id: "rc-8",
+              modo: "juris",
+              fonte: "CDC, art. 6º, VI; Lei 7.347/85, arts. 1º e 13",
+              enunciado: "Em ação civil pública contra fornecedor que dirigia prática comercial abusiva a idosos, pede-se condenação por dano moral coletivo. Segundo a orientação do STJ sobre essa categoria de dano:",
+              alternativas: [
+                "é figura incabível no direito brasileiro, porque o dano moral pressupõe dor e abalo psíquico, atributos que só a pessoa natural individualmente considerada pode efetivamente experimentar",
+                "depende da identificação e da oitiva das vítimas individuais, cuja soma dos sofrimentos quantifica a condenação que será revertida ao fundo de que trata o art. 13 da Lei 7.347/85",
+                "é presumido em qualquer descumprimento contratual praticado em massa, bastando ao autor coletivo demonstrar a reiteração da conduta do fornecedor no mercado de consumo",
+                "prescinde da prova de dor ou de sofrimento individual, sendo aferido in re ipsa, mas exige lesão injusta e intolerável a valores fundamentais da coletividade, não bastando o mero ilícito",
+                "só é reconhecido depois de condenação criminal do fornecedor pelo mesmo fato, exigência que decorreria da independência apenas relativa entre as instâncias penal e civil"
+              ],
+              correta: 3,
+              explicacao: "O art. 6º, VI, do CDC assegura a efetiva prevenção e reparação de danos morais individuais, coletivos e difusos. Para o STJ, o dano moral coletivo é categoria autônoma: dispensa a demonstração de dor, repulsa ou abalo psíquico — atributos da pessoa natural — e é aferido in re ipsa. Em contrapartida, reclama lesão grave e intolerável a valores extrapatrimoniais da coletividade; mero ilícito contratual ou aborrecimento não bastam. A condenação reverte ao fundo do art. 13 da Lei 7.347/85, e não às vítimas individualmente."
+            },
+            {
+              id: "rc-9",
+              modo: "caso",
+              fonte: "CDC, art. 14, caput e § 4º; CC, arts. 932, III e 933",
+              enunciado: "Após cirurgia plástica exclusivamente embelezadora realizada por cirurgião integrante do corpo clínico de um hospital particular, a paciente fica com resultado diverso do prometido e cicatrizes aparentes. Ela demanda o cirurgião e o hospital. Conforme a jurisprudência do STJ:",
+              alternativas: [
+                "ambos respondem objetivamente, pois a atividade médica é de risco e o Código de Defesa do Consumidor não distingue o profissional liberal do estabelecimento no regime do fato do serviço",
+                "ambos respondem subjetivamente, cabendo à paciente provar a imperícia do cirurgião, já que a intervenção estética não deixa de ser obrigação de meio, como qualquer outro ato médico",
+                "o cirurgião responde objetivamente pelo resultado prometido e o hospital só responde se houver falha comprovada de sua estrutura material, não podendo nenhum deles invocar caso fortuito ou fato exclusivo da paciente",
+                "a responsabilidade do hospital é subsidiária à do cirurgião e depende da execução frustrada do patrimônio do profissional, por aplicação analógica do benefício de ordem do contrato de fiança",
+                "o cirurgião assume obrigação de resultado, com culpa presumida — invertido o ônus de provar caso fortuito, força maior ou fato exclusivo da paciente —, e o hospital responde objetivamente pelo defeito do serviço"
+              ],
+              correta: 4,
+              explicacao: "Em regra a obrigação do médico é de meio; na cirurgia estética meramente embelezadora o STJ a trata como de resultado. Frustrado o resultado prometido, presume-se a culpa do cirurgião, que se libera provando caso fortuito, força maior ou fato exclusivo da paciente — o art. 14, §4º, do CDC mantém a apuração de culpa do profissional liberal, o que muda é o ônus da prova. O hospital, fornecedor pessoa jurídica, responde objetivamente pelo defeito do serviço (art. 14, caput) e pelo ato do médico que integra seu corpo clínico, na condição de preponente (CC, arts. 932, III, e 933) — não teria a mesma responsabilidade se o cirurgião fosse profissional estranho ao estabelecimento, que apenas cedeu instalações. Em cirurgia reparadora, a obrigação volta a ser de meio."
+            },
+            {
+              id: "rc-10",
+              modo: "lei",
+              fonte: "CC, art. 936",
+              enunciado: "O Código Civil determina que o dono ou detentor do animal ressarcirá o dano por este causado. Essa responsabilidade é afastada quando o demandado provar:",
+              alternativas: [
+                "que guardava e vigiava o animal com o cuidado preciso, demonstrando não ter agido com culpa alguma na custódia",
+                "que o animal fora cedido a terceiro para guarda temporária, hipótese em que a responsabilidade se transfere integralmente ao detentor eventual",
+                "culpa da vítima ou força maior — as duas únicas excludentes que o próprio dispositivo admite",
+                "caso fortuito interno ligado ao comportamento imprevisível do animal, ainda que o dono estivesse presente no momento do ataque",
+                "que o dano decorreu do ataque de outro animal, cujo dono responderá regressivamente perante o proprietário demandado"
+              ],
+              correta: 2,
+              explicacao: "Art. 936 do CC: o dono ou detentor do animal ressarcirá o dano por este causado, se não provar culpa da vítima ou força maior. A responsabilidade é objetiva e as excludentes são taxativas — a prova de guarda diligente, que bastava no Código de 1916, não exonera mais ninguém. Compare com os vizinhos: art. 937 (o dono do edifício responde pelos danos da ruína, se esta provier de falta de reparos cuja necessidade fosse manifesta) e art. 938 (quem habitar o prédio responde pelas coisas que dele caírem ou forem lançadas em lugar indevido)."
+            },
+            {
+              id: "rc-11",
+              modo: "juris",
+              fonte: "STJ, Súmula 387",
+              enunciado: "Vítima de queimaduras provocadas pelo vazamento de um botijão de gás fica com cicatrizes permanentes no rosto e no pescoço, além de ter suportado longa internação. Ao pedir dano moral e dano estético cumulados, aplica-se a Súmula 387 do STJ, segundo a qual:",
+              alternativas: [
+                "a cumulação é vedada, porque o dano estético é espécie do gênero dano moral e a dupla condenação pelo mesmo fato configuraria enriquecimento sem causa da vítima lesionada",
+                "a cumulação é lícita ainda que ambos decorram do mesmo fato, desde que os danos sejam autônomos e passíveis de apuração em separado, com verbas discriminadas na sentença",
+                "a cumulação só é lícita quando o dano estético e o dano moral resultarem de fatos distintos, praticados em momentos diversos pelo mesmo agente causador do prejuízo à vítima",
+                "a cumulação depende de prévia perícia que ateste incapacidade laborativa permanente, requisito sem o qual a deformidade só é indenizável a título de dano material emergente",
+                "a cumulação é possível, mas as verbas devem ser fixadas em parcela única e global, vedada a discriminação dos valores, que fica reservada à fase de liquidação da sentença"
+              ],
+              correta: 1,
+              explicacao: "Súmula 387 do STJ: é lícita a cumulação das indenizações de dano estético e dano moral. O tribunal exige que sejam autônomos — identificáveis e apuráveis em separado, com valores discriminados na sentença —, ainda que derivem do mesmo evento danoso. A deformidade permanente gera dano estético in re ipsa: dispensa prova do sofrimento, bastando a lesão à integridade física. Perícia de incapacidade laborativa interessa ao dano material (lucros cessantes, pensão do art. 950 do CC), não ao estético."
+            },
+            {
+              id: "rc-12",
+              modo: "caso",
+              fonte: "CC, art. 735; STF, Súmula 187",
+              enunciado: "Um ônibus urbano é abalroado por automóvel que invadiu a contramão e um passageiro sofre fratura exposta. Acionada, a empresa de transporte sustenta culpa exclusiva do motorista do outro veículo. À luz do Código Civil e da Súmula 187 do STF:",
+              alternativas: [
+                "a empresa fica exonerada, pois a culpa exclusiva de terceiro rompe o nexo causal e transfere ao causador direto a integralidade do dever de indenizar o passageiro lesionado",
+                "a empresa responde solidariamente com o terceiro apenas se o motorista do coletivo houver concorrido para o acidente com infração de trânsito comprovada nos autos",
+                "a empresa responde de forma subsidiária, cabendo ao passageiro demandar primeiro o causador direto e, frustrada a execução, voltar-se contra a transportadora pelo saldo remanescente",
+                "a empresa responde perante o passageiro, pois a culpa de terceiro não elide a responsabilidade contratual do transportador, que tem ação regressiva contra o causador do acidente",
+                "a empresa responde somente pelos danos materiais, ficando o dano moral a cargo do terceiro causador, a quem se imputa a conduta ilícita geradora do abalo extrapatrimonial"
+              ],
+              correta: 3,
+              explicacao: "Art. 735 do CC e Súmula 187 do STF: a responsabilidade contratual do transportador por acidente com o passageiro não é elidida por culpa de terceiro, contra o qual tem ação regressiva. O transportador assume cláusula de incolumidade — obrigação de resultado. Atenção ao recorte da jurisprudência: o fato de terceiro inteiramente estranho ao transporte, como o roubo à mão armada dentro do coletivo, é fortuito externo e afasta o dever de indenizar; o acidente de trânsito provocado por outro veículo, ao contrário, é fortuito interno, ligado ao risco da atividade."
+            }
+          ]
         }
       ]
     },
@@ -4755,7 +4866,7 @@ window.APP_DATA = {
               explicacao: "RE 466.343 (2008) firmou a tese da SUPRALEGALIDADE: tratados de direitos humanos não aprovados pelo rito especial ficam acima das leis e abaixo da Constituição. Os aprovados pelo art. 5º, §3º equivalem a emenda (ex.: Convenção de Nova York sobre pessoas com deficiência e o Tratado de Marraqueche). Efeito prático da supralegalidade: a prisão civil do depositário infiel foi paralisada (Súmula Vinculante 25)."
             },
             {
-              id: "trat-2", modo: "caso", fonte: "Controle de convencionalidade; Corte IDH, caso Almonacid Arellano",
+              id: "trat-2", modo: "caso", fonte: "Convenção Americana, arts. 1.1 e 2; Corte IDH, caso Almonacid Arellano (2006)",
               enunciado: "O controle de convencionalidade consiste em:",
               alternativas: [
                 "verificar a compatibilidade das leis internas com a Constituição Federal, competência privativa do Supremo Tribunal Federal no exercício do controle concentrado de constitucionalidade",
@@ -5353,14 +5464,14 @@ window.APP_DATA = {
               id: "prin-5", modo: "lei", fonte: "CF, arts. 70 e 71; STF, Súmula Vinculante 3",
               enunciado: "Sobre o controle externo exercido pelos Tribunais de Contas:",
               alternativas: [
-                "o Tribunal de Contas julga as contas do Chefe do Poder Executivo, cabendo ao Legislativo apenas homologar formalmente a decisão técnica proferida pela corte de contas",
+                "o Tribunal de Contas julga as contas do Chefe do Poder Executivo em decisão de eficácia imediata, cabendo ao Poder Legislativo apenas homologá-la em sessão solene, sem poder rever o mérito técnico do que foi apurado",
                 "o TCU aprecia as contas do Presidente mediante parecer prévio (quem julga é o Congresso), julga as contas dos demais administradores e, ao apreciar a legalidade de concessão inicial de aposentadoria, não precisa assegurar contraditório ao interessado",
-                "as decisões dos Tribunais de Contas têm natureza jurisdicional e fazem coisa julgada material, sendo insuscetíveis de revisão pelo Poder Judiciário competente",
-                "o Tribunal de Contas não pode sustar a execução de contratos administrativos nem aplicar sanções aos responsáveis por irregularidades apuradas em suas auditorias",
-                "o controle externo é exercido privativamente pelo Ministério Público de Contas, cabendo ao Tribunal apenas função opinativa sobre as prestações de contas"
+                "as decisões dos Tribunais de Contas têm natureza jurisdicional e fazem coisa julgada material, o que impede o Poder Judiciário de reexaminar até mesmo a legalidade do procedimento de que resultou a condenação do responsável",
+                "o Tribunal de Contas dispõe de dez anos, contados da chegada do processo à corte, para apreciar a legalidade da concessão inicial de aposentadoria, findo o prazo sem manifestação o ato se considera registrado tacitamente",
+                "o controle externo é exercido pelo Ministério Público de Contas, que julga as contas dos administradores, cabendo ao Tribunal apenas emitir parecer opinativo e encaminhá-lo à comissão permanente do Poder Legislativo"
               ],
               correta: 1,
-              explicacao: "Art. 71, I e II: parecer prévio sobre as contas do Chefe do Executivo (o JULGAMENTO é do Legislativo — art. 49, IX) e julgamento das contas dos demais administradores. SV 3: assegura-se contraditório nos processos do TCU, EXCETO na apreciação da legalidade do ato de concessão inicial de aposentadoria, reforma e pensão — exceção clássica de prova. As decisões são administrativas, sujeitas a controle judicial de legalidade."
+              explicacao: "Art. 71, I e II: parecer prévio sobre as contas do Chefe do Executivo (o JULGAMENTO é do Legislativo — art. 49, IX) e julgamento das contas dos demais administradores. SV 3: assegura-se contraditório nos processos do TCU, EXCETO na apreciação da legalidade do ato de concessão inicial de aposentadoria, reforma e pensão — exceção clássica de prova. Cuidado com o prazo: o STF (Tema 445, RE 636.553) fixou em 5 anos, contados da chegada do processo à corte de contas, o limite para apreciar essa concessão inicial; vencido o prazo, o ato se tem por registrado tacitamente. As decisões são administrativas, sujeitas a controle judicial de legalidade; a sustação de contrato, por sua vez, cabe ao Congresso (art. 71, §1º), e só na omissão dele por 90 dias o Tribunal decide (§2º)."
             },
             {
               id: "prin-6", modo: "lei", fonte: "Lei 9.784/99, arts. 2º, 50 e 54",
@@ -5447,17 +5558,17 @@ window.APP_DATA = {
               explicacao: "Art. 46 da Convenção Americana: exige-se o prévio esgotamento dos recursos internos (princípio da subsidiariedade). O art. 46.2 traz exceções: inexistência de devido processo, impedimento de acesso aos recursos ou demora injustificada na decisão."
             },
             {
-              id: "dh-4", modo: "juris", fonte: "Corte IDH (caso Almonacid Arellano)",
-              enunciado: "O 'controle de convencionalidade' consiste em:",
+              id: "dh-4", modo: "juris", fonte: "Convenção Americana, art. 63.1",
+              enunciado: "Encerrado o caso contencioso, a Corte Interamericana reconhece a responsabilidade do Estado por violência policial e passa a fixar as reparações com fundamento no art. 63.1 da Convenção Americana. Nesse capítulo da sentença, a Corte:",
               alternativas: [
-                "verificar a compatibilidade das leis exclusivamente com a Constituição Federal",
-                "aferir a compatibilidade das normas internas com os tratados internacionais de direitos humanos",
-                "controlar a validade das convenções e dos acordos coletivos de trabalho",
-                "submeter os tratados à revisão periódica pelo Poder Legislativo",
-                "condicionar a vigência dos tratados à aprovação em referendo popular"
+                "limita-se a arbitrar indenização em dinheiro à parte lesada, única forma de reparação autorizada pela Convenção, cujo valor depende de homologação pelo Superior Tribunal de Justiça para ser executado",
+                "adota o princípio da reparação integral e combina a indenização por dano material e imaterial com medidas de restituição, reabilitação, satisfação e garantias de não repetição, como reformas legislativas e capacitação de agentes",
+                "fica restrita às medidas expressamente requeridas pela Comissão Interamericana na demanda, vedado o exame de pretensões formuladas de forma autônoma pelas vítimas ou por seus representantes no curso do processo",
+                "determina apenas garantias estruturais de não repetição, remetendo à Justiça interna de cada Estado a fixação, em ação própria, da indenização devida às vítimas e aos seus familiares pelos danos sofridos",
+                "submete cada medida de reparação à aceitação prévia do Estado condenado, que pode recusá-la mediante reserva formal dirigida à Assembleia Geral da OEA no prazo de noventa dias da notificação"
               ],
               correta: 1,
-              explicacao: "Controle de convencionalidade é a verificação da compatibilidade das normas internas com os tratados de direitos humanos (parâmetro de convencionalidade). É exercido no plano internacional (Corte IDH) e interno (juízes nacionais), conforme a jurisprudência da Corte IDH (caso Almonacid Arellano vs. Chile)."
+              explicacao: "Art. 63.1 da Convenção Americana: constatada a violação, a Corte determina que se assegure ao lesado o gozo do direito violado, que sejam reparadas as consequências e que se pague indenização justa. Sobre essa base a jurisprudência interamericana construiu a reparação integral (restitutio in integrum), que vai muito além do dinheiro: restituição, indenização por dano material e imaterial, reabilitação (atendimento médico e psicológico), satisfação (ato público de reconhecimento de responsabilidade, publicação da sentença) e garantias de não repetição (reformas legislativas, capacitação de agentes, criação de protocolos). Desde a reforma do Regulamento, as vítimas e seus representantes têm legitimidade autônoma para postular reparações. As sentenças são obrigatórias (art. 68.1) e não passam por homologação no STJ — não são sentenças estrangeiras."
             },
             {
               id: "dh-5", modo: "juris", fonte: "Protocolo de Istambul (ONU)",
