@@ -1887,6 +1887,103 @@ window.APP_DATA_MPRJ = {
               explicacao: "A Súmula 189 do STJ firma que é desnecessária a intervenção do Ministério Público nas execuções fiscais. A presença da Fazenda Pública em juízo não caracteriza, por si só, o interesse público que justifica a intervenção do órgão — é o que diz expressamente o parágrafo único do art. 178 do CPC/2015. O interesse público apto a atrair o custos iuris é o primário, ligado à ordem jurídica e aos valores sociais indisponíveis, e não o mero interesse patrimonial do ente arrecadador. Por isso, a falta de vista ao MP nesses autos não gera nulidade."
             }
           ]
+        },
+        {
+          id: "mprj-inst-2",
+          titulo: "Lei Orgânica Nacional — órgãos, carreira, garantias e vedações",
+          questoes: [
+            {
+              id: "mp-inst-7", modo: "lei", fonte: "Lei 8.625/93, arts. 5º, 6º, 7º e 8º",
+              enunciado: "A Lei Orgânica Nacional do Ministério Público distribui a estrutura da instituição entre órgãos da Administração Superior, órgãos de administração, órgãos de execução e órgãos auxiliares. Sobre essa classificação, é correto afirmar que:",
+              alternativas: [
+                "a Corregedoria-Geral do Ministério Público integra a Administração Superior e, por fiscalizar a atuação funcional dos membros nos feitos, é igualmente arrolada entre os órgãos de execução",
+                "as Promotorias de Justiça e as Procuradorias de Justiça são órgãos de execução, ao passo que os Promotores e os Procuradores de Justiça figuram apenas como agentes nelas lotados",
+                "o Conselho Superior do Ministério Público, embora seja órgão da Administração Superior, figura também entre os órgãos de execução, tal como o Procurador-Geral de Justiça",
+                "o Centro de Estudos e Aperfeiçoamento Funcional e a Comissão de Concurso são órgãos da Administração Superior, salvo quando presididos por Procurador de Justiça designado pelo Procurador-Geral",
+                "os Centros de Apoio Operacional são órgãos auxiliares, mas os estagiários não integram a estrutura da instituição, por não titularizarem vínculo funcional efetivo com ela"
+              ],
+              correta: 2,
+              explicacao: "O art. 5º da Lei 8.625/93 arrola como órgãos da Administração Superior a Procuradoria-Geral de Justiça, o Colégio de Procuradores de Justiça, o Conselho Superior do Ministério Público e a Corregedoria-Geral. Já o art. 7º lista como órgãos de execução o Procurador-Geral de Justiça, o Conselho Superior do Ministério Público, os Procuradores de Justiça e os Promotores de Justiça: o Conselho Superior e o Procurador-Geral ocupam, portanto, dupla posição na estrutura, e é esse o ponto cobrado. A Corregedoria-Geral e o Colégio de Procuradores não figuram entre os órgãos de execução. O art. 6º qualifica como órgãos de administração as Procuradorias e as Promotorias de Justiça — as unidades, e não as pessoas dos membros que nelas oficiam —, e o art. 8º trata como auxiliares os Centros de Apoio Operacional, a Comissão de Concurso, o Centro de Estudos e Aperfeiçoamento Funcional, os órgãos de apoio administrativo e os estagiários."
+            },
+            {
+              id: "mp-inst-8", modo: "caso", fonte: "Lei 8.625/93, art. 9º, §§ 1º a 3º",
+              enunciado: "Concluída a votação, o Ministério Público do Estado Alfa encaminhou ao Governador a lista tríplice para a escolha do novo Procurador-Geral de Justiça. Transcorridos vinte dias do recebimento da lista, o Chefe do Poder Executivo ainda não havia efetivado a nomeação. À luz da Lei 8.625/93, na situação descrita:",
+              alternativas: [
+                "a lista tríplice perde a eficácia e o Colégio de Procuradores de Justiça deve promover nova eleição no prazo de trinta dias, dela excluídos os três nomes anteriormente indicados",
+                "o Procurador-Geral de Justiça cujo mandato se encerrou permanece no cargo, em regime de prorrogação, até que sobrevenha a nomeação do sucessor pelo Chefe do Poder Executivo",
+                "cabe ao Colégio de Procuradores de Justiça dar posse ao mais antigo dos integrantes da lista, que exercerá o cargo em caráter interino enquanto não houver nomeação",
+                "compete à Assembleia Legislativa, por deliberação da maioria absoluta de seus membros, escolher e empossar um dos integrantes da lista tríplice para o exercício do mandato",
+                "está investido automaticamente no cargo o integrante da lista mais votado, porque a nomeação não foi efetivada nos quinze dias seguintes ao recebimento da lista tríplice"
+              ],
+              correta: 4,
+              explicacao: "O art. 9º da Lei 8.625/93 determina que o Ministério Público estadual forme lista tríplice dentre integrantes da carreira, eleita mediante voto plurinominal de todos eles (§1º), para a escolha do Procurador-Geral de Justiça, nomeado pelo Chefe do Poder Executivo para mandato de dois anos, permitida uma recondução. O §3º cuida justamente da inércia do Executivo: não efetivada a nomeação nos quinze dias que se seguirem ao recebimento da lista, o integrante mais votado é investido automaticamente no cargo, para exercício do mandato. Não há prorrogação do mandato anterior, nova eleição nem posse interina do mais antigo. E a Assembleia Legislativa não escolhe o chefe da instituição: ao Poder Legislativo a lei reserva papel diverso, o de deliberar, por maioria absoluta, sobre a destituição do Procurador-Geral de Justiça (§2º), na forma da Lei Orgânica estadual."
+            },
+            {
+              id: "mp-inst-9", modo: "lei", fonte: "Lei 8.625/93, art. 10, I e IX",
+              enunciado: "Dois Promotores de Justiça do mesmo Ministério Público estadual divergem sobre qual deles tem atribuição para oficiar em uma ação popular, e o conflito negativo é formalmente suscitado. Nos termos da Lei 8.625/93, esse conflito de atribuições:",
+              alternativas: [
+                "é dirimido pelo Conselho Superior do Ministério Público, que encaminha o caso ao Procurador-Geral de Justiça para que este designe o membro que deva oficiar no feito",
+                "é dirimido pelo Procurador-Geral de Justiça, a quem cabe designar o membro que deva oficiar no feito, no exercício da chefia que a lei lhe atribui",
+                "é dirimido pelo Colégio de Procuradores de Justiça, mediante deliberação da maioria absoluta de seus integrantes, quando os órgãos de execução envolvidos forem de comarcas diversas",
+                "é dirimido pelo juízo perante o qual atuam os órgãos de execução divergentes, aplicando-se por analogia as regras de conflito de competência do Código de Processo Civil",
+                "é dirimido pelo Corregedor-Geral do Ministério Público, que submete a decisão ao referendo do Conselho Superior sempre que houver divergência sobre a atribuição originária"
+              ],
+              correta: 1,
+              explicacao: "O art. 10, IX, da Lei 8.625/93 confere ao Procurador-Geral de Justiça a atribuição de dirimir conflitos de atribuições entre membros do Ministério Público, designando quem deva oficiar no feito. A solução é coerente com a chefia da instituição, que o art. 10, I, lhe reserva, e com a unidade institucional: a definição de quem oficia é matéria interna, não devolvida ao juiz nem submetida ao Conselho Superior ou ao Colégio de Procuradores, cujas competências estão nos arts. 15 e 12. O dispositivo cuida do conflito entre membros do mesmo Ministério Público — o conflito instaurado entre membros de Ministérios Públicos diversos segue disciplina própria, estranha à Lei Orgânica Nacional."
+            },
+            {
+              id: "mp-inst-10", modo: "lei", fonte: "Lei 8.625/93, arts. 12, 14 e 15",
+              enunciado: "Acerca do Conselho Superior do Ministério Público, na disciplina da Lei 8.625/93, é correto afirmar que:",
+              alternativas: [
+                "é integrado por todos os Procuradores de Justiça em exercício, competindo-lhe julgar o recurso interposto contra decisão condenatória proferida em processo administrativo disciplinar, quando aplicada a pena de suspensão",
+                "tem como membros natos apenas o Procurador-Geral de Justiça e o Corregedor-Geral, cabendo-lhe indicar ao Procurador-Geral, em lista tríplice, os candidatos à promoção por merecimento",
+                "compete-lhe propor ao Poder Legislativo a destituição do Procurador-Geral de Justiça, pelo voto de dois terços de seus integrantes, em caso de abuso de poder, conduta incompatível ou grave omissão nos deveres do cargo",
+                "cabe-lhe indicar, em lista tríplice, os candidatos à promoção por antiguidade, reservada ao Colégio de Procuradores de Justiça a escolha do promovido por merecimento",
+                "são seus membros natos o Procurador-Geral de Justiça, o Corregedor-Geral e o Procurador de Justiça mais antigo, competindo-lhe eleger o dirigente da Corregedoria-Geral"
+              ],
+              correta: 1,
+              explicacao: "O art. 14 da Lei 8.625/93 diz que o Conselho Superior do Ministério Público tem como membros natos APENAS o Procurador-Geral de Justiça e o Corregedor-Geral — os demais integrantes são eleitos na forma da Lei Orgânica, o que impede acrescentar ao rol o mais antigo dos Procuradores de Justiça. Entre as competências do art. 15 estão indicar ao Procurador-Geral, em lista tríplice, os candidatos a remoção ou promoção por merecimento e indicar o nome do MAIS ANTIGO para a remoção ou promoção por antiguidade: inverter os dois critérios, exigindo lista tríplice na antiguidade, é o distrator clássico. Já a composição por todos os Procuradores de Justiça, o julgamento de recurso contra decisão condenatória em processo disciplinar, a eleição do Corregedor-Geral e a proposta de destituição do Procurador-Geral ao Poder Legislativo, por dois terços, são atribuições do COLÉGIO DE PROCURADORES DE JUSTIÇA (art. 12)."
+            },
+            {
+              id: "mp-inst-11", modo: "caso", fonte: "Lei 8.625/93, art. 38, §§ 1º e 2º",
+              enunciado: "Promotor de Justiça já vitalício abandona o cargo por prazo superior a trinta dias corridos e, no mesmo período, passa a advogar em causa estranha às suas atribuições. Apurados os fatos no âmbito do Ministério Público, é correto afirmar que:",
+              alternativas: [
+                "a perda do cargo pode ser decretada pelo Colégio de Procuradores de Justiça, pelo voto de dois terços de seus integrantes, em processo disciplinar presidido pelo Corregedor-Geral",
+                "a perda do cargo somente poderia ser cogitada se sobreviesse condenação criminal transitada em julgado por crime incompatível com o exercício da função, o que não se verifica",
+                "a perda do cargo depende de decisão do Conselho Superior do Ministério Público, tomada por maioria absoluta e com ampla defesa, cabendo recurso ao Conselho Nacional do Ministério Público",
+                "a perda do cargo depende de sentença transitada em julgado em ação civil própria, proposta pelo Procurador-Geral de Justiça perante o Tribunal de Justiça, após autorização do Colégio de Procuradores",
+                "a perda do cargo decorre automaticamente do abandono, bastando ao Procurador-Geral de Justiça editar o ato declaratório da vacância, dada a natureza objetiva da falta apurada"
+              ],
+              correta: 3,
+              explicacao: "O art. 38, §1º, da Lei 8.625/93 arrola as três hipóteses de perda do cargo do membro VITALÍCIO: prática de crime incompatível com o exercício do cargo, após decisão judicial transitada em julgado; exercício da advocacia; e abandono do cargo por prazo superior a trinta dias corridos. Em todas elas a perda só se dá por sentença judicial transitada em julgado, proferida em ação civil própria. O §2º completa o desenho institucional: essa ação é proposta pelo Procurador-Geral de Justiça perante o Tribunal de Justiça local, após autorização do Colégio de Procuradores, na forma da Lei Orgânica. Nenhum órgão do Ministério Público, portanto, decreta administrativamente a perda do cargo de membro vitalício — o processo disciplinar aplica as demais sanções, não a demissão. Regime diverso é o do membro ainda em estágio probatório, cujo não vitaliciamento é proposto pelo Corregedor-Geral e decidido pelo Conselho Superior."
+            },
+            {
+              id: "mp-inst-12", modo: "lei", fonte: "Lei 8.625/93, art. 44, I a IV e parágrafo único",
+              enunciado: "A respeito das vedações impostas aos membros do Ministério Público pela Lei 8.625/93, é correto afirmar que:",
+              alternativas: [
+                "é vedado receber honorários, percentagens ou custas processuais, ressalvada a verba de sucumbência fixada em favor do Ministério Público em ação civil pública julgada procedente",
+                "é vedado o exercício do comércio, sendo igualmente proibida a participação em sociedade empresária na condição de cotista ou de acionista, ainda que sem poderes de gerência",
+                "é vedado exercer o comércio ou participar de sociedade comercial, ressalvada a participação na qualidade de cotista ou de acionista",
+                "é vedado exercer, ainda que em disponibilidade, qualquer outra função pública, inclusive a de magistério, salvo se ministrada em instituição pública de ensino e fora do horário de expediente",
+                "é vedado integrar organismos estatais afetos à área de atuação do Ministério Público e ocupar cargo de confiança na administração da própria instituição, por configurarem acumulação indevida"
+              ],
+              correta: 2,
+              explicacao: "O art. 44, III, da Lei 8.625/93 veda ao membro do Ministério Público exercer o comércio ou participar de sociedade comercial, EXCETO como cotista ou acionista: a ressalva é o ponto da questão — proíbe-se a atuação empresarial, não o mero investimento. Os demais incisos vedam receber, a qualquer título e sob qualquer pretexto, honorários, percentagens ou custas processuais (I), sem ressalva de sucumbência (a verba eventualmente fixada reverte à instituição ou ao fundo respectivo, jamais ao membro); exercer a advocacia (II); e exercer, ainda que em disponibilidade, qualquer outra função pública, salvo UMA de magistério (IV), sem exigência de que o ensino seja prestado em instituição pública. O parágrafo único, por fim, esclarece que não constituem acumulação as atividades exercidas em organismos estatais afetos à área de atuação do Ministério Público, em entidades de representação de classe, nem o exercício de cargos de confiança na administração da instituição e em seus órgãos auxiliares."
+            },
+            {
+              id: "mp-inst-13", modo: "lei", fonte: "Lei 8.625/93, art. 40, caput e parágrafo único, e art. 41, II",
+              enunciado: "Sobre as prerrogativas asseguradas aos membros do Ministério Público pela Lei 8.625/93, é correto afirmar que:",
+              alternativas: [
+                "a prisão do membro depende sempre de ordem judicial escrita, inclusive no flagrante de crime inafiançável, cabendo ao Procurador-Geral de Justiça ratificá-la em vinte e quatro horas",
+                "a intimação pessoal é assegurada apenas nos feitos criminais e nos processos de competência originária dos tribunais, valendo nos demais a publicação no órgão oficial",
+                "o membro é processado e julgado originariamente pelo Superior Tribunal de Justiça nos crimes comuns e de responsabilidade, ressalvada a competência da Justiça Eleitoral",
+                "o membro é ouvido como testemunha em dia, hora e local previamente ajustados, salvo quando o depoimento versar sobre fatos de que teve ciência no exercício de suas atribuições",
+                "havendo indício da prática de infração penal por membro da instituição, a autoridade policial remete imediatamente os autos ao Procurador-Geral de Justiça, observada a vedação ao indiciamento"
+              ],
+              correta: 4,
+              explicacao: "O art. 41, II, da Lei 8.625/93 assegura ao membro do Ministério Público a prerrogativa de não ser indiciado em inquérito policial, e o parágrafo único do art. 40 explica o mecanismo: surgindo indício da prática de infração penal por membro da instituição, a autoridade policial, civil ou militar, remete IMEDIATAMENTE os autos ao Procurador-Geral de Justiça, a quem cabe dar prosseguimento à apuração. As demais prerrogativas do art. 40 têm ressalvas próprias que os distratores deturpam: a prisão só se dá por ordem judicial escrita, SALVO em flagrante de crime inafiançável, quando a autoridade tem o prazo máximo de vinte e quatro horas para comunicar e apresentar o membro ao Procurador-Geral; o julgamento originário nos crimes comuns e de responsabilidade cabe ao TRIBUNAL DE JUSTIÇA do respectivo Estado, ressalvada exceção de ordem constitucional; e a oitiva como testemunha ou ofendido dá-se em dia, hora e local previamente ajustados em qualquer processo ou inquérito, sem exceção quanto ao objeto do depoimento. A intimação pessoal, por sua vez, é garantida em qualquer processo e grau de jurisdição, mediante entrega dos autos com vista (art. 41)."
+            }
+          ]
         }
       ]
     }

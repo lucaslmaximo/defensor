@@ -464,8 +464,18 @@ window.APP_EDITAL = {
       { id: "mp-dif-social", banca: "IV", materia: "Tutela Coletiva", peso: 5,
         tema: "Direitos sociais difusos: saúde e saúde mental (RAPS), políticas públicas e processo estrutural, educação, moradia",
         licoes: [] },
-      { id: "mp-inst", banca: "IV", materia: "Princípios Institucionais do Ministério Público", peso: 3,
-        tema: "O MP na CF/88, na Lei 8.625/93 e na LC-RJ 106/03", licoes: ["mprj-inst-1"] }
+      { id: "mp-inst", banca: "IV", materia: "Princípios Institucionais do Ministério Público", peso: 5,
+        tema: "O MP na CF/88: princípios, funções institucionais e poder investigatório", licoes: ["mprj-inst-1"] },
+      { id: "mp-inst-lonmp", banca: "IV", materia: "Princípios Institucionais do Ministério Público", peso: 5,
+        tema: "Lei Orgânica Nacional (8.625/93): órgãos, investidura do PGJ, CSMP, garantias, vedações e prerrogativas",
+        licoes: ["mprj-inst-2"] },
+      /* Declarado como lacuna: a LC-RJ 106/2003 não está no material do
+         usuário, e a prova de 2025 cobra pontos específicos dela (Q94). Sem
+         a lei, escrever questão seria inventar — o ponto fica visível no
+         Diagnóstico com `licoes: []` até a fonte aparecer. */
+      { id: "mp-inst-lomprj", banca: "IV", materia: "Princípios Institucionais do Ministério Público", peso: 4,
+        tema: "Lei Orgânica do MPRJ (LC estadual 106/2003): estrutura, Órgão Especial, carreira e regime disciplinar",
+        licoes: [] }
     ]
   },
 

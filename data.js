@@ -1364,6 +1364,103 @@ window.APP_DATA = {
               explicacao: "Art. 833, IV, protege salários e proventos, MAS o § 2º excepciona o pagamento de prestação alimentícia, independentemente de sua origem — e a Corte Especial do STJ admite a penhora de percentual razoável da remuneração mesmo para dívidas não alimentares, conforme o caso concreto. O rito da prisão (art. 528, §7º) alcança as 3 últimas parcelas + vincendas; o rito da penhora serve para o débito pretérito."
             }
           ]
+        },
+        {
+          id: "impenhorabilidade-2",
+          titulo: "Fazenda Pública, fraude e defesas na execução",
+          questoes: [
+            {
+              id: "exe-4", modo: "lei", fonte: "CPC, arts. 534 e 535, §§ 3º e 4º; CF, art. 100, §§ 3º e 8º",
+              enunciado: "Transitada em julgado a sentença que condenou o Estado a pagar quantia certa a assistido da Defensoria, teve início o cumprimento de sentença contra a Fazenda Pública. Sobre esse procedimento:",
+              alternativas: [
+                "a Fazenda Pública é intimada para impugnar em 30 dias, nos próprios autos e sem necessidade de penhora; não impugnada a execução, expede-se precatório, salvo se o crédito couber no teto legal de pequeno valor, hipótese de requisição paga em 2 meses",
+                "a Fazenda Pública é citada para opor embargos à execução no prazo de 15 dias, contados da juntada aos autos do mandado, desde que previamente garantido o juízo por depósito judicial ou por penhora de bens públicos dominicais indicados pelo seu representante",
+                "o exequente cujo crédito supere o teto legal da obrigação de pequeno valor pode fracioná-lo, executando desde logo a parcela que couber na requisição e reservando o excedente para precatório a ser expedido no exercício financeiro seguinte",
+                "expede-se precatório em qualquer caso, ainda que o valor apurado seja inferior ao teto legal da obrigação de pequeno valor, ressalvada a hipótese de o ente devedor concordar expressamente, em petição própria, com o pagamento por simples requisição",
+                "a impugnação da Fazenda Pública tem efeito suspensivo automático e alcança a integralidade do débito, ficando vedada a expedição de requisitório quanto à parcela não questionada enquanto não julgado em definitivo o incidente pelo juízo da execução"
+              ],
+              correta: 0,
+              explicacao: "Art. 535 do CPC: a Fazenda é INTIMADA (não citada) na pessoa do representante judicial para, querendo, impugnar em 30 dias, nos próprios autos — sem garantia do juízo, porque bens públicos são impenhoráveis. Não impugnada a execução ou rejeitadas as arguições, o §3º manda expedir precatório (inciso I) ou, sendo obrigação de pequeno valor, requisição paga em 2 meses (inciso II). O fracionamento é vedado (CF, art. 100, §8º) — o que se admite é a renúncia ao excedente para optar pela RPV (ADCT, art. 87, parágrafo único). E, na impugnação parcial, a parte não questionada é objeto de cumprimento desde logo (art. 535, §4º)."
+            },
+            {
+              id: "exe-5", modo: "juris", fonte: "Súmula 345/STJ; CPC, art. 85, §7º",
+              enunciado: "Sobre a fixação de honorários advocatícios no cumprimento de sentença promovido contra a Fazenda Pública, é correto afirmar que:",
+              alternativas: [
+                "são sempre devidos, ainda que o pagamento se faça por precatório e não haja impugnação, porque o cumprimento de sentença é fase autônoma que exige do advogado nova e específica atuação processual perante o juízo da execução",
+                "não são devidos em nenhuma hipótese de cumprimento de sentença contra a Fazenda Pública, ressalvado o caso de a impugnação ser julgada procedente para reduzir o valor exequendo, quando a verba será suportada pelo próprio exequente vencido",
+                "não são devidos quando o cumprimento enseje expedição de precatório e não tenha sido impugnado pela Fazenda; são devidos, porém, nas execuções individuais de sentença proferida em ação coletiva, ainda que não impugnadas",
+                "são devidos apenas quando o pagamento se der por requisição de pequeno valor, pois somente nessa hipótese não há expedição de precatório nem submissão do crédito à ordem cronológica de apresentação prevista na Constituição",
+                "são devidos somente se a Fazenda Pública impugnar e sucumbir integralmente, ficando afastada a verba nas execuções individuais de sentença coletiva, por ausência de trabalho adicional do patrono na fase de cumprimento do julgado"
+              ],
+              correta: 2,
+              explicacao: "O art. 85, §7º, do CPC afasta os honorários no cumprimento de sentença contra a Fazenda que enseje precatório, DESDE QUE não impugnado. A exceção é a Súmula 345/STJ: são devidos honorários nas execuções individuais de sentença proferida em ação coletiva, ainda que não embargadas. A Corte Especial do STJ, em julgamento de recursos repetitivos, firmou que o art. 85, §7º, não afastou a Súmula 345 — a verba é devida ainda que o cumprimento individual não seja impugnado e ainda que promovido em litisconsórcio."
+            },
+            {
+              id: "exe-6", modo: "lei", fonte: "CPC, art. 792, IV e §§ 1º, 2º e 4º; Súmula 375/STJ",
+              enunciado: "O executado alienou a terceiro um imóvel enquanto já tramitava contra ele demanda capaz de reduzi-lo à insolvência. Sobre o reconhecimento da fraude à execução:",
+              alternativas: [
+                "opera de pleno direito desde a distribuição da demanda e torna nula a alienação, independentemente de qualquer manifestação do terceiro adquirente, que só poderá discutir a questão em ação anulatória autônoma perante o juízo cível competente",
+                "exige o ajuizamento de ação pauliana pelo exequente no prazo decadencial de 4 anos contado do negócio, cabendo-lhe demonstrar o consilium fraudis entre alienante e adquirente e o eventus damni resultante da alienação impugnada",
+                "presume-se de modo absoluto sempre que a alienação for onerosa, invertendo-se o ônus da prova apenas quando o bem não estiver sujeito a registro público, hipótese em que caberá ao exequente demonstrar a má-fé do adquirente",
+                "depende do registro da penhora sobre o bem alienado ou da prova de má-fé do terceiro adquirente, e o juiz, antes de declará-la nos próprios autos, deve intimar o adquirente, que poderá opor embargos de terceiro no prazo de 15 dias",
+                "independe de qualquer averbação no registro do imóvel e da boa-fé do adquirente, bastando ao exequente comprovar que o executado não dispõe de outros bens penhoráveis suficientes para responder pela integralidade da dívida em cobrança"
+              ],
+              correta: 3,
+              explicacao: "Súmula 375/STJ: o reconhecimento da fraude de execução depende do registro da penhora do bem alienado ou da prova de má-fé do terceiro adquirente. O art. 792, §4º, do CPC exige que o juiz intime o terceiro adquirente antes de declarar a fraude, facultando-lhe embargos de terceiro em 15 dias; e o §2º põe sobre o adquirente de bem NÃO sujeito a registro o ônus de provar que exigiu as certidões pertinentes. A consequência é a INEFICÁCIA da alienação perante o exequente (§1º), reconhecida nos próprios autos — não a nulidade. Na fraude contra credores (CC, arts. 158 e 161) o vício é de anulabilidade e depende de ação pauliana."
+            },
+            {
+              id: "exe-7", modo: "juris", fonte: "Súmulas 393 e 519/STJ",
+              enunciado: "O defensor público apresenta exceção (objeção) de pré-executividade em favor do executado. Sobre esse instrumento de defesa e seus reflexos sucumbenciais:",
+              alternativas: [
+                "só é admissível depois de garantido o juízo por penhora ou por depósito integral do valor executado, e a sua rejeição acarreta a condenação do excipiente em honorários fixados entre 10% e 20% do proveito econômico discutido",
+                "é admissível quanto a matérias de ordem pública conhecíveis de ofício que não demandem dilação probatória, e o seu acolhimento, ainda que parcial, enseja a condenação do exequente em honorários — inexistentes, porém, no caso de rejeição",
+                "é cabível para veicular qualquer matéria de defesa, desde que apresentada no prazo de 15 dias contado da citação do executado, e tanto o acolhimento quanto a rejeição ensejam a condenação da parte vencida em honorários advocatícios de sucumbência",
+                "substitui os embargos à execução em qualquer hipótese, inclusive quanto ao excesso de execução dependente de perícia contábil, e o seu acolhimento parcial não gera honorários, por não extinguir o processo executivo em curso",
+                "só tem cabimento na execução de título extrajudicial, jamais no cumprimento de sentença, e a decisão que a rejeita desafia agravo de instrumento com a consequente condenação do excipiente em honorários advocatícios recursais"
+              ],
+              correta: 1,
+              explicacao: "Súmula 393/STJ (editada para a execução fiscal, mas cujo critério o STJ aplica à execução em geral): a exceção de pré-executividade é admissível quanto às matérias conhecíveis de ofício que não demandem dilação probatória — daí dispensar garantia do juízo e não ter prazo preclusivo. Súmula 519/STJ: na hipótese de REJEIÇÃO da exceção, não cabe condenação em honorários, porque nada se acrescenta ao trabalho do exequente. Já o acolhimento, ainda que parcial (extinguindo parte da execução), gera sucumbência em favor do excipiente. A assimetria é o ponto cobrado."
+            },
+            {
+              id: "exe-8", modo: "lei", fonte: "CPC, arts. 520, I, III, IV e §2º, e 521, I, II, IV e parágrafo único",
+              enunciado: "Pendente apelação recebida sem efeito suspensivo, o assistido dá início ao cumprimento provisório da sentença que condenou o réu a indenizá-lo. Sobre esse cumprimento:",
+              alternativas: [
+                "corre por iniciativa do exequente, mas a responsabilidade por eventual reforma depende de prova de culpa ou de abuso no manejo da execução, e a caução é sempre exigida para o levantamento de depósito em dinheiro, ainda que alimentar o crédito do exequente",
+                "dispensa a caução em qualquer hipótese na qual a sentença esteja em consonância com súmula do Supremo Tribunal Federal, e a reforma posterior do julgado não obriga o exequente a reparar os danos que o executado tenha efetivamente suportado",
+                "corre por iniciativa e responsabilidade do exequente, e o levantamento de depósito em dinheiro exige caução idônea, dispensável se o crédito for alimentar ou o credor demonstrar necessidade — salvo risco de grave dano de difícil reparação",
+                "não admite a prática de atos de expropriação nem o levantamento de depósito em dinheiro, ainda que prestada caução idônea, e afasta a multa de 10% do art. 523, por não ser ainda definitiva a condenação que se pretende executar",
+                "reformada em parte a sentença, o cumprimento provisório fica integralmente sem efeito, devendo o exequente restituir tudo quanto recebeu e responder pelos prejuízos causados, que serão apurados em ação autônoma de indenização"
+              ],
+              correta: 2,
+              explicacao: "Art. 520, I, do CPC: o cumprimento provisório corre por iniciativa e responsabilidade OBJETIVA do exequente, que responde pelos danos se a sentença for reformada — independentemente de culpa. O inciso IV condiciona o levantamento de dinheiro e os atos de transferência a caução suficiente e idônea. O art. 521 dispensa a caução quando o crédito é de natureza alimentar (I), quando o credor demonstra situação de necessidade (II) ou quando a sentença está conforme súmula do STF/STJ ou acórdão de casos repetitivos (IV) — mas o parágrafo único MANTÉM a exigência se da dispensa puder resultar manifesto risco de grave dano de difícil ou incerta reparação. Reforma parcial derruba só a parte modificada (inciso III), e a multa do art. 523 incide (art. 520, §2º)."
+            },
+            {
+              id: "exe-9", modo: "lei", fonte: "CPC, art. 537, caput e §§ 1º, 3º e 4º",
+              enunciado: "Sobre a multa periódica (astreintes) cominada para compelir o devedor ao cumprimento de obrigação de fazer:",
+              alternativas: [
+                "só pode ser fixada a requerimento do exequente e, uma vez estabelecida em decisão não impugnada, torna-se imutável, ainda que o montante acumulado se revele manifestamente excessivo diante do proveito econômico perseguido na demanda",
+                "é devida somente a partir do trânsito em julgado da decisão que a cominou, não podendo o exequente levantar qualquer valor antes disso nem promover o seu cumprimento provisório enquanto pendente recurso contra a decisão de mérito",
+                "tem o seu valor total limitado por lei ao montante da obrigação principal, sendo vedado ao juiz reduzi-la de ofício, e não incide contra a Fazenda Pública, dada a indisponibilidade do interesse público envolvido na relação processual",
+                "pode ser revista a qualquer tempo, inclusive quanto às parcelas já vencidas, desde que o executado deposite em juízo metade do valor acumulado e comprove justa causa superveniente para o descumprimento da ordem judicial em questão",
+                "pode ser imposta de ofício, e o juiz, também de ofício, altera-lhe o valor ou a periodicidade, ou a exclui, quanto à multa vincenda, se tornada insuficiente ou excessiva ou se houver cumprimento parcial superveniente ou justa causa"
+              ],
+              correta: 4,
+              explicacao: "Art. 537, caput: a multa pode ser aplicada de ofício ou a requerimento, na fase de conhecimento, em tutela provisória, na sentença ou na execução. O §1º autoriza o juiz, de ofício ou a requerimento, a modificar o valor ou a periodicidade da multa VINCENDA, ou excluí-la, quando se tornar insuficiente ou excessiva, ou quando o obrigado demonstrar cumprimento parcial superveniente ou justa causa. Pelo §4º, a multa é devida desde o dia do descumprimento e incide enquanto a ordem não for cumprida; pelo §3º, a decisão que a fixa comporta cumprimento provisório, com depósito em juízo e levantamento apenas após o trânsito em julgado da sentença favorável. O STJ admite astreintes contra a Fazenda Pública e entende que a decisão que as fixa não faz coisa julgada material — daí admitir também a redução do montante já acumulado quando se revele exorbitante."
+            },
+            {
+              id: "exe-10", modo: "lei", fonte: "CPC, arts. 517, caput e §§ 2º e 4º, e 782, §§ 3º a 5º",
+              enunciado: "Esgotado o prazo de pagamento voluntário sem quitação, o exequente busca meios de coerção indireta. Sobre o protesto da decisão judicial e a inclusão do executado em cadastros de inadimplentes:",
+              alternativas: [
+                "ambos podem ser determinados de ofício pelo juiz logo após a citação do executado, independentemente do decurso do prazo para pagamento voluntário, por integrarem o poder geral de efetivação conferido ao magistrado pelo Código",
+                "o protesto é admitido apenas em relação a títulos executivos extrajudiciais, sendo vedado quanto à decisão judicial, e a negativação exige o prévio esgotamento das diligências de busca de bens penhoráveis em nome do executado",
+                "o protesto exige somente o trânsito em julgado da decisão, dispensado o decurso do prazo de pagamento voluntário, e o seu cancelamento depende de ação autônoma proposta pelo executado depois de satisfeita integralmente a obrigação",
+                "o protesto pressupõe decisão transitada em julgado e o decurso do prazo de pagamento voluntário do art. 523; a inclusão em cadastro de inadimplentes depende de requerimento da parte e, quanto a título judicial, só cabe na execução definitiva",
+                "a inscrição em cadastro de inadimplentes pode ser determinada de ofício na execução provisória de título judicial, e o seu cancelamento só ocorre após o trânsito em julgado da sentença que vier a extinguir a execução pelo pagamento integral da dívida"
+              ],
+              correta: 3,
+              explicacao: "Art. 517 do CPC: o protesto exige decisão transitada em julgado E o decurso do prazo de pagamento voluntário do art. 523 — cabe ao exequente apresentar certidão de teor da decisão (§1º), fornecida em 3 dias (§2º), e, satisfeita integralmente a obrigação, o cancelamento é determinado pelo juiz a requerimento do executado, em 3 dias (§4º), sem ação autônoma. Já a negativação do art. 782, §3º, depende de REQUERIMENTO DA PARTE (não é de ofício), é cancelada de imediato com o pagamento, a garantia da execução ou a extinção (§4º) e, quanto a título judicial, aplica-se somente à execução DEFINITIVA (§5º)."
+            }
+          ]
         }
       ]
     },
